@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="tr" data-default-palette="crimson-red">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acil Teknik Servis &amp; Dijital Garanti Takip Merkezi — Merkez Beyaz Eşya Servisi</title>
+  <meta name="description" content="60 saniyede beyaz eşya, kombi ve klima ustası çağırın. Uygulama indirmeden dijital iş emri ve 1 yıl parça garantinizi web üzerinden sorgulayın.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/studio-ui.css">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --ink-2: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .ads-notice {
+      background: #0f172a;
+      color: #94a3b8;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.77rem;
+      padding: 0.42rem 0;
+    }
+
+    .ads-notice-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem 1rem;
+    }
+
+    /* Dark Glass Header */
+    .funnel-header {
+      position: sticky;
+      top: 0;
+      z-index: 45;
+      background: rgba(11, 17, 32, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+      color: #ffffff;
+    }
+
+    .funnel-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+    }
+
+    .logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .logo-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: var(--brand-grad);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px var(--brand-ring);
+    }
+
+    .funnel-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .funnel-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color 160ms ease;
+    }
+
+    .funnel-nav a:hover {
+      color: #ffffff;
+    }
+
+    .hotline-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 999px;
+      background: var(--brand-grad);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      white-space: nowrap;
+      flex: none;
+      box-shadow: 0 8px 24px var(--brand-ring);
+      transition: transform 180ms var(--ease-spring), filter 180ms ease;
+    }
+
+    @media (max-width: 560px) {
+      .hotline-cta {
+        padding: 0.54rem 0.9rem;
+        font-size: 0.82rem;
+      }
+    }
+
+    .hotline-cta:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+
+    @media (max-width: 920px) {
+      .funnel-nav { display: none; }
+    }
+
+    /* Atmospheric Dark Navy + Brand Glow Hero */
+    .funnel-hero {
+      position: relative;
+      background:
+        radial-gradient(680px circle at 82% 20%, var(--brand-ring), transparent 62%),
+        radial-gradient(560px circle at 15% 85%, rgba(14, 165, 233, 0.14), transparent 60%),
+        linear-gradient(165deg, #0b1120 0%, #111827 58%, #1e293b 100%);
+      color: #f8fafc;
+      padding: 3.6rem 0 4.4rem;
+      overflow: hidden;
+    }
+
+    .funnel-hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 2.6rem;
+      align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+      .funnel-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .dispatch-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 1.2rem;
+    }
+
+    .funnel-hero h1 {
+      font-size: clamp(2.2rem, 4.3vw, 3.55rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin: 0 0 1.1rem;
+    }
+
+    .funnel-hero h1 .glow-word {
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: brightness(1.22);
+    }
+
+    .funnel-lead {
+      font-size: 1.06rem;
+      color: #cbd5e1;
+      max-width: 54ch;
+      margin: 0 0 1.75rem;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-big-call {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.95rem 1.55rem;
+      border-radius: 16px;
+      background: var(--brand-grad);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.02rem;
+      box-shadow: 0 14px 32px var(--brand-ring);
+      transition: transform 180ms var(--ease-spring);
+    }
+
+    .btn-big-call:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-wa-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.95rem 1.35rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background-color 180ms ease;
+    }
+
+    .btn-wa-video:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .hero-kpi-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.85rem;
+    }
+
+    @media (max-width: 560px) {
+      .hero-kpi-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-kpi {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 0.95rem 1rem;
+    }
+
+    .hero-kpi strong {
+      display: block;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+
+    .hero-kpi span {
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+
+    /* Floating White 3-Step Interactive Booking Wizard */
+    .wizard-card {
+      background: #ffffff;
+      color: var(--ink);
+      border-radius: 26px;
+      padding: 1.75rem;
+      box-shadow: 0 28px 64px -12px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .wizard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .wizard-step-pill {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand);
+      background: var(--brand-soft);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .progress-track {
+      height: 6px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--brand-grad);
+      width: 33.33%;
+      border-radius: 999px;
+      transition: width 320ms var(--ease-spring);
+    }
+
+    .device-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .device-tile {
+      border: 1.5px solid var(--border);
+      background: #f8fafc;
+      border-radius: 15px;
+      padding: 0.8rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--ink);
+      transition: all 180ms var(--ease-spring);
+    }
+
+    .device-tile:hover {
+      border-color: var(--brand);
+      background: #ffffff;
+    }
+
+    .device-tile.selected {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand-ink);
+      box-shadow: 0 0 0 3px var(--brand-ring);
+    }
+
+    .device-tile-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--brand);
+      display: grid;
+      place-items: center;
+      flex: none;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .symptom-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0.6rem 0 1rem;
+    }
+
+    .symptom-tag {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 999px;
+      padding: 0.36rem 0.78rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .symptom-tag.selected {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #ffffff;
+    }
+
+    .wiz-input {
+      width: 100%;
+      padding: 0.72rem 0.9rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .wiz-input:focus {
+      border-color: var(--brand);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px var(--brand-ring);
+    }
+
+    .wiz-actions {
+      display: flex;
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+    }
+
+    .btn-wiz-back {
+      padding: 0.85rem 1.1rem;
+      border-radius: 13px;
+      border: 1px solid var(--border);
+      background: #f1f5f9;
+      color: var(--ink-2);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-wiz-next {
+      flex: 1;
+      padding: 0.88rem 1.25rem;
+      border-radius: 13px;
+      border: none;
+      background: var(--brand-grad);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-brand);
+    }
+
+    /* Digital Warranty & Live 4-Step Tracker Section */
+    .tracker-section {
+      margin-top: -2.2rem;
+      position: relative;
+      z-index: 10;
+      padding-bottom: 4rem;
+    }
+
+    .tracker-shell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tracker-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .tracker-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .tracker-bar input {
+      flex: 1;
+      min-width: 230px;
+      padding: 0.82rem 1rem;
+      border-radius: 14px;
+      border: 1.5px solid var(--border);
+      font-weight: 700;
+      font-size: 0.94rem;
+      outline: none;
+    }
+
+    .tracker-bar input:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px var(--brand-ring);
+    }
+
+    .demo-ticket-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .demo-chip {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 999px;
+      padding: 0.3rem 0.72rem;
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--ink-2);
+      cursor: pointer;
+    }
+
+    .demo-chip:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    .stepper-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.85rem;
+      margin: 1.25rem 0;
+    }
+
+    @media (max-width: 820px) {
+      .stepper-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .stepper-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-node {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .step-node.done {
+      background: var(--brand-soft);
+      border-color: var(--brand-soft-2);
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      background: #e2e8f0;
+      color: var(--ink-2);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-node.done .step-num {
+      background: var(--brand);
+      color: #ffffff;
+    }
+
+    .ticket-summary {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.25rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 820px) {
+      .ticket-summary {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* 3-Step Visual Process + Photo Cards */
+    .process-section {
+      padding: 4rem 0;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 920px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .process-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .process-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .process-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .process-body {
+      padding: 1.45rem;
+    }
+
+    .process-step-tag {
+      display: inline-block;
+      padding: 0.26rem 0.68rem;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-ink);
+      font-weight: 800;
+      font-size: 0.75rem;
+      margin-bottom: 0.55rem;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      padding: 4rem 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 920px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .review-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.45rem;
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.65rem;
+    }
+
+    .funnel-footer {
+      background: #0b1120;
+      color: #94a3b8;
+      padding: 2.8rem 0;
+      font-size: 0.86rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="studioBarHost"></div>
+
+  <div class="ads-notice" data-servis-ads-shield>
+    <div class="container-xl ads-notice-inner">
+      <span>Garantisi sona ermiş tüm cihazlar için 1 yıl yedek parça garantili özel teknik servis hizmetidir.</span>
+      <span class="tnum">Merkez Hattı: <strong style="color:#fff;" data-servis-phone>0850 380 02 02</strong> · Yedek: <strong style="color:#fff;" data-servis-phone-secondary>444 6 082</strong></span>
+    </div>
+  </div>
+
+  <header class="funnel-header">
+    <div class="container-xl funnel-header-inner">
+      <a href="#ust" class="logo-link">
+        <span class="logo-badge" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </span>
+        <span>
+          <strong class="font-display" style="font-size:1.08rem;display:block;line-height:1.15;" data-servis-company>Merkez Beyaz Eşya Servisi</strong>
+          <span style="font-size:0.74rem;color:#94a3b8;">Hızlı Çağrı &amp; Dijital Garanti Sistemi</span>
+        </span>
+      </a>
+
+      <nav class="funnel-nav" aria-label="Hızlı Menü">
+        <a href="#garanti-takip">1 Yıl Garanti Sorgula</a>
+        <a href="#nasil-calisir">Nasıl Çalışır?</a>
+        <a href="#yorumlar">Müşteri Deneyimleri</a>
+        <a href="../tema-1-kurumsal/index.html">35 Marka &amp; Arıza Kodları</a>
+      </nav>
+
+      <a class="hotline-cta tnum" data-servis-tel href="tel:08503800202">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-servis-phone>0850 380 02 02</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="ust">
+    <!-- High-Conversion Dark Hero + Floating 3-Step Booking Card -->
+    <section class="funnel-hero">
+      <div class="container-xl funnel-hero-grid">
+        <div>
+          <div class="dispatch-tag">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Acil Saha Yönlendirme · 81 İlde Aynı Gün Usta</span>
+          </div>
+
+          <h1>60 saniyede usta çağırın, <span class="glow-word">1 yıl garantinizi</span> webden takip edin.</h1>
+
+          <p class="funnel-lead">
+            Telefonunuza uygulama indirme zorunluluğu yok! Cihazınızı seçip kaydınızı açın; bölge ustamız yola çıktığında ve parça değiştiğinde dijital garanti belgenizi anında webden görüntüleyin.
+          </p>
+
+          <div class="hero-cta-row">
+            <a class="btn-big-call tnum" data-servis-tel href="tel:08503800202">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Tek Tıkla Ara: <span data-servis-phone>0850 380 02 02</span></span>
+            </a>
+            <a class="btn-wa-video" data-servis-wa data-wa-text="Merhaba, arızalı cihazımın fotoğraf/videosunu gönderip fiyat ve usta bilgisi almak istiyorum." href="https://wa.me/908503800202" target="_blank" rel="noopener">
+              <span>WhatsApp'tan Arıza Videosu Gönder</span>
+            </a>
+          </div>
+
+          <div class="hero-kpi-cards">
+            <div class="hero-kpi">
+              <strong class="tnum">28 – 45 Dk</strong>
+              <span>Bölge Aracı Adrese Varış</span>
+            </div>
+            <div class="hero-kpi">
+              <strong class="tnum">12 Ay</strong>
+              <span>Dijital Fişli Parça Garantisi</span>
+            </div>
+            <div class="hero-kpi">
+              <strong class="tnum">%98.4</strong>
+              <span>Kayıtlı Müşteri Memnuniyeti</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating White 3-Step Booking Wizard -->
+        <div class="wizard-card" id="hizliKayitKart">
+          <div class="wizard-top">
+            <span class="wizard-step-pill" id="wizStepBadge">Adım 1 / 3 · Cihaz Seçimi</span>
+            <span class="tnum" style="font-size:0.78rem;color:var(--muted);font-weight:700;">Ücretsiz Ön Kayıt</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="wizProgressBar"></div>
+          </div>
+
+          <!-- Step 1 -->
+          <div id="wizStep1">
+            <h2 style="margin:0 0 0.3rem;font-size:1.35rem;">Hangi cihaz için usta çağırmak istiyorsunuz?</h2>
+            <p style="margin:0 0 1rem;font-size:0.86rem;color:var(--muted);">Branşı seçtiğinizde o alandaki uzman gezici ekibimiz atanır.</p>
+
+            <div class="device-grid" id="wizDeviceGrid">
+              <button type="button" class="device-tile selected" data-device="Beyaz Eşya (Çamaşır / Bulaşık / Buzdolabı)">
+                <span class="device-tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="4"/><line x1="8" y1="6" x2="8.01" y2="6"/></svg></span>
+                <span>Beyaz Eşya</span>
+              </button>
+              <button type="button" class="device-tile" data-device="Yoğuşmalı Kombi & Isıtma">
+                <span class="device-tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2c1 3 4 5 4 9a4 4 0 1 1-8 0c0-2 1-3 2-5"/><rect x="4" y="2" width="16" height="20" rx="3"/></svg></span>
+                <span>Kombi Servisi</span>
+              </button>
+              <button type="button" class="device-tile" data-device="Inverter Klima & Gaz Dolumu">
+                <span class="device-tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="9" rx="2"/><path d="M6 18c1.5 1.5 3 0 4.5 1.5M13.5 18c1.5 1.5 3 0 4.5 1.5"/></svg></span>
+                <span>Klima &amp; Montaj</span>
+              </button>
+              <button type="button" class="device-tile" data-device="İlaçlı & Termal Petek Temizliği">
+                <span class="device-tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="7" y1="5" x2="7" y2="19"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="17" y1="5" x2="17" y2="19"/></svg></span>
+                <span>İlaçlı Petek</span>
+              </button>
+              <button type="button" class="device-tile" data-device="Ankastre Fırın / Ocak / Davlumbaz">
+                <span class="device-tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="9" width="10" height="8" rx="1"/></svg></span>
+                <span>Fırın &amp; Ankastre</span>
+              </button>
+              <button type="button" class="device-tile" data-device="TV & Endüstriyel Soğutma">
+                <span class="device-tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <span>TV / Endüstriyel</span>
+              </button>
+            </div>
+
+            <button type="button" class="btn-wiz-next" style="width:100%;" id="toStep2Btn">Devam Et: Marka &amp; Arıza Seç →</button>
+          </div>
+
+          <!-- Step 2 -->
+          <div id="wizStep2" style="display:none;">
+            <h2 style="margin:0 0 0.3rem;font-size:1.3rem;">Marka ve arıza belirtisini seçin</h2>
+            <p style="margin:0 0 0.85rem;font-size:0.84rem;color:var(--muted);">Teknisyenimiz aracına doğru yedek parçayı alarak yola çıkar.</p>
+
+            <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.3rem;" for="wizBrand">Cihaz Markası (35 Marka)</label>
+            <select id="wizBrand" class="wiz-input"></select>
+
+            <span style="font-size:0.78rem;font-weight:700;display:block;margin-top:0.8rem;">Hızlı Arıza Etiketi:</span>
+            <div class="symptom-tags" id="wizSymptomTags">
+              <button type="button" class="symptom-tag selected">Su Boşaltmıyor / E18</button>
+              <button type="button" class="symptom-tag">Soğutmuyor / Isıtmuyor</button>
+              <button type="button" class="symptom-tag">Ateşleme Hatası (F28 / F4)</button>
+              <button type="button" class="symptom-tag">Su Akıtıyor (E15)</button>
+              <button type="button" class="symptom-tag">Hiç Çalışmıyor / Kart</button>
+              <button type="button" class="symptom-tag">Periyodik Bakım</button>
+            </div>
+
+            <div class="wiz-actions">
+              <button type="button" class="btn-wiz-back" id="backTo1Btn">← Geri</button>
+              <button type="button" class="btn-wiz-next" id="toStep3Btn">Son Adım: Adres &amp; Telefon →</button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div id="wizStep3" style="display:none;">
+            <h2 style="margin:0 0 0.3rem;font-size:1.3rem;">İletişim ve bölge bilginiz</h2>
+            <p style="margin:0 0 0.85rem;font-size:0.84rem;color:var(--muted);">Kaydınız açıldığı anda dijital iş emri numaranız ekranda oluşur.</p>
+
+            <div style="display:grid;gap:0.7rem;">
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="wizCity">İl / İlçe</label>
+                <select id="wizCity" class="wiz-input"></select>
+              </div>
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="wizName">Adınız Soyadınız</label>
+                <input id="wizName" type="text" class="wiz-input" placeholder="Adınız Soyadınız">
+              </div>
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="wizPhone">Cep Telefonunuz</label>
+                <input id="wizPhone" type="tel" class="wiz-input tnum" placeholder="05XX XXX XX XX">
+              </div>
+            </div>
+
+            <div class="wiz-actions">
+              <button type="button" class="btn-wiz-back" id="backTo2Btn">← Geri</button>
+              <button type="button" class="btn-wiz-next" id="finishWizBtn">Dijital Servis Fişi Oluştur ✓</button>
+            </div>
+          </div>
+
+          <!-- Step 4 Confirmation -->
+          <div id="wizDone" style="display:none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web-Based 1-Year Warranty & Live 4-Step Progress Tracker -->
+    <section id="garanti-takip" class="tracker-section">
+      <div class="container-xl">
+        <div class="tracker-shell reveal-up">
+          <div class="tracker-head">
+            <div>
+              <span style="font-size:0.76rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Uygulama İndirmeden Webden Takip</span>
+              <h2 style="margin:0.2rem 0 0;font-size:1.75rem;">Dijital Servis Fişi &amp; 1 Yıl Parça Garantisi Sorgulama</h2>
+            </div>
+            <span style="font-size:0.84rem;color:var(--muted);font-weight:600;">Rakiplerin aksine uygulama indirtmeden anlık web sorgusu</span>
+          </div>
+
+          <div class="tracker-bar">
+            <input type="text" id="ticketQueryInput" class="mono" value="SRV-2026-8418" placeholder="İş Emri No (Örn: SRV-2026-8418) veya Telefon Numaranız">
+            <button type="button" id="ticketQueryBtn" class="btn-wiz-next" style="flex:0 0 auto;padding-inline:1.6rem;">Garanti &amp; Durum Sorgula</button>
+          </div>
+
+          <div class="demo-ticket-chips">
+            <span>Canlı Örnek Kayıtları Deneyin:</span>
+            <button type="button" class="demo-chip mono" data-demo-ticket="SRV-2026-8418">SRV-2026-8418 (Usta Yolda)</button>
+            <button type="button" class="demo-chip mono" data-demo-ticket="SRV-2026-8419">SRV-2026-8419 (Ekip Atandı)</button>
+            <button type="button" class="demo-chip mono" data-demo-ticket="SRV-2026-8415">SRV-2026-8415 (1 Yıl Garanti Aktif)</button>
+          </div>
+
+          <div id="ticketResultHost" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infinite 35-Brand Ribbon -->
+    <section style="padding:1.25rem 0;background:#ffffff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="marquee-viewport">
+        <div id="funnelMarquee" class="marquee-track"></div>
+      </div>
+    </section>
+
+    <!-- 3-Step Visual How It Works -->
+    <section id="nasil-calisir" class="process-section">
+      <div class="container-xl">
+        <div style="text-align:center;max-width:640px;margin:0 auto 2.5rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Sürpriz Maliyet Yok</span>
+          <h2 style="font-size:2.15rem;margin:0.35rem 0 0.6rem;">3 Adımda Şeffaf ve Belgeli Onarım</h2>
+          <p style="color:var(--muted);margin:0;">Kapıdan içeri giren her teknisyenimiz yaka kartlıdır ve işlem öncesi net fiyat onayı alır.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card hover-lift reveal-up">
+            <div class="process-img">
+              <img src="../assets/photos/service-van-parts.jpg" alt="Tam donanımlı gezici servis aracı" loading="lazy">
+            </div>
+            <div class="process-body">
+              <span class="process-step-tag">1. ADIM · 30 DAKİKADA YÖNLENDİRME</span>
+              <h3 style="margin:0 0 0.45rem;font-size:1.25rem;">En Yakın Gezici Araç Atanır</h3>
+              <p style="margin:0;color:var(--muted);font-size:0.9rem;">Çağrı merkezimiz veya online form üzerinden kaydınız düştüğü anda ilçenizdeki nöbetçi aracımız yedek parçayla adresinize yönlendirilir.</p>
+            </div>
+          </article>
+
+          <article class="process-card hover-lift reveal-up">
+            <div class="process-img">
+              <img src="../assets/photos/kombi-maintenance.jpg" alt="Dijital cihazla yerinde arıza tespiti ve fiyat onayı" loading="lazy">
+            </div>
+            <div class="process-body">
+              <span class="process-step-tag">2. ADIM · ŞEFFAF ÖLÇÜM &amp; FİYAT ONAYI</span>
+              <h3 style="margin:0 0 0.45rem;font-size:1.25rem;">Onayınız Olmadan İşlem Yapılmaz</h3>
+              <p style="margin:0;color:var(--muted);font-size:0.9rem;">Arızalı parça dijital ölçümlerle tespit edilir, toplam tutar şeffaf şekilde sunulur ve yalnızca onayınızla yerinde değiştirilir.</p>
+            </div>
+          </article>
+
+          <article class="process-card hover-lift reveal-up">
+            <div class="process-img">
+              <img src="../assets/photos/klima-service.jpg" alt="1 yıl dijital parça ve işçilik garantisi" loading="lazy">
+            </div>
+            <div class="process-body">
+              <span class="process-step-tag">3. ADIM · 12 AY DİJİTAL GARANTİ FİŞİ</span>
+              <h3 style="margin:0 0 0.45rem;font-size:1.25rem;">1 Yıl Resmi Firma Güvencesi</h3>
+              <p style="margin:0;color:var(--muted);font-size:0.9rem;">Kağıt fiş kaybolsa bile iş emri numaranızla sitemizden 365 gün boyunca değişen parçanın garanti belgesini sorgulayabilirsiniz.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Customer Reviews -->
+    <section id="yorumlar" class="reviews-section">
+      <div class="container-xl">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:2rem;" class="reveal-up">
+          <div>
+            <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Doğrulanmış İş Emirleri</span>
+            <h2 style="font-size:2rem;margin:0.3rem 0 0;">Son Tamamlanan Servis Kayıtlarından Yorumlar</h2>
+          </div>
+          <span class="tnum" style="font-weight:700;color:var(--ink-2);">★ 4.9 / 5.0 · 18.420 Onaylı Fiş</span>
+        </div>
+
+        <div class="reviews-grid reveal-up">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p style="margin:0 0 1rem;font-size:0.92rem;color:var(--ink-2);">"Bosch çamaşır makinem gece E18 hatası verdi. Sabah 09:00'da kayıt açtım, 09:35'te Kemal Usta kapıdaydı. Pompayı yerinde değiştirip 1 yıllık dijital garanti fişimi SMS ile ilettiler."</p>
+            <strong style="font-size:0.88rem;display:block;">Selin Y. — Mersin / Yenişehir</strong>
+            <span class="mono" style="font-size:0.75rem;color:var(--muted);">Fiş No: SRV-2026-8418</span>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p style="margin:0 0 1rem;font-size:0.92rem;color:var(--ink-2);">"Vaillant kombimiz F28 ateşleme arızasına geçmişti. Anakart değişecek diye korkuyorduk, gaz valfi ve elektrot bakımıyla çok makul fiyata aynı gün çözdüler."</p>
+            <strong style="font-size:0.88rem;display:block;">Hakan D. — İstanbul / Kadıköy</strong>
+            <span class="mono" style="font-size:0.75rem;color:var(--muted);">Fiş No: SRV-2026-8419</span>
+          </div>
+
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p style="margin:0 0 1rem;font-size:0.92rem;color:var(--ink-2);">"Siemens bulaşık makinesi E15 su kaçağı uyarısı veriyordu. Atölyeye götürmeden mutfakta 40 dakikada alt hazne contasını yenilediler, tertemiz teslim ettiler."</p>
+            <strong style="font-size:0.88rem;display:block;">Derya Ö. — İzmir / Karşıyaka</strong>
+            <span class="mono" style="font-size:0.75rem;color:var(--muted);">Fiş No: SRV-2026-8415</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="funnel-footer">
+    <div class="container-xl" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+      <div>
+        <strong style="color:#ffffff;display:block;" data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</strong>
+        <span>Garantisi sona ermiş 35 marka cihaz için 81 ilde bağımsız özel teknik servis hizmeti.</span>
+      </div>
+      <div class="tnum" style="color:#ffffff;font-weight:700;">
+        Çağrı Hattı: <span data-servis-phone>0850 380 02 02</span> · Yedek: <span data-servis-phone-secondary>444 6 082</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="floatingDockHost"></div>
+
+  <script src="../assets/servis-data.js"></script>
+  <script>
+    (function () {
+      const MS = window.MerkezServis;
+      MS.mountStudioChrome('tema2', '../');
+
+      // Marquee
+      const mTrack = document.getElementById('funnelMarquee');
+      const mHtml = MS.BRANDS.map(b => `<span style="display:inline-flex;align-items:center;padding:0.4rem 0.9rem;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;color:#0f172a;">${MS.renderBrandMarkSvg(b)}</span>`).join('');
+      mTrack.innerHTML = mHtml + mHtml;
+
+      // Wizard Logic
+      let selectedDevice = 'Beyaz Eşya (Çamaşır / Bulaşık / Buzdolabı)';
+      let selectedSymptom = 'Su Boşaltmıyor / E18';
+
+      const wizBrand = document.getElementById('wizBrand');
+      const wizCity = document.getElementById('wizCity');
+      MS.BRANDS.forEach(b => wizBrand.add(new Option(`${b.name} (${b.group})`, b.name)));
+      MS.ALL_81_PROVINCES.forEach(p => {
+        p.districts.slice(0, 3).forEach(d => wizCity.add(new Option(`${p.name} / ${d}`, `${p.name} / ${d}`)));
+      });
+
+      document.querySelectorAll('#wizDeviceGrid .device-tile').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#wizDeviceGrid .device-tile').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          selectedDevice = btn.getAttribute('data-device');
+        });
+      });
+
+      document.querySelectorAll('#wizSymptomTags .symptom-tag').forEach(tag => {
+        tag.addEventListener('click', () => {
+          document.querySelectorAll('#wizSymptomTags .symptom-tag').forEach(t => t.classList.remove('selected'));
+          tag.classList.add('selected');
+          selectedSymptom = tag.textContent.trim();
+        });
+      });
+
+      const s1 = document.getElementById('wizStep1');
+      const s2 = document.getElementById('wizStep2');
+      const s3 = document.getElementById('wizStep3');
+      const sDone = document.getElementById('wizDone');
+      const badge = document.getElementById('wizStepBadge');
+      const bar = document.getElementById('wizProgressBar');
+
+      function setWizStep(n) {
+        s1.style.display = n === 1 ? 'block' : 'none';
+        s2.style.display = n === 2 ? 'block' : 'none';
+        s3.style.display = n === 3 ? 'block' : 'none';
+        sDone.style.display = n === 4 ? 'block' : 'none';
+        const titles = {
+          1: 'Adım 1 / 3 · Cihaz Seçimi',
+          2: 'Adım 2 / 3 · Marka & Belirti',
+          3: 'Adım 3 / 3 · Bölge & İletişim',
+          4: 'Kayıt Onaylandı · Dijital İş Emri'
+        };
+        badge.textContent = titles[n];
+        bar.style.width = (n === 1 ? '33.3%' : n === 2 ? '66.6%' : '100%');
+      }
+
+      document.getElementById('toStep2Btn').addEventListener('click', () => setWizStep(2));
+      document.getElementById('backTo1Btn').addEventListener('click', () => setWizStep(1));
+      document.getElementById('toStep3Btn').addEventListener('click', () => setWizStep(3));
+      document.getElementById('backTo2Btn').addEventListener('click', () => setWizStep(2));
+
+      // Warranty & Live Progress Tracker
+      const ticketIn = document.getElementById('ticketQueryInput');
+      const ticketHost = document.getElementById('ticketResultHost');
+
+      function renderTicketStatus(query) {
+        const q = (query || '').trim().toUpperCase();
+        const leads = MS.getLeads();
+        const found = leads.find(l => l.id.toUpperCase() === q || l.phone.replace(/\s+/g, '').includes(q.replace(/\s+/g, ''))) || leads[1];
+
+        const stageMap = {
+          pending: { step: 1, label: 'Kayıt Açıldı — Bölge Ekibi Atanıyor', warrantyEnd: 'Onarım Sonrası 12 Ay Aktifleşir' },
+          assigned: { step: 2, label: 'Uzman Teknisyen Atandı — Hazırlanıyor', warrantyEnd: 'Onarım Sonrası 12 Ay Aktifleşir' },
+          onway: { step: 2, label: 'Gezici Servis Aracı Adresinize Yolda (Tahmini 18 Dk)', warrantyEnd: 'Onarım Sonrası 12 Ay Aktifleşir' },
+          completed: { step: 4, label: 'Onarım Tamamlandı — 12 Ay Dijital Parça Garantisi Aktif', warrantyEnd: '01.11.2027 (365 Gün Garantili)' }
+        };
+        const st = stageMap[found.status] || stageMap.pending;
+
+        ticketHost.innerHTML = `
+          <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;padding:0.9rem 1.15rem;border-radius:14px;background:var(--brand-soft);border:1px solid var(--brand-soft-2);">
+            <span>İş Emri No: <strong class="mono" style="color:var(--brand-ink);">${found.id}</strong> · Durum: <strong style="color:var(--brand-ink);">${st.label}</strong></span>
+            <span style="font-size:0.8rem;font-weight:700;color:var(--ink-2);">Atanan: ${found.tech}</span>
+          </div>
+
+          <div class="stepper-grid">
+            <div class="step-node ${st.step >= 1 ? 'done' : ''}">
+              <span class="step-num">1</span>
+              <strong style="display:block;font-size:0.9rem;">Dijital İş Emri Açıldı</strong>
+              <span style="font-size:0.78rem;color:var(--muted);">${found.createdAt} · Çağrı Kaydı</span>
+            </div>
+            <div class="step-node ${st.step >= 2 ? 'done' : ''}">
+              <span class="step-num">2</span>
+              <strong style="display:block;font-size:0.9rem;">Bölge Ustası Yolda</strong>
+              <span style="font-size:0.78rem;color:var(--muted);">${found.tech}</span>
+            </div>
+            <div class="step-node ${st.step >= 3 ? 'done' : ''}">
+              <span class="step-num">3</span>
+              <strong style="display:block;font-size:0.9rem;">Yerinde Test &amp; Onarım</strong>
+              <span style="font-size:0.78rem;color:var(--muted);">Şeffaf Fiyat Onaylı</span>
+            </div>
+            <div class="step-node ${st.step >= 4 ? 'done' : ''}">
+              <span class="step-num">4</span>
+              <strong style="display:block;font-size:0.9rem;">1 Yıl Garanti Belgesi</strong>
+              <span style="font-size:0.78rem;color:var(--muted);">${st.warrantyEnd}</span>
+            </div>
+          </div>
+
+          <div class="ticket-summary">
+            <div>
+              <span style="font-size:0.74rem;color:var(--muted);font-weight:700;display:block;">MÜŞTERİ &amp; BÖLGE</span>
+              <strong style="font-size:0.9rem;">${found.customer}</strong>
+              <span style="display:block;font-size:0.8rem;color:var(--ink-2);">${found.city}</span>
+            </div>
+            <div>
+              <span style="font-size:0.74rem;color:var(--muted);font-weight:700;display:block;">MARKA &amp; CİHAZ</span>
+              <strong style="font-size:0.9rem;">${found.brand}</strong>
+              <span style="display:block;font-size:0.8rem;color:var(--ink-2);">${found.device}</span>
+            </div>
+            <div>
+              <span style="font-size:0.74rem;color:var(--muted);font-weight:700;display:block;">BİLDİRİLEN ARIZA</span>
+              <strong style="font-size:0.9rem;">${found.fault}</strong>
+              <span style="display:block;font-size:0.8rem;color:var(--ink-2);">Orijinal Yedek Parça</span>
+            </div>
+            <div>
+              <span style="font-size:0.74rem;color:var(--muted);font-weight:700;display:block;">GARANTİ GEÇERLİLİK</span>
+              <strong style="font-size:0.9rem;color:var(--brand);">${st.warrantyEnd}</strong>
+              <span style="display:block;font-size:0.8rem;color:var(--ink-2);">Resmi Dijital Belge</span>
+            </div>
+          </div>
+        `;
+      }
+
+      document.getElementById('ticketQueryBtn').addEventListener('click', () => renderTicketStatus(ticketIn.value));
+      document.querySelectorAll('[data-demo-ticket]').forEach(chip => {
+        chip.addEventListener('click', () => {
+          ticketIn.value = chip.getAttribute('data-demo-ticket');
+          renderTicketStatus(ticketIn.value);
+        });
+      });
+      renderTicketStatus('SRV-2026-8418');
+
+      document.getElementById('finishWizBtn').addEventListener('click', () => {
+        const name = document.getElementById('wizName').value.trim() || 'Web Müşterisi';
+        const phone = document.getElementById('wizPhone').value.trim() || '0532 000 00 00';
+        const rec = MS.addLead({
+          customer: name,
+          phone,
+          city: wizCity.value,
+          brand: wizBrand.value,
+          device: selectedDevice,
+          fault: selectedSymptom
+        });
+        sDone.innerHTML = `
+          <div style="padding:1.1rem;border-radius:18px;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;margin-bottom:1rem;">
+            <strong style="font-size:1.05rem;display:block;margin-bottom:0.3rem;">✓ Dijital İş Emriniz Oluşturuldu: <span class="mono">${rec.id}</span></strong>
+            <span style="font-size:0.86rem;"><strong>${rec.city}</strong> nöbetçi ekibimiz <strong>${rec.brand}</strong> (${rec.fault}) kaydınız için 5 dakika içinde <strong>${rec.phone}</strong> numaranızı arayacaktır.</span>
+          </div>
+          <button type="button" class="btn-wiz-next" style="width:100%;" id="resetWizBtn">Yeni Kayıt Aç veya Aşağıdan Takip Et</button>
+        `;
+        setWizStep(4);
+        ticketIn.value = rec.id;
+        renderTicketStatus(rec.id);
+        document.getElementById('resetWizBtn').addEventListener('click', () => setWizStep(1));
+      });
+    })();
+  </script>
+</body>
+</html>

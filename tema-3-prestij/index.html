@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="tr" data-default-palette="vaillant-emerald" data-surface-mode="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prestij Ankastre, Yoğuşmalı Kombi &amp; Akıllı İklimlendirme Servisi — Merkez Servis</title>
+  <meta name="description" content="Miele, Gaggenau, Siemens, Vaillant, Viessmann ve Buderus başta olmak üzere 35 markada premium ankastre, yoğuşmalı kombi, VRF klima ve endüstriyel soğutma özel servisi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/studio-ui.css">
+  <style>
+    html[data-surface-mode="dark"] {
+      --p-bg: #090d16;
+      --p-bg-2: #0f1624;
+      --p-card: rgba(17, 24, 39, 0.86);
+      --p-card-solid: #111827;
+      --p-ink: #f8fafc;
+      --p-ink-2: #cbd5e1;
+      --p-muted: #94a3b8;
+      --p-border: rgba(255, 255, 255, 0.1);
+      --p-header: rgba(9, 13, 22, 0.84);
+      --p-input: #0b111e;
+    }
+
+    html[data-surface-mode="light"] {
+      --p-bg: #f8fafc;
+      --p-bg-2: #ffffff;
+      --p-card: #ffffff;
+      --p-card-solid: #ffffff;
+      --p-ink: #0f172a;
+      --p-ink-2: #334155;
+      --p-muted: #64748b;
+      --p-border: #e2e8f0;
+      --p-header: rgba(255, 255, 255, 0.86);
+      --p-input: #f1f5f9;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--p-bg);
+      color: var(--p-ink);
+      line-height: 1.62;
+      transition: background-color 240ms ease, color 240ms ease;
+    }
+
+    h1, h2, h3, .font-sora {
+      font-family: 'Sora', 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .prestige-compliance {
+      background: var(--p-bg-2);
+      border-bottom: 1px solid var(--p-border);
+      color: var(--p-muted);
+      font-size: 0.77rem;
+      padding: 0.42rem 0;
+    }
+
+    .prestige-header {
+      position: sticky;
+      top: 0;
+      z-index: 45;
+      background: var(--p-header);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--p-border);
+    }
+
+    .prestige-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 0;
+    }
+
+    .p-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--p-ink);
+    }
+
+    .p-crest {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: var(--brand-grad);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 24px var(--brand-ring);
+    }
+
+    .p-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .p-nav a {
+      text-decoration: none;
+      color: var(--p-ink-2);
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: color 160ms ease;
+    }
+
+    .p-nav a:hover {
+      color: var(--brand);
+    }
+
+    .mode-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      padding: 0.52rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--p-border);
+      background: var(--p-card);
+      color: var(--p-ink);
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    .mode-toggle-btn:hover {
+      border-color: var(--brand);
+      transform: translateY(-1px);
+    }
+
+    .p-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.62rem 1.18rem;
+      border-radius: 999px;
+      background: var(--brand-grad);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      white-space: nowrap;
+      flex: none;
+      box-shadow: 0 8px 24px var(--brand-ring);
+    }
+
+    @media (max-width: 960px) {
+      .p-nav { display: none; }
+    }
+
+    /* Showroom Hero */
+    .p-hero {
+      position: relative;
+      padding: 3.8rem 0 3.6rem;
+      background:
+        radial-gradient(650px circle at 18% 15%, var(--brand-glow), transparent 64%),
+        radial-gradient(550px circle at 85% 30%, var(--brand-ring), transparent 66%);
+      overflow: hidden;
+    }
+
+    .p-hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 2.6rem;
+      align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+      .p-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .p-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.92rem;
+      border-radius: 999px;
+      border: 1px solid var(--p-border);
+      background: var(--p-card);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--p-ink-2);
+      margin-bottom: 1.2rem;
+    }
+
+    .p-hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3.35rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin: 0 0 1.1rem;
+    }
+
+    .p-hero h1 .p-accent {
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: brightness(1.15);
+    }
+
+    .p-lead {
+      font-size: 1.04rem;
+      color: var(--p-ink-2);
+      margin: 0 0 1.75rem;
+      max-width: 56ch;
+    }
+
+    .p-hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: 15px;
+      border: 1px solid var(--p-border);
+      background: var(--p-card);
+      color: var(--p-ink);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.88rem 1.5rem;
+      border-radius: 15px;
+      background: var(--brand-grad);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.94rem;
+      box-shadow: 0 12px 30px var(--brand-ring);
+    }
+
+    .showroom-mosaic {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 0.95rem;
+    }
+
+    .mosaic-main {
+      grid-row: span 2;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--p-border);
+      position: relative;
+      min-height: 360px;
+    }
+
+    .mosaic-sub {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--p-border);
+      position: relative;
+      height: 175px;
+    }
+
+    .mosaic-main img, .mosaic-sub img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mosaic-caption {
+      position: absolute;
+      left: 0.85rem;
+      right: 0.85rem;
+      bottom: 0.85rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 14px;
+      background: rgba(9, 13, 22, 0.78);
+      backdrop-filter: blur(10px);
+      color: #f8fafc;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.78rem;
+    }
+
+    /* Specialty Bento */
+    .p-section {
+      padding: 4.2rem 0;
+    }
+
+    .p-section-alt {
+      background: var(--p-bg-2);
+      border-top: 1px solid var(--p-border);
+      border-bottom: 1px solid var(--p-border);
+    }
+
+    .lux-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.3rem;
+    }
+
+    @media (max-width: 940px) {
+      .lux-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lux-card {
+      background: var(--p-card);
+      border: 1px solid var(--p-border);
+      border-radius: 24px;
+      padding: 1.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lux-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      display: grid;
+      place-items: center;
+    }
+
+    .lux-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 0.6rem;
+    }
+
+    .lux-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.26rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--p-border);
+      color: var(--p-ink-2);
+    }
+
+    /* Savings Calculator */
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      align-items: center;
+      background: var(--p-card);
+      border: 1px solid var(--p-border);
+      border-radius: 26px;
+      padding: 2rem;
+    }
+
+    @media (max-width: 920px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+        padding: 1.35rem;
+      }
+    }
+
+    .range-row {
+      margin-bottom: 1.2rem;
+    }
+
+    .range-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--brand);
+      cursor: pointer;
+    }
+
+    .savings-output {
+      background: var(--p-bg);
+      border: 1px solid var(--p-border);
+      border-radius: 22px;
+      padding: 1.65rem;
+    }
+
+    .savings-big {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2rem, 3.4vw, 2.75rem);
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1.1;
+      display: block;
+      margin: 0.3rem 0 0.75rem;
+    }
+
+    /* Live 81-Province x 973-District x 35-Brand Google SERP & Schema Studio */
+    .seo-studio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 1.6rem;
+    }
+
+    .seo-studio-grid > * {
+      min-width: 0;
+    }
+
+    @media (max-width: 960px) {
+      .seo-studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .p-select {
+      width: 100%;
+      padding: 0.72rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid var(--p-border);
+      background: var(--p-input);
+      color: var(--p-ink);
+      font-weight: 600;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .serp-preview-card {
+      background: #ffffff;
+      color: #1f2937;
+      border-radius: 20px;
+      padding: 1.4rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 1rem;
+    }
+
+    .schema-code {
+      background: #0b1120;
+      color: #a7f3d0;
+      border-radius: 18px;
+      padding: 1.15rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.76rem;
+      overflow-x: auto;
+      max-height: 230px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="studioBarHost"></div>
+
+  <div class="prestige-compliance" data-servis-ads-shield>
+    <div class="container-xl" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.5rem 1rem;">
+      <span>Üretici garantisi sona ermiş premium ankastre, kombi, klima ve beyaz eşyalar için 1 yıl garantili özel teknik servis.</span>
+      <span class="tnum">VIP Destek Hattı: <strong style="color:var(--p-ink);" data-servis-phone>0850 380 02 02</strong> · <strong style="color:var(--p-ink);" data-servis-phone-secondary>444 6 082</strong></span>
+    </div>
+  </div>
+
+  <header class="prestige-header">
+    <div class="container-xl prestige-header-inner">
+      <a href="#ust" class="p-brand">
+        <span class="p-crest" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </span>
+        <span>
+          <strong class="font-sora" style="font-size:1.02rem;display:block;line-height:1.15;" data-servis-company>Merkez Beyaz Eşya Servisi</strong>
+          <span style="font-size:0.73rem;color:var(--p-muted);">Prestij Ankastre · Akıllı İklimlendirme · SEO</span>
+        </span>
+      </a>
+
+      <nav class="p-nav" aria-label="Prestij Menü">
+        <a href="#uzmanlik">Ankastre &amp; İklimlendirme</a>
+        <a href="#tasarruf">Doğalgaz Tasarruf Hesabı</a>
+        <a href="#seo-motoru">81 İl × 35 Marka SEO Motoru</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:0.55rem;">
+        <button type="button" id="surfaceModeBtn" class="mode-toggle-btn" aria-label="Koyu / Açık Görünüm Değiştir">
+          <span id="surfaceModeIcon">☀</span>
+          <span id="surfaceModeText">Açık Mod</span>
+        </button>
+        <a class="p-cta tnum" data-servis-tel href="tel:08503800202">
+          <span data-servis-phone>0850 380 02 02</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="ust">
+    <!-- Luxury Showroom Hero -->
+    <section class="p-hero">
+      <div class="container-xl p-hero-grid">
+        <div>
+          <div class="p-pill">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Miele · Gaggenau · Siemens · Vaillant · Viessmann · Buderus Özel Uzmanlığı</span>
+          </div>
+
+          <h1>Üst segment ankastre ve iklimlendirmede <span class="p-accent">mühendislik hassasiyeti.</span></h1>
+
+          <p class="p-lead">
+            Mutfak dolabınıza ve hassas elektronik kartlarınıza zarar vermeyen kalibrasyonlu ekipmanlarla; ankastre fırın, indüksiyon ocak, yoğuşmalı kombi, VRF klima ve endüstriyel soğutma sistemlerini 1 yıl garantili onarıyoruz.
+          </p>
+
+          <div class="p-hero-btns">
+            <a class="btn-solid tnum" data-servis-tel href="tel:08503800202">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+              <span>VIP Randevu Hattı: <span data-servis-phone>0850 380 02 02</span></span>
+            </a>
+            <a class="btn-ghost" href="#tasarruf">Kombi &amp; Petek Tasarrufunu Hesapla</a>
+          </div>
+        </div>
+
+        <div class="showroom-mosaic">
+          <div class="mosaic-main">
+            <img src="../assets/photos/ankastre-kitchen.jpg" alt="Premium ankastre mutfak fırın ve indüksiyon ocak teknik servisi">
+            <div class="mosaic-caption">
+              <strong style="display:block;">Lüks Ankastre &amp; İndüksiyon Onarımı</strong>
+              <span style="color:#cbd5e1;">Miele, Gaggenau, Siemens, Franke, Teka</span>
+            </div>
+          </div>
+          <div class="mosaic-sub">
+            <img src="../assets/photos/petek-thermal.jpg" alt="Termal kamera ile radyatör petek ısı dağılım analizi">
+            <div class="mosaic-caption">
+              <strong>Termal Kameralı Petek Analizi</strong>
+            </div>
+          </div>
+          <div class="mosaic-sub">
+            <img src="../assets/photos/kombi-maintenance.jpg" alt="Yoğuşmalı kombi baca gazı ve eşanjör kalibrasyonu">
+            <div class="mosaic-caption">
+              <strong>Baca Gazı Ölçümlü Kombi Bakımı</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 35-Brand Ribbon -->
+    <section style="padding:1.2rem 0;border-top:1px solid var(--p-border);border-bottom:1px solid var(--p-border);background:var(--p-bg-2);">
+      <div class="marquee-viewport">
+        <div id="prestigeMarquee" class="marquee-track"></div>
+      </div>
+    </section>
+
+    <!-- High-Margin Specialty Bento -->
+    <section id="uzmanlik" class="p-section">
+      <div class="container-xl">
+        <div style="margin-bottom:2.2rem;" class="reveal-up">
+          <span style="font-size:0.76rem;font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:var(--brand);">Yüksek Katma Değerli Branşlar</span>
+          <h2 style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.35rem 0 0;">Özel Kalibrasyon Gerektiren Sistemlerde Uzman Çözüm</h2>
+        </div>
+
+        <div class="lux-grid">
+          <article class="lux-card hover-lift reveal-up">
+            <span class="lux-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="7" y="9" width="10" height="8" rx="1"/><line x1="7" y1="6" x2="7.01" y2="6"/><line x1="12" y1="6" x2="12.01" y2="6"/></svg></span>
+            <h3 style="margin:0;font-size:1.22rem;">Ankastre Fırın &amp; İndüksiyon Ocak</h3>
+            <p style="margin:0;color:var(--p-muted);font-size:0.9rem;">Dokunmatik cam ocak IGBT güç kartı revizyonu, buharlı fırın rezistans/sensör kalibrasyonu ve sessiz karbon filtreli davlumbaz motor onarımı.</p>
+            <div class="lux-tags">
+              <span class="lux-tag">Miele</span>
+              <span class="lux-tag">Gaggenau</span>
+              <span class="lux-tag">Siemens</span>
+              <span class="lux-tag">Franke</span>
+              <span class="lux-tag">Teka</span>
+            </div>
+          </article>
+
+          <article class="lux-card hover-lift reveal-up">
+            <span class="lux-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 2c1 3 4 5 4 9a4 4 0 1 1-8 0c0-2 1-3 2-5"/><rect x="4" y="2" width="16" height="20" rx="3"/></svg></span>
+            <h3 style="margin:0;font-size:1.22rem;">Yoğuşmalı Kombi &amp; Isı Pompası</h3>
+            <p style="margin:0;color:var(--p-muted);font-size:0.9rem;">Premix paslanmaz eşanjör kimyasal yıkama, modülasyonlu fan revizyonu, genleşme tankı azot basımı ve oda termostatı akıllı entegrasyonu.</p>
+            <div class="lux-tags">
+              <span class="lux-tag">Vaillant</span>
+              <span class="lux-tag">Viessmann</span>
+              <span class="lux-tag">Buderus</span>
+              <span class="lux-tag">Demirdöküm</span>
+              <span class="lux-tag">Baymak</span>
+            </div>
+          </article>
+
+          <article class="lux-card hover-lift reveal-up">
+            <span class="lux-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg></span>
+            <h3 style="margin:0;font-size:1.22rem;">VRF Klima &amp; Endüstriyel Soğutma</h3>
+            <p style="margin:0;color:var(--p-muted);font-size:0.9rem;">Villa, ofis, restoran ve marketler için VRF merkezi iklimlendirme, soğuk hava deposu, buz makinesi ve ticari dolap acil kompresör/gaz müdahalesi.</p>
+            <div class="lux-tags">
+              <span class="lux-tag">Samsung VRF</span>
+              <span class="lux-tag">LG</span>
+              <span class="lux-tag">Electrolux</span>
+              <span class="lux-tag">Airfel</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Kombi & Petek Natural Gas Savings Calculator -->
+    <section id="tasarruf" class="p-section p-section-alt">
+      <div class="container-xl">
+        <div class="calc-grid reveal-up">
+          <div>
+            <span style="font-size:0.76rem;font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:var(--brand);">Kışlık Verimlilik Simülatörü</span>
+            <h2 style="font-size:1.85rem;margin:0.35rem 0 0.6rem;">Kombi Bakımı + İlaçlı Petek Temizliği Tasarruf Hesaplayıcı</h2>
+            <p style="color:var(--p-muted);font-size:0.92rem;margin:0 0 1.4rem;">Petek altlarında biriken çamur ve kireç tabakası ısı transferini %30'a kadar düşürür. Daire değerlerinizi seçerek tahmini kış tasarrufunuzu görün:</p>
+
+            <div class="range-row">
+              <div class="range-head">
+                <span>Kış Aylık Ortalama Doğalgaz Faturanız</span>
+                <span class="tnum" id="billValLabel" style="color:var(--brand);">3.200 TL / Ay</span>
+              </div>
+              <input type="range" id="billRange" min="1200" max="9000" step="200" value="3200">
+            </div>
+
+            <div class="range-row">
+              <div class="range-head">
+                <span>Dairedeki Radyatör (Petek) Sayısı</span>
+                <span class="tnum" id="radValLabel" style="color:var(--brand);">7 Petek</span>
+              </div>
+              <input type="range" id="radRange" min="3" max="16" step="1" value="7">
+            </div>
+
+            <div class="range-row" style="margin-bottom:0;">
+              <div class="range-head">
+                <span>Son Bakımdan Bu Yana Geçen Süre</span>
+                <span class="tnum" id="yearValLabel" style="color:var(--brand);">3 Yıl</span>
+              </div>
+              <input type="range" id="yearRange" min="1" max="6" step="1" value="3">
+            </div>
+          </div>
+
+          <div class="savings-output">
+            <span style="font-size:0.78rem;font-weight:700;color:var(--p-muted);text-transform:uppercase;letter-spacing:0.06em;">5 Aylık Kış Sezonu Tahmini Tasarruf</span>
+            <span class="savings-big tnum" id="seasonalSaveOut">4.160 TL</span>
+            <p style="margin:0 0 1.1rem;font-size:0.88rem;color:var(--p-ink-2);" id="saveExplainOut">
+              Termal kameralı ilaçlı petek temizliği ve yoğuşmalı kombi kalibrasyonu ile aylık yaklaşık <strong>832 TL (%26)</strong> yakıt tasarrufu sağlanır; bakım maliyeti ilk 6 haftada kendini amorti eder.
+            </p>
+            <a class="btn-solid tnum" style="width:100%;justify-content:center;" data-servis-tel href="tel:08503800202">
+              <span>Kombi + Petek Paketi Randevusu: <span data-servis-phone>0850 380 02 02</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live 81-Province x 973-District x 35-Brand Anti-Spam SEO & Schema Studio -->
+    <section id="seo-motoru" class="p-section">
+      <div class="container-xl">
+        <div style="margin-bottom:2rem;" class="reveal-up">
+          <span style="font-size:0.76rem;font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:var(--brand);">Google Spam Cezasına Karşı Akıllı Yerel SEO Mimarisi</span>
+          <h2 style="font-size:clamp(1.65rem,2.7vw,2.25rem);margin:0.35rem 0 0.5rem;">81 İl × 973 İlçe × 35 Marka Canlı Sayfa &amp; Schema.org Üretici</h2>
+          <p style="color:var(--p-muted);max-width:72ch;margin:0;font-size:0.94rem;">
+            Rakiplerin 83 milyon kopya sayfayı tek günde basıp Google "Doorway / Kopya İçerik" filtresine takılmasının aksine; her ilçe ve marka kombinasyonunda o markanın gerçek arıza kodlarını, ilçe araç sayısını ve <code>HomeAndConstructionBusiness</code> JSON-LD verisini dinamik üreten anti-spam mimari:
+          </p>
+        </div>
+
+        <div class="seo-studio-grid reveal-up">
+          <div class="lux-card">
+            <h3 style="margin:0 0 0.35rem;font-size:1.15rem;">Bölge ve Marka Kombinasyonu Seçin</h3>
+            <div style="display:grid;gap:0.85rem;">
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="seoProv">İl (81 İl)</label>
+                <select id="seoProv" class="p-select"></select>
+              </div>
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="seoDist">İlçe (973 İlçe Matrisi)</label>
+                <select id="seoDist" class="p-select"></select>
+              </div>
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="seoBrand">Marka (35 Marka)</label>
+                <select id="seoBrand" class="p-select"></select>
+              </div>
+              <div>
+                <label style="font-size:0.78rem;font-weight:700;display:block;margin-bottom:0.25rem;" for="seoCat">Hizmet Branşı (7 Branş)</label>
+                <select id="seoCat" class="p-select"></select>
+              </div>
+            </div>
+            <div style="margin-top:0.6rem;padding:0.85rem 1rem;border-radius:14px;background:var(--brand-soft);color:var(--brand-ink);font-size:0.82rem;font-weight:600;">
+              ✓ Drip-Feed Sitemap Koruması Aktif: Günde kademeli 250 URL dizine açılarak organik otorite korunur.
+            </div>
+          </div>
+
+          <div>
+            <div class="serp-preview-card" id="serpPreviewBox"></div>
+            <pre class="schema-code mono" id="schemaPreviewBox"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid var(--p-border);padding:2.5rem 0;color:var(--p-muted);font-size:0.84rem;">
+    <div class="container-xl" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;">
+      <span>© 2026 <strong style="color:var(--p-ink);" data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</strong> · Bağımsız Özel Teknik Servis</span>
+      <span class="tnum">Çağrı Merkezi: <strong style="color:var(--p-ink);" data-servis-phone>0850 380 02 02</strong> · Yedek: <strong style="color:var(--p-ink);" data-servis-phone-secondary>444 6 082</strong></span>
+    </div>
+  </footer>
+
+  <div id="floatingDockHost"></div>
+
+  <script src="../assets/servis-data.js"></script>
+  <script>
+    (function () {
+      const MS = window.MerkezServis;
+      MS.mountStudioChrome('tema3', '../');
+
+      // Dark / Light Surface Mode Toggle
+      const modeBtn = document.getElementById('surfaceModeBtn');
+      const modeIcon = document.getElementById('surfaceModeIcon');
+      const modeText = document.getElementById('surfaceModeText');
+      modeBtn.addEventListener('click', () => {
+        const cur = document.documentElement.getAttribute('data-surface-mode') || 'dark';
+        const next = cur === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-surface-mode', next);
+        modeIcon.textContent = next === 'dark' ? '☀' : '☾';
+        modeText.textContent = next === 'dark' ? 'Açık Mod' : 'Koyu Mod';
+      });
+
+      // Marquee
+      const mTrack = document.getElementById('prestigeMarquee');
+      const mHtml = MS.BRANDS.map(b => `<span style="display:inline-flex;align-items:center;padding:0.4rem 0.9rem;border-radius:12px;border:1px solid var(--p-border);background:var(--p-card);color:var(--p-ink);">${MS.renderBrandMarkSvg(b)}</span>`).join('');
+      mTrack.innerHTML = mHtml + mHtml;
+
+      // Savings Calculator
+      const billR = document.getElementById('billRange');
+      const radR = document.getElementById('radRange');
+      const yearR = document.getElementById('yearRange');
+      function updateCalc() {
+        const bill = Number(billR.value);
+        const rads = Number(radR.value);
+        const yrs = Number(yearR.value);
+        document.getElementById('billValLabel').textContent = bill.toLocaleString('tr-TR') + ' TL / Ay';
+        document.getElementById('radValLabel').textContent = rads + ' Petek';
+        document.getElementById('yearValLabel').textContent = yrs + ' Yıl';
+        const pct = Math.min(0.32, 0.14 + yrs * 0.032 + Math.min(rads, 10) * 0.004);
+        const monthlySave = Math.round(bill * pct);
+        const seasonSave = monthlySave * 5;
+        document.getElementById('seasonalSaveOut').textContent = seasonSave.toLocaleString('tr-TR') + ' TL';
+        document.getElementById('saveExplainOut').innerHTML = `Termal kameralı ilaçlı petek temizliği ve yoğuşmalı kombi kalibrasyonu ile aylık yaklaşık <strong>${monthlySave.toLocaleString('tr-TR')} TL (%${Math.round(pct * 100)})</strong> doğalgaz tasarrufu sağlanır; işlem ücreti ilk ayda kendini amorti eder.`;
+      }
+      [billR, radR, yearR].forEach(el => el.addEventListener('input', updateCalc));
+      updateCalc();
+
+      // Live SEO & JSON-LD Studio
+      const seoProv = document.getElementById('seoProv');
+      const seoDist = document.getElementById('seoDist');
+      const seoBrand = document.getElementById('seoBrand');
+      const seoCat = document.getElementById('seoCat');
+
+      MS.ALL_81_PROVINCES.forEach(p => seoProv.add(new Option(`${p.plate} - ${p.name}`, p.slug)));
+      seoProv.value = 'mersin';
+      MS.BRANDS.forEach(b => seoBrand.add(new Option(b.name, b.slug)));
+      seoBrand.value = 'vaillant';
+      MS.SERVICE_CATEGORIES.forEach(c => seoCat.add(new Option(c.name, c.id)));
+      seoCat.value = 'kombi';
+
+      function populateDistricts() {
+        const prov = MS.ALL_81_PROVINCES.find(p => p.slug === seoProv.value) || MS.ALL_81_PROVINCES[0];
+        seoDist.innerHTML = '';
+        prov.districts.forEach(d => seoDist.add(new Option(d, d)));
+      }
+
+      function updateSeoStudio() {
+        const res = MS.buildSeoPreview(seoProv.value, seoDist.value, seoBrand.value, seoCat.value);
+        document.getElementById('serpPreviewBox').innerHTML = `
+          <div style="font-size:0.76rem;color:#475569;margin-bottom:0.25rem;">https://merkezservis.com.tr<span class="mono" style="color:#059669;">${res.urlPath}</span></div>
+          <div style="font-size:1.12rem;font-weight:700;color:#1a0dab;margin-bottom:0.35rem;line-height:1.3;">${res.title}</div>
+          <p style="margin:0 0 0.7rem;font-size:0.85rem;color:#374151;line-height:1.5;">${res.uniqueIntro}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.45rem;font-size:0.75rem;font-weight:700;color:#0f172a;">
+            <span style="background:#f1f5f9;padding:0.22rem 0.6rem;border-radius:6px;">★★★★★ 4.9 (Yerel İşletme Şeması)</span>
+            <span style="background:#ecfdf5;color:#065f46;padding:0.22rem 0.6rem;border-radius:6px;">Öne Çıkan Kod: ${res.topFault.code} — ${res.topFault.title}</span>
+          </div>
+        `;
+        document.getElementById('schemaPreviewBox').textContent = res.schemaJson;
+      }
+
+      seoProv.addEventListener('change', () => {
+        populateDistricts();
+        updateSeoStudio();
+      });
+      [seoDist, seoBrand, seoCat].forEach(el => el.addEventListener('change', updateSeoStudio));
+      window.addEventListener('storage', updateSeoStudio);
+      populateDistricts();
+      updateSeoStudio();
+    })();
+  </script>
+</body>
+</html>

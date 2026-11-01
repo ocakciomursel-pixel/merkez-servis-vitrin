@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="tr" data-default-palette="royal-blue">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Merkez Beyaz Eşya Servisi — 3 Modern Tema, 5 Renk Seçeneği, Rakip Analizi &amp; Yönetim Vitrini</title>
+  <meta name="description" content="Merkez Beyaz Eşya Servisi için hazırlanan 3 farklı modern web teması, 5 canlı renk paleti, tek tıkla 0850 numara yönetim paneli ve rakip analizi sunumu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/studio-ui.css">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --ink-2: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .font-outfit {
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Showcase Hero */
+    .hub-hero {
+      position: relative;
+      padding: 3.8rem 0 3.2rem;
+      background:
+        radial-gradient(720px circle at 15% 10%, var(--brand-glow), transparent 64%),
+        radial-gradient(620px circle at 85% 20%, rgba(14, 165, 233, 0.09), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.95rem;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      border: 1px solid var(--brand-soft-2);
+      color: var(--brand-ink);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .hub-hero h1 {
+      font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.15rem, 4.3vw, 3.55rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.09;
+      margin: 0 0 1.05rem;
+      max-width: 22ch;
+    }
+
+    .hub-hero h1 .grad-span {
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hub-lead {
+      font-size: 1.08rem;
+      color: var(--ink-2);
+      max-width: 68ch;
+      margin: 0 0 1.75rem;
+    }
+
+    /* Interactive Color Palette Studio Box */
+    .color-studio-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.15rem 1.35rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .color-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .hub-color-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.52rem 0.95rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: #f8fafc;
+      color: var(--ink-2);
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 180ms var(--ease-spring);
+    }
+
+    .hub-color-pill:hover {
+      transform: translateY(-1px);
+      border-color: var(--brand);
+    }
+
+    .hub-color-pill.active {
+      background: var(--brand-soft);
+      border-color: var(--brand);
+      color: var(--brand-ink);
+      box-shadow: 0 0 0 3px var(--brand-ring);
+    }
+
+    .pill-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex: none;
+    }
+
+    /* Theme Showcase Grid */
+    .hub-section {
+      padding: 4.2rem 0;
+    }
+
+    .hub-section-alt {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .theme-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.6rem;
+    }
+
+    @media (max-width: 920px) {
+      .theme-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .showcase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .showcase-preview {
+      position: relative;
+      height: 235px;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    .showcase-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 520ms var(--ease-spring);
+    }
+
+    .showcase-card:hover .showcase-preview img {
+      transform: scale(1.04);
+    }
+
+    .showcase-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.34rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.84);
+      backdrop-filter: blur(10px);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.76rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .showcase-body {
+      padding: 1.6rem 1.7rem 1.7rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .showcase-body h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      margin: 0 0 0.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .showcase-body p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0 0 1.15rem;
+      flex: 1;
+    }
+
+    .feature-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .f-chip {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.28rem 0.68rem;
+      border-radius: 9px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+    }
+
+    .btn-launch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.88rem 1.35rem;
+      border-radius: 14px;
+      background: var(--brand-grad);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: var(--shadow-brand);
+      transition: transform 180ms var(--ease-spring), filter 180ms ease;
+    }
+
+    .btn-launch:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    /* Extra 6 Modules Grid */
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 940px) {
+      .extras-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .extras-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .extra-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.45rem;
+    }
+
+    .extra-num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-weight: 800;
+      font-size: 0.86rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Competitor Analysis Table */
+    .comp-table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .comp-table th {
+      text-align: left;
+      padding: 1.05rem 1.15rem;
+      background: #f1f5f9;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--ink-2);
+    }
+
+    .comp-table td {
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .comp-win {
+      background: var(--brand-soft);
+      font-weight: 600;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+  <div id="studioBarHost"></div>
+
+  <header class="hub-hero">
+    <div class="container-xl">
+      <div class="hub-badge">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span>Özel Canlı Sunum · <span data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</span></span>
+      </div>
+
+      <h1>23 domain ağınız için <span class="grad-span">3 modern tema, 5 canlı renk</span> ve tek tık yönetim sistemi.</h1>
+
+      <p class="hub-lead">
+        İstediğiniz <strong>81 il × 973 ilçe × 35 marka × 7 hizmet branşı</strong> ve tek tıkla <strong><span data-servis-phone>0850 380 02 02</span></strong> numara yönetim altyapısını; rakiplerin eksiklerini kapatan 6 ek gelir modülü ve yüksek dönüşümlü modern tasarımlarla canlıya aldık.
+      </p>
+
+      <div class="color-studio-box">
+        <div>
+          <strong style="display:block;font-size:0.92rem;">Canlı Renk Seçeneğini Test Edin (Tüm Temalara Anında Uygulanır):</strong>
+          <span style="font-size:0.8rem;color:var(--muted);">3 Tema × 5 Kurumsal Renk + Koyu/Açık Mod = 20+ farklı kombinasyonla 23 sitenizin hiçbiri kopya görünmez.</span>
+        </div>
+        <div id="hubColorPills" class="color-pills-row" role="group" aria-label="Renk Paleti Seçimi"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 3 Themes + Live Admin Panel Cards -->
+    <section class="hub-section">
+      <div class="container-xl">
+        <div style="margin-bottom:2.2rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Canlı Önizleme Vitrini</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.75rem,3vw,2.4rem);margin:0.3rem 0 0;">3 Farklı Tasarım Mimarisi + Tek Tık Yönetim Paneli</h2>
+        </div>
+
+        <div class="theme-cards-grid">
+          <!-- Tema 1 -->
+          <article class="showcase-card hover-lift reveal-up">
+            <div class="showcase-preview">
+              <img src="./assets/photos/hero-technician-kitchen.jpg" alt="Tema 1 Modern Kurumsal Bento önizleme">
+              <span class="showcase-tag">TEMA 1 · MODERN KURUMSAL BENTO</span>
+            </div>
+            <div class="showcase-body">
+              <h3>Tema 1: Modern Kurumsal &amp; Arıza Teşhis</h3>
+              <p>Global ev servis liderleri (Puls &amp; AppleCare) çizgisinde ferah kurumsal güven mimarisi. Hero'da hızlı bölge/ekip sorgu barı, 35 marka kayan şerit, 7 branş foto-bento ve interaktif Arıza Kodu Ön Teşhis Konsolu içerir.</p>
+              <div class="feature-bullets">
+                <span class="f-chip">Hızlı Ekip Sorgu Barı</span>
+                <span class="f-chip">Arıza Kodu Motoru (E18, F28, E15)</span>
+                <span class="f-chip">81 İl Araç Radarı</span>
+                <span class="f-chip">5 Canlı Renk</span>
+              </div>
+              <a class="btn-launch" href="./tema-1-kurumsal/index.html">Tema 1'i Canlı İncele →</a>
+            </div>
+          </article>
+
+          <!-- Tema 2 -->
+          <article class="showcase-card hover-lift reveal-up">
+            <div class="showcase-preview">
+              <img src="./assets/photos/klima-service.jpg" alt="Tema 2 Hızlı Çağrı ve Dijital Garanti önizleme">
+              <span class="showcase-tag">TEMA 2 · YÜKSEK DÖNÜŞÜM &amp; DİJİTAL GARANTİ</span>
+            </div>
+            <div class="showcase-body">
+              <h3>Tema 2: 60 Saniyede Usta Çağır &amp; Garanti Takip</h3>
+              <p>Google Ads ve mobil aramalarda maksimum telefon/form dönüşümü için tasarlandı. 3 adımlı interaktif cihaz seçme sihirbazı ve müşteriye uygulama indirtmeden webden çalışan 4 aşamalı 1 Yıl Garanti Fişi sorgulama ekranı sunar.</p>
+              <div class="feature-bullets">
+                <span class="f-chip">3 Adımlı Hızlı Kayıt Sihirbazı</span>
+                <span class="f-chip">Webden 1 Yıl Garanti Sorgu</span>
+                <span class="f-chip">WhatsApp Video Arıza</span>
+                <span class="f-chip">5 Canlı Renk</span>
+              </div>
+              <a class="btn-launch" href="./tema-2-hizli-cagri/index.html">Tema 2'yi Canlı İncele →</a>
+            </div>
+          </article>
+
+          <!-- Tema 3 -->
+          <article class="showcase-card hover-lift reveal-up">
+            <div class="showcase-preview">
+              <img src="./assets/photos/ankastre-kitchen.jpg" alt="Tema 3 Prestij Ankastre ve SEO Stüdyosu önizleme">
+              <span class="showcase-tag">TEMA 3 · KOYU/AÇIK MOD PRESTİJ &amp; SEO</span>
+            </div>
+            <div class="showcase-body">
+              <h3>Tema 3: Prestij Ankastre, İklimlendirme &amp; SEO Motoru</h3>
+              <p>Tek tıkla Koyu / Açık Mod geçişli üst segment tasarım. Miele, Gaggenau, Siemens, Vaillant ve Viessmann müşterilerine hitap eder; Doğalgaz Tasarruf Hesaplayıcı ve canlı 81 İl × 973 İlçe × 35 Marka Google SERP/Schema önizleyicisi barındırır.</p>
+              <div class="feature-bullets">
+                <span class="f-chip">Koyu &amp; Açık Mod Geçişi</span>
+                <span class="f-chip">Kombi + Petek Tasarruf Hesabı</span>
+                <span class="f-chip">Canlı Google SERP &amp; Schema</span>
+                <span class="f-chip">5 Canlı Renk</span>
+              </div>
+              <a class="btn-launch" href="./tema-3-prestij/index.html">Tema 3'ü Canlı İncele →</a>
+            </div>
+          </article>
+
+          <!-- Admin Panel -->
+          <article class="showcase-card hover-lift reveal-up">
+            <div class="showcase-preview">
+              <img src="./assets/photos/service-van-parts.jpg" alt="Canlı Yönetim ve Tek Tık Numara Paneli önizleme">
+              <span class="showcase-tag">KOMUTA MERKEZİ · TEK TIK NUMARA &amp; 23 SİTE</span>
+            </div>
+            <div class="showcase-body">
+              <h3>Canlı Yönetim, Numara &amp; Usta Atama Paneli</h3>
+              <p>Çağrı merkezi numaranızı (<span class="mono" data-servis-phone>0850 380 02 02</span>), yedek hattınızı ve tema renginizi tek tıkla değiştirip 3 temada birden anında test edin. Gelen iş emirlerini tek tıkla bölge ustasına WhatsApp'tan iletin.</p>
+              <div class="feature-bullets">
+                <span class="f-chip">Tek Tık 0850 &amp; WhatsApp Değiştir</span>
+                <span class="f-chip">Ustaya WhatsApp İş Atama</span>
+                <span class="f-chip">%30 Komisyon Takibi</span>
+                <span class="f-chip">23 Domain Anti-Spam Matrisi</span>
+              </div>
+              <a class="btn-launch" href="./yonetim-paneli/index.html">Canlı Yönetim Panelini Aç →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 Extra Revenue-Generating Modules -->
+    <section class="hub-section hub-section-alt">
+      <div class="container-xl">
+        <div style="margin-bottom:2.2rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İstediklerinize Ek Olarak Eklediğimiz Özellikler</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0;">Çağrı Sayısını ve Cironuzu Artıran 6 Ekstra Modül</h2>
+        </div>
+
+        <div class="extras-grid reveal-up">
+          <div class="extra-card">
+            <span class="extra-num">01</span>
+            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Arıza Kodu Organik Trafik Yakalayıcı</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Google'da "Bosch E18 hatası", "Vaillant F28" aratan hazır müşterileri reklamsız yakalayıp tek tıkla 0850 hattınıza bağlar.</p>
+          </div>
+          <div class="extra-card">
+            <span class="extra-num">02</span>
+            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Uygulama İndirtmeyen 1 Yıl Garanti Sorgu</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Servisfoni gibi müşteriyi uygulama indirmeye zorlayıp kaçırmak yerine, iş emri numarasıyla doğrudan webden garanti belgesi gösterir.</p>
+          </div>
+          <div class="extra-card">
+            <span class="extra-num">03</span>
+            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Google Ads Hesap Askı Kalkanı</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Teknik servis reklamlarında sık yaşanan "yetkili servis yanıltması" askılarını önlemek için panelden açılıp kapanabilen şeffaf özel servis şeridi.</p>
+          </div>
+          <div class="extra-card">
+            <span class="extra-num">04</span>
+            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Drip-Feed Anti-Spam Sitemap Motoru</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.88rem;">83 milyon sayfayı bir günde açıp Google spam filtresine yakalanmak yerine, günlük belirlediğiniz limitle (Örn: 250 URL/gün) doğal indeks alır.</p>
+          </div>
+          <div class="extra-card">
+            <span class="extra-num">05</span>
+            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">23 Domain Sıfır Kopya Ayak İzi</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.88rem;">3 farklı HTML şablonu × 5 kurumsal renk paleti + Koyu/Açık mod sayesinde 23 domaininizin her biri Google gözünde özgün bir marka gibi çalışır.</p>
+          </div>
+          <div class="extra-card">
+            <span class="extra-num">06</span>
+            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Ustaya WhatsApp İş Atama &amp; %30 Pay</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Gelen çağrı/form kaydını tek tuşla sahadaki anlaşmalı ustaya düzenli WhatsApp iş emri olarak atar ve komisyon hakedişini otomatik hesaplar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitor Benchmark Matrix -->
+    <section class="hub-section">
+      <div class="container-xl">
+        <div style="margin-bottom:2rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Sektörel Rakip Analizi</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0.45rem;">Rakiplerin Zayıf Noktaları vs. Sizin Yeni Sisteminiz</h2>
+          <p style="color:var(--muted);margin:0;max-width:68ch;">Sektördeki mevcut ulusal servis ağlarını ve hazır 83M sayfa scriptlerini teknik olarak inceleyip zayıf kaldıkları her noktayı sizin lehinize çevirdik:</p>
+        </div>
+
+        <div class="comp-table-wrap reveal-up">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Kriter</th>
+                <th>Servisfoni.com.tr</th>
+                <th>Klasik 83M Sayfa Scriptleri</th>
+                <th style="background:var(--brand);color:#ffffff;">Sizin Yeni Merkez Sisteminiz</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tasarım &amp; Çoklu Domain Çeşitliliği</strong></td>
+                <td>Tek tip sabit kırmızı şablon</td>
+                <td>23 sitede birebir aynı HTML (Yüksek ban riski)</td>
+                <td class="comp-win">✓ 3 Farklı Modern Tema + 5 Canlı Renk + Koyu/Açık Mod</td>
+              </tr>
+              <tr>
+                <td><strong>Google Sitemap &amp; İndeks Sağlığı</strong></td>
+                <td><code>/sitemap.xml</code> 404 hatası veriyor</td>
+                <td>Tek seferde milyonlarca kopya URL (Doorway Spam)</td>
+                <td class="comp-win">✓ Kademeli Drip-Feed Sitemap + Özgün İlçe/Arıza Kodu Verisi</td>
+              </tr>
+              <tr>
+                <td><strong>1 Yıl Garanti &amp; Servis Takibi</strong></td>
+                <td>Müşteriyi mobil uygulama indirmeye zorluyor</td>
+                <td>Hiçbir takip veya dijital fiş yok</td>
+                <td class="comp-win">✓ Uygulama İndirtmeden Webden 4 Aşamalı Garanti Sorgu</td>
+              </tr>
+              <tr>
+                <td><strong>Arıza Kodu Aramaları (E18, F28 vb.)</strong></td>
+                <td>Arıza kodu teşhis modülü yok</td>
+                <td>Sadece başlık tekrarı, teknik çözüm yok</td>
+                <td class="comp-win">✓ İnteraktif Arıza Kodu Ön Teşhis + Schema.org JSON-LD</td>
+              </tr>
+              <tr>
+                <td><strong>Google Ads Reklam Uyumu</strong></td>
+                <td>Standart metin</td>
+                <td>Sık sık "Yanıltıcı İçerik" reklam askısı</td>
+                <td class="comp-win">✓ Panelden Yönetilen "Bağımsız Özel Servis" Politika Kalkanı</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:#0f172a;color:#94a3b8;padding:2.5rem 0;font-size:0.85rem;">
+    <div class="container-xl" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;">
+      <span>Hazırlanan Özel Sunum: <strong style="color:#ffffff;" data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</strong></span>
+      <span class="tnum">Aktif Demo Hattı: <strong style="color:#ffffff;" data-servis-phone>0850 380 02 02</strong> · Yedek: <strong style="color:#ffffff;" data-servis-phone-secondary>444 6 082</strong></span>
+    </div>
+  </footer>
+
+  <div id="floatingDockHost"></div>
+
+  <script src="./assets/servis-data.js"></script>
+  <script>
+    (function () {
+      const MS = window.MerkezServis;
+      MS.mountStudioChrome('hub', './');
+
+      const pillHost = document.getElementById('hubColorPills');
+      function renderHubPills() {
+        const active = document.documentElement.getAttribute('data-palette') || 'royal-blue';
+        pillHost.innerHTML = MS.COLOR_PALETTES.map(p => `
+          <button type="button" class="hub-color-pill ${p.id === active ? 'active' : ''}" data-hub-pal="${p.id}">
+            <span class="pill-dot" style="background:${p.hex};"></span>
+            <span>${p.name}</span>
+          </button>
+        `).join('');
+        pillHost.querySelectorAll('[data-hub-pal]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.setPalette(btn.getAttribute('data-hub-pal'));
+            renderHubPills();
+          });
+        });
+      }
+      window.addEventListener('merkez:palette-changed', renderHubPills);
+      renderHubPills();
+    })();
+  </script>
+</body>
+</html>
