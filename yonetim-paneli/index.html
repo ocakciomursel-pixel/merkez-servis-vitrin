@@ -589,10 +589,10 @@
       background: var(--brand);
     }
 
-    /* Theme & Color Cards */
+    /* Theme & Color Cards (4 Distinct Themes) */
     .themes-3-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.05rem;
       margin-bottom: 1.35rem;
     }
@@ -601,6 +601,85 @@
       .themes-3-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    .live-pulse-badge {
+      background: #059669 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    .trail-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.52rem;
+      border-radius: 7px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--ink-2);
+      margin: 0.12rem 0.18rem 0.12rem 0;
+    }
+
+    .act-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin: 0.12rem 0.18rem 0.12rem 0;
+    }
+
+    .act-pill.call {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+    }
+
+    .act-pill.wa {
+      background: #e0f2fe;
+      color: #075985;
+      border: 1px solid #7dd3fc;
+    }
+
+    .act-pill.fraud {
+      background: #fff1f2;
+      color: #be123c;
+      border: 1px solid #fda4af;
+    }
+
+    .one-click-phone-hero {
+      background: linear-gradient(135deg, var(--brand-soft) 0%, #ffffff 100%);
+      border: 2px solid var(--brand);
+      border-radius: 20px;
+      padding: 1.35rem 1.45rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .preset-phone-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.46rem 0.85rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all 150ms ease;
+    }
+
+    .preset-phone-chip:hover, .preset-phone-chip.active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand-ink);
     }
 
     .theme-pick-card {
@@ -758,6 +837,12 @@
           <span>Genel Özet &amp; Analitik</span>
         </button>
 
+        <button type="button" class="nav-tab-btn" data-tab-target="visitors">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          <span>Canlı Ziyaretçi &amp; Telefon</span>
+          <span class="badge-count live-pulse-badge tnum" id="sideVisitorBadge">7</span>
+        </button>
+
         <button type="button" class="nav-tab-btn" data-tab-target="orders">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
           <span>İş Emirleri &amp; Hakediş</span>
@@ -771,11 +856,16 @@
         </button>
       </nav>
 
-      <span class="side-group-lbl">Site İçerikleri &amp; Katalog</span>
+      <span class="side-group-lbl">Site İçerikleri &amp; Google Ads</span>
       <nav class="side-nav" aria-label="Site İçerik Yönetimi">
         <button type="button" class="nav-tab-btn" data-tab-target="contact">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
-          <span>Numaralar &amp; Saatler</span>
+          <span>Tek Tık Numara (444 60 82)</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="webmaster">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>Search Console &amp; Ads URL</span>
         </button>
 
         <button type="button" class="nav-tab-btn" data-tab-target="content">
@@ -785,7 +875,7 @@
 
         <button type="button" class="nav-tab-btn" data-tab-target="catalog">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          <span>7 Branş, 35 Marka &amp; Kodlar</span>
+          <span>10 Branş, 38 Marka &amp; Kodlar</span>
         </button>
 
         <button type="button" class="nav-tab-btn" data-tab-target="reviews">
@@ -795,7 +885,7 @@
 
         <button type="button" class="nav-tab-btn" data-tab-target="appearance">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>Tema, Renk, SEO &amp; Reklam</span>
+          <span>4 Tema, 5 Renk &amp; 81 İl SEO</span>
         </button>
       </nav>
 
@@ -804,6 +894,8 @@
         <a href="../tema-1-kurumsal/index.html"><span>Tema 1: Kurumsal 3D Bento</span><span>↗</span></a>
         <a href="../tema-2-hizli-cagri/index.html"><span>Tema 2: Kinetik Hızlı Çağrı</span><span>↗</span></a>
         <a href="../tema-3-prestij/index.html"><span>Tema 3: Prestij Spotlight</span><span>↗</span></a>
+        <a href="../tema-4-apple-vitrin/index.html"><span>Tema 4: Apple Galeri Seçici</span><span>↗</span></a>
+        <a href="../marka-servisi/index.html?marka=bosch"><span>Örnek: Bosch Reklam Sayfası</span><span>↗</span></a>
       </div>
 
       <div class="side-status-box">
@@ -811,7 +903,7 @@
           <span class="live-dot"></span>
           <strong style="font-size:0.78rem;">Aktif Çağrı Hattı</strong>
         </div>
-        <span class="mono" style="font-size:0.92rem;font-weight:700;color:var(--brand);" data-servis-phone>0850 380 02 02</span>
+        <span class="mono" style="font-size:0.98rem;font-weight:800;color:var(--brand);" data-servis-phone>444 60 82</span>
       </div>
     </aside>
 
@@ -819,22 +911,26 @@
     <main class="workspace">
       <div class="mobile-tabs" role="tablist">
         <button type="button" class="mob-tab-btn active" data-tab-target="overview">1. Özet</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="orders">2. İş Emirleri</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="techs">3. Ustalar</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="contact">4. Numaralar</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="content">5. İçerik &amp; Kampanya</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="catalog">6. Marka &amp; Kodlar</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="reviews">7. Yorum &amp; SSS</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="appearance">8. Tema &amp; SEO</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="visitors">2. Canlı Ziyaretçiler</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="contact">3. Tek Tık Numara</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="webmaster">4. Search Console &amp; Ads</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="orders">5. İş Emirleri</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="techs">6. Ustalar</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="content">7. İçerik &amp; Kampanya</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="catalog">8. 38 Marka &amp; Kodlar</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="reviews">9. Yorum &amp; SSS</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="appearance">10. 4 Tema &amp; SEO</button>
       </div>
 
       <div class="workspace-header">
         <div>
           <h1 class="workspace-title" id="paneHeading">Genel Özet &amp; Çok Kanallı Analitik</h1>
-          <p class="workspace-sub" id="paneSubheading">Saha operasyonunuzu, çağrı trafiğinizi, usta komisyonlarını ve sitedeki tüm detayları tek merkezden yönetin.</p>
+          <p class="workspace-sub" id="paneSubheading">Canlı ziyaretçileri (telefon modeli, saat, kalma süresi, gezdiği sayfalar), 444 60 82 numaranızı, Google Search Console kodlarınızı ve 4 temayı tek merkezden yönetin.</p>
         </div>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          <button type="button" class="btn-soft" data-jump-tab="contact">Hızlı Numara Değiştir</button>
+          <button type="button" class="btn-soft" data-jump-tab="visitors" style="border-color:#10b981;color:#059669;">🟢 Canlı Ziyaretçi Takibi</button>
+          <button type="button" class="btn-soft" data-jump-tab="contact">⚡ Tek Tık Numara Değiştir</button>
+          <button type="button" class="btn-soft" data-jump-tab="webmaster">Search Console &amp; Ads Kodu</button>
           <a id="openActiveThemeBtn" href="../tema-1-kurumsal/index.html" class="btn-primary">Sitede Canlı Gör ↗</a>
         </div>
       </div>
@@ -929,14 +1025,82 @@
             </div>
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
-              <button type="button" class="btn-soft" data-jump-tab="content">Kampanya Barını Düzenle →</button>
-              <button type="button" class="btn-soft" data-jump-tab="orders">İş Emirleri &amp; Hakediş →</button>
-              <button type="button" class="btn-soft" data-jump-tab="catalog">Marka &amp; Arıza Kodu Ekle →</button>
-              <button type="button" class="btn-soft" data-jump-tab="appearance">Tema, Renk &amp; SEO →</button>
+              <button type="button" class="btn-soft" data-jump-tab="visitors" style="border-color:#10b981;color:#059669;">🟢 Canlı Ziyaretçileri Gör →</button>
+              <button type="button" class="btn-soft" data-jump-tab="contact">⚡ Tek Tıkla Numara Değiştir →</button>
+              <button type="button" class="btn-soft" data-jump-tab="webmaster">Search Console &amp; Ads URL →</button>
+              <button type="button" class="btn-soft" data-jump-tab="appearance">4 Tema, 5 Renk &amp; SEO →</button>
             </div>
           </div>
         </div>
       </section>
+
+
+      <!-- 1B. CANLI ZİYARETÇİ TELEMETRİ & TELEFON / SÜRE / SAYFA TAKİP PANELİ -->
+      <section class="tab-pane" id="pane-visitors">
+        <div class="kpi-grid-6" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Toplam Kayıtlı Ziyaretçi</span><span class="kpi-pill" id="visOnlinePill">2 Şu An Sitede</span></div>
+            <strong class="kpi-num tnum" id="visTotalCount">7</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Sizin şu anki canlı oturumunuz dahil</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Cep Telefonu Giriş Oranı</span><span class="kpi-pill">iOS &amp; Android</span></div>
+            <strong class="kpi-num tnum" id="visMobilePct">%86</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">iPhone, Samsung, Xiaomi marka tespiti</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Ort. Sitede Kalma Süresi</span><span class="kpi-pill">Canlı Sayaç</span></div>
+            <strong class="kpi-num tnum" id="visAvgDur">2 dk 18 sn</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Saniye bazlı aktif ekran süresi</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Tıkla Ara &amp; WhatsApp</span><span class="kpi-pill">Dönüşüm</span></div>
+            <strong class="kpi-num tnum" style="color:#059669;" id="visCallClicks">5 Arama</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Hangi sayfadan aradığı kayıtlı</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Şüpheli Reklam Tıklaması</span><span class="kpi-pill" style="background:#fff1f2;color:#be123c;">Koruma</span></div>
+            <strong class="kpi-num tnum" style="color:#be123c;" id="visFraudCount">1 Uyarı</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Rakip tekrarlı tıklama tespiti</span>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <div class="toolbar-row">
+            <div style="display:flex;flex-wrap:wrap;gap:0.55rem;align-items:center;">
+              <div class="filter-pills" id="visitorFilterBar">
+                <button type="button" class="f-pill active" data-vis-filter="all">Tümü</button>
+                <button type="button" class="f-pill" data-vis-filter="mobile">📱 Cep Telefonu</button>
+                <button type="button" class="f-pill" data-vis-filter="called">📞 Tıkla Ara Yapanlar</button>
+                <button type="button" class="f-pill" data-vis-filter="ads">🎯 Google Ads</button>
+                <button type="button" class="f-pill" data-vis-filter="fraud">⚠️ Şüpheli Tıklama</button>
+              </div>
+              <input id="visitorSearchIn" type="search" class="clean-input" style="width:240px;padding:0.46rem 0.8rem;font-size:0.82rem;" placeholder="iPhone, Samsung, sayfa, şehir ara...">
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+              <button type="button" class="btn-soft" id="exportVisitorsCsvBtn">Excel / CSV İndir ↓</button>
+              <button type="button" class="btn-soft" id="clearDemoVisitorsBtn" title="Örnek kayıtları silip yalnızca gerçek canlı girişleri bırakır">Sadece Gerçek Girişleri Göster</button>
+            </div>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Durum &amp; Konum</th>
+                  <th>Girdiği Telefon / Cihaz Modeli</th>
+                  <th>Giriş Saati &amp; Son Aktiflik</th>
+                  <th>Ne Kadar Zaman Durdu</th>
+                  <th>Hangi Sayfalara Girdi (Sıralı Gezinti)</th>
+                  <th>Kaynak &amp; Yaptığı İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="visitorsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
 
       <!-- 2. İŞ EMİRLERİ, HAKEDİŞ & DİJİTAL GARANTİ FİŞİ -->
       <section class="tab-pane" id="pane-orders">
@@ -1008,6 +1172,7 @@
         </div>
       </section>
 
+
       <!-- 3. SAHA USTALARI & BÖLGE EKİP YÖNETİMİ -->
       <section class="tab-pane" id="pane-techs">
         <div class="panel-card" style="margin-bottom:1.2rem;">
@@ -1067,11 +1232,40 @@
         </div>
       </section>
 
-      <!-- 4. NUMARALAR, FİRMA BİLGİLERİ & ÇALIŞMA SAATLERİ -->
+
+      <!-- 4. TEK TIKLA TÜM SİTEDE NUMARA DEĞİŞTİRME, FİRMA BİLGİLERİ & ÇALIŞMA SAATLERİ -->
       <section class="tab-pane" id="pane-contact">
+        <!-- 1-CLICK GLOBAL PHONE SWITCHER HERO -->
+        <div class="one-click-phone-hero">
+          <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:0.75rem;margin-bottom:0.85rem;">
+            <div>
+              <span style="font-size:0.74rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">⚡ TEK KUTUDAN TÜM SİTEYE ANINDA YANSIR</span>
+              <h2 style="margin:0.2rem 0 0.25rem;font-size:1.25rem;">Tek Tıkla Tüm Sitedeki Çağrı Numarasını Değiştir</h2>
+              <p style="margin:0;font-size:0.84rem;color:var(--ink-2);">Buraya yeni numaranızı yazıp butona bastığınız saniye <strong>4 temanın tamamındaki</strong> Tıkla Ara butonları, üst/alt barlar, mobil sabit arama barı, <strong>38 marka özel sayfası</strong> ve <strong>71 Google Ads hizmet sayfası</strong> tek seferde güncellenir.</p>
+            </div>
+            <span class="mono" style="padding:0.45rem 0.9rem;border-radius:12px;background:#ffffff;border:1.5px solid var(--brand);font-weight:800;color:var(--brand);font-size:1rem;">Aktif: <span data-servis-phone>444 60 82</span></span>
+          </div>
+
+          <form id="oneClickPhoneForm" style="display:flex;flex-wrap:wrap;gap:0.65rem;align-items:center;margin-bottom:0.9rem;">
+            <input id="quickGlobalPhoneIn" type="text" class="clean-input mono" style="flex:1;min-width:220px;background:#ffffff;font-size:1.08rem;font-weight:800;border-color:var(--brand);" placeholder="Örn: 444 60 82 veya 0850 380 02 02">
+            <label style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:700;background:#ffffff;padding:0.68rem 0.9rem;border-radius:11px;border:1px solid var(--border);cursor:pointer;">
+              <input type="checkbox" id="quickSyncAllLinesChk" checked style="width:17px;height:17px;accent-color:var(--brand);">
+              <span>WhatsApp &amp; Nöbetçi Hattı da Eşitle</span>
+            </label>
+            <button type="submit" class="btn-primary" style="padding:0.78rem 1.4rem;font-size:0.92rem;">⚡ Tek Tıkla Tüm Sitede Değiştir</button>
+            <button type="button" class="btn-soft" id="savePhoneAsPresetBtn">+ Kayıtlı Hatlara Ekle</button>
+          </form>
+
+          <div>
+            <span style="font-size:0.76rem;font-weight:800;color:var(--muted);margin-right:0.45rem;">Kayıtlı Hatlarım (Tek Tıkla Geçiş):</span>
+            <div id="phonePresetsHost" style="display:inline-flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.35rem;"></div>
+          </div>
+          <div id="oneClickPhoneToast" class="toast-saved">✓ Yeni telefon numarası 4 temada, 38 marka sayfasında ve tüm Tıkla Ara butonlarında anında güncellendi!</div>
+        </div>
+
         <div class="panel-card">
-          <h2>Telefon Numaraları, WhatsApp Şablonu, Resmi Ünvan &amp; Çalışma Saatleri</h2>
-          <p class="panel-sub">Kaydettiğiniz anda 3 temadaki tüm arama butonları, WhatsApp bağlantıları, üst/alt bilgi alanları ve Schema.org verileri anında güncellenir.</p>
+          <h2>Detaylı Hatlar, WhatsApp Şablonu, Resmi Ünvan &amp; Çalışma Saatleri</h2>
+          <p class="panel-sub">Ana hat dışında ayrı bir yedek hat, ayrı bir WhatsApp numarası veya çalışma saati kullanmak isterseniz buradan detaylı düzenleyebilirsiniz.</p>
 
           <form id="fullContactForm">
             <div class="fields-grid">
@@ -1135,6 +1329,127 @@
               <div id="contactSavedToast" class="toast-saved">✓ Tüm telefon numaraları, WhatsApp şablonu, adres ve saatler 3 temada birden güncellendi!</div>
             </div>
           </form>
+        </div>
+      </section>
+
+
+      <!-- 4B. GOOGLE SEARCH CONSOLE, ANALYTICS, GOOGLE ADS DÖNÜŞÜM & HAZIR REKLAM URL'LERİ -->
+      <section class="tab-pane" id="pane-webmaster">
+        <div class="grid-2" style="margin-bottom:1.25rem;">
+          <div class="panel-card">
+            <h2>1. Google Search Console, Analytics &amp; Google Ads Kolay Kod Ekleme</h2>
+            <p class="panel-sub">Hiçbir yazılım dosyasına dokunmadan kodunuzu doğrudan kutuya yapıştırıp kaydedin. İster tam <code>&lt;meta name="google-site-verification" ...&gt;</code> etiketini, ister sadece doğrulama kodunu yapıştırabilirsiniz — sistem otomatik tanır ve tüm sayfalara yerleştirir.</p>
+
+            <form id="webmasterCodesForm" style="display:grid;gap:0.85rem;">
+              <div class="field">
+                <label for="wmGsc">Google Search Console Doğrulama Kodu veya HTML Meta Etiketi</label>
+                <input id="wmGsc" type="text" class="clean-input mono" placeholder='<meta name="google-site-verification" content="..." /> veya doğrudan kod'>
+              </div>
+              <div class="fields-grid">
+                <div class="field">
+                  <label for="wmGa4">Google Analytics 4 Ölçüm Kimliği (GA4)</label>
+                  <input id="wmGa4" type="text" class="clean-input mono" placeholder="G-XXXXXXXXXX">
+                </div>
+                <div class="field">
+                  <label for="wmGtm">Google Tag Manager Kimliği (GTM)</label>
+                  <input id="wmGtm" type="text" class="clean-input mono" placeholder="GTM-XXXXXXX">
+                </div>
+              </div>
+              <div class="fields-grid">
+                <div class="field">
+                  <label for="wmAdsId">Google Ads Dönüşüm Kimliği (AW-)</label>
+                  <input id="wmAdsId" type="text" class="clean-input mono" placeholder="AW-948271602">
+                </div>
+                <div class="field">
+                  <label for="wmAdsLbl">Tıkla Ara Telefon Dönüşüm Etiketi</label>
+                  <input id="wmAdsLbl" type="text" class="clean-input mono" placeholder="AbCdEfGhIjKlMnOp">
+                </div>
+              </div>
+              <div class="fields-grid">
+                <div class="field">
+                  <label for="wmYandex">Yandex Webmaster Doğrulama (İsteğe Bağlı)</label>
+                  <input id="wmYandex" type="text" class="clean-input mono" placeholder="yandex-verification kodu">
+                </div>
+                <div class="field">
+                  <label for="wmBing">Bing Webmaster Doğrulama (İsteğe Bağlı)</label>
+                  <input id="wmBing" type="text" class="clean-input mono" placeholder="msvalidate.01 kodu">
+                </div>
+              </div>
+              <div class="field">
+                <label for="wmHeadRaw">Özel &lt;head&gt; Takip / Doğrulama Kodu (Ekstra Script, Meta veya Pixel)</label>
+                <textarea id="wmHeadRaw" rows="3" class="clean-input mono" style="font-size:0.78rem;" placeholder="Google veya diğer reklam platformlarından verilen ekstra <script> veya <meta> kodunu buraya yapıştırabilirsiniz..."></textarea>
+              </div>
+              <div class="field">
+                <label for="wmBodyRaw">Özel &lt;body&gt; İçi Takip Kodu (İsteğe Bağlı)</label>
+                <textarea id="wmBodyRaw" rows="2" class="clean-input mono" style="font-size:0.78rem;" placeholder="Body etiketine eklenecek noscript / dönüşüm kodu..."></textarea>
+              </div>
+
+              <div style="display:flex;flex-wrap:wrap;gap:0.65rem;align-items:center;">
+                <button type="submit" class="btn-primary">Search Console &amp; Reklam Kodlarını Tüm Siteye Uygula ✓</button>
+                <button type="button" class="btn-soft" id="downloadSitemapXmlBtn">Search Console İçin sitemap.xml İndir ↓</button>
+              </div>
+              <div id="wmSavedToast" class="toast-saved">✓ Google Search Console, Analytics, Google Ads telefon dönüşümü ve özel kodlar tüm sayfalara canlı olarak işlendi!</div>
+            </form>
+          </div>
+
+          <div class="panel-card" style="display:flex;flex-direction:column;justify-content:space-between;gap:1rem;">
+            <div>
+              <h2>2. Search Console &amp; Google Ads Otomatik Özellikler</h2>
+              <p class="panel-sub">Sitenizde Google reklam bütçenizi koruyan ve telefon dönüşümlerini artıran hazır altyapılar:</p>
+
+              <div style="display:grid;gap:0.7rem;font-size:0.83rem;">
+                <div style="padding:0.85rem 1rem;border-radius:14px;background:var(--bg);border:1px solid var(--border);">
+                  <strong style="display:block;color:var(--ink);margin-bottom:0.2rem;">✓ Otomatik "Tıkla Ara (444 60 82)" Dönüşüm Sayacı</strong>
+                  <span style="color:var(--muted);">Ziyaretçi sitedeki herhangi bir <code>444 60 82</code> veya WhatsApp butonuna bastığı anda hem Google Ads dönüşüm etiketi tetiklenir hem de <strong>Canlı Ziyaretçi Takibi</strong> tablosuna hangi telefondan ve hangi sayfadan bastığı yazılır.</span>
+                </div>
+                <div style="padding:0.85rem 1rem;border-radius:14px;background:var(--bg);border:1px solid var(--border);">
+                  <strong style="display:block;color:var(--ink);margin-bottom:0.2rem;">✓ 38 Marka &amp; 71 Hizmete Özel Google Ads Sayfası</strong>
+                  <span style="color:var(--muted);">"Bosch Servisi", "E.C.A. Servisi", "Soğuk Hava Deposu Servisi" gibi aramalarda müşteriyi genel ana sayfaya değil, doğrudan o markanın logolu ve büyük <strong>HEMEN TIKLA ARA</strong> butonlu özel sayfasına indirir (Kalite Puanını yükseltir, tıklama maliyetini düşürür).</span>
+                </div>
+                <div style="padding:0.85rem 1rem;border-radius:14px;background:var(--bg);border:1px solid var(--border);">
+                  <strong style="display:block;color:var(--ink);margin-bottom:0.2rem;">✓ Dinamik Site Haritası (<code>/sitemap.xml</code>) &amp; Temiz URL</strong>
+                  <span style="color:var(--muted);">Sunucunuza kurulduğunda <code>siteniz.com/sitemap.xml</code> adresi Search Console için otomatik çalışır; <code>/bosch-servisi</code>, <code>/kombi-servisi</code> gibi kısa SEO linkleri hazırdır.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="adsBaseDomainIn">Reklam URL Tablosu İçin Alan Adınız (Domain)</label>
+              <input id="adsBaseDomainIn" type="text" class="clean-input mono" value="https://merkezservis.com.tr" placeholder="https://siteniz.com">
+            </div>
+          </div>
+        </div>
+
+        <!-- 38 Brands + 71 Keywords Ready-to-Copy Google Ads Final URLs Table -->
+        <div class="panel-card">
+          <div class="toolbar-row">
+            <div>
+              <h2 style="margin:0;">3. Google Ads Reklamları İçin Hazır Marka &amp; Hizmet Sayfa Linkleri (Tek Tık Kopyala)</h2>
+              <p class="panel-sub" style="margin:0.2rem 0 0;">İstediğiniz 38 markanın ve 71 hizmet başlığının özel açılış sayfası linkini tek tıkla kopyalayıp Google Ads "Nihai URL" kutusuna yapıştırabilirsiniz.</p>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+              <div class="filter-pills" id="adsUrlFilterBar">
+                <button type="button" class="f-pill active" data-adsurl-filter="all">Tümü (109 Sayfa)</button>
+                <button type="button" class="f-pill" data-adsurl-filter="brand">38 Marka Sayfası</button>
+                <button type="button" class="f-pill" data-adsurl-filter="service">71 Hizmet Sayfası</button>
+              </div>
+              <input id="adsUrlSearchIn" type="search" class="clean-input" style="width:210px;padding:0.44rem 0.75rem;font-size:0.8rem;" placeholder="Marka veya kelime ara...">
+            </div>
+          </div>
+
+          <div class="table-scroll" style="max-height:420px;overflow-y:auto;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tür</th>
+                  <th>Google Ads Anahtar Kelimesi / Marka</th>
+                  <th>Temiz Sunucu URL (Google Ads Nihai URL)</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="adsUrlsTableBody"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -1225,21 +1540,22 @@
         </div>
       </section>
 
-      <!-- 6. 7 HİZMET BRANŞI, 35+ MARKA & ARIZA KODU VERİTABANI -->
+
+      <!-- 6. 10 HİZMET BRANŞI, 38 MARKA & ARIZA KODU VERİTABANI -->
       <section class="tab-pane" id="pane-catalog">
-        <!-- 7 Service Categories Editor -->
+        <!-- 10 Service Categories Editor -->
         <div class="panel-card" style="margin-bottom:1.2rem;">
-          <h2>7 Ana Hizmet Branşı Yönetimi (Aç/Kapat, Başlık, Süre &amp; Kapsam Düzenle)</h2>
-          <p class="panel-sub">Kapattığınız branş siteden gizlenir; başlık, ortalama dakika veya açıklama değişikliğiniz Tema 1 ve Tema 2'de anında güncellenir.</p>
+          <h2>10 Ana Hizmet Branşı Yönetimi (Aç/Kapat, Başlık, Süre &amp; Kapsam Düzenle)</h2>
+          <p class="panel-sub">Beyaz Eşya, Buzdolabı, Çamaşır/Bulaşık, Kombi, Klima, Petek, Ankastre, TV, Endüstriyel Mutfak ve Soğuk Hava Deposu branşlarını anlık düzenleyin.</p>
           <div id="categoriesEditorHost"></div>
           <div id="catSavedToast" class="toast-saved">✓ Hizmet branşı güncellendi ve sitede yayına alındı!</div>
         </div>
 
-        <!-- 35+ Brands Manager -->
+        <!-- 38 Brands Manager -->
         <div class="panel-card" style="margin-bottom:1.2rem;">
           <div class="toolbar-row">
             <div>
-              <h2 style="margin:0;">Hizmet Verilen Markalar (<span id="activeBrandsCountLbl">35</span> Aktif Marka)</h2>
+              <h2 style="margin:0;">Hizmet Verilen Markalar (<span id="activeBrandsCountLbl">38</span> Aktif Marka)</h2>
               <p class="panel-sub" style="margin:0.2rem 0 0;">Markanın üzerine tıklayarak sitede aktif/pasif yapabilir veya yeni marka ekleyebilirsiniz.</p>
             </div>
             <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
@@ -1318,6 +1634,7 @@
         </div>
       </section>
 
+
       <!-- 7. MÜŞTERİ YORUMLARI & S.S.S. YÖNETİMİ -->
       <section class="tab-pane" id="pane-reviews">
         <div class="grid-equal">
@@ -1354,6 +1671,7 @@
           </div>
         </div>
       </section>
+
 
       <!-- 8. TEMA, 5 RENK, 81 İL SEO ŞABLONU & REKLAM KODLARI -->
       <section class="tab-pane" id="pane-appearance">
@@ -1406,6 +1724,31 @@
                 </div>
               </div>
             </div>
+
+            <div class="theme-pick-card" data-theme-card="tema-4-apple-vitrin">
+              <div class="theme-pick-thumb">
+                <img src="../assets/photos/buzdolabi-ultra.jpg" alt="Tema 4 Apple Galeri ve Görsel Cihaz Seçici">
+                <span class="theme-active-flag" style="display:none;">AKTİF TEMA</span>
+              </div>
+              <div style="padding:1.1rem;display:flex;flex-direction:column;gap:0.55rem;flex:1;">
+                <strong style="font-size:0.98rem;">Tema 4: Apple Galeri &amp; Görsel Seçici</strong>
+                <span style="font-size:0.8rem;color:var(--muted);flex:1;">Apple Store tarzı ultra-temiz galeri, 2 adımlı görsel cihaz + orijinal marka logosu seçici, tam boy ürün fotoğrafları ve ticari soğutma vitrini.</span>
+                <div style="display:flex;gap:0.45rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;" data-pick-theme="tema-4-apple-vitrin">Aktif Yap</button>
+                  <a href="../tema-4-apple-vitrin/index.html" class="btn-soft">Aç ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1.35rem;">
+            <label class="switch-row">
+              <span>
+                <strong style="display:block;font-size:0.86rem;">Üst Demo Seçici Barı Gizle (100% Temiz Gerçek Site Görünümü)</strong>
+                <span style="font-size:0.76rem;color:var(--muted);">İşaretli olduğunda sitenin en üstündeki tema/renk tanıtım barı tamamen kaldırılır ve site doğrudan müşteriye hazır canlı kurumsal görünümde açılır.</span>
+              </span>
+              <input type="checkbox" id="cleanTopModeToggle" checked>
+            </label>
           </div>
 
           <h2>2. Canlı Kurumsal Renk Paleti (5 Renk)</h2>
@@ -1489,6 +1832,7 @@
           </div>
         </div>
       </section>
+
     </main>
   </div>
 
@@ -1505,16 +1849,18 @@
         setTimeout(() => { el.style.display = 'none'; }, 3600);
       }
 
-      // 8-Tab Navigation Controller
+      // 10-Tab Navigation Controller
       const tabMeta = {
-        overview: { title: 'Genel Özet & Çok Kanallı Analitik', sub: 'Saha operasyonunuzu, çağrı trafiğinizi, usta komisyonlarını ve sitedeki tüm detayları tek merkezden yönetin.' },
+        overview: { title: 'Genel Özet & Çok Kanallı Analitik', sub: 'Canlı ziyaretçileri (telefon modeli, saat, kalma süresi, gezdiği sayfalar), 444 60 82 numaranızı, Search Console kodlarınızı ve 4 temayı tek merkezden yönetin.' },
+        visitors: { title: 'Canlı Ziyaretçi Telemetri & Cihaz / Süre / Sayfa Takibi', sub: 'Sitenize giren müşterilerin telefon/bilgisayar modelini, giriş saatini, sitede kaç dakika kaldığını, hangi sayfalarda gezdiğini ve Tıkla Ara dönüşümlerini canlı izleyin.' },
         orders: { title: 'İş Emirleri, Hakediş & Dijital Garanti Fişi', sub: 'Gelen servis taleplerine usta atayın, tahsil edilen ücretten otomatik komisyon hesaplayın ve WhatsApp fişi gönderin.' },
         techs: { title: 'Saha Ustaları & Bölge Komisyon Yönetimi', sub: 'Anlaşmalı ustalarınızı, hizmet bölgelerini, müsaitlik durumlarını ve merkez komisyon oranlarını yönetin.' },
-        contact: { title: 'Numaralar, Firma Bilgileri & Çalışma Saatleri', sub: '0850, 444, nöbetçi cep, WhatsApp karşılama mesajı, resmi ticaret ünvanı ve çalışma saatlerini tek tıkla güncelleyin.' },
+        contact: { title: 'Tek Tıkla Tüm Sitede Numara Değiştir (444 60 82) & Firma Bilgileri', sub: 'Tek kutudan 4 temadaki, 38 marka sayfasındaki ve tüm Tıkla Ara butonlarındaki telefon numarasını saniyesinde güncelleyin.' },
+        webmaster: { title: 'Google Search Console, Analytics, Ads Dönüşüm & Hazır Reklam URL\'leri', sub: 'Hiçbir kod dosyasına dokunmadan Search Console doğrulama kodunuzu, GA4/Ads etiketlerinizi yapıştırın ve 81 hazır Google Ads açılış sayfası linkini kopyalayın.' },
         content: { title: 'Kampanya Şeridi, Başlıklar & Garanti / Fiyat Politikası', sub: 'Üst kampanya duyuru barını, garanti süresini, varış dakikasını ve sitedeki canlı bileşenleri kontrol edin.' },
-        catalog: { title: '7 Hizmet Branşı, 35+ Marka & Arıza Kodu Veritabanı', sub: 'Hizmet branşlarını düzenleyin, markaları açıp kapatın veya yeni marka ve arıza teşhis kodu ekleyin.' },
+        catalog: { title: '10 Hizmet Branşı, 38 Orijinal Marka & Arıza Kodu Veritabanı', sub: 'Ev tipi beyaz eşya, kombi, klima, TV, endüstriyel mutfak ve soğuk hava deposu branşlarını, 38 markayı ve arıza kodlarını yönetin.' },
         reviews: { title: 'Doğrulanmış Müşteri Yorumları & S.S.S. Yönetimi', sub: 'Sitede yayınlanan müşteri yorumlarını ve sıkça sorulan soruları anlık ekleyin veya kaldırın.' },
-        appearance: { title: 'Tema, 5 Renk, 81 İl SEO Şablonu & Reklam Kodları', sub: '3 farklı animasyon stilindeki temayı, 5 rengi, 23 yıllık domain koruyucu SEO hızını ve Google Ads kodlarını yönetin.' }
+        appearance: { title: '4 Farklı Modern Tema, 5 Renk, 81 İl SEO & Görünüm Ayarları', sub: '4 farklı tasarım mimarisi, 5 kurumsal renk paleti, temiz canlı site modu, 23 yıllık domain koruyucu Drip-Feed SEO ve yedekleme.' }
       };
 
       function activateTab(tabId) {
@@ -1541,9 +1887,18 @@
         const map = {
           'tema-1-kurumsal': '../tema-1-kurumsal/index.html',
           'tema-2-hizli-cagri': '../tema-2-hizli-cagri/index.html',
-          'tema-3-prestij': '../tema-3-prestij/index.html'
+          'tema-3-prestij': '../tema-3-prestij/index.html',
+          'tema-4-apple-vitrin': '../tema-4-apple-vitrin/index.html'
         };
         document.getElementById('openActiveThemeBtn').setAttribute('href', map[cfg.activeTheme] || map['tema-1-kurumsal']);
+      }
+
+      function escapeHtml(str) {
+        return String(str == null ? '' : str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
       }
 
       // 1. Overview KPI & Live Status Renderer
@@ -1551,6 +1906,7 @@
         const cfg = MS.getConfig();
         const leads = MS.getLeads();
         const techs = MS.getTechnicians();
+        const visitors = MS.getVisitors();
         const activeTechCount = techs.filter(t => t.status !== 'off').length;
         const pendingCount = leads.filter(l => l.status === 'pending').length;
         const gross = leads.reduce((s, l) => s + (Number(l.feeTl) || 0), 0);
@@ -1559,6 +1915,9 @@
 
         document.getElementById('sideLeadBadge').textContent = leads.length;
         document.getElementById('sideTechBadge').textContent = techs.length;
+        const visBadge = document.getElementById('sideVisitorBadge');
+        if (visBadge) visBadge.textContent = visitors.length;
+
         document.getElementById('kpiTotalCalls').textContent = String(143 + leads.length);
         document.getElementById('kpiActiveTechs').textContent = `${activeTechCount} / ${techs.length} Usta`;
         document.getElementById('kpiLeadTotal').textContent = `${leads.length} Kayıt`;
@@ -1569,17 +1928,19 @@
 
         const themeNames = {
           'tema-1-kurumsal': 'Tema 1: Kurumsal 3D Bento',
-          'tema-2-hizli-cagri': 'Tema 2: Kinetik Hızlı Çağrı',
-          'tema-3-prestij': 'Tema 3: Prestij Spotlight & SEO'
+          'tema-2-hizli-cagri': 'Tema 2: Google Ads Hızlı Çağrı',
+          'tema-3-prestij': 'Tema 3: Prestij Spotlight & SEO',
+          'tema-4-apple-vitrin': 'Tema 4: Apple Galeri & Görsel Seçici'
         };
         const palObj = MS.COLOR_PALETTES.find(p => p.id === cfg.colorPalette) || MS.COLOR_PALETTES[0];
+        const gscOk = !!(cfg.googleSearchConsoleVerification && cfg.googleSearchConsoleVerification.trim());
         const statusRows = [
           ['Aktif Vitrin Teması', themeNames[cfg.activeTheme] || 'Tema 1'],
           ['Seçili Kurumsal Renk', palObj.name],
-          ['Ana Hat & WhatsApp', `${cfg.primaryPhoneDisplay} / ${cfg.whatsappDisplay}`],
-          ['Üst Kampanya Şeridi', cfg.promoBannerActive ? `Açık (${cfg.promoBannerCode || 'Aktif'})` : 'Kapalı'],
-          ['Aktif Hizmet & Marka', `${MS.getActiveCategories().length} Branş · ${MS.getActiveBrands().length} Marka · ${MS.getFaults().length} Arıza Kodu`],
-          ['Drip-Feed SEO & Garanti', `Günde ${cfg.dailyDripLimit} URL · ${cfg.warrantyMonths} Ay Garanti`]
+          ['Ana Çağrı & WhatsApp', `${cfg.primaryPhoneDisplay} / ${cfg.whatsappDisplay}`],
+          ['Canlı Ziyaretçi Takibi', `${visitors.length} Kayıtlı Oturum · Cihaz & Süre Aktif`],
+          ['Aktif Branş & Marka', `${MS.getActiveCategories().length} Branş · ${MS.getActiveBrands().length} Marka · ${MS.GOOGLE_ADS_KEYWORDS.length} Ads URL`],
+          ['Search Console & Garanti', `${gscOk ? '✓ Search Console Ekli' : 'Kod Bekliyor'} · ${cfg.warrantyMonths} Ay Garanti`]
         ];
         document.getElementById('overviewLiveStatusList').innerHTML = statusRows.map(([k, v]) => `
           <div style="display:flex;justify-content:space-between;gap:0.75rem;padding:0.55rem 0.75rem;border-radius:10px;background:var(--bg);border:1px solid var(--border);">
@@ -1589,6 +1950,162 @@
         `).join('');
         syncOpenThemeLink();
       }
+
+      // 1B. Live Visitor Telemetry (Device Model, Clock Time, Active Duration, Page Trail & Click-to-Call)
+      let currentVisitorFilter = 'all';
+      const visitorSearchIn = document.getElementById('visitorSearchIn');
+      const visitorsTableBody = document.getElementById('visitorsTableBody');
+
+      function renderVisitorsTelemetry() {
+        if (!visitorsTableBody) return;
+        const all = MS.getVisitors();
+        const onlineCount = all.filter(v => v.isLiveNow).length;
+        const mobileCount = all.filter(v => v.deviceType === 'mobile' || v.deviceType === 'tablet').length;
+        const mobilePct = all.length ? Math.round((mobileCount / all.length) * 100) : 0;
+        const totalDur = all.reduce((s, v) => s + (Number(v.durationSec) || 0), 0);
+        const avgDur = all.length ? Math.round(totalDur / all.length) : 0;
+        const callCount = all.filter(v => v.convertedCall).length;
+        const fraudCount = all.filter(v => v.suspectedFraud || (Number(v.adClickCount) || 0) >= 3).length;
+
+        const visBadge = document.getElementById('sideVisitorBadge');
+        if (visBadge) visBadge.textContent = all.length;
+        document.getElementById('visOnlinePill').textContent = `${onlineCount} Şu An Sitede`;
+        document.getElementById('visTotalCount').textContent = String(all.length);
+        document.getElementById('visMobilePct').textContent = `%${mobilePct}`;
+        document.getElementById('visAvgDur').textContent = MS.formatDurationTr(avgDur);
+        document.getElementById('visCallClicks').textContent = `${callCount} Dönüşüm`;
+        document.getElementById('visFraudCount').textContent = `${fraudCount} Uyarı`;
+
+        const q = ((visitorSearchIn && visitorSearchIn.value) || '').trim().toLowerCase();
+        const filtered = all.filter(v => {
+          if (currentVisitorFilter === 'mobile' && v.deviceType !== 'mobile' && v.deviceType !== 'tablet') return false;
+          if (currentVisitorFilter === 'called' && !v.convertedCall) return false;
+          if (currentVisitorFilter === 'ads' && !/ads|reklam/i.test(v.source || '')) return false;
+          if (currentVisitorFilter === 'fraud' && !v.suspectedFraud && (Number(v.adClickCount) || 0) < 3) return false;
+          if (!q) return true;
+          const pagesTxt = (v.pages || []).map(p => `${p.title} ${p.path}`).join(' ');
+          const actsTxt = (v.actions || []).join(' ');
+          return [v.deviceModel, v.osBrowser, v.cityHint, v.ipMasked, v.source, pagesTxt, actsTxt].join(' ').toLowerCase().includes(q);
+        });
+
+        visitorsTableBody.innerHTML = filtered.map(v => {
+          const isMobile = v.deviceType === 'mobile' || v.deviceType === 'tablet';
+          const devIcon = isMobile ? '📱' : '💻';
+          const statusBadge = v.isCurrentSession
+            ? `<span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.22rem 0.55rem;border-radius:999px;background:#dcfce7;color:#15803d;font-size:0.71rem;font-weight:800;"><span class="live-dot"></span>ŞU AN SİZ (CANLI)</span>`
+            : (v.isLiveNow
+              ? `<span style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.22rem 0.55rem;border-radius:999px;background:#ecfdf5;color:#047857;font-size:0.71rem;font-weight:800;">🟢 Şu An Aktif</span>`
+              : `<span style="display:inline-block;padding:0.2rem 0.52rem;border-radius:999px;background:var(--bg);border:1px solid var(--border);color:var(--muted);font-size:0.7rem;font-weight:700;">Tamamlandı</span>`);
+
+          const pagesHtml = (v.pages && v.pages.length)
+            ? `<div class="page-trail">${v.pages.map(p => `<span class="trail-step" title="${escapeHtml(p.path)}"><strong>${escapeHtml(p.time || '')}</strong> · ${escapeHtml(p.title)}</span>`).join('<span class="trail-arrow">→</span>')}</div>`
+            : `<span style="font-size:0.75rem;color:var(--muted);">Ana Sayfa</span>`;
+
+          const actionsList = Array.isArray(v.actions) && v.actions.length
+            ? v.actions.map(a => {
+                const isFraudAct = /⚠️|Peş Peşe/i.test(a);
+                const isCallAct = /📞|WhatsApp/i.test(a);
+                const bg = isFraudAct ? '#fff1f2' : (isCallAct ? '#ecfdf5' : 'var(--bg)');
+                const col = isFraudAct ? '#be123c' : (isCallAct ? '#047857' : 'var(--ink-2)');
+                const brd = isFraudAct ? '#fecdd3' : (isCallAct ? '#a7f3d0' : 'var(--border)');
+                return `<span style="display:inline-block;padding:0.2rem 0.5rem;border-radius:7px;background:${bg};color:${col};border:1px solid ${brd};font-size:0.72rem;font-weight:700;margin:0.15rem 0.2rem 0 0;">${escapeHtml(a)}</span>`;
+              }).join('')
+            : `<span style="font-size:0.73rem;color:var(--muted);">Sayfa inceliyor...</span>`;
+
+          const fraudPill = (v.suspectedFraud || (Number(v.adClickCount) || 0) >= 3)
+            ? `<div style="margin-top:0.3rem;"><span class="fraud-badge">⚠️ Şüpheli Tekrarlı Reklam Tıklaması (${v.adClickCount || 3}x)</span></div>`
+            : '';
+
+          return `<tr class="${v.isCurrentSession ? 'vis-live-row' : ''}">
+            <td>
+              ${statusBadge}
+              <strong style="display:block;font-size:0.8rem;margin-top:0.3rem;">${escapeHtml(v.cityHint || 'Türkiye')}</strong>
+              <span class="mono" style="font-size:0.71rem;color:var(--muted);">${escapeHtml(v.ipMasked || '')}</span>
+            </td>
+            <td>
+              <span class="device-pill ${isMobile ? 'mobile' : ''}">${devIcon} ${escapeHtml(v.deviceModel || 'Bilinmeyen Cihaz')}</span>
+              <span style="display:block;font-size:0.74rem;color:var(--muted);margin-top:0.28rem;">${escapeHtml(v.osBrowser || '')} · <span class="mono">${escapeHtml(v.screenRes || '')}</span></span>
+            </td>
+            <td>
+              <strong class="mono" style="display:block;font-size:0.82rem;color:var(--ink);">Giriş: ${escapeHtml(v.entryTime || '-')}</strong>
+              <span class="mono" style="font-size:0.73rem;color:var(--muted);">Son: ${escapeHtml(v.lastSeenTime || '-')}</span>
+              <span style="display:block;font-size:0.7rem;color:var(--muted);">${escapeHtml(v.entryDate || 'Bugün')}</span>
+            </td>
+            <td>
+              <span class="dur-badge tnum">${MS.formatDurationTr(v.durationSec)}</span>
+            </td>
+            <td style="min-width:250px;max-width:360px;">
+              ${pagesHtml}
+            </td>
+            <td style="min-width:210px;">
+              <strong style="display:block;font-size:0.78rem;color:var(--brand-ink);margin-bottom:0.2rem;">${escapeHtml(v.source || 'Doğrudan Giriş')}</strong>
+              <div>${actionsList}</div>
+              ${fraudPill}
+            </td>
+          </tr>`;
+        }).join('');
+      }
+
+      document.querySelectorAll('[data-vis-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-vis-filter]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentVisitorFilter = btn.getAttribute('data-vis-filter');
+          renderVisitorsTelemetry();
+        });
+      });
+      if (visitorSearchIn) visitorSearchIn.addEventListener('input', renderVisitorsTelemetry);
+
+      const exportVisitorsCsvBtn = document.getElementById('exportVisitorsCsvBtn');
+      if (exportVisitorsCsvBtn) {
+        exportVisitorsCsvBtn.addEventListener('click', () => {
+          const rows = [
+            ['Oturum ID', 'Durum', 'Konum', 'IP', 'Cihaz Modeli', 'OS & Tarayici', 'Giris Saati', 'Son Aktiflik', 'Kalma Suresi (Sn)', 'Kalma Suresi', 'Kaynak', 'Gezdigi Sayfalar', 'Islemler']
+          ];
+          MS.getVisitors().forEach(v => {
+            rows.push([
+              v.sid,
+              v.isLiveNow ? 'Aktif' : 'Tamamlandi',
+              v.cityHint || '',
+              v.ipMasked || '',
+              v.deviceModel || '',
+              v.osBrowser || '',
+              `${v.entryDate || ''} ${v.entryTime || ''}`.trim(),
+              v.lastSeenTime || '',
+              String(v.durationSec || 0),
+              MS.formatDurationTr(v.durationSec),
+              v.source || '',
+              (v.pages || []).map(p => `${p.time} ${p.title} (${p.path})`).join(' -> '),
+              (v.actions || []).join(' | ')
+            ]);
+          });
+          const csv = '\uFEFF' + rows.map(r => r.map(cell => `"${String(cell || '').replace(/"/g, '""')}"`).join(';')).join('\r\n');
+          const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'merkez-servis-ziyaretci-raporu.csv';
+          a.click();
+          URL.revokeObjectURL(url);
+        });
+      }
+
+      const clearDemoVisitorsBtn = document.getElementById('clearDemoVisitorsBtn');
+      if (clearDemoVisitorsBtn) {
+        clearDemoVisitorsBtn.addEventListener('click', () => {
+          MS.clearSeedVisitorsKeepCurrent();
+          renderVisitorsTelemetry();
+          renderOverviewStats();
+        });
+      }
+
+      // Live 2-second ticker so active visitor duration updates in real time on screen
+      setInterval(() => {
+        const visPane = document.getElementById('pane-visitors');
+        if (visPane && visPane.classList.contains('active')) {
+          renderVisitorsTelemetry();
+        }
+      }, 2000);
 
       // 2. Work Orders, Commission & Digital Warranty Table
       let currentOrderFilter = 'all';
@@ -1713,8 +2230,9 @@
       document.getElementById('cancelNewOrderBtn').addEventListener('click', () => { newOrderDrawer.style.display = 'none'; });
       document.getElementById('manualOrderForm').addEventListener('submit', (e) => {
         e.preventDefault();
+        const cfg = MS.getConfig();
         MS.addLead({
-          source: '0850 Çağrı',
+          source: `${cfg.primaryPhoneDisplay} Çağrı`,
           customer: document.getElementById('moName').value.trim(),
           phone: document.getElementById('moPhone').value.trim(),
           city: document.getElementById('moCity').value.trim(),
@@ -1802,9 +2320,37 @@
         renderOverviewStats();
       });
 
-      // 4. Contact, Phones & Working Hours Form
+      // 4. 1-Click Global Phone Switcher + Detailed Contact Form
+      function renderPhonePresets() {
+        const cfg = MS.getConfig();
+        const host = document.getElementById('phonePresetsHost');
+        if (!host) return;
+        const presets = Array.isArray(cfg.savedPhonePresets) ? cfg.savedPhonePresets : [];
+        host.innerHTML = presets.map((pr, idx) => {
+          const isAct = pr.phone === cfg.primaryPhoneDisplay;
+          return `<button type="button" class="preset-phone-chip ${isAct ? 'active' : ''}" data-apply-preset="${idx}">
+            <span>📞 ${escapeHtml(pr.label)}:</span>
+            <strong class="mono">${escapeHtml(pr.phone)}</strong>
+          </button>`;
+        }).join('');
+        host.querySelectorAll('[data-apply-preset]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const pr = presets[Number(btn.getAttribute('data-apply-preset'))];
+            if (!pr) return;
+            const syncAll = document.getElementById('quickSyncAllLinesChk').checked;
+            MS.applySinglePhoneEverywhere(pr.phone, { syncSecondary: syncAll, syncWhatsapp: syncAll });
+            loadContactForm();
+            renderOverviewStats();
+            renderOrdersTable();
+            flashToast('oneClickPhoneToast');
+          });
+        });
+      }
+
       function loadContactForm() {
         const cfg = MS.getConfig();
+        const qIn = document.getElementById('quickGlobalPhoneIn');
+        if (qIn) qIn.value = cfg.primaryPhoneDisplay;
         document.getElementById('cCompany').value = cfg.companyName;
         document.getElementById('cLegal').value = cfg.legalName;
         document.getElementById('cPhone1').value = cfg.primaryPhoneDisplay;
@@ -1817,7 +2363,33 @@
         document.getElementById('cAddress').value = cfg.headOfficeAddress;
         document.getElementById('cTax').value = cfg.taxInfo;
         document.getElementById('cNightActive').checked = !!cfg.nightShiftActive;
+        renderPhonePresets();
       }
+
+      document.getElementById('oneClickPhoneForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = document.getElementById('quickGlobalPhoneIn').value.trim();
+        if (!val) return;
+        const syncAll = document.getElementById('quickSyncAllLinesChk').checked;
+        MS.applySinglePhoneEverywhere(val, { syncSecondary: syncAll, syncWhatsapp: syncAll });
+        loadContactForm();
+        renderOverviewStats();
+        renderOrdersTable();
+        flashToast('oneClickPhoneToast');
+      });
+
+      document.getElementById('savePhoneAsPresetBtn').addEventListener('click', () => {
+        const val = document.getElementById('quickGlobalPhoneIn').value.trim();
+        if (!val) return;
+        const cfg = MS.getConfig();
+        const presets = Array.isArray(cfg.savedPhonePresets) ? [...cfg.savedPhonePresets] : [];
+        if (!presets.some(p => p.phone === val)) {
+          presets.push({ label: `Kayıtlı Hat #${presets.length + 1}`, phone: val, wa: val });
+          MS.saveConfig({ savedPhonePresets: presets });
+        }
+        renderPhonePresets();
+        flashToast('oneClickPhoneToast');
+      });
 
       document.getElementById('fullContactForm').addEventListener('submit', (e) => {
         e.preventDefault();
@@ -1835,10 +2407,133 @@
           taxInfo: document.getElementById('cTax').value.trim(),
           nightShiftActive: document.getElementById('cNightActive').checked
         });
+        loadContactForm();
         renderOverviewStats();
         renderOrdersTable();
         flashToast('contactSavedToast');
       });
+
+      // 4B. Google Search Console, Analytics, Google Ads & Ready-to-Copy Google Ads Final URLs Table
+      let currentAdsUrlFilter = 'all';
+      const adsUrlSearchIn = document.getElementById('adsUrlSearchIn');
+      const adsBaseDomainIn = document.getElementById('adsBaseDomainIn');
+      const adsUrlsTableBody = document.getElementById('adsUrlsTableBody');
+
+      function loadWebmasterForm() {
+        const cfg = MS.getConfig();
+        document.getElementById('wmGsc').value = cfg.googleSearchConsoleVerification || '';
+        document.getElementById('wmGa4').value = cfg.googleAnalyticsId || '';
+        document.getElementById('wmGtm').value = cfg.gtmId || '';
+        document.getElementById('wmAdsId').value = cfg.googleAdsId || '';
+        document.getElementById('wmAdsLbl').value = cfg.googleAdsLabel || '';
+        document.getElementById('wmYandex').value = cfg.yandexVerification || '';
+        document.getElementById('wmBing').value = cfg.bingVerification || '';
+        document.getElementById('wmHeadRaw').value = cfg.customHeadHtml || '';
+        document.getElementById('wmBodyRaw').value = cfg.customBodyHtml || '';
+        if (adsBaseDomainIn) adsBaseDomainIn.value = cfg.siteDomainUrl || 'https://merkezservis.com.tr';
+      }
+
+      document.getElementById('webmasterCodesForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.saveConfig({
+          googleSearchConsoleVerification: document.getElementById('wmGsc').value.trim(),
+          googleAnalyticsId: document.getElementById('wmGa4').value.trim(),
+          gtmId: document.getElementById('wmGtm').value.trim(),
+          googleAdsId: document.getElementById('wmAdsId').value.trim(),
+          googleAdsLabel: document.getElementById('wmAdsLbl').value.trim(),
+          yandexVerification: document.getElementById('wmYandex').value.trim(),
+          bingVerification: document.getElementById('wmBing').value.trim(),
+          customHeadHtml: document.getElementById('wmHeadRaw').value,
+          customBodyHtml: document.getElementById('wmBodyRaw').value,
+          siteDomainUrl: (adsBaseDomainIn.value || 'https://merkezservis.com.tr').trim().replace(/\/+$/, '')
+        });
+        loadSeoAndTrackingForms();
+        renderOverviewStats();
+        renderAdsUrlsTable();
+        flashToast('wmSavedToast');
+      });
+
+      document.getElementById('downloadSitemapXmlBtn').addEventListener('click', () => {
+        const base = (adsBaseDomainIn.value || 'https://merkezservis.com.tr').trim().replace(/\/+$/, '');
+        const xml = MS.exportSitemapXml(base);
+        const blob = new Blob([xml], { type: 'application/xml;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'sitemap.xml';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      function renderAdsUrlsTable() {
+        if (!adsUrlsTableBody) return;
+        const base = ((adsBaseDomainIn && adsBaseDomainIn.value) || 'https://merkezservis.com.tr').trim().replace(/\/+$/, '');
+        const allItems = MS.GOOGLE_ADS_KEYWORDS || [];
+        const brandTotal = allItems.filter(x => x.type === 'brand').length;
+        const serviceTotal = allItems.filter(x => x.type === 'service').length;
+
+        const allBtn = document.querySelector('[data-adsurl-filter="all"]');
+        const brandBtn = document.querySelector('[data-adsurl-filter="brand"]');
+        const srvBtn = document.querySelector('[data-adsurl-filter="service"]');
+        if (allBtn) allBtn.textContent = `Tümü (${allItems.length} Sayfa)`;
+        if (brandBtn) brandBtn.textContent = `${brandTotal} Marka Sayfası`;
+        if (srvBtn) srvBtn.textContent = `${serviceTotal} Hizmet Sayfası`;
+
+        const q = ((adsUrlSearchIn && adsUrlSearchIn.value) || '').trim().toLowerCase();
+        const filtered = allItems.filter(item => {
+          if (currentAdsUrlFilter !== 'all' && item.type !== currentAdsUrlFilter) return false;
+          if (!q) return true;
+          return `${item.keyword} ${item.slug} ${item.groupLabel || ''}`.toLowerCase().includes(q);
+        });
+
+        adsUrlsTableBody.innerHTML = filtered.map(item => {
+          const cleanUrl = `${base}/${item.slug}`;
+          const previewHref = item.type === 'brand'
+            ? `../marka-servisi/index.html?marka=${encodeURIComponent(item.brandSlug)}`
+            : `../marka-servisi/index.html?hizmet=${encodeURIComponent(item.slug)}`;
+          const badgeStyle = item.type === 'brand'
+            ? 'background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;'
+            : 'background:#ecfdf5;color:#047857;border:1px solid #a7f3d0;';
+
+          return `<tr>
+            <td><span style="display:inline-block;padding:0.2rem 0.55rem;border-radius:999px;font-size:0.71rem;font-weight:800;${badgeStyle}">${item.type === 'brand' ? 'MARKA' : 'HİZMET'}</span></td>
+            <td>
+              <strong style="display:block;font-size:0.84rem;">${escapeHtml(item.keyword)}</strong>
+              <span style="font-size:0.72rem;color:var(--muted);">${escapeHtml(item.groupLabel || '')}</span>
+            </td>
+            <td class="mono" style="font-size:0.78rem;color:var(--brand-ink);">${escapeHtml(cleanUrl)}</td>
+            <td>
+              <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+                <button type="button" class="btn-soft" style="padding:0.36rem 0.68rem;font-size:0.75rem;" data-copy-adsurl="${escapeHtml(cleanUrl)}">Kopyala</button>
+                <a href="${previewHref}" target="_blank" rel="noopener" class="btn-primary" style="padding:0.36rem 0.68rem;font-size:0.75rem;">Canlı Aç ↗</a>
+              </div>
+            </td>
+          </tr>`;
+        }).join('');
+
+        adsUrlsTableBody.querySelectorAll('[data-copy-adsurl]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const urlToCopy = btn.getAttribute('data-copy-adsurl');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(urlToCopy).catch(() => {});
+            }
+            const orig = btn.textContent;
+            btn.textContent = '✓ Kopyalandı';
+            setTimeout(() => { btn.textContent = orig; }, 1600);
+          });
+        });
+      }
+
+      document.querySelectorAll('[data-adsurl-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-adsurl-filter]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentAdsUrlFilter = btn.getAttribute('data-adsurl-filter');
+          renderAdsUrlsTable();
+        });
+      });
+      if (adsUrlSearchIn) adsUrlSearchIn.addEventListener('input', renderAdsUrlsTable);
+      if (adsBaseDomainIn) adsBaseDomainIn.addEventListener('input', renderAdsUrlsTable);
 
       // 5. Site Content, Promo Banner & Warranty/Pricing Form
       function loadSiteContentForm() {
@@ -1864,7 +2559,7 @@
           promoBannerText: document.getElementById('scPromoText').value.trim(),
           promoBannerCode: document.getElementById('scPromoCode').value.trim(),
           warrantyMonths: Number(document.getElementById('scWarranty').value) || 12,
-          avgArrivalMinutes: Number(document.getElementById('scEta').value) || 32,
+          avgArrivalMinutes: Number(document.getElementById('scEta').value) || 30,
           inspectionFeeTl: Number(document.getElementById('scInspFee').value) || 0,
           inspectionNote: document.getElementById('scInspNote').value.trim(),
           heroCustomBadge: document.getElementById('scHeroBadge').value.trim(),
@@ -1877,16 +2572,16 @@
         flashToast('contentSavedToast');
       });
 
-      // 6. Catalog: 7 Categories + 35+ Brands + Fault Codes DB
+      // 6. Catalog: 10 Categories + 38 Brands + Fault Codes DB
       const catHost = document.getElementById('categoriesEditorHost');
       function renderCategoriesEditor() {
         const cats = MS.getCategories();
         catHost.innerHTML = cats.map(c => `
           <div class="cat-edit-row">
             <input type="checkbox" ${c.enabled ? 'checked' : ''} data-cat-toggle="${c.id}" style="width:19px;height:19px;accent-color:var(--brand);cursor:pointer;" title="Aktif / Pasif">
-            <input type="text" class="clean-input" data-cat-name="${c.id}" value="${c.name}" aria-label="Branş Adı">
+            <input type="text" class="clean-input" data-cat-name="${c.id}" value="${escapeHtml(c.name)}" aria-label="Branş Adı">
             <input type="number" class="clean-input mono" data-cat-min="${c.id}" value="${c.avgMin}" aria-label="Ort. Dakika" title="Ortalama Onarım Süresi (Dk)">
-            <input type="text" class="clean-input" data-cat-items="${c.id}" value="${c.items}" aria-label="Kapsam Açıklaması">
+            <input type="text" class="clean-input" data-cat-items="${c.id}" value="${escapeHtml(c.items)}" aria-label="Kapsam Açıklaması">
             <button type="button" class="btn-soft" data-cat-save="${c.id}">Kaydet</button>
           </div>
         `).join('');
@@ -1924,7 +2619,7 @@
           const isOn = !cfg.disabledBrands.includes(b.slug);
           return `<button type="button" class="toggle-chip ${isOn ? 'on' : ''}" data-brand-toggle="${b.slug}">
             <span>${isOn ? '✓' : '✕'}</span>
-            <span>${b.name}</span>
+            <span>${escapeHtml(b.name)}</span>
           </button>`;
         }).join('');
         brandsHost.querySelectorAll('[data-brand-toggle]').forEach(btn => {
@@ -1959,14 +2654,14 @@
         document.getElementById('faultCountLbl').textContent = list.length;
         faultsBody.innerHTML = list.map(f => `
           <tr>
-            <td><strong class="mono" style="color:var(--brand);font-size:0.9rem;">${f.code}</strong></td>
-            <td><strong>${f.device}</strong></td>
+            <td><strong class="mono" style="color:var(--brand);font-size:0.9rem;">${escapeHtml(f.code)}</strong></td>
+            <td><strong>${escapeHtml(f.device)}</strong></td>
             <td>
-              <strong style="display:block;">${f.title}</strong>
-              <span style="font-size:0.77rem;color:var(--muted);">${f.action}</span>
+              <strong style="display:block;">${escapeHtml(f.title)}</strong>
+              <span style="font-size:0.77rem;color:var(--muted);">${escapeHtml(f.action)}</span>
             </td>
             <td class="tnum">${f.durationMin} dk</td>
-            <td><button type="button" class="btn-danger-sm" data-del-fault="${f.code}">Sil</button></td>
+            <td><button type="button" class="btn-danger-sm" data-del-fault="${escapeHtml(f.code)}">Sil</button></td>
           </tr>
         `).join('');
         faultsBody.querySelectorAll('[data-del-fault]').forEach(btn => {
@@ -2007,8 +2702,8 @@
         revListHost.innerHTML = MS.getReviews().map(r => `
           <div style="padding:0.85rem;border-radius:13px;background:var(--bg);border:1px solid var(--border);display:flex;justify-content:space-between;gap:0.75rem;align-items:flex-start;">
             <div>
-              <strong style="font-size:0.85rem;display:block;">${r.customer} — ${r.city} <span style="color:var(--brand);">(${r.brand})</span></strong>
-              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--ink-2);">"${r.text}"</p>
+              <strong style="font-size:0.85rem;display:block;">${escapeHtml(r.customer)} — ${escapeHtml(r.city)} <span style="color:var(--brand);">(${escapeHtml(r.brand)})</span></strong>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--ink-2);">"${escapeHtml(r.text)}"</p>
             </div>
             <button type="button" class="btn-danger-sm" data-del-rev="${r.id}">Sil</button>
           </div>
@@ -2023,8 +2718,8 @@
         faqListHost.innerHTML = MS.getFaqs().map(f => `
           <div style="padding:0.85rem;border-radius:13px;background:var(--bg);border:1px solid var(--border);display:flex;justify-content:space-between;gap:0.75rem;align-items:flex-start;">
             <div>
-              <strong style="font-size:0.85rem;display:block;">${f.q}</strong>
-              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--muted);">${f.a}</p>
+              <strong style="font-size:0.85rem;display:block;">${escapeHtml(f.q)}</strong>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--muted);">${escapeHtml(f.a)}</p>
             </div>
             <button type="button" class="btn-danger-sm" data-del-faq="${f.id}">Sil</button>
           </div>
@@ -2059,9 +2754,20 @@
         renderReviewsAndFaqs();
       });
 
-      // 8. Theme, 5 Colors, SEO Template & Tracking Pixels
+      // 8. 4 Themes, 5 Colors, Clean Site Mode, SEO Template & Tracking Pixels
+      const cleanTopModeToggle = document.getElementById('cleanTopModeToggle');
+      if (cleanTopModeToggle) {
+        cleanTopModeToggle.addEventListener('change', () => {
+          MS.saveConfig({ showTopDemoBar: !cleanTopModeToggle.checked });
+          MS.mountStudioChrome('admin', '../');
+        });
+      }
+
       function renderThemeAndColors() {
         const cfg = MS.getConfig();
+        if (cleanTopModeToggle) {
+          cleanTopModeToggle.checked = !cfg.showTopDemoBar;
+        }
         document.querySelectorAll('[data-theme-card]').forEach(card => {
           const isSel = card.getAttribute('data-theme-card') === cfg.activeTheme;
           card.classList.toggle('selected', isSel);
@@ -2137,6 +2843,7 @@
           googleAdsLabel: document.getElementById('trAdsLbl').value.trim(),
           gtmId: document.getElementById('trGtm').value.trim()
         });
+        loadWebmasterForm();
         flashToast('trackingSavedToast');
       });
 
@@ -2157,6 +2864,7 @@
 
       function initAll() {
         loadContactForm();
+        loadWebmasterForm();
         loadSiteContentForm();
         loadSeoAndTrackingForms();
         renderCategoriesEditor();
@@ -2165,6 +2873,8 @@
         renderReviewsAndFaqs();
         renderTechsTable();
         renderOrdersTable();
+        renderVisitorsTelemetry();
+        renderAdsUrlsTable();
         renderThemeAndColors();
         renderOverviewStats();
       }
@@ -2173,8 +2883,19 @@
         renderThemeAndColors();
         renderOverviewStats();
       });
+      window.addEventListener('merkez:config-updated', () => {
+        loadContactForm();
+        loadWebmasterForm();
+        renderOverviewStats();
+      });
       window.addEventListener('storage', initAll);
       initAll();
+
+      // Auto-open requested tab via URL ?tab=visitors / ?tab=webmaster / ?tab=contact
+      const urlTab = new URLSearchParams(window.location.search).get('tab');
+      if (urlTab && tabMeta[urlTab]) {
+        activateTab(urlTab);
+      }
     })();
   </script>
 </body>

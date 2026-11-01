@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Merkez Beyaz Eşya Servisi — 3 Modern Tema, 5 Renk Seçeneği, Rakip Analizi &amp; Yönetim Vitrini</title>
-  <meta name="description" content="Merkez Beyaz Eşya Servisi için hazırlanan 3 farklı modern web teması, 5 canlı renk paleti, tek tıkla 0850 numara yönetim paneli ve rakip analizi sunumu.">
+  <title>Merkez Beyaz Eşya Servisi — 4 Modern Tema, 5 Renk, Canlı Ziyaretçi Takibi &amp; 38 Marka Google Ads Sistemi</title>
+  <meta name="description" content="Merkez Beyaz Eşya Servisi (444 60 82) için hazırlanan 4 farklı modern web teması, 5 canlı renk paleti, canlı ziyaretçi cihaz/süre/sayfa takip paneli, tek tıkla numara ve Search Console yönetimi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
       background: var(--bg);
       color: var(--ink);
       line-height: 1.6;
+      margin: 0;
     }
 
     .font-outfit {
@@ -37,10 +38,10 @@
     /* Showcase Hero */
     .hub-hero {
       position: relative;
-      padding: 3.8rem 0 3.2rem;
+      padding: 3.4rem 0 3rem;
       background:
-        radial-gradient(720px circle at 15% 10%, var(--brand-glow), transparent 64%),
-        radial-gradient(620px circle at 85% 20%, rgba(14, 165, 233, 0.09), transparent 62%),
+        radial-gradient(760px circle at 15% 10%, var(--brand-glow), transparent 64%),
+        radial-gradient(640px circle at 85% 20%, rgba(16, 185, 129, 0.08), transparent 62%),
         linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
       border-bottom: 1px solid var(--border);
     }
@@ -56,17 +57,17 @@
       color: var(--brand-ink);
       font-weight: 700;
       font-size: 0.82rem;
-      margin-bottom: 1.15rem;
+      margin-bottom: 1.1rem;
     }
 
     .hub-hero h1 {
       font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(2.15rem, 4.3vw, 3.55rem);
+      font-size: clamp(2.1rem, 4.2vw, 3.45rem);
       font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.09;
-      margin: 0 0 1.05rem;
-      max-width: 22ch;
+      margin: 0 0 1rem;
+      max-width: 24ch;
     }
 
     .hub-hero h1 .grad-span {
@@ -77,10 +78,51 @@
     }
 
     .hub-lead {
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       color: var(--ink-2);
-      max-width: 68ch;
-      margin: 0 0 1.75rem;
+      max-width: 72ch;
+      margin: 0 0 1.45rem;
+    }
+
+    .hero-quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.55rem;
+    }
+
+    .hero-q-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.78rem 1.2rem;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: transform 170ms var(--ease-spring), box-shadow 170ms ease;
+    }
+
+    .hero-q-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-q-btn.primary {
+      background: var(--brand-grad);
+      color: #ffffff;
+      box-shadow: var(--shadow-brand);
+    }
+
+    .hero-q-btn.emerald {
+      background: #ecfdf5;
+      color: #047857;
+      border: 1.5px solid #6ee7b7;
+    }
+
+    .hero-q-btn.soft {
+      background: #ffffff;
+      color: var(--ink);
+      border: 1.5px solid var(--border);
     }
 
     /* Interactive Color Palette Studio Box */
@@ -139,7 +181,7 @@
 
     /* Theme Showcase Grid */
     .hub-section {
-      padding: 4.2rem 0;
+      padding: 4rem 0;
     }
 
     .hub-section-alt {
@@ -151,7 +193,7 @@
     .theme-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.6rem;
+      gap: 1.5rem;
     }
 
     @media (max-width: 920px) {
@@ -194,16 +236,16 @@
       left: 1rem;
       padding: 0.34rem 0.8rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.84);
+      background: rgba(15, 23, 42, 0.86);
       backdrop-filter: blur(10px);
       color: #ffffff;
       font-weight: 700;
-      font-size: 0.76rem;
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      font-size: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.16);
     }
 
     .showcase-body {
-      padding: 1.6rem 1.7rem 1.7rem;
+      padding: 1.55rem 1.65rem 1.65rem;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -211,15 +253,15 @@
 
     .showcase-body h3 {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.4rem;
+      font-size: 1.38rem;
       margin: 0 0 0.45rem;
       letter-spacing: -0.02em;
     }
 
     .showcase-body p {
       color: var(--muted);
-      font-size: 0.92rem;
-      margin: 0 0 1.15rem;
+      font-size: 0.91rem;
+      margin: 0 0 1.1rem;
       flex: 1;
     }
 
@@ -227,13 +269,13 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.25rem;
     }
 
     .f-chip {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.28rem 0.68rem;
+      padding: 0.28rem 0.66rem;
       border-radius: 9px;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -245,7 +287,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      padding: 0.88rem 1.35rem;
+      padding: 0.86rem 1.35rem;
       border-radius: 14px;
       background: var(--brand-grad);
       color: #ffffff;
@@ -261,7 +303,114 @@
       filter: brightness(1.05);
     }
 
-    /* Extra 6 Modules Grid */
+    /* Full-Width Admin & Live Visitor Telemetry Banner */
+    .admin-hero-banner {
+      margin-top: 1.65rem;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2.1rem;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 1.6rem;
+      align-items: center;
+      box-shadow: 0 24px 50px -18px rgba(15, 23, 42, 0.35);
+    }
+
+    @media (max-width: 920px) {
+      .admin-hero-banner {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+      }
+    }
+
+    .admin-jump-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.65rem;
+    }
+
+    @media (max-width: 560px) {
+      .admin-jump-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .adm-jump-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 170ms ease;
+    }
+
+    .adm-jump-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* Brand & Keyword Live Landing Links Grid */
+    .brand-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand-demo-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 0.8rem;
+      height: 54px;
+      border-radius: 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--ink);
+      transition: all 160ms ease;
+    }
+
+    .brand-demo-tile:hover {
+      border-color: var(--brand);
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .kw-demo-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .kw-demo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 150ms ease;
+    }
+
+    .kw-demo-pill:hover {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      color: var(--brand-ink);
+    }
+
+    /* Extra Modules Grid */
     .extras-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -281,7 +430,7 @@
     }
 
     .extra-card {
-      background: var(--bg);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 1.45rem;
@@ -346,19 +495,26 @@
     <div class="container-xl">
       <div class="hub-badge">
         <span class="live-dot" aria-hidden="true"></span>
-        <span>Özel Canlı Sunum · <span data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</span></span>
+        <span>Kuruluma Hazır Tam Sistem · <span data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</span></span>
       </div>
 
-      <h1>Teknik servis siteniz için <span class="grad-span">3 modern tema, 5 canlı renk</span> ve sade yönetim paneli.</h1>
+      <h1>Google Ads telefon dönüşümü için <span class="grad-span">4 farklı tema, 38 marka sayfası</span> ve canlı ziyaretçi takip paneli.</h1>
 
       <p class="hub-lead">
-        İstediğiniz <strong>81 il × 973 ilçe × 35 marka × 7 hizmet branşı</strong> ve tek tıkla <strong><span data-servis-phone>0850 380 02 02</span></strong> numara yönetim altyapısını; 23 yıllık köklü bir domaini bile spam cezasına sokmayan temiz SEO mimarisi ve yüksek dönüşümlü modern tasarımlarla canlıya aldık.
+        Gönderdiğiniz tüm marka ve hizmet listesine göre (<strong>38 orijinal marka logosu, endüstriyel mutfak, soğuk hava deposu, buz makinesi, çay kazanı, kombi, klima, beyaz eşya ve TV dahil 71 Google Ads sayfası</strong>) ekranın en üstünde doğrudan <strong>HEMEN TIKLA ARA — <span data-servis-phone>444 60 82</span></strong> odaklı, üst demo barı gizlenmiş temiz kurumsal tasarımları ve canlı telefon/süre/sayfa izleme panelini hazırladık.
       </p>
+
+      <div class="hero-quick-actions">
+        <a href="./yonetim-paneli/index.html?tab=visitors" class="hero-q-btn emerald">🟢 Canlı Ziyaretçi (Telefon Modeli &amp; Süre) Takibi</a>
+        <a href="./yonetim-paneli/index.html?tab=contact" class="hero-q-btn primary">⚡ Tek Tıkla 444 60 82 Numara Değiştir</a>
+        <a href="./yonetim-paneli/index.html?tab=webmaster" class="hero-q-btn soft">🔍 Search Console &amp; Google Ads URL'leri</a>
+        <a href="./marka-servisi/index.html?marka=bosch" class="hero-q-btn soft">🎯 Örnek: Bosch Reklam Sayfası ↗</a>
+      </div>
 
       <div class="color-studio-box">
         <div>
-          <strong style="display:block;font-size:0.92rem;">Canlı Renk Seçeneğini Test Edin (Tüm Temalara ve Panele Anında Uygulanır):</strong>
-          <span style="font-size:0.8rem;color:var(--muted);">3 Farklı Tema × 5 Kurumsal Renk + Koyu/Açık Mod arasından dilediğinizi tek tıkla seçip istediğiniz zaman değiştirebilirsiniz.</span>
+          <strong style="display:block;font-size:0.92rem;">Canlı Kurumsal Renk Paletini Test Edin (4 Temaya, 38 Marka Sayfasına ve Panele Anında Yansır):</strong>
+          <span style="font-size:0.8rem;color:var(--muted);">4 Farklı Tema × 5 Kurumsal Renk (20 Varyasyon) arasından dilediğinizi yönetim panelinden tek tuşla aktif edebilirsiniz.</span>
         </div>
         <div id="hubColorPills" class="color-pills-row" role="group" aria-label="Renk Paleti Seçimi"></div>
       </div>
@@ -366,12 +522,12 @@
   </header>
 
   <main>
-    <!-- 3 Themes + Live Admin Panel Cards -->
+    <!-- 4 Distinct Themes + 10-Module Admin Panel -->
     <section class="hub-section">
       <div class="container-xl">
-        <div style="margin-bottom:2.2rem;" class="reveal-up">
-          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Canlı Önizleme Vitrini</span>
-          <h2 class="font-outfit" style="font-size:clamp(1.75rem,3vw,2.4rem);margin:0.3rem 0 0;">3 Farklı Tasarım Mimarisi + Tek Tık Yönetim Paneli</h2>
+        <div style="margin-bottom:2rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Üst Barı Gizlenmiş %100 Temiz Kurumsal Siteler</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.75rem,3vw,2.4rem);margin:0.3rem 0 0;">Birbirinden Tamamen Farklı 4 Modern Tasarım Mimarisi</h2>
         </div>
 
         <div class="theme-cards-grid">
@@ -379,16 +535,16 @@
           <article class="showcase-card hover-lift reveal-up">
             <div class="showcase-preview">
               <img src="./assets/photos/hero-technician-kitchen.jpg" alt="Tema 1 Modern Kurumsal 3D Bento önizleme">
-              <span class="showcase-tag">TEMA 1 · 3D PERSPEKTİF BENTO &amp; SAYAÇ</span>
+              <span class="showcase-tag">TEMA 1 · KURUMSAL 3D BENTO &amp; 10 BRANŞ VİTRİNİ</span>
             </div>
             <div class="showcase-body">
               <h3>Tema 1: Kurumsal 3D Bento &amp; Arıza Teşhis</h3>
-              <p>Puls &amp; AppleCare çizgisinde kurumsal güven mimarisi. Üst okuma ilerleme barı, animasyonlu kayan sayaçlar, fare hareketine duyarlı 3D perspektif kart eğimi, çift yönlü zıt akan marka şeritleri ve canlı Arıza Kodu Teşhis Konsolu içerir.</p>
+              <p>Üstte doğrudan <strong>444 60 82 Hemen Tıkla Ara</strong> şeridi, yüksek çözünürlüklü ürün fotoğraflı 10 hizmet branşı (Buzdolabı, Çamaşır, Kombi, Klima, TV, Endüstriyel Mutfak, Soğuk Hava Deposu), 38 orijinal marka logosu ve Arıza Kodu Teşhis Konsolu.</p>
               <div class="feature-bullets">
-                <span class="f-chip">3D Perspektif Kart Eğimi</span>
-                <span class="f-chip">Çift Yönlü Marka Akışı</span>
-                <span class="f-chip">Canlı Arıza Teşhis Konsolu</span>
-                <span class="f-chip">Animasyonlu Sayaçlar</span>
+                <span class="f-chip">Üstte Dev 444 60 82 Arama Barı</span>
+                <span class="f-chip">10 Ürün Fotoğraflı Branş</span>
+                <span class="f-chip">38 Orijinal Marka Logosu</span>
+                <span class="f-chip">Canlı Arıza Kodu Konsolu</span>
               </div>
               <a class="btn-launch" href="./tema-1-kurumsal/index.html">Tema 1'i Canlı İncele →</a>
             </div>
@@ -397,17 +553,17 @@
           <!-- Tema 2 -->
           <article class="showcase-card hover-lift reveal-up">
             <div class="showcase-preview">
-              <img src="./assets/photos/klima-service.jpg" alt="Tema 2 Kinetik Hızlı Çağrı ve Dijital Garanti önizleme">
-              <span class="showcase-tag">TEMA 2 · KİNETİK RADAR &amp; DİJİTAL GARANTİ</span>
+              <img src="./assets/photos/klima-service.jpg" alt="Tema 2 Google Ads Hızlı Çağrı önizleme">
+              <span class="showcase-tag">TEMA 2 · GOOGLE ADS MAKSİMUM TELEFON DÖNÜŞÜMÜ</span>
             </div>
             <div class="showcase-body">
-              <h3>Tema 2: Kinetik Hızlı Çağrı &amp; Garanti Takip</h3>
-              <p>Google Ads dönüşümü için kinetik hareket dili: arka planda canlı yayılan radar halkaları, anlık saha bildirim bandı, ışık hüzmeli arama butonu, kayar geçişli 3 adım sihirbaz, şeffaf süre/fiyat sekmeleri ve kaydırılabilir yorum karuseli.</p>
+              <h3>Tema 2: Google Ads Hızlı Çağrı &amp; Garanti Sorgu</h3>
+              <p>Google reklamından gelen müşterinin 3 saniye içinde araması için kurgulandı: canlı radar halkaları, ışık hüzmeli dev arama butonu, fotoğraflı cihaz kartları, 38 tıklanabilir marka kutusu ve webden 1 yıl garanti sorgulama.</p>
               <div class="feature-bullets">
-                <span class="f-chip">Canlı Radar &amp; Saha Bildirimi</span>
+                <span class="f-chip">Google Ads Acil Çağrı Kurgusu</span>
+                <span class="f-chip">38 Tıklanabilir Marka Dizini</span>
                 <span class="f-chip">Webden 1 Yıl Garanti Sorgu</span>
                 <span class="f-chip">Şeffaf Süre &amp; Fiyat Sekmeleri</span>
-                <span class="f-chip">Kaydırılabilir Yorum Karuseli</span>
               </div>
               <a class="btn-launch" href="./tema-2-hizli-cagri/index.html">Tema 2'yi Canlı İncele →</a>
             </div>
@@ -417,135 +573,175 @@
           <article class="showcase-card hover-lift reveal-up">
             <div class="showcase-preview">
               <img src="./assets/photos/ankastre-kitchen.jpg" alt="Tema 3 Prestij Spotlight ve Termal Karşılaştırma önizleme">
-              <span class="showcase-tag">TEMA 3 · SPOTLIGHT MERCEK &amp; TERMAL SÜRGÜ</span>
+              <span class="showcase-tag">TEMA 3 · AKORDEON VİTRİN, TERMAL SÜRGÜ &amp; 81 İL SEO</span>
             </div>
             <div class="showcase-body">
-              <h3>Tema 3: Prestij Ankastre, Termal Sürgü &amp; SEO</h3>
-              <p>Sinematik netleşen açılış animasyonu, fare takipli spotlight ışık kartları, üzerine gelince genişleyen 4 panelli interaktif vitrin galerisi, sürüklenebilir Termal Petek Öncesi/Sonrası karşılaştırma sürgüsü ve Koyu/Açık mod.</p>
+              <h3>Tema 3: Prestij Ankastre, Termal Sürgü &amp; 81 İl SEO</h3>
+              <p>Üzerine gelince genişleyen 4 panelli ultra-HD cihaz vitrini (Ankastre, Gardırop Buzdolabı, Kombi, Endüstriyel Soğutma), sürüklenebilir Termal Petek Öncesi/Sonrası sürgüsü, Koyu/Açık mod ve canlı 81 İl × 38 Marka SEO önizleyicisi.</p>
               <div class="feature-bullets">
                 <span class="f-chip">4 Panelli Akordeon Vitrin</span>
                 <span class="f-chip">Termal Öncesi/Sonrası Sürgüsü</span>
-                <span class="f-chip">Spotlight Işık Efekti</span>
-                <span class="f-chip">Canlı Google SERP &amp; Schema</span>
+                <span class="f-chip">81 İl × 38 Marka Canlı Sayfa</span>
+                <span class="f-chip">Koyu / Açık Mod Geçişi</span>
               </div>
               <a class="btn-launch" href="./tema-3-prestij/index.html">Tema 3'ü Canlı İncele →</a>
             </div>
           </article>
 
-          <!-- Admin Panel -->
+          <!-- Tema 4 (NEW) -->
           <article class="showcase-card hover-lift reveal-up">
             <div class="showcase-preview">
-              <img src="./assets/photos/service-van-parts.jpg" alt="8 Modüllü Tam Kapsamlı Yönetim Paneli önizleme">
-              <span class="showcase-tag">YÖNETİM PANELİ · 8 MODÜLLÜ TAM KONTROL</span>
+              <img src="./assets/photos/buzdolabi-ultra.jpg" alt="Tema 4 Apple Galeri ve Görsel Cihaz Seçici önizleme">
+              <span class="showcase-tag" style="background:linear-gradient(135deg,#0066ff,#059669);">YENİ TEMA 4 · APPLE GALERİ &amp; GÖRSEL CİHAZ SEÇİCİ</span>
             </div>
             <div class="showcase-body">
-              <h3>8 Modüllü Tam Kapsamlı Yönetim Paneli (CMS &amp; CRM)</h3>
-              <p>Numaralar (<span class="mono" data-servis-phone>0850 380 02 02</span>), çalışma saatleri, üst kampanya barı, iş emirleri, usta komisyon hakedişi, dijital garanti fişi, 7 hizmet branşı, 35+ marka, arıza kodları, yorumlar, S.S.S., tema, renk ve SEO ayarlarının tamamını tek panelden yönetin.</p>
+              <h3>Tema 4: Apple Galeri &amp; 2 Adımlı Cihaz / Marka Seçici</h3>
+              <p>Apple Store berraklığında galeri deneyimi: müşteri 1. adımda arızalı cihazının fotoğrafını, 2. adımda orijinal marka logosunu seçip tek dokunuşla <strong>444 60 82</strong>'yi arar veya markanın özel sayfasına geçer. Özel Endüstriyel &amp; Soğuk Hava bölümü içerir.</p>
               <div class="feature-bullets">
-                <span class="f-chip">Numara, Saat &amp; Kampanya Barı</span>
-                <span class="f-chip">İş Emri, Usta &amp; %30 Hakediş</span>
-                <span class="f-chip">Marka, Arıza Kodu, Yorum &amp; SSS</span>
-                <span class="f-chip">Tema, 5 Renk, SEO &amp; Ads Kodu</span>
+                <span class="f-chip">2 Adımlı Görsel Cihaz + Marka Seçici</span>
+                <span class="f-chip">Tam Boy Ultra-HD Ürün Galerisi</span>
+                <span class="f-chip">Endüstriyel &amp; Soğuk Hava Bölümü</span>
+                <span class="f-chip">38 Orijinal Vektör Marka Logosu</span>
               </div>
-              <a class="btn-launch" href="./yonetim-paneli/index.html">Tam Kapsamlı Paneli Deneyin →</a>
+              <a class="btn-launch" href="./tema-4-apple-vitrin/index.html">Tema 4'ü Canlı İncele →</a>
             </div>
           </article>
+        </div>
+
+        <!-- 10-Module Admin & Live Visitor Telemetry Banner -->
+        <div class="admin-hero-banner reveal-up">
+          <div>
+            <span style="display:inline-flex;align-items:center;gap:0.45rem;padding:0.32rem 0.78rem;border-radius:999px;background:rgba(16,185,129,0.18);border:1px solid rgba(16,185,129,0.4);color:#6ee7b7;font-size:0.76rem;font-weight:800;margin-bottom:0.75rem;">
+              <span class="live-dot"></span> YENİ 10 MODÜLLÜ YÖNETİM &amp; CANLI ZİYARETÇİ TAKİP PANELİ
+            </span>
+            <h3 class="font-outfit" style="font-size:clamp(1.45rem,2.5vw,2rem);margin:0 0 0.55rem;line-height:1.18;">Giren müşterinin telefon modelini, saatini, kalma süresini ve gezdiği sayfaları canlı izleyin.</h3>
+            <p style="margin:0 0 1.15rem;color:#cbd5e1;font-size:0.92rem;">
+              Müşteri hangi telefondan girdi (<em>iPhone 15 Pro, Samsung Galaxy S24, Xiaomi vb.</em>), saat kaçta girdi, kaç dakika sitede kaldı, hangi marka/hizmet sayfalarını gezdi ve <strong><span data-servis-phone>444 60 82</span> Tıkla Ara</strong> butonuna bastı mı — hepsini saniye saniye görürsünüz. Numara ve Google Search Console kodlarınızı da tek kutudan değiştirirsiniz.
+            </p>
+            <a href="./yonetim-paneli/index.html" class="btn-launch">10 Modüllü Tam Yönetim Panelini Aç →</a>
+          </div>
+
+          <div class="admin-jump-grid">
+            <a href="./yonetim-paneli/index.html?tab=visitors" class="adm-jump-card">
+              <strong style="font-size:0.9rem;color:#6ee7b7;">📱 Canlı Ziyaretçi Takibi</strong>
+              <span style="font-size:0.77rem;color:#cbd5e1;">Telefon modeli, giriş saati, kalma süresi ve sayfa izi</span>
+            </a>
+            <a href="./yonetim-paneli/index.html?tab=contact" class="adm-jump-card">
+              <strong style="font-size:0.9rem;color:#93c5fd;">⚡ Tek Tık Numara (444 60 82)</strong>
+              <span style="font-size:0.77rem;color:#cbd5e1;">Tek tuşla 4 tema ve tüm sayfalarda numara değiştir</span>
+            </a>
+            <a href="./yonetim-paneli/index.html?tab=webmaster" class="adm-jump-card">
+              <strong style="font-size:0.9rem;color:#fde68a;">🔍 Search Console &amp; Ads</strong>
+              <span style="font-size:0.77rem;color:#cbd5e1;">Doğrulama kodu yapıştır + 81 hazır reklam URL'si</span>
+            </a>
+            <a href="./yonetim-paneli/index.html?tab=orders" class="adm-jump-card">
+              <strong style="font-size:0.9rem;color:#f9a8d4;">📋 İş Emirleri &amp; %30 Pay</strong>
+              <span style="font-size:0.77rem;color:#cbd5e1;">Ustaya WhatsApp iş atama, komisyon &amp; garanti fişi</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 6 Extra Revenue-Generating Modules -->
-    <section class="hub-section hub-section-alt">
+    <!-- Live 38 Brands & 71 Keywords Dedicated Google Ads Landing Pages Showcase -->
+    <section class="hub-section hub-section-alt" id="google-ads-sayfalari">
       <div class="container-xl">
-        <div style="margin-bottom:2.2rem;" class="reveal-up">
-          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İstediklerinize Ek Olarak Eklediğimiz Özellikler</span>
-          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0;">Çağrı Sayısını ve Cironuzu Artıran 6 Ekstra Modül</h2>
+        <div style="margin-bottom:1.8rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İstediğiniz Tüm Marka &amp; Hizmet Başlıkları Hazır</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0.45rem;">38 Orijinal Marka Logosu &amp; 71 Google Ads Özel Açılış Sayfası</h2>
+          <p style="margin:0;color:var(--muted);max-width:74ch;font-size:0.93rem;">
+            Aşağıdaki herhangi bir markaya veya hizmet başlığına tıklayarak Google Ads reklamlarınız için hazırlanan, en üstünde doğrudan <strong>HEMEN TIKLA ARA — <span data-servis-phone>444 60 82</span></strong> butonu bulunan özel açılış sayfalarını canlı test edebilirsiniz:
+          </p>
+        </div>
+
+        <h3 style="font-size:0.92rem;margin:0 0 0.75rem;color:var(--ink-2);">1. 38 Markanın Orijinal Logolu Özel Servis Sayfaları (Tıklayıp Test Edin):</h3>
+        <div id="hubBrandsGrid" class="brand-demo-grid reveal-up"></div>
+
+        <h3 style="font-size:0.92rem;margin:0 0 0.75rem;color:var(--ink-2);">2. Ev Tipi, Kombi/Klima, Endüstriyel Mutfak &amp; Soğuk Hava Deposu Google Ads Sayfaları:</h3>
+        <div id="hubKeywordsPills" class="kw-demo-pills reveal-up"></div>
+      </div>
+    </section>
+
+    <!-- 6 Extra Revenue-Generating Modules -->
+    <section class="hub-section">
+      <div class="container-xl">
+        <div style="margin-bottom:2rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Reklam Bütçenizi Koruyan ve Çağrıyı Artıran Altyapı</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0;">Sitenizle Birlikte Hazır Gelen 6 Kritik Özellik</h2>
         </div>
 
         <div class="extras-grid reveal-up">
           <div class="extra-card">
             <span class="extra-num">01</span>
-            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Arıza Kodu Organik Trafik Yakalayıcı</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Google'da "Bosch E18 hatası", "Vaillant F28" aratan hazır müşterileri reklamsız yakalayıp tek tıkla 0850 hattınıza bağlar.</p>
+            <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Canlı Telefon Modeli, Süre &amp; Sayfa İzi</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Giren ziyaretçinin iPhone/Samsung cihaz modelini, giriş saatini, sitede kaç saniye durduğunu, gezdiği sayfaları ve şüpheli tekrarlı reklam tıklamalarını gösterir.</p>
           </div>
           <div class="extra-card">
             <span class="extra-num">02</span>
-            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Uygulama İndirtmeyen 1 Yıl Garanti Sorgu</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Servisfoni gibi müşteriyi uygulama indirmeye zorlayıp kaçırmak yerine, iş emri numarasıyla doğrudan webden garanti belgesi gösterir.</p>
+            <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Tek Kutudan Tüm Sitede Numara Değiştirme</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">444 60 82, 0850 veya cep hattınızı panelden yazdığınız saniye 4 temadaki ve tüm marka/hizmet sayfalarındaki arama butonları tek seferde değişir.</p>
           </div>
           <div class="extra-card">
             <span class="extra-num">03</span>
-            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Google Ads Hesap Askı Kalkanı</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Teknik servis reklamlarında sık yaşanan "yetkili servis yanıltması" askılarını önlemek için panelden açılıp kapanabilen şeffaf özel servis şeridi.</p>
+            <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Kodsuz Search Console &amp; Google Ads Kurulumu</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Yazılımcıya ihtiyaç duymadan Search Console meta etiketini, GA4 ve Google Ads telefon dönüşüm kodunu paneldeki kutuya yapıştırıp kaydedebilirsiniz.</p>
           </div>
           <div class="extra-card">
             <span class="extra-num">04</span>
-            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Köklü Domain Koruyucu Drip-Feed SEO</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.88rem;">23 yıllık otoriter bir domaini bile tek günde milyonlarca kopya sayfayla spam filtresine sokan eski scriptlerin aksine, günlük kontrollü indeksle domain değerini korur.</p>
+            <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Google Ads "Bağımsız Özel Servis" Kalkanı</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Teknik servis reklamlarında yaşanan hesap askılarını önlemek için panelden açılıp kapanabilen şeffaf özel servis bilgilendirme şeridi.</p>
           </div>
           <div class="extra-card">
             <span class="extra-num">05</span>
-            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Tek Tıkla Tema &amp; 5 Renk Değiştirme</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Sezona veya reklam kampanyanıza göre panelden tek tuşla site temasını, koyu/açık modu ve 5 kurumsal rengi yazılımcıya ihtiyaç duymadan değiştirin.</p>
+            <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Endüstriyel Mutfak &amp; Soğuk Hava Deposu Vitrini</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Ev cihazlarının yanında restoran, otel ve marketler için yüksek cirolu Soğuk Hava Deposu, Buz Makinesi, Çay Kazanı ve Sanayi Mutfak özel sayfaları.</p>
           </div>
           <div class="extra-card">
             <span class="extra-num">06</span>
-            <h3 style="margin:0 0 0.4rem;font-size:1.08rem;">Ustaya WhatsApp İş Atama &amp; %30 Pay</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.88rem;">Gelen çağrı/form kaydını tek tuşla sahadaki anlaşmalı ustaya düzenli WhatsApp iş emri olarak atar ve komisyon hakedişini otomatik hesaplar.</p>
+            <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Ustaya WhatsApp İş Atama &amp; %30 Komisyon</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Gelen çağrıyı sahadaki anlaşmalı ustaya tek tuşla düzenli WhatsApp iş emri olarak gönderir, merkez komisyon payını ve dijital garanti fişini hazırlar.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Competitor Benchmark Matrix -->
-    <section class="hub-section">
+    <section class="hub-section hub-section-alt">
       <div class="container-xl">
-        <div style="margin-bottom:2rem;" class="reveal-up">
-          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Sektörel Rakip Analizi</span>
-          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0.45rem;">Rakiplerin Zayıf Noktaları vs. Sizin Yeni Sisteminiz</h2>
-          <p style="color:var(--muted);margin:0;max-width:68ch;">Sektördeki mevcut ulusal servis ağlarını ve hazır 83M sayfa scriptlerini teknik olarak inceleyip zayıf kaldıkları her noktayı sizin lehinize çevirdik:</p>
+        <div style="margin-bottom:1.85rem;" class="reveal-up">
+          <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Sektörel Karşılaştırma</span>
+          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0.4rem;">Klasik Servis Siteleri vs. Sizin Yeni Sisteminiz</h2>
         </div>
 
         <div class="comp-table-wrap reveal-up">
           <table class="comp-table">
             <thead>
               <tr>
-                <th>Kriter</th>
-                <th>Servisfoni.com.tr</th>
-                <th>Klasik 83M Sayfa Scriptleri</th>
-                <th style="background:var(--brand);color:#ffffff;">Sizin Yeni Merkez Sisteminiz</th>
+                <th>Özellik</th>
+                <th>Klasik Hazır Servis Scriptleri</th>
+                <th style="background:var(--brand);color:#ffffff;">Sizin Yeni Merkez Sisteminiz (v3)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Tasarım &amp; Renk Özelleştirme</strong></td>
-                <td>Tek tip sabit kırmızı şablon</td>
-                <td>Herkeste birebir aynı kopya HTML görünümü</td>
-                <td class="comp-win">✓ 3 Farklı Modern Tema + 5 Canlı Renk + Koyu/Açık Mod</td>
+                <td><strong>Tasarım &amp; Marka Kalitesi</strong></td>
+                <td>Herkeste aynı tek tip şablon, bozuk/bulanık logolar</td>
+                <td class="comp-win">✓ 4 Farklı Modern Tema × 5 Renk + 38 Orijinal Vektör Marka Logosu + Ultra-HD Görseller</td>
               </tr>
               <tr>
-                <td><strong>Köklü Domain &amp; Google İndeks Sağlığı</strong></td>
-                <td><code>/sitemap.xml</code> 404 hatası veriyor</td>
-                <td>23 yıllık domaini bile yakabilen 83M kopya sayfa spam'i</td>
-                <td class="comp-win">✓ Kademeli Drip-Feed Sitemap + Özgün İlçe/Arıza Kodu Verisi</td>
+                <td><strong>Google Ads Tıkla Ara Dönüşümü</strong></td>
+                <td>Küçük telefon yazısı, genel ana sayfaya indirme</td>
+                <td class="comp-win">✓ En Üstte Dev "HEMEN TIKLA ARA — 444 60 82" + 38 Marka &amp; 71 Hizmete Özel Reklam Sayfası</td>
               </tr>
               <tr>
-                <td><strong>1 Yıl Garanti &amp; Servis Takibi</strong></td>
-                <td>Müşteriyi mobil uygulama indirmeye zorluyor</td>
-                <td>Hiçbir takip veya dijital fiş yok</td>
-                <td class="comp-win">✓ Uygulama İndirtmeden Webden 4 Aşamalı Garanti Sorgu</td>
+                <td><strong>Canlı Ziyaretçi &amp; Sahte Tıklama Takibi</strong></td>
+                <td>Hiçbir ziyaretçi detayı yok</td>
+                <td class="comp-win">✓ Telefon Modeli (iPhone/Samsung), Giriş Saati, Kalma Süresi, Sayfa İzi &amp; Şüpheli Tıklama Uyarısı</td>
               </tr>
               <tr>
-                <td><strong>Arıza Kodu Aramaları (E18, F28 vb.)</strong></td>
-                <td>Arıza kodu teşhis modülü yok</td>
-                <td>Sadece başlık tekrarı, teknik çözüm yok</td>
-                <td class="comp-win">✓ İnteraktif Arıza Kodu Ön Teşhis + Schema.org JSON-LD</td>
-              </tr>
-              <tr>
-                <td><strong>Google Ads Reklam Uyumu</strong></td>
-                <td>Standart metin</td>
-                <td>Sık sık "Yanıltıcı İçerik" reklam askısı</td>
-                <td class="comp-win">✓ Panelden Yönetilen "Bağımsız Özel Servis" Politika Kalkanı</td>
+                <td><strong>Numara &amp; Search Console Yönetimi</strong></td>
+                <td>Kod dosyalarını FTP'den tek tek düzenlemek gerekir</td>
+                <td class="comp-win">✓ Yönetim Panelinden Tek Kutuda Numara Değiştirme &amp; Search Console / Ads Kodu Yapıştırma</td>
               </tr>
             </tbody>
           </table>
@@ -554,10 +750,10 @@
     </section>
   </main>
 
-  <footer style="background:#0f172a;color:#94a3b8;padding:2.5rem 0;font-size:0.85rem;">
+  <footer style="background:#0f172a;color:#94a3b8;padding:2.3rem 0;font-size:0.85rem;">
     <div class="container-xl" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;">
-      <span>Hazırlanan Özel Sunum: <strong style="color:#ffffff;" data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</strong></span>
-      <span class="tnum">Aktif Demo Hattı: <strong style="color:#ffffff;" data-servis-phone>0850 380 02 02</strong> · Yedek: <strong style="color:#ffffff;" data-servis-phone-secondary>444 6 082</strong></span>
+      <span>Hazırlanan Sistem: <strong style="color:#ffffff;" data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</strong></span>
+      <span class="tnum">Aktif Çağrı Merkezi: <strong style="color:#ffffff;" data-servis-phone>444 60 82</strong> · Yedek Hat: <strong style="color:#ffffff;" data-servis-phone-secondary>0850 380 02 02</strong></span>
     </div>
   </footer>
 
@@ -587,6 +783,28 @@
       }
       window.addEventListener('merkez:palette-changed', renderHubPills);
       renderHubPills();
+
+      // Render all 38 authentic SVG brand landing links
+      const brandsGrid = document.getElementById('hubBrandsGrid');
+      if (brandsGrid) {
+        brandsGrid.innerHTML = MS.getAllBrands().map(b => `
+          <a class="brand-demo-tile" href="./marka-servisi/index.html?marka=${encodeURIComponent(b.slug)}" title="${b.name} Servisi Google Ads Özel Sayfası">
+            ${MS.renderBrandMarkSvg(b, 26)}
+          </a>
+        `).join('');
+      }
+
+      // Render all service Google Ads keyword landing pills
+      const kwHost = document.getElementById('hubKeywordsPills');
+      if (kwHost) {
+        const srvKeywords = (MS.GOOGLE_ADS_KEYWORDS || []).filter(k => k.type === 'service');
+        kwHost.innerHTML = srvKeywords.map(k => `
+          <a class="kw-demo-pill" href="./marka-servisi/index.html?hizmet=${encodeURIComponent(k.slug)}">
+            <span>↗</span>
+            <span>${k.keyword}</span>
+          </a>
+        `).join('');
+      }
     })();
   </script>
 </body>

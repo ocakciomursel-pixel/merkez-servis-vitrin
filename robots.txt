@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /yonetim-paneli/
+Disallow: /data/
+Disallow: /api.php
+
+Sitemap: /sitemap.xml
