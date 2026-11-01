@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Merkez Servis SaaS Yönetim &amp; Çoklu Site Komuta Paneli</title>
-  <meta name="description" content="Tek tıkla 0850 / WhatsApp numara güncelleme, 5 canlı renk paleti, iş emri usta atama, komisyon takibi ve 23 domain anti-spam SEO yönetim paneli.">
+  <title>Yönetim Paneli — Merkez Beyaz Eşya Servisi</title>
+  <meta name="description" content="Sade, şık ve kullanışlı teknik servis yönetim paneli: tek tıkla 0850 ve WhatsApp numarası değiştirme, tema ve renk seçimi, iş emri usta atama ve SEO yönetimi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/studio-ui.css">
   <style>
     :root {
-      --bg: #f1f5f9;
+      --bg: #f8fafc;
       --surface: #ffffff;
+      --surface-2: #f1f5f9;
       --ink: #0f172a;
       --ink-2: #334155;
       --muted: #64748b;
@@ -20,7 +21,7 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       background: var(--bg);
       color: var(--ink);
       line-height: 1.55;
@@ -30,558 +31,946 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    .admin-shell {
+    /* Clean Light Minimalist SaaS Shell (Apple / Linear / Stripe Style) */
+    .admin-layout {
       display: grid;
-      grid-template-columns: 255px 1fr;
+      grid-template-columns: 264px minmax(0, 1fr);
       min-height: calc(100vh - 44px);
     }
 
-    @media (max-width: 1024px) {
-      .admin-shell {
+    @media (max-width: 980px) {
+      .admin-layout {
         grid-template-columns: 1fr;
       }
-      .admin-sidebar {
+      .sidebar {
         display: none;
       }
     }
 
-    .admin-sidebar {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 1.5rem 1.15rem;
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    .sidebar {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 1.5rem 1.1rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.4rem;
+      position: sticky;
+      top: 0;
+      height: calc(100vh - 44px);
     }
 
-    .side-brand {
+    .side-header {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
-      color: #ffffff;
-      padding: 0 0.35rem;
+      gap: 0.75rem;
+      padding: 0 0.4rem;
     }
 
-    .side-logo {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
+    .side-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
       background: var(--brand-grad);
+      color: #ffffff;
       display: grid;
       place-items: center;
       font-weight: 800;
-      box-shadow: 0 6px 18px var(--brand-ring);
+      font-size: 1.05rem;
+      box-shadow: var(--shadow-brand);
+      flex: none;
     }
 
-    .side-menu {
+    .side-nav {
       display: grid;
-      gap: 0.3rem;
+      gap: 0.35rem;
     }
 
-    .side-menu a {
+    .nav-tab-btn {
+      width: 100%;
+      border: none;
+      background: transparent;
+      padding: 0.72rem 0.9rem;
+      border-radius: 13px;
       display: flex;
       align-items: center;
-      gap: 0.65rem;
-      padding: 0.65rem 0.85rem;
-      border-radius: 12px;
-      color: #cbd5e1;
-      text-decoration: none;
+      gap: 0.7rem;
       font-weight: 600;
-      font-size: 0.88rem;
-      transition: all 160ms ease;
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      cursor: pointer;
+      text-align: left;
+      transition: all 160ms var(--ease-spring);
     }
 
-    .side-menu a:hover, .side-menu a.active {
-      background: rgba(255, 255, 255, 0.09);
+    .nav-tab-btn:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-weight: 700;
+    }
+
+    .nav-tab-btn .badge-count {
+      margin-left: auto;
+      padding: 0.14rem 0.52rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      background: var(--brand);
       color: #ffffff;
     }
 
-    .side-menu a.active {
+    .side-quick-links {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .side-quick-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 600;
+      padding: 0.48rem 0.85rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 150ms ease, color 150ms ease;
+    }
+
+    .side-quick-links a:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+
+    .side-status-box {
+      margin-top: auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 0.95rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* Mobile Horizontal Tab Strip */
+    .mobile-tabs {
+      display: none;
+      gap: 0.45rem;
+      overflow-x: auto;
+      padding-bottom: 0.35rem;
+      margin-bottom: 1.25rem;
+      scrollbar-width: none;
+    }
+
+    .mobile-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .mobile-tabs {
+        display: flex;
+      }
+    }
+
+    .mob-tab-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--ink-2);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .mob-tab-btn.active {
       background: var(--brand);
-      box-shadow: 0 4px 14px var(--brand-ring);
+      border-color: var(--brand);
+      color: #ffffff;
     }
 
-    .admin-main {
-      padding: 1.75rem clamp(1rem, 2.5vw, 2.25rem) 4rem;
-      max-width: 1320px;
+    /* Main Workspace */
+    .workspace {
+      padding: 1.85rem clamp(1rem, 3vw, 2.6rem) 4.5rem;
+      max-width: 1220px;
+      width: 100%;
     }
 
-    .topbar {
+    .workspace-header {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.65rem;
     }
 
-    .kpi-grid {
+    .workspace-title {
+      margin: 0;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+    }
+
+    .workspace-sub {
+      margin: 0.2rem 0 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.48rem;
+      padding: 0.72rem 1.25rem;
+      border-radius: 12px;
+      border: none;
+      background: var(--brand-grad);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-brand);
+      transition: transform 160ms var(--ease-spring), filter 160ms ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.68rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink-2);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: border-color 150ms ease, color 150ms ease;
+    }
+
+    .btn-soft:hover {
+      border-color: var(--brand);
+      color: var(--brand);
+    }
+
+    /* Tab Panes */
+    .tab-pane {
+      display: none;
+      animation: pane-fade 220ms ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes pane-fade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Minimal KPI Strip */
+    .kpi-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.1rem;
-      margin-bottom: 1.6rem;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    @media (max-width: 960px) {
-      .kpi-grid {
+    @media (max-width: 900px) {
+      .kpi-row {
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 520px) {
-      .kpi-grid {
+    @media (max-width: 500px) {
+      .kpi-row {
         grid-template-columns: 1fr;
       }
     }
 
-    .kpi-card {
+    .kpi-box {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.25rem 1.35rem;
+      border-radius: 18px;
+      padding: 1.2rem 1.3rem;
       box-shadow: var(--shadow-xs);
     }
 
-    .kpi-lbl {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--muted);
+    .kpi-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
     }
 
-    .kpi-val {
-      font-size: 1.75rem;
+    .kpi-pill {
+      padding: 0.15rem 0.52rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #ecfdf5;
+      color: #059669;
+    }
+
+    .kpi-num {
+      display: block;
+      font-size: 1.68rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      display: block;
-      margin: 0.35rem 0 0.2rem;
+      margin: 0.35rem 0 0.15rem;
     }
 
-    .kpi-trend {
-      font-size: 0.76rem;
-      font-weight: 700;
-      color: #059669;
-      background: #ecfdf5;
-      padding: 0.16rem 0.5rem;
-      border-radius: 999px;
-    }
-
-    .dash-grid-2 {
+    /* Clean Cards */
+    .grid-2 {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 1.35rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 1.25rem;
     }
 
-    @media (max-width: 980px) {
-      .dash-grid-2 {
+    @media (max-width: 920px) {
+      .grid-2 {
         grid-template-columns: 1fr;
       }
     }
 
-    .card {
+    .panel-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 22px;
-      padding: 1.5rem;
+      padding: 1.6rem;
       box-shadow: var(--shadow-xs);
     }
 
-    .card-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      margin-bottom: 1.15rem;
-    }
-
-    .card-title {
-      margin: 0;
+    .panel-card h2 {
+      margin: 0 0 0.25rem;
       font-size: 1.12rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
 
-    .form-2col {
+    .panel-sub {
+      margin: 0 0 1.25rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .fields-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.85rem;
+      gap: 0.95rem;
     }
 
     @media (max-width: 560px) {
-      .form-2col {
+      .fields-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .adm-field label {
+    .field label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.79rem;
       font-weight: 700;
       color: var(--ink-2);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.32rem;
     }
 
-    .adm-input {
+    .clean-input {
       width: 100%;
-      padding: 0.68rem 0.85rem;
-      border-radius: 11px;
+      padding: 0.74rem 0.92rem;
+      border-radius: 12px;
       border: 1.5px solid var(--border);
-      background: #f8fafc;
-      font-weight: 600;
-      font-size: 0.88rem;
+      background: var(--bg);
       color: var(--ink);
+      font-weight: 600;
+      font-size: 0.92rem;
       outline: none;
+      transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
     }
 
-    .adm-input:focus {
+    .clean-input:focus {
       border-color: var(--brand);
-      background: #ffffff;
+      background: var(--surface);
       box-shadow: 0 0 0 4px var(--brand-ring);
     }
 
-    .btn-save {
-      padding: 0.78rem 1.3rem;
-      border-radius: 12px;
-      border: none;
-      background: var(--brand-grad);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.88rem;
-      cursor: pointer;
-      box-shadow: var(--shadow-brand);
-    }
-
-    /* Color Swatch Cards */
-    .palette-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-      gap: 0.65rem;
-    }
-
-    .pal-card {
-      border: 1.5px solid var(--border);
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 0.75rem;
-      cursor: pointer;
-      text-align: left;
-      display: flex;
+    .toast-saved {
+      display: none;
       align-items: center;
-      gap: 0.65rem;
-      transition: all 160ms ease;
+      gap: 0.45rem;
+      padding: 0.65rem 0.95rem;
+      border-radius: 12px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-top: 1rem;
     }
 
-    .pal-card.active {
-      border-color: var(--brand);
-      background: var(--brand-soft);
-      box-shadow: 0 0 0 3px var(--brand-ring);
+    /* Leads CRM Table */
+    .toolbar-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
     }
 
-    .pal-dot {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      flex: none;
+    .filter-pills {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      background: var(--bg);
+      padding: 0.3rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
     }
 
-    /* Table */
-    .table-wrap {
+    .f-pill {
+      border: none;
+      background: transparent;
+      padding: 0.42rem 0.82rem;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .f-pill.active {
+      background: var(--surface);
+      color: var(--brand);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .quick-add-drawer {
+      display: none;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.15rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .table-scroll {
       overflow-x: auto;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.86rem;
+      font-size: 0.87rem;
     }
 
     th {
       text-align: left;
-      font-size: 0.74rem;
+      padding: 0.75rem 0.85rem;
+      font-size: 0.73rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--muted);
-      padding: 0.75rem 0.85rem;
       border-bottom: 1px solid var(--border);
       white-space: nowrap;
     }
 
     td {
-      padding: 0.85rem;
+      padding: 0.9rem 0.85rem;
       border-bottom: 1px solid var(--border);
       vertical-align: middle;
     }
 
-    .st-pill {
-      display: inline-block;
-      padding: 0.22rem 0.62rem;
-      border-radius: 999px;
-      font-size: 0.74rem;
+    .status-select {
+      padding: 0.36rem 0.65rem;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: var(--bg);
       font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--ink);
+      cursor: pointer;
     }
 
-    .st-pending { background: #fef3c7; color: #92400e; }
-    .st-assigned { background: #dbeafe; color: #1e40af; }
-    .st-onway { background: #e0e7ff; color: #3730a3; }
-    .st-completed { background: #d1fae5; color: #065f46; }
-
-    .btn-wa-dispatch {
+    .wa-send-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.38rem 0.72rem;
-      border-radius: 9px;
+      gap: 0.38rem;
+      padding: 0.44rem 0.82rem;
+      border-radius: 10px;
       background: #16a34a;
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       white-space: nowrap;
+      transition: background-color 150ms ease;
+    }
+
+    .wa-send-btn:hover {
+      background: #15803d;
+    }
+
+    /* Theme & Color Picker Cards */
+    .themes-3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .themes-3-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .theme-pick-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 180ms var(--ease-spring);
+    }
+
+    .theme-pick-card.selected {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 4px var(--brand-ring);
+    }
+
+    .theme-pick-thumb {
+      height: 155px;
+      overflow: hidden;
+      background: #0f172a;
+      position: relative;
+    }
+
+    .theme-pick-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .theme-active-flag {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .color-5-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .color-option-card {
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 160ms ease;
+    }
+
+    .color-option-card:hover {
+      border-color: var(--brand);
+      background: var(--surface);
+    }
+
+    .color-option-card.active {
+      border-color: var(--brand);
+      background: var(--brand-soft);
+      box-shadow: 0 0 0 3px var(--brand-ring);
+    }
+
+    .color-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      flex: none;
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
+    }
+
+    /* Brand & Service Toggle Chips */
+    .toggle-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .toggle-chip {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 11px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ink-2);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 150ms ease;
+    }
+
+    .toggle-chip.on {
+      background: var(--brand-soft);
+      border-color: var(--brand-soft-2);
+      color: var(--brand-ink);
     }
   </style>
 </head>
 <body>
   <div id="studioBarHost"></div>
 
-  <div class="admin-shell">
-    <aside class="admin-sidebar">
-      <div class="side-brand">
-        <span class="side-logo">M</span>
+  <div class="admin-layout">
+    <!-- Clean Minimalist Left Sidebar -->
+    <aside class="sidebar">
+      <div class="side-header">
+        <span class="side-mark">M</span>
         <div>
-          <strong style="display:block;font-size:0.95rem;line-height:1.15;">Merkez Cloud</strong>
-          <span style="font-size:0.72rem;color:#94a3b8;">23-Site Komuta Paneli</span>
+          <strong style="display:block;font-size:0.96rem;line-height:1.2;" data-servis-company>Merkez Beyaz Eşya Servisi</strong>
+          <span style="font-size:0.74rem;color:var(--muted);font-weight:600;">Yönetim Paneli</span>
         </div>
       </div>
 
-      <nav class="side-menu" aria-label="Panel Menüsü">
-        <a href="#numara-renk" class="active">Numara &amp; Tema Renkleri</a>
-        <a href="#is-emirleri">Canlı İş Emirleri &amp; Usta</a>
-        <a href="#seo-drip">Anti-Spam SEO &amp; Ads Kalkanı</a>
-        <a href="#coklu-site">23 Domain Matrisi</a>
-        <a href="../tema-1-kurumsal/index.html">↗ Tema 1'i Görüntüle</a>
-        <a href="../tema-2-hizli-cagri/index.html">↗ Tema 2'yi Görüntüle</a>
-        <a href="../tema-3-prestij/index.html">↗ Tema 3'ü Görüntüle</a>
+      <nav class="side-nav" aria-label="Yönetim Sekmeleri">
+        <button type="button" class="nav-tab-btn active" data-tab-target="overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Numara &amp; Hızlı Ayarlar</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="orders">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+          <span>Servis Kayıtları &amp; Ustalar</span>
+          <span class="badge-count tnum" id="sideLeadBadge">5</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="appearance">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"/></svg>
+          <span>Tema &amp; 5 Renk Seçimi</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="seo">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>35 Marka &amp; SEO Kalkanı</span>
+        </button>
       </nav>
 
-      <div style="margin-top:auto;padding:0.95rem;border-radius:14px;background:rgba(255,255,255,0.06);font-size:0.78rem;">
-        <strong style="color:#ffffff;display:block;margin-bottom:0.25rem;">Aktif Çağrı Hattı</strong>
-        <span class="mono" style="color:#38bdf8;font-size:0.92rem;" data-servis-phone>0850 380 02 02</span>
+      <div class="side-quick-links">
+        <span style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:0 0.85rem;">Canlı Siteyi Aç</span>
+        <a href="../tema-1-kurumsal/index.html"><span>Tema 1: Modern Kurumsal</span><span>↗</span></a>
+        <a href="../tema-2-hizli-cagri/index.html"><span>Tema 2: Hızlı Çağrı</span><span>↗</span></a>
+        <a href="../tema-3-prestij/index.html"><span>Tema 3: Prestij Vitrin</span><span>↗</span></a>
+      </div>
+
+      <div class="side-status-box">
+        <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;">
+          <span class="live-dot"></span>
+          <strong style="font-size:0.8rem;">Aktif Çağrı Numarası</strong>
+        </div>
+        <span class="mono" style="font-size:0.95rem;font-weight:700;color:var(--brand);" data-servis-phone>0850 380 02 02</span>
       </div>
     </aside>
 
-    <main class="admin-main">
-      <div class="topbar">
+    <!-- Main Content Area -->
+    <main class="workspace">
+      <!-- Mobile Tab Switcher -->
+      <div class="mobile-tabs" role="tablist">
+        <button type="button" class="mob-tab-btn active" data-tab-target="overview">Numara &amp; Özet</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="orders">Servis Kayıtları</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="appearance">Tema &amp; Renkler</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="seo">35 Marka &amp; SEO</button>
+      </div>
+
+      <div class="workspace-header">
         <div>
-          <span style="font-size:0.76rem;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:0.08em;">Canlı Demo Yönetim Merkezi</span>
-          <h1 style="margin:0.15rem 0 0;font-size:1.65rem;letter-spacing:-0.025em;">Tek Tık Numara, Renk Paleti, Saha CRM &amp; 23-Domain Yönetimi</h1>
+          <h1 class="workspace-title" id="paneHeading">Numara &amp; Hızlı Site Ayarları</h1>
+          <p class="workspace-sub" id="paneSubheading">Telefon numaranızı, WhatsApp hattınızı ve firma başlığınızı tek tıkla tüm sayfalarda güncelleyin.</p>
         </div>
-        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
-          <a href="../tema-1-kurumsal/index.html" class="btn-save" style="text-decoration:none;">Değişikliği Temalarda Test Et ↗</a>
-        </div>
-      </div>
-
-      <!-- KPI Cards -->
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-lbl"><span>Bugün Gelen Çağrı &amp; Form</span><span class="kpi-trend">+24%</span></div>
-          <strong class="kpi-val tnum" id="kpiTotalLeads">148</strong>
-          <span style="font-size:0.78rem;color:var(--muted);">0850 Hat + WhatsApp + Web Form</span>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-lbl"><span>Sahadaki Aktif İş Emri</span><span class="kpi-trend">81 İl</span></div>
-          <strong class="kpi-val tnum">38 Ekip</strong>
-          <span style="font-size:0.78rem;color:var(--muted);">Ort. yönlendirme süresi: 4.2 dk</span>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-lbl"><span>Günlük Usta Komisyon Hakedişi</span><span class="kpi-trend">%30 Pay</span></div>
-          <strong class="kpi-val tnum" style="color:var(--brand);">14.280 TL</strong>
-          <span style="font-size:0.78rem;color:var(--muted);">Toplam Servis Cirosu: 47.600 TL</span>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-lbl"><span>Sağlıklı Google İndeksli URL</span><span class="kpi-trend">Spam %0</span></div>
-          <strong class="kpi-val tnum">42.650</strong>
-          <span style="font-size:0.78rem;color:var(--muted);">Drip-Feed Kademeli Sitemap Aktif</span>
+        <div style="display:flex;gap:0.55rem;flex-wrap:wrap;">
+          <a id="openActiveThemeBtn" href="../tema-1-kurumsal/index.html" class="btn-primary">Sitede Canlı Gör ↗</a>
         </div>
       </div>
 
-      <!-- 1-Click Phone / Brand / Color Manager + SVG Chart -->
-      <div id="numara-renk" class="dash-grid-2">
-        <section class="card">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title">Tek Tıkla 0850 / 444 / WhatsApp &amp; Firma Güncelle</h2>
-              <span style="font-size:0.8rem;color:var(--muted);">Buradan kaydettiğiniz numara tüm temalardaki butonlarda anında değişir.</span>
-            </div>
+      <!-- TAB 1: HIZLI AYARLAR & NUMARA -->
+      <section class="tab-pane active" id="pane-overview">
+        <div class="kpi-row">
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Bugünkü Çağrı &amp; Talep</span><span class="kpi-pill">+18%</span></div>
+            <strong class="kpi-num tnum" id="kpiCallsCount">148</strong>
+            <span style="font-size:0.77rem;color:var(--muted);">0850 Hat + WhatsApp + Web</span>
           </div>
-
-          <form id="liveConfigForm" class="form-2col">
-            <div class="adm-field">
-              <label for="cfgCompany">Görünen Marka / Site Başlığı</label>
-              <input id="cfgCompany" class="adm-input" type="text">
-            </div>
-            <div class="adm-field">
-              <label for="cfgPhone1">Ana Çağrı Merkezi (0850 / 05XX)</label>
-              <input id="cfgPhone1" class="adm-input mono" type="text">
-            </div>
-            <div class="adm-field">
-              <label for="cfgPhone2">Yedek Çağrı Hattı (444 / Sabit)</label>
-              <input id="cfgPhone2" class="adm-input mono" type="text">
-            </div>
-            <div class="adm-field">
-              <label for="cfgWa">WhatsApp Destek Numarası</label>
-              <input id="cfgWa" class="adm-input mono" type="text">
-            </div>
-            <div style="grid-column:1 / -1;margin-top:0.25rem;">
-              <label style="display:block;font-size:0.78rem;font-weight:700;color:var(--ink-2);margin-bottom:0.45rem;">Canlı Tema Renk Seçeneği (5 Kurumsal Palet):</label>
-              <div id="adminPaletteCards" class="palette-cards"></div>
-            </div>
-            <div style="grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-top:0.4rem;">
-              <span id="saveStatusMsg" style="font-size:0.82rem;font-weight:700;color:#059669;"></span>
-              <button type="submit" class="btn-save">Tüm Temalarda Canlı Kaydet ✓</button>
-            </div>
-          </form>
-        </section>
-
-        <!-- Weekly Call & SEO Conversion SVG Chart + Anti-Spam Controls -->
-        <section id="seo-drip" class="card">
-          <div class="card-head">
-            <div>
-              <h2 class="card-title">Haftalık Çağrı Dönüşümü &amp; Anti-Spam Kalkanı</h2>
-              <span style="font-size:0.8rem;color:var(--muted);">Arıza kodu sayfalarından ve 81 il aramalarından gelen çağrılar</span>
-            </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Sahadaki Aktif Servis</span><span class="kpi-pill">Canlı</span></div>
+            <strong class="kpi-num tnum">14 Usta</strong>
+            <span style="font-size:0.77rem;color:var(--muted);">Ort. adrese varış: 32 dk</span>
           </div>
-
-          <!-- Crisp Responsive Inline SVG Area Chart -->
-          <div style="background:#f8fafc;border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:1.1rem;">
-            <svg viewBox="0 0 460 145" width="100%" height="145" role="img" aria-label="7 Günlük Çağrı ve Form Grafiği">
-              <defs>
-                <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="var(--brand)" stop-opacity="0.28"/>
-                  <stop offset="100%" stop-color="var(--brand)" stop-opacity="0.01"/>
-                </linearGradient>
-              </defs>
-              <line x1="20" y1="25" x2="440" y2="25" stroke="#e2e8f0" stroke-dasharray="3 3"/>
-              <line x1="20" y1="65" x2="440" y2="65" stroke="#e2e8f0" stroke-dasharray="3 3"/>
-              <line x1="20" y1="105" x2="440" y2="105" stroke="#e2e8f0"/>
-              <path d="M25,95 C75,85 105,68 155,62 C205,56 235,44 285,38 C335,32 385,22 435,16 L435,105 L25,105 Z" fill="url(#chartFill)"/>
-              <path d="M25,95 C75,85 105,68 155,62 C205,56 235,44 285,38 C335,32 385,22 435,16" fill="none" stroke="var(--brand)" stroke-width="3.2" stroke-linecap="round"/>
-              <circle cx="25" cy="95" r="4" fill="var(--brand)"/>
-              <circle cx="155" cy="62" r="4" fill="var(--brand)"/>
-              <circle cx="285" cy="38" r="4" fill="var(--brand)"/>
-              <circle cx="435" cy="16" r="5" fill="var(--brand)"/>
-              <g fill="#64748b" font-size="11" font-weight="600">
-                <text x="18" y="128">Pzt (94)</text>
-                <text x="135" y="128">Çar (118)</text>
-                <text x="262" y="128">Cum (134)</text>
-                <text x="392" y="128">Bugün (148)</text>
-              </g>
-            </svg>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Günlük Usta Payı (%30)</span><span class="kpi-pill">Net</span></div>
+            <strong class="kpi-num tnum" style="color:var(--brand);">14.280 ₺</strong>
+            <span style="font-size:0.77rem;color:var(--muted);">Toplam İşlem: 47.600 ₺</span>
           </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Domain &amp; SEO Sağlığı</span><span class="kpi-pill">%100</span></div>
+            <strong class="kpi-num tnum">Güvenli</strong>
+            <span style="font-size:0.77rem;color:var(--muted);">Spam Korumalı Kademeli İndeks</span>
+          </div>
+        </div>
 
-          <div style="display:grid;gap:0.9rem;">
-            <div>
-              <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:700;margin-bottom:0.3rem;">
-                <span>Günlük Kademeli (Drip-Feed) Sitemap İndeks Limiti</span>
-                <span class="mono" id="dripValOut" style="color:var(--brand);">250 URL / Gün</span>
+        <div class="grid-2">
+          <!-- 1-Click Phone & Company Form -->
+          <div class="panel-card">
+            <h2>Telefon, WhatsApp ve Firma Bilgileri</h2>
+            <p class="panel-sub">Numarayı değiştirip kaydettiğiniz anda sitedeki tüm "Hemen Ara" ve "WhatsApp" butonları otomatik güncellenir.</p>
+
+            <form id="quickPhoneForm">
+              <div class="fields-grid">
+                <div class="field" style="grid-column:1 / -1;">
+                  <label for="inCompany">Sitede Görünen Firma Adı</label>
+                  <input id="inCompany" type="text" class="clean-input" placeholder="Merkez Beyaz Eşya Servisi">
+                </div>
+                <div class="field">
+                  <label for="inPhone1">Ana Çağrı Hattı (0850 / Cep)</label>
+                  <input id="inPhone1" type="text" class="clean-input mono" placeholder="0850 380 02 02">
+                </div>
+                <div class="field">
+                  <label for="inPhone2">Yedek Hat (444 / Sabit)</label>
+                  <input id="inPhone2" type="text" class="clean-input mono" placeholder="444 6 082">
+                </div>
+                <div class="field" style="grid-column:1 / -1;">
+                  <label for="inWa">WhatsApp Müşteri Hattı</label>
+                  <input id="inWa" type="text" class="clean-input mono" placeholder="0850 380 02 02">
+                </div>
               </div>
-              <input type="range" id="dripSlider" min="50" max="1000" step="50" value="250" style="width:100%;accent-color:var(--brand);">
+
+              <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;margin-top:1.25rem;">
+                <button type="submit" class="btn-primary">Kaydet ve Tüm Sitede Güncelle ✓</button>
+                <button type="button" class="btn-soft" data-jump-tab="appearance">Tema &amp; Rengi Değiştir →</button>
+              </div>
+
+              <div id="phoneSavedToast" class="toast-saved" role="status">
+                <span>✓ Numara ve firma bilgileri kaydedildi! Üç temada birden anında aktif oldu.</span>
+              </div>
+            </form>
+          </div>
+
+          <!-- Clean 7-Day Call Trend + Quick Color Bar -->
+          <div class="panel-card" style="display:flex;flex-direction:column;justify-content:space-between;gap:1.1rem;">
+            <div>
+              <h2>Son 7 Günlük Çağrı &amp; Form Grafiği</h2>
+              <p class="panel-sub">81 il ve arıza kodu sayfalarından gelen günlük müşteri talepleri</p>
+
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1rem;">
+                <svg viewBox="0 0 440 140" width="100%" height="140" role="img" aria-label="7 Günlük Çağrı Grafiği">
+                  <defs>
+                    <linearGradient id="admArea" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--brand)" stop-opacity="0.25"/>
+                      <stop offset="100%" stop-color="var(--brand)" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <line x1="16" y1="24" x2="424" y2="24" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                  <line x1="16" y1="64" x2="424" y2="64" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                  <line x1="16" y1="104" x2="424" y2="104" stroke="#e2e8f0"/>
+                  <path d="M22,92 C80,84 115,68 165,60 C215,52 255,42 305,34 C355,26 390,20 420,15 L420,104 L22,104 Z" fill="url(#admArea)"/>
+                  <path d="M22,92 C80,84 115,68 165,60 C215,52 255,42 305,34 C355,26 390,20 420,15" fill="none" stroke="var(--brand)" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="22" cy="92" r="4" fill="var(--brand)"/>
+                  <circle cx="165" cy="60" r="4" fill="var(--brand)"/>
+                  <circle cx="305" cy="34" r="4" fill="var(--brand)"/>
+                  <circle cx="420" cy="15" r="5" fill="var(--brand)"/>
+                  <g fill="#64748b" font-size="11" font-weight="600">
+                    <text x="16" y="126">Pzt (94)</text>
+                    <text x="145" y="126">Çar (118)</text>
+                    <text x="282" y="126">Cum (134)</text>
+                    <text x="372" y="126">Bugün (148)</text>
+                  </g>
+                </svg>
+              </div>
             </div>
 
-            <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.75rem 0.95rem;border-radius:13px;background:#f8fafc;border:1px solid var(--border);cursor:pointer;">
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:15px;padding:0.9rem 1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.65rem;">
               <div>
-                <strong style="font-size:0.85rem;display:block;">Google Ads "Bağımsız Özel Servis" Politika Kalkanı</strong>
-                <span style="font-size:0.76rem;color:var(--muted);">Reklam hesabı askıya alınmasını önleyen yasal şeffaflık şeridi</span>
+                <strong style="font-size:0.83rem;display:block;">Hızlı Site Rengi: <span data-active-palette-name style="color:var(--brand);">Puls Güven Mavisi</span></strong>
+                <span style="font-size:0.75rem;color:var(--muted);">Tıkladığınız an tüm site bu renge geçer</span>
               </div>
-              <input type="checkbox" id="adsShieldToggle" checked style="width:18px;height:18px;accent-color:var(--brand);">
-            </label>
+              <div id="miniColorRow" style="display:flex;gap:0.45rem;"></div>
+            </div>
           </div>
-        </section>
-      </div>
-
-      <!-- Live Work Orders & 1-Click Technician WhatsApp Dispatch -->
-      <section id="is-emirleri" class="card" style="margin-bottom:1.5rem;">
-        <div class="card-head">
-          <div>
-            <h2 class="card-title">Canlı Gelen İş Emirleri &amp; Tek Tıkla Ustaya WhatsApp İş Atama</h2>
-            <span style="font-size:0.8rem;color:var(--muted);">Tema 1 ve Tema 2 formlarından açtığınız deneme kayıtları da bu tabloya anlık düşer.</span>
-          </div>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>İş Emri No</th>
-                <th>Müşteri &amp; Telefon</th>
-                <th>İl / İlçe</th>
-                <th>Marka &amp; Arıza</th>
-                <th>Atanan Ekip</th>
-                <th>Durum</th>
-                <th>Tutar / %30 Pay</th>
-                <th>Hızlı Aksiyon</th>
-              </tr>
-            </thead>
-            <tbody id="leadsTableBody"></tbody>
-          </table>
         </div>
       </section>
 
-      <!-- 23-Domain Multi-Site Footprint Matrix -->
-      <section id="coklu-site" class="card">
-        <div class="card-head">
-          <div>
-            <h2 class="card-title">23 Domain Çoklu Site &amp; Farklı Tema/Renk Ayak İzi (Anti-Footprint) Yöneticisi</h2>
-            <span style="font-size:0.8rem;color:var(--muted);">23 sitenizin her birine farklı tema ve farklı renk paleti atayarak Google'ın kopya ağ (footprint) yakalamasını %100 önleyin.</span>
+      <!-- TAB 2: SERVİS KAYITLARI & USTALAR -->
+      <section class="tab-pane" id="pane-orders">
+        <div class="panel-card">
+          <div class="toolbar-row">
+            <div class="filter-pills" role="tablist" aria-label="İş Emri Filtresi">
+              <button type="button" class="f-pill active" data-lead-filter="all">Tümü</button>
+              <button type="button" class="f-pill" data-lead-filter="pending">Bekleyenler</button>
+              <button type="button" class="f-pill" data-lead-filter="active">Sahada / Yolda</button>
+              <button type="button" class="f-pill" data-lead-filter="completed">Tamamlananlar</button>
+            </div>
+            <button type="button" class="btn-primary" id="toggleNewOrderBtn">+ Telefon Kaydı Ekle</button>
+          </div>
+
+          <!-- Expandable Quick Manual Phone Ticket Form -->
+          <form id="manualOrderDrawer" class="quick-add-drawer">
+            <strong style="display:block;font-size:0.9rem;margin-bottom:0.75rem;">0850 Çağrı Merkezinden Gelen Yeni Kaydı Aç</strong>
+            <div class="fields-grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));">
+              <input id="mCust" class="clean-input" style="background:#fff;" required placeholder="Müşteri Adı Soyadı">
+              <input id="mPhone" class="clean-input mono" style="background:#fff;" required placeholder="05XX XXX XX XX">
+              <input id="mCity" class="clean-input" style="background:#fff;" required placeholder="İl / İlçe (Örn: Mersin / Mezitli)">
+              <input id="mBrand" class="clean-input" style="background:#fff;" required placeholder="Marka & Cihaz (Örn: Bosch Kombi)">
+              <input id="mFault" class="clean-input" style="background:#fff;" required placeholder="Arıza Özeti">
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:0.5rem;margin-top:0.85rem;">
+              <button type="button" class="btn-soft" id="cancelNewOrderBtn">Vazgeç</button>
+              <button type="submit" class="btn-primary">İş Emri Oluştur ✓</button>
+            </div>
+          </form>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Fiş No</th>
+                  <th>Müşteri &amp; Telefon</th>
+                  <th>İl / İlçe</th>
+                  <th>Cihaz &amp; Arıza</th>
+                  <th>Durum Değiştir</th>
+                  <th>Ustaya İlet</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: TEMA & 5 RENK SEÇİMİ -->
+      <section class="tab-pane" id="pane-appearance">
+        <div class="panel-card" style="margin-bottom:1.25rem;">
+          <h2>Sitenizin Aktif Tasarım Temasını Seçin</h2>
+          <p class="panel-sub">İstediğiniz temayı tek tıkla varsayılan yapabilir veya canlı önizleyebilirsiniz.</p>
+
+          <div class="themes-3-grid" id="themeCardsHost">
+            <div class="theme-pick-card selected" data-theme-card="tema-1-kurumsal">
+              <div class="theme-pick-thumb">
+                <img src="../assets/photos/hero-technician-kitchen.jpg" alt="Tema 1 Modern Kurumsal">
+                <span class="theme-active-flag">1. Tema</span>
+              </div>
+              <div style="padding:1.15rem;display:flex;flex-direction:column;gap:0.6rem;flex:1;">
+                <strong style="font-size:1rem;">Tema 1: Modern Kurumsal</strong>
+                <span style="font-size:0.82rem;color:var(--muted);flex:1;">Ferah kurumsal güven tasarımı, hızlı ekip sorgu barı ve arıza kodu teşhis ekranı.</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:0.58rem;" data-pick-theme="tema-1-kurumsal">Temayı Seç</button>
+                  <a href="../tema-1-kurumsal/index.html" class="btn-soft" style="padding:0.58rem 0.8rem;">Gör ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="theme-pick-card" data-theme-card="tema-2-hizli-cagri">
+              <div class="theme-pick-thumb">
+                <img src="../assets/photos/klima-service.jpg" alt="Tema 2 Hızlı Çağrı ve Garanti">
+                <span class="theme-active-flag">2. Tema</span>
+              </div>
+              <div style="padding:1.15rem;display:flex;flex-direction:column;gap:0.6rem;flex:1;">
+                <strong style="font-size:1rem;">Tema 2: Hızlı Çağrı &amp; Garanti</strong>
+                <span style="font-size:0.82rem;color:var(--muted);flex:1;">60 saniyede 3 adımlı usta çağırma sihirbazı ve webden 1 yıl garanti fişi sorgulama.</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:0.58rem;" data-pick-theme="tema-2-hizli-cagri">Temayı Seç</button>
+                  <a href="../tema-2-hizli-cagri/index.html" class="btn-soft" style="padding:0.58rem 0.8rem;">Gör ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="theme-pick-card" data-theme-card="tema-3-prestij">
+              <div class="theme-pick-thumb">
+                <img src="../assets/photos/ankastre-kitchen.jpg" alt="Tema 3 Prestij Koyu ve Açık Mod">
+                <span class="theme-active-flag">3. Tema</span>
+              </div>
+              <div style="padding:1.15rem;display:flex;flex-direction:column;gap:0.6rem;flex:1;">
+                <strong style="font-size:1rem;">Tema 3: Prestij (Koyu / Açık Mod)</strong>
+                <span style="font-size:0.82rem;color:var(--muted);flex:1;">Ankastre &amp; kombi odaklı lüks vitrin, tasarruf hesaplayıcı ve canlı Google SEO önizleme.</span>
+                <div style="display:flex;gap:0.5rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:0.58rem;" data-pick-theme="tema-3-prestij">Temayı Seç</button>
+                  <a href="../tema-3-prestij/index.html" class="btn-soft" style="padding:0.58rem 0.8rem;">Gör ↗</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Domain Grubu (Örnek)</th>
-                <th>Atanan Tema Mimarisi</th>
-                <th>Atanan Renk Seçeneği</th>
-                <th>Aktif Çağrı Hattı</th>
-                <th>Drip-Feed Durumu</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong class="mono">merkezbeyazesya.com.tr</strong> (+5 Domain)</td>
-                <td>Tema 1: Modern Kurumsal Bento</td>
-                <td><span style="color:#0066ff;font-weight:700;">● Puls Güven Mavisi</span></td>
-                <td class="mono" data-servis-phone>0850 380 02 02</td>
-                <td><span class="st-pill st-completed">250 URL/gün Aktif</span></td>
-              </tr>
-              <tr>
-                <td><strong class="mono">acilservismerkezi.com</strong> (+6 Domain)</td>
-                <td>Tema 2: Hızlı Çağrı &amp; Dijital Garanti</td>
-                <td><span style="color:#e11d48;font-weight:700;">● Bosch &amp; Arçelik Kırmızısı</span></td>
-                <td class="mono" data-servis-phone>0850 380 02 02</td>
-                <td><span class="st-pill st-completed">200 URL/gün Aktif</span></td>
-              </tr>
-              <tr>
-                <td><strong class="mono">yogusmalikombiservis.com</strong> (+6 Domain)</td>
-                <td>Tema 3: Prestij İklimlendirme (Koyu Mod)</td>
-                <td><span style="color:#059669;font-weight:700;">● Vaillant Eko Yeşili</span></td>
-                <td class="mono" data-servis-phone-secondary>444 6 082</td>
-                <td><span class="st-pill st-completed">300 URL/gün Aktif</span></td>
-              </tr>
-              <tr>
-                <td><strong class="mono">ankastremutfakservis.net</strong> (+6 Domain)</td>
-                <td>Tema 3: Prestij Ankastre (Açık Mod)</td>
-                <td><span style="color:#0891b2;font-weight:700;">● Siemens Ankastre Turkuaz</span></td>
-                <td class="mono" data-servis-phone>0850 380 02 02</td>
-                <td><span class="st-pill st-completed">180 URL/gün Aktif</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="panel-card">
+          <h2>5 Kurumsal Renk Paleti (Tek Tıkla Değiştir)</h2>
+          <p class="panel-sub">Seçtiğiniz renk tüm butonlara, ikonlara, vurgu alanlarına ve hızlı arama çubuğuna anında uygulanır.</p>
+          <div id="fullColorCards" class="color-5-grid"></div>
+        </div>
+      </section>
+
+      <!-- TAB 4: 35 MARKA, 7 HİZMET & KÖKLÜ DOMAİN SEO KALKANI -->
+      <section class="tab-pane" id="pane-seo">
+        <div class="grid-2" style="margin-bottom:1.25rem;">
+          <div class="panel-card">
+            <h2>Köklü Domain Koruyucu Anti-Spam SEO Ayarı</h2>
+            <p class="panel-sub">23 yıllık otoriter bir domain adınız bile olsa bir günde milyonlarca kopya sayfa açmak siteyi spam filtresine sokar. Buradan günlük doğal indeks hızını güvenle yönetirsiniz.</p>
+
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.15rem;margin-bottom:1rem;">
+              <div style="display:flex;justify-content:space-between;font-weight:700;font-size:0.88rem;margin-bottom:0.45rem;">
+                <span>Günlük Kademeli (Drip-Feed) Sitemap Açılış Hızı</span>
+                <span class="mono" id="seoDripLabel" style="color:var(--brand);">250 Sayfa / Gün</span>
+              </div>
+              <input type="range" id="seoDripRange" min="50" max="600" step="50" value="250" style="width:100%;accent-color:var(--brand);">
+              <span style="font-size:0.76rem;color:var(--muted);display:block;margin-top:0.35rem;">Önerilen güvenli aralık: Günlük 150 – 300 özgün ilçe/marka sayfası.</span>
+            </div>
+
+            <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.9rem 1.05rem;border-radius:15px;background:var(--bg);border:1px solid var(--border);cursor:pointer;">
+              <div>
+                <strong style="font-size:0.88rem;display:block;">Google Ads "Bağımsız Özel Servis" Politika Kalkanı</strong>
+                <span style="font-size:0.78rem;color:var(--muted);">Sitenin en üstünde şeffaf özel servis bilgilendirmesi göstererek reklam hesabını korur.</span>
+              </div>
+              <input type="checkbox" id="seoAdsCheck" checked style="width:20px;height:20px;accent-color:var(--brand);">
+            </label>
+          </div>
+
+          <div class="panel-card">
+            <h2>Aktif Hizmet Branşları (7 Ana Hizmet)</h2>
+            <p class="panel-sub">Hizmet verdiğiniz branşları tek tıkla açıp kapatabilirsiniz.</p>
+            <div id="serviceBranchToggles" class="toggle-chips"></div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h2>Aktif Marka Sayfaları (35 Marka)</h2>
+          <p class="panel-sub">81 il ve 973 ilçede otomatik arıza kodu ve servis sayfası üretilen 35 marka:</p>
+          <div id="brandTogglesHost" class="toggle-chips"></div>
         </div>
       </section>
     </main>
@@ -593,102 +982,203 @@
       const MS = window.MerkezServis;
       MS.mountStudioChrome('admin', '../');
 
-      const cfgCompany = document.getElementById('cfgCompany');
-      const cfgPhone1 = document.getElementById('cfgPhone1');
-      const cfgPhone2 = document.getElementById('cfgPhone2');
-      const cfgWa = document.getElementById('cfgWa');
-      const dripSlider = document.getElementById('dripSlider');
-      const dripValOut = document.getElementById('dripValOut');
-      const adsToggle = document.getElementById('adsShieldToggle');
-      const palHost = document.getElementById('adminPaletteCards');
+      // Tab Navigation
+      const tabMeta = {
+        overview: ['Numara & Hızlı Site Ayarları', 'Telefon numaranızı, WhatsApp hattınızı ve firma başlığınızı tek tıkla tüm sayfalarda güncelleyin.'],
+        orders: ['Servis Kayıtları & Ustaya WhatsApp Atama', 'Siteden veya çağrı merkezinden gelen taleplerin durumunu güncelleyin ve tek tuşla bölge ustasına gönderin.'],
+        appearance: ['Site Teması & 5 Canlı Renk Seçimi', '3 farklı modern tasarım ve 5 kurumsal renk paleti arasından dilediğinizi tek tıkla aktif edin.'],
+        seo: ['35 Marka, 7 Branş & Köklü Domain SEO Kalkanı', 'Domain otoritenizi spam filtresinden koruyan kademeli indeksleme ve Google Ads uyum ayarları.']
+      };
 
-      function syncFormFromConfig() {
-        const c = MS.getConfig();
-        cfgCompany.value = c.companyName;
-        cfgPhone1.value = c.primaryPhoneDisplay;
-        cfgPhone2.value = c.secondaryPhoneDisplay;
-        cfgWa.value = c.whatsappDisplay;
-        dripSlider.value = c.dailyDripLimit || 250;
-        dripValOut.textContent = dripSlider.value + ' URL / Gün';
-        adsToggle.checked = c.adsComplianceBanner !== false;
+      function switchTab(tabId) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + tabId));
+        document.querySelectorAll('[data-tab-target]').forEach(b => b.classList.toggle('active', b.getAttribute('data-tab-target') === tabId));
+        const [h, s] = tabMeta[tabId] || tabMeta.overview;
+        document.getElementById('paneHeading').textContent = h;
+        document.getElementById('paneSubheading').textContent = s;
+      }
 
-        const activePal = document.documentElement.getAttribute('data-palette') || c.colorPalette || 'royal-blue';
-        palHost.innerHTML = MS.COLOR_PALETTES.map(p => `
-          <button type="button" class="pal-card ${p.id === activePal ? 'active' : ''}" data-adm-pal="${p.id}">
-            <span class="pal-dot" style="background:${p.hex};"></span>
+      document.querySelectorAll('[data-tab-target]').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab-target')));
+      });
+      document.querySelectorAll('[data-jump-tab]').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-jump-tab')));
+      });
+
+      // Form & Theme Sync
+      const inCompany = document.getElementById('inCompany');
+      const inPhone1 = document.getElementById('inPhone1');
+      const inPhone2 = document.getElementById('inPhone2');
+      const inWa = document.getElementById('inWa');
+      const openBtn = document.getElementById('openActiveThemeBtn');
+
+      function refreshConfigUI() {
+        const cfg = MS.getConfig();
+        inCompany.value = cfg.companyName;
+        inPhone1.value = cfg.primaryPhoneDisplay;
+        inPhone2.value = cfg.secondaryPhoneDisplay;
+        inWa.value = cfg.whatsappDisplay;
+        const activeTheme = cfg.activeTheme || 'tema-1-kurumsal';
+        openBtn.setAttribute('href', `../${activeTheme}/index.html`);
+
+        document.querySelectorAll('[data-theme-card]').forEach(card => {
+          const isSel = card.getAttribute('data-theme-card') === activeTheme;
+          card.classList.toggle('selected', isSel);
+        });
+
+        const activePal = document.documentElement.getAttribute('data-palette') || cfg.colorPalette || 'royal-blue';
+        document.getElementById('miniColorRow').innerHTML = MS.COLOR_PALETTES.map(p => `
+          <button type="button" data-adm-pal="${p.id}" title="${p.name}" style="width:24px;height:24px;border-radius:50%;background:${p.hex};border:${p.id === activePal ? '3px solid #0f172a' : '2px solid #fff'};box-shadow:0 2px 6px rgba(0,0,0,0.18);cursor:pointer;"></button>
+        `).join('');
+
+        document.getElementById('fullColorCards').innerHTML = MS.COLOR_PALETTES.map(p => `
+          <button type="button" class="color-option-card ${p.id === activePal ? 'active' : ''}" data-adm-pal="${p.id}">
+            <span class="color-circle" style="background:${p.hex};"></span>
             <span>
-              <strong style="display:block;font-size:0.78rem;line-height:1.2;">${p.name}</strong>
-              <span style="font-size:0.7rem;color:var(--muted);">${p.hex}</span>
+              <strong style="display:block;font-size:0.86rem;">${p.name}</strong>
+              <span style="font-size:0.74rem;color:var(--muted);">${p.note}</span>
             </span>
           </button>
         `).join('');
-        palHost.querySelectorAll('[data-adm-pal]').forEach(btn => {
-          btn.addEventListener('click', () => {
-            MS.setPalette(btn.getAttribute('data-adm-pal'));
-            syncFormFromConfig();
+
+        document.querySelectorAll('[data-adm-pal]').forEach(b => {
+          b.addEventListener('click', () => {
+            MS.setPalette(b.getAttribute('data-adm-pal'));
+            refreshConfigUI();
           });
         });
+
+        document.getElementById('seoDripRange').value = cfg.dailyDripLimit || 250;
+        document.getElementById('seoDripLabel').textContent = (cfg.dailyDripLimit || 250) + ' Sayfa / Gün';
+        document.getElementById('seoAdsCheck').checked = cfg.adsComplianceBanner !== false;
       }
 
-      window.addEventListener('merkez:palette-changed', syncFormFromConfig);
-      syncFormFromConfig();
+      window.addEventListener('merkez:palette-changed', refreshConfigUI);
+      refreshConfigUI();
 
-      dripSlider.addEventListener('input', () => {
-        dripValOut.textContent = dripSlider.value + ' URL / Gün';
-        MS.saveConfig({ dailyDripLimit: Number(dripSlider.value) });
-      });
-
-      adsToggle.addEventListener('change', () => {
-        MS.saveConfig({ adsComplianceBanner: adsToggle.checked });
-      });
-
-      document.getElementById('liveConfigForm').addEventListener('submit', (e) => {
+      document.getElementById('quickPhoneForm').addEventListener('submit', (e) => {
         e.preventDefault();
         MS.saveConfig({
-          companyName: cfgCompany.value.trim(),
-          primaryPhoneDisplay: cfgPhone1.value.trim(),
-          secondaryPhoneDisplay: cfgPhone2.value.trim(),
-          whatsappDisplay: cfgWa.value.trim()
+          companyName: inCompany.value.trim(),
+          primaryPhoneDisplay: inPhone1.value.trim(),
+          secondaryPhoneDisplay: inPhone2.value.trim(),
+          whatsappDisplay: inWa.value.trim()
         });
         MS.hydrateLiveConfig();
-        const msg = document.getElementById('saveStatusMsg');
-        msg.textContent = '✓ Kaydedildi! Tüm temalarda numara ve marka anında güncellendi.';
-        setTimeout(() => { msg.textContent = ''; }, 4500);
+        const t = document.getElementById('phoneSavedToast');
+        t.style.display = 'flex';
+        setTimeout(() => { t.style.display = 'none'; }, 4200);
       });
 
-      // Render Live Leads Table
-      const tbody = document.getElementById('leadsTableBody');
-      function renderLeads() {
-        const leads = MS.getLeads();
-        document.getElementById('kpiTotalLeads').textContent = 143 + leads.length;
-        const stLabels = {
-          pending: ['Atama Bekliyor', 'st-pending'],
-          assigned: ['Usta Atandı', 'st-assigned'],
-          onway: ['Araç Yolda', 'st-onway'],
-          completed: ['1 Yıl Garantili Bitti', 'st-completed']
-        };
-        tbody.innerHTML = leads.map(l => {
-          const [lbl, cls] = stLabels[l.status] || stLabels.pending;
-          const waText = `*[MERKEZ İŞ EMRİ ${l.id}]*\nMüşteri: ${l.customer}\nTel: ${l.phone}\nBölge: ${l.city}\nCihaz: ${l.brand} - ${l.device}\nArıza: ${l.fault}\nLütfen 5 dk içinde müşteriyi arayıp varış saati veriniz.`;
-          const feeStr = l.feeTl ? `${l.feeTl.toLocaleString('tr-TR')} TL / <strong style="color:var(--brand);">${l.commissionTl} TL</strong>` : '<span style="color:var(--muted);">Tespit Bekliyor</span>';
+      document.querySelectorAll('[data-pick-theme]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const th = btn.getAttribute('data-pick-theme');
+          MS.saveConfig({ activeTheme: th });
+          refreshConfigUI();
+        });
+      });
+
+      // Orders CRM Table
+      let currentFilter = 'all';
+      const tbody = document.getElementById('ordersTableBody');
+
+      function renderOrders() {
+        const all = MS.getLeads();
+        document.getElementById('sideLeadBadge').textContent = all.length;
+        document.getElementById('kpiCallsCount').textContent = 143 + all.length;
+
+        const filtered = all.filter(item => {
+          if (currentFilter === 'pending') return item.status === 'pending';
+          if (currentFilter === 'active') return item.status === 'assigned' || item.status === 'onway';
+          if (currentFilter === 'completed') return item.status === 'completed';
+          return true;
+        });
+
+        tbody.innerHTML = filtered.map(l => {
+          const waMsg = `*[SERVİS İŞ EMRİ ${l.id}]*\nMüşteri: ${l.customer}\nTelefon: ${l.phone}\nAdres: ${l.city}\nCihaz: ${l.brand} (${l.device})\nArıza: ${l.fault}`;
           return `
             <tr>
-              <td class="mono"><strong>${l.id}</strong><br><span style="font-size:0.72rem;color:var(--muted);">${l.createdAt}</span></td>
-              <td><strong>${l.customer}</strong><br><span class="mono" style="font-size:0.78rem;color:var(--ink-2);">${l.phone}</span></td>
+              <td class="mono"><strong>${l.id}</strong><br><span style="font-size:0.73rem;color:var(--muted);">${l.createdAt}</span></td>
+              <td><strong>${l.customer}</strong><br><span class="mono" style="font-size:0.79rem;color:var(--ink-2);">${l.phone}</span></td>
               <td>${l.city}</td>
-              <td><strong>${l.brand}</strong> · ${l.device}<br><span style="font-size:0.78rem;color:var(--muted);">${l.fault}</span></td>
-              <td>${l.tech}</td>
-              <td><span class="st-pill ${cls}">${lbl}</span></td>
-              <td class="tnum">${feeStr}</td>
+              <td><strong>${l.brand}</strong><br><span style="font-size:0.8rem;color:var(--muted);">${l.fault}</span></td>
               <td>
-                <a class="btn-wa-dispatch" href="https://wa.me/?text=${encodeURIComponent(waText)}" target="_blank" rel="noopener">WhatsApp Ustaya Ata</a>
+                <select class="status-select" data-status-id="${l.id}">
+                  <option value="pending" ${l.status === 'pending' ? 'selected' : ''}>⏳ Usta Bekliyor</option>
+                  <option value="assigned" ${l.status === 'assigned' ? 'selected' : ''}>👨‍🔧 Usta Atandı</option>
+                  <option value="onway" ${l.status === 'onway' ? 'selected' : ''}>🚐 Araç Yolda</option>
+                  <option value="completed" ${l.status === 'completed' ? 'selected' : ''}>✅ Garantili Tamamlandı</option>
+                </select>
+              </td>
+              <td>
+                <a class="wa-send-btn" href="https://wa.me/?text=${encodeURIComponent(waMsg)}" target="_blank" rel="noopener">WhatsApp Ustaya Gönder</a>
               </td>
             </tr>
           `;
         }).join('');
+
+        tbody.querySelectorAll('[data-status-id]').forEach(sel => {
+          sel.addEventListener('change', () => {
+            MS.updateLeadStatus(sel.getAttribute('data-status-id'), sel.value);
+            renderOrders();
+          });
+        });
       }
-      renderLeads();
-      window.addEventListener('storage', renderLeads);
+
+      document.querySelectorAll('[data-lead-filter]').forEach(b => {
+        b.addEventListener('click', () => {
+          document.querySelectorAll('[data-lead-filter]').forEach(x => x.classList.remove('active'));
+          b.classList.add('active');
+          currentFilter = b.getAttribute('data-lead-filter');
+          renderOrders();
+        });
+      });
+
+      const drawer = document.getElementById('manualOrderDrawer');
+      document.getElementById('toggleNewOrderBtn').addEventListener('click', () => {
+        drawer.style.display = drawer.style.display === 'block' ? 'none' : 'block';
+      });
+      document.getElementById('cancelNewOrderBtn').addEventListener('click', () => {
+        drawer.style.display = 'none';
+      });
+      drawer.addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addLead({
+          customer: document.getElementById('mCust').value.trim(),
+          phone: document.getElementById('mPhone').value.trim(),
+          city: document.getElementById('mCity').value.trim(),
+          brand: document.getElementById('mBrand').value.trim(),
+          device: document.getElementById('mBrand').value.trim(),
+          fault: document.getElementById('mFault').value.trim()
+        });
+        drawer.reset();
+        drawer.style.display = 'none';
+        renderOrders();
+      });
+      renderOrders();
+
+      // SEO & Toggles
+      const dripR = document.getElementById('seoDripRange');
+      dripR.addEventListener('input', () => {
+        document.getElementById('seoDripLabel').textContent = dripR.value + ' Sayfa / Gün';
+        MS.saveConfig({ dailyDripLimit: Number(dripR.value) });
+      });
+      document.getElementById('seoAdsCheck').addEventListener('change', (e) => {
+        MS.saveConfig({ adsComplianceBanner: e.target.checked });
+      });
+
+      document.getElementById('serviceBranchToggles').innerHTML = MS.SERVICE_CATEGORIES.map(c => `
+        <button type="button" class="toggle-chip on"><span>✓</span><span>${c.name}</span></button>
+      `).join('');
+      document.getElementById('brandTogglesHost').innerHTML = MS.BRANDS.map(b => `
+        <button type="button" class="toggle-chip on"><span>✓</span><span>${b.name}</span></button>
+      `).join('');
+      document.querySelectorAll('.toggle-chip').forEach(ch => {
+        ch.addEventListener('click', () => {
+          ch.classList.toggle('on');
+          ch.querySelector('span').textContent = ch.classList.contains('on') ? '✓' : '+';
+        });
+      });
     })();
   </script>
 </body>

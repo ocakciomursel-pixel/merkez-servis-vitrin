@@ -284,12 +284,26 @@
   function getLeads() {
     try {
       const raw = localStorage.getItem(LEADS_KEY);
-      if (!raw) return [...INITIAL_LEADS];
-      const custom = JSON.parse(raw);
-      return [...custom, ...INITIAL_LEADS];
+      const custom = raw ? JSON.parse(raw) : [];
+      const overridesRaw = localStorage.getItem(LEADS_KEY + '_status');
+      const overrides = overridesRaw ? JSON.parse(overridesRaw) : {};
+      return [...custom, ...INITIAL_LEADS].map(item => (
+        overrides[item.id] ? { ...item, ...overrides[item.id] } : item
+      ));
     } catch {
       return [...INITIAL_LEADS];
     }
+  }
+
+  function updateLeadStatus(id, status, tech) {
+    try {
+      const key = LEADS_KEY + '_status';
+      const raw = localStorage.getItem(key);
+      const map = raw ? JSON.parse(raw) : {};
+      map[id] = { ...(map[id] || {}), status, ...(tech ? { tech } : {}) };
+      localStorage.setItem(key, JSON.stringify(map));
+    } catch {}
+    return getLeads();
   }
 
   function addLead(entry) {
@@ -499,6 +513,7 @@
     setPalette,
     mountStudioChrome,
     getLeads,
+    updateLeadStatus,
     addLead,
     renderBrandMarkSvg,
     hydrateLiveConfig,
