@@ -34,6 +34,231 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
+    /* Tema 2 Signature #1: Concentric Radar Pulse Waves & Live Dispatch Feed */
+    .radar-bg-wrap {
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      width: 560px;
+      height: 560px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .radar-bg-wrap {
+        display: none;
+      }
+    }
+
+    .radar-circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1.5px solid var(--brand);
+      opacity: 0;
+      animation: radar-wave 4.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    .radar-circle.r2 { animation-delay: 1.6s; }
+    .radar-circle.r3 { animation-delay: 3.2s; }
+
+    @keyframes radar-wave {
+      0% { transform: scale(0.38); opacity: 0.52; }
+      100% { transform: scale(1.18); opacity: 0; }
+    }
+
+    .live-dispatch-feed {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 1rem;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      font-size: 0.82rem;
+      color: #e2e8f0;
+      margin-bottom: 1.35rem;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .feed-badge {
+      padding: 0.16rem 0.52rem;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .feed-msg {
+      transition: opacity 260ms ease, transform 260ms ease;
+      font-weight: 500;
+    }
+
+    .feed-msg.swapping {
+      opacity: 0;
+      transform: translateY(-7px);
+    }
+
+    /* Tema 2 Signature #2: Light-Beam Shimmer CTA & Horizontal Slide Wizard */
+    .shimmer-cta {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shimmer-cta::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -120%;
+      width: 65%;
+      background: linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.34) 50%, transparent 80%);
+      animation: cta-beam 3.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes cta-beam {
+      0%, 40% { left: -120%; }
+      85%, 100% { left: 165%; }
+    }
+
+    .wiz-pane-enter {
+      animation: wiz-slide 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes wiz-slide {
+      from { opacity: 0; transform: translateX(18px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Tema 2 Signature #3: Interactive Duration & Pricing Transparency Tabs */
+    .estimator-section {
+      padding: 3.8rem 0;
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .est-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .est-tab {
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      border-radius: 999px;
+      padding: 0.56rem 1.05rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--ink-2);
+      cursor: pointer;
+      transition: all 180ms var(--ease-spring);
+    }
+
+    .est-tab:hover {
+      border-color: var(--brand);
+    }
+
+    .est-tab.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #ffffff;
+      box-shadow: var(--shadow-brand);
+    }
+
+    .est-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.65rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 820px) {
+      .est-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Tema 2 Signature #4: Horizontal Smooth-Snap Review Carousel */
+    .carousel-controls {
+      display: inline-flex;
+      gap: 0.5rem;
+    }
+
+    .car-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-weight: 800;
+      transition: all 160ms ease;
+    }
+
+    .car-btn:hover {
+      border-color: var(--brand);
+      background: var(--brand);
+      color: #ffffff;
+    }
+
+    .reviews-snap-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc(33.333% - 0.85rem);
+      gap: 1.25rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding-bottom: 0.35rem;
+    }
+
+    .reviews-snap-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .reviews-snap-track {
+        grid-auto-columns: calc(50% - 0.65rem);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .reviews-snap-track {
+        grid-auto-columns: 88%;
+      }
+    }
+
+    .review-snap-card {
+      scroll-snap-align: start;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.45rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .ads-notice {
       background: #0f172a;
       color: #94a3b8;
@@ -680,7 +905,7 @@
 
   <div class="ads-notice" data-servis-ads-shield>
     <div class="container-xl ads-notice-inner">
-      <span>Garantisi sona ermiş tüm cihazlar için 1 yıl yedek parça garantili özel teknik servis hizmetidir.</span>
+      <span data-servis-ads-text>Garantisi sona ermiş tüm cihazlar için 1 yıl yedek parça garantili bağımsız özel teknik servis hizmetidir.</span>
       <span class="tnum">Merkez Hattı: <strong style="color:#fff;" data-servis-phone>0850 380 02 02</strong> · Yedek: <strong style="color:#fff;" data-servis-phone-secondary>444 6 082</strong></span>
     </div>
   </div>
@@ -699,12 +924,12 @@
 
       <nav class="funnel-nav" aria-label="Hızlı Menü">
         <a href="#garanti-takip">1 Yıl Garanti Sorgula</a>
+        <a href="#seffaf-sure">Süre &amp; Fiyat Politikası</a>
         <a href="#nasil-calisir">Nasıl Çalışır?</a>
-        <a href="#yorumlar">Müşteri Deneyimleri</a>
-        <a href="../tema-1-kurumsal/index.html">35 Marka &amp; Arıza Kodları</a>
+        <a href="#yorumlar">Canlı Yorumlar</a>
       </nav>
 
-      <a class="hotline-cta tnum" data-servis-tel href="tel:08503800202">
+      <a class="hotline-cta shimmer-cta tnum" data-servis-tel href="tel:08503800202">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
         <span data-servis-phone>0850 380 02 02</span>
       </a>
@@ -712,23 +937,35 @@
   </header>
 
   <main id="ust">
-    <!-- High-Conversion Dark Hero + Floating 3-Step Booking Card -->
+    <!-- High-Conversion Dark Hero + Radar Pulse Waves + Floating 3-Step Booking Card -->
     <section class="funnel-hero">
-      <div class="container-xl funnel-hero-grid">
+      <div class="radar-bg-wrap" aria-hidden="true">
+        <span class="radar-circle r1"></span>
+        <span class="radar-circle r2"></span>
+        <span class="radar-circle r3"></span>
+      </div>
+
+      <div class="container-xl funnel-hero-grid" style="position:relative;z-index:2;">
         <div>
           <div class="dispatch-tag">
             <span class="live-dot" aria-hidden="true"></span>
-            <span>Acil Saha Yönlendirme · 81 İlde Aynı Gün Usta</span>
+            <span data-servis-hero-badge>Acil Saha Yönlendirme · 81 İlde Aynı Gün Usta</span>
           </div>
 
-          <h1>60 saniyede usta çağırın, <span class="glow-word">1 yıl garantinizi</span> webden takip edin.</h1>
+          <h1 data-servis-hero-title>60 saniyede usta çağırın, <span class="glow-word">1 yıl garantinizi</span> webden takip edin.</h1>
 
-          <p class="funnel-lead">
+          <p class="funnel-lead" data-servis-hero-sub>
             Telefonunuza uygulama indirme zorunluluğu yok! Cihazınızı seçip kaydınızı açın; bölge ustamız yola çıktığında ve parça değiştiğinde dijital garanti belgenizi anında webden görüntüleyin.
           </p>
 
+          <!-- Tema 2 Signature: Live Sliding Social-Proof Dispatch Ticker -->
+          <div class="live-dispatch-feed" data-servis-live-ticker aria-live="polite">
+            <span class="feed-badge">CANLI SAHA</span>
+            <span class="feed-msg" id="liveDispatchFeedText">Az önce · Kadıköy: Vaillant F28 kaydına Murat Usta yönlendirildi (18 dk)</span>
+          </div>
+
           <div class="hero-cta-row">
-            <a class="btn-big-call tnum" data-servis-tel href="tel:08503800202">
+            <a class="btn-big-call shimmer-cta tnum" data-servis-tel href="tel:08503800202">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
               <span>Tek Tıkla Ara: <span data-servis-phone>0850 380 02 02</span></span>
             </a>
@@ -739,11 +976,11 @@
 
           <div class="hero-kpi-cards">
             <div class="hero-kpi">
-              <strong class="tnum">28 – 45 Dk</strong>
-              <span>Bölge Aracı Adrese Varış</span>
+              <strong class="tnum"><span data-servis-eta>32 Dk</span></strong>
+              <span>Ort. Bölge Aracı Varış</span>
             </div>
             <div class="hero-kpi">
-              <strong class="tnum">12 Ay</strong>
+              <strong class="tnum"><span data-servis-warranty-months>12 Ay</span></strong>
               <span>Dijital Fişli Parça Garantisi</span>
             </div>
             <div class="hero-kpi">
@@ -890,17 +1127,33 @@
       </div>
     </section>
 
+    <!-- Tema 2 Signature: Interactive Service Duration & Transparent Pricing Policy Tabs -->
+    <section id="seffaf-sure" class="estimator-section">
+      <div class="container-xl">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.45rem;" class="kinetic-in">
+          <div>
+            <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Şeffaf Servis Süresi &amp; Fiyat Güvencesi</span>
+            <h2 style="font-size:2rem;margin:0.3rem 0 0;">Branşa Göre Ortalama Müdahale Süresi &amp; İşlem Standardı</h2>
+          </div>
+          <span style="font-size:0.84rem;font-weight:700;color:var(--brand-ink);background:var(--brand-soft);padding:0.42rem 0.9rem;border-radius:999px;" data-servis-inspection-note>Onarım onaylandığında arıza tespit ve servis yönlendirme ücreti alınmaz.</span>
+        </div>
+
+        <div id="estimatorTabs" class="est-tabs kinetic-in" role="tablist"></div>
+        <div id="estimatorPanel" class="est-panel kinetic-in" aria-live="polite"></div>
+      </div>
+    </section>
+
     <!-- 3-Step Visual How It Works -->
     <section id="nasil-calisir" class="process-section">
       <div class="container-xl">
-        <div style="text-align:center;max-width:640px;margin:0 auto 2.5rem;" class="reveal-up">
+        <div style="text-align:center;max-width:640px;margin:0 auto 2.5rem;" class="kinetic-in">
           <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Sürpriz Maliyet Yok</span>
           <h2 style="font-size:2.15rem;margin:0.35rem 0 0.6rem;">3 Adımda Şeffaf ve Belgeli Onarım</h2>
           <p style="color:var(--muted);margin:0;">Kapıdan içeri giren her teknisyenimiz yaka kartlıdır ve işlem öncesi net fiyat onayı alır.</p>
         </div>
 
         <div class="process-grid">
-          <article class="process-card hover-lift reveal-up">
+          <article class="process-card hover-lift kinetic-in">
             <div class="process-img">
               <img src="../assets/photos/service-van-parts.jpg" alt="Tam donanımlı gezici servis aracı" loading="lazy">
             </div>
@@ -911,7 +1164,7 @@
             </div>
           </article>
 
-          <article class="process-card hover-lift reveal-up">
+          <article class="process-card hover-lift kinetic-in">
             <div class="process-img">
               <img src="../assets/photos/kombi-maintenance.jpg" alt="Dijital cihazla yerinde arıza tespiti ve fiyat onayı" loading="lazy">
             </div>
@@ -922,53 +1175,38 @@
             </div>
           </article>
 
-          <article class="process-card hover-lift reveal-up">
+          <article class="process-card hover-lift kinetic-in">
             <div class="process-img">
               <img src="../assets/photos/klima-service.jpg" alt="1 yıl dijital parça ve işçilik garantisi" loading="lazy">
             </div>
             <div class="process-body">
-              <span class="process-step-tag">3. ADIM · 12 AY DİJİTAL GARANTİ FİŞİ</span>
-              <h3 style="margin:0 0 0.45rem;font-size:1.25rem;">1 Yıl Resmi Firma Güvencesi</h3>
-              <p style="margin:0;color:var(--muted);font-size:0.9rem;">Kağıt fiş kaybolsa bile iş emri numaranızla sitemizden 365 gün boyunca değişen parçanın garanti belgesini sorgulayabilirsiniz.</p>
+              <span class="process-step-tag">3. ADIM · <span data-servis-warranty-months>12 Ay</span> DİJİTAL GARANTİ FİŞİ</span>
+              <h3 style="margin:0 0 0.45rem;font-size:1.25rem;">Resmi Firma Güvencesi</h3>
+              <p style="margin:0;color:var(--muted);font-size:0.9rem;">Kağıt fiş kaybolsa bile iş emri numaranızla sitemizden değişen parçanın garanti belgesini 7/24 sorgulayabilirsiniz.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Verified Customer Reviews -->
+    <!-- Tema 2 Signature: Horizontal Smooth-Snap Verified Customer Reviews Carousel -->
     <section id="yorumlar" class="reviews-section">
       <div class="container-xl">
-        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:2rem;" class="reveal-up">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.75rem;" class="kinetic-in">
           <div>
             <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Doğrulanmış İş Emirleri</span>
             <h2 style="font-size:2rem;margin:0.3rem 0 0;">Son Tamamlanan Servis Kayıtlarından Yorumlar</h2>
           </div>
-          <span class="tnum" style="font-weight:700;color:var(--ink-2);">★ 4.9 / 5.0 · 18.420 Onaylı Fiş</span>
-        </div>
-
-        <div class="reviews-grid reveal-up">
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p style="margin:0 0 1rem;font-size:0.92rem;color:var(--ink-2);">"Bosch çamaşır makinem gece E18 hatası verdi. Sabah 09:00'da kayıt açtım, 09:35'te Kemal Usta kapıdaydı. Pompayı yerinde değiştirip 1 yıllık dijital garanti fişimi SMS ile ilettiler."</p>
-            <strong style="font-size:0.88rem;display:block;">Selin Y. — Mersin / Yenişehir</strong>
-            <span class="mono" style="font-size:0.75rem;color:var(--muted);">Fiş No: SRV-2026-8418</span>
-          </div>
-
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p style="margin:0 0 1rem;font-size:0.92rem;color:var(--ink-2);">"Vaillant kombimiz F28 ateşleme arızasına geçmişti. Anakart değişecek diye korkuyorduk, gaz valfi ve elektrot bakımıyla çok makul fiyata aynı gün çözdüler."</p>
-            <strong style="font-size:0.88rem;display:block;">Hakan D. — İstanbul / Kadıköy</strong>
-            <span class="mono" style="font-size:0.75rem;color:var(--muted);">Fiş No: SRV-2026-8419</span>
-          </div>
-
-          <div class="review-card">
-            <div class="stars">★★★★★</div>
-            <p style="margin:0 0 1rem;font-size:0.92rem;color:var(--ink-2);">"Siemens bulaşık makinesi E15 su kaçağı uyarısı veriyordu. Atölyeye götürmeden mutfakta 40 dakikada alt hazne contasını yenilediler, tertemiz teslim ettiler."</p>
-            <strong style="font-size:0.88rem;display:block;">Derya Ö. — İzmir / Karşıyaka</strong>
-            <span class="mono" style="font-size:0.75rem;color:var(--muted);">Fiş No: SRV-2026-8415</span>
+          <div style="display:flex;align-items:center;gap:0.9rem;">
+            <span class="tnum" style="font-weight:700;color:var(--ink-2);">★ 4.9 / 5.0 · 18.420 Onaylı Fiş</span>
+            <div class="carousel-controls">
+              <button type="button" class="car-btn" id="revPrevBtn" aria-label="Önceki yorum">←</button>
+              <button type="button" class="car-btn" id="revNextBtn" aria-label="Sonraki yorum">→</button>
+            </div>
           </div>
         </div>
+
+        <div id="reviewsSnapTrack" class="reviews-snap-track kinetic-in"></div>
       </div>
     </section>
   </main>
@@ -977,7 +1215,7 @@
     <div class="container-xl" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
       <div>
         <strong style="color:#ffffff;display:block;" data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</strong>
-        <span>Garantisi sona ermiş 35 marka cihaz için 81 ilde bağımsız özel teknik servis hizmeti.</span>
+        <span><span data-servis-address>Yenişehir Mah. Kuvayi Milliye Cad. No:42 Yenişehir / Mersin</span> · Çalışma Saatleri: <span data-servis-hours-weekday>08:00 - 22:00</span></span>
       </div>
       <div class="tnum" style="color:#ffffff;font-weight:700;">
         Çağrı Hattı: <span data-servis-phone>0850 380 02 02</span> · Yedek: <span data-servis-phone-secondary>444 6 082</span>
@@ -993,18 +1231,115 @@
       const MS = window.MerkezServis;
       MS.mountStudioChrome('tema2', '../');
 
-      // Marquee
-      const mTrack = document.getElementById('funnelMarquee');
-      const mHtml = MS.BRANDS.map(b => `<span style="display:inline-flex;align-items:center;padding:0.4rem 0.9rem;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;color:#0f172a;">${MS.renderBrandMarkSvg(b)}</span>`).join('');
-      mTrack.innerHTML = mHtml + mHtml;
+      // Tema 2 Motion Signature #1: Live Sliding Social-Proof Dispatch Ticker
+      const feedText = document.getElementById('liveDispatchFeedText');
+      const liveMessages = [
+        'Az önce · Kadıköy: Vaillant F28 kaydına Murat Usta yönlendirildi (18 dk)',
+        '2 dk önce · Yenişehir: Bosch E18 çamaşır makinesi pompası yerinde yenilendi ✓',
+        '4 dk önce · Karşıyaka: Siemens E15 su kaçağı onarımı tamamlandı (12 Ay Garanti)',
+        '6 dk önce · Çankaya: Samsung gardırop buzdolabı için Emre Usta yola çıktı',
+        '9 dk önce · Nilüfer: Demirdöküm kombi + ilaçlı petek temizliği teslim edildi ✓'
+      ];
+      let feedIdx = 0;
+      if (feedText && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(() => {
+          feedText.classList.add('swapping');
+          setTimeout(() => {
+            feedIdx = (feedIdx + 1) % liveMessages.length;
+            feedText.textContent = liveMessages[feedIdx];
+            feedText.classList.remove('swapping');
+          }, 250);
+        }, 3600);
+      }
 
-      // Wizard Logic
+      // Marquee (Live Active Brands)
+      function renderFunnelMarquee() {
+        const mTrack = document.getElementById('funnelMarquee');
+        const mHtml = MS.getActiveBrands().map(b => `<span style="display:inline-flex;align-items:center;padding:0.4rem 0.9rem;border-radius:12px;background:#f8fafc;border:1px solid #e2e8f0;color:#0f172a;">${MS.renderBrandMarkSvg(b)}</span>`).join('');
+        mTrack.innerHTML = mHtml + mHtml;
+      }
+      renderFunnelMarquee();
+
+      // Tema 2 Signature #3: Interactive Service Duration & Pricing Transparency Tabs
+      const estTabs = document.getElementById('estimatorTabs');
+      const estPanel = document.getElementById('estimatorPanel');
+      let activeCatId = 'beyaz-esya';
+
+      function renderEstimator() {
+        const cats = MS.getActiveCategories();
+        const cfg = MS.getConfig();
+        if (!cats.some(c => c.id === activeCatId)) activeCatId = cats[0].id;
+        estTabs.innerHTML = cats.map(c => `
+          <button type="button" class="est-tab ${c.id === activeCatId ? 'active' : ''}" data-est-cat="${c.id}">${c.name}</button>
+        `).join('');
+        estTabs.querySelectorAll('[data-est-cat]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            activeCatId = btn.getAttribute('data-est-cat');
+            renderEstimator();
+          });
+        });
+        const cur = cats.find(c => c.id === activeCatId) || cats[0];
+        estPanel.innerHTML = `
+          <div>
+            <span style="font-size:0.75rem;font-weight:800;color:var(--brand);text-transform:uppercase;letter-spacing:0.06em;">YERİNDE MÜDAHALE KAPSAMI</span>
+            <h3 style="margin:0.25rem 0 0.5rem;font-size:1.45rem;">${cur.name}</h3>
+            <p style="margin:0 0 0.9rem;color:var(--ink-2);font-size:0.94rem;">${cur.items}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:0.55rem;font-size:0.8rem;font-weight:700;">
+              <span style="padding:0.35rem 0.75rem;border-radius:999px;background:#ffffff;border:1px solid var(--border);">✓ ${cur.feeNote}</span>
+              <span style="padding:0.35rem 0.75rem;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);">✓ ${cfg.warrantyMonths} Ay Dijital Garanti Belgesi</span>
+            </div>
+          </div>
+          <div style="background:#ffffff;border:1px solid var(--border);border-radius:20px;padding:1.35rem;box-shadow:var(--shadow-sm);">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:0.75rem;border-bottom:1px solid var(--border);margin-bottom:0.75rem;">
+              <span style="font-size:0.82rem;color:var(--muted);font-weight:600;">Ort. Onarım Süresi</span>
+              <strong class="tnum" style="font-size:1.25rem;color:var(--ink);">${cur.avgMin} Dakika</strong>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:0.85rem;border-bottom:1px solid var(--border);margin-bottom:0.95rem;">
+              <span style="font-size:0.82rem;color:var(--muted);font-weight:600;">Onarım Onaylanırsa Tespit</span>
+              <strong style="font-size:1.05rem;color:#059669;">ÜCRETSİZ (0 ₺)</strong>
+            </div>
+            <a class="btn-wiz-next shimmer-cta tnum" style="display:flex;justify-content:center;text-decoration:none;" href="tel:${cfg.primaryPhoneTel}">Hemen Ara: ${cfg.primaryPhoneDisplay}</a>
+          </div>
+        `;
+      }
+      renderEstimator();
+
+      // Tema 2 Signature #4: Horizontal Smooth-Snap Verified Reviews Carousel (Live CMS)
+      const revTrack = document.getElementById('reviewsSnapTrack');
+      function renderReviewsCarousel() {
+        const list = MS.getReviews();
+        revTrack.innerHTML = list.map(r => `
+          <article class="review-snap-card">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.55rem;">
+                <span class="stars" style="margin:0;">${'★'.repeat(r.rating || 5)}</span>
+                <span style="font-size:0.74rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:999px;background:var(--brand-soft);color:var(--brand-ink);">${r.brand || 'Onaylı Servis'}</span>
+              </div>
+              <p style="margin:0 0 1.1rem;font-size:0.91rem;color:var(--ink-2);">"${r.text}"</p>
+            </div>
+            <div style="padding-top:0.8rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:0.5rem;">
+              <strong style="font-size:0.86rem;">${r.customer} — ${r.city}</strong>
+              <span class="mono" style="font-size:0.73rem;color:var(--muted);">${r.ticketId}</span>
+            </div>
+          </article>
+        `).join('');
+      }
+      renderReviewsCarousel();
+
+      document.getElementById('revPrevBtn').addEventListener('click', () => {
+        revTrack.scrollBy({ left: -360, behavior: 'smooth' });
+      });
+      document.getElementById('revNextBtn').addEventListener('click', () => {
+        revTrack.scrollBy({ left: 360, behavior: 'smooth' });
+      });
+
+      // Wizard Logic (with Smooth Horizontal Slide Transitions)
       let selectedDevice = 'Beyaz Eşya (Çamaşır / Bulaşık / Buzdolabı)';
       let selectedSymptom = 'Su Boşaltmıyor / E18';
 
       const wizBrand = document.getElementById('wizBrand');
       const wizCity = document.getElementById('wizCity');
-      MS.BRANDS.forEach(b => wizBrand.add(new Option(`${b.name} (${b.group})`, b.name)));
+      MS.getActiveBrands().forEach(b => wizBrand.add(new Option(`${b.name} (${b.group})`, b.name)));
       MS.ALL_81_PROVINCES.forEach(p => {
         p.districts.slice(0, 3).forEach(d => wizCity.add(new Option(`${p.name} / ${d}`, `${p.name} / ${d}`)));
       });
@@ -1033,10 +1368,15 @@
       const bar = document.getElementById('wizProgressBar');
 
       function setWizStep(n) {
-        s1.style.display = n === 1 ? 'block' : 'none';
-        s2.style.display = n === 2 ? 'block' : 'none';
-        s3.style.display = n === 3 ? 'block' : 'none';
-        sDone.style.display = n === 4 ? 'block' : 'none';
+        [s1, s2, s3, sDone].forEach((pane, idx) => {
+          const active = (idx + 1) === n;
+          pane.style.display = active ? 'block' : 'none';
+          if (active) {
+            pane.classList.remove('wiz-pane-enter');
+            void pane.offsetWidth;
+            pane.classList.add('wiz-pane-enter');
+          }
+        });
         const titles = {
           1: 'Adım 1 / 3 · Cihaz Seçimi',
           2: 'Adım 2 / 3 · Marka & Belirti',
@@ -1057,15 +1397,16 @@
       const ticketHost = document.getElementById('ticketResultHost');
 
       function renderTicketStatus(query) {
+        const cfg = MS.getConfig();
         const q = (query || '').trim().toUpperCase();
         const leads = MS.getLeads();
-        const found = leads.find(l => l.id.toUpperCase() === q || l.phone.replace(/\s+/g, '').includes(q.replace(/\s+/g, ''))) || leads[1];
+        const found = leads.find(l => l.id.toUpperCase() === q || l.phone.replace(/\s+/g, '').includes(q.replace(/\s+/g, ''))) || leads[1] || leads[0];
 
         const stageMap = {
-          pending: { step: 1, label: 'Kayıt Açıldı — Bölge Ekibi Atanıyor', warrantyEnd: 'Onarım Sonrası 12 Ay Aktifleşir' },
-          assigned: { step: 2, label: 'Uzman Teknisyen Atandı — Hazırlanıyor', warrantyEnd: 'Onarım Sonrası 12 Ay Aktifleşir' },
-          onway: { step: 2, label: 'Gezici Servis Aracı Adresinize Yolda (Tahmini 18 Dk)', warrantyEnd: 'Onarım Sonrası 12 Ay Aktifleşir' },
-          completed: { step: 4, label: 'Onarım Tamamlandı — 12 Ay Dijital Parça Garantisi Aktif', warrantyEnd: '01.11.2027 (365 Gün Garantili)' }
+          pending: { step: 1, label: 'Kayıt Açıldı — Bölge Ekibi Atanıyor', warrantyEnd: `Onarım Sonrası ${cfg.warrantyMonths} Ay Aktifleşir` },
+          assigned: { step: 2, label: 'Uzman Teknisyen Atandı — Hazırlanıyor', warrantyEnd: `Onarım Sonrası ${cfg.warrantyMonths} Ay Aktifleşir` },
+          onway: { step: 2, label: 'Gezici Servis Aracı Adresinize Yolda (Tahmini 18 Dk)', warrantyEnd: `Onarım Sonrası ${cfg.warrantyMonths} Ay Aktifleşir` },
+          completed: { step: 4, label: `Onarım Tamamlandı — ${cfg.warrantyMonths} Ay Dijital Parça Garantisi Aktif`, warrantyEnd: `01.11.2027 (${cfg.warrantyMonths} Ay Garantili)` }
         };
         const st = stageMap[found.status] || stageMap.pending;
 
@@ -1093,7 +1434,7 @@
             </div>
             <div class="step-node ${st.step >= 4 ? 'done' : ''}">
               <span class="step-num">4</span>
-              <strong style="display:block;font-size:0.9rem;">1 Yıl Garanti Belgesi</strong>
+              <strong style="display:block;font-size:0.9rem;">${cfg.warrantyMonths} Ay Garanti Belgesi</strong>
               <span style="font-size:0.78rem;color:var(--muted);">${st.warrantyEnd}</span>
             </div>
           </div>
@@ -1136,6 +1477,7 @@
         const name = document.getElementById('wizName').value.trim() || 'Web Müşterisi';
         const phone = document.getElementById('wizPhone').value.trim() || '0532 000 00 00';
         const rec = MS.addLead({
+          source: 'Tema 2 Sihirbaz',
           customer: name,
           phone,
           city: wizCity.value,
@@ -1154,6 +1496,13 @@
         ticketIn.value = rec.id;
         renderTicketStatus(rec.id);
         document.getElementById('resetWizBtn').addEventListener('click', () => setWizStep(1));
+      });
+
+      window.addEventListener('storage', () => {
+        renderFunnelMarquee();
+        renderEstimator();
+        renderReviewsCarousel();
+        renderTicketStatus(ticketIn.value);
       });
     })();
   </script>

@@ -35,6 +35,113 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
+    /* Tema 1 Signature #1: Pinned Top Scroll-Progress Ribbon */
+    .scroll-progress-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3.5px;
+      z-index: 95;
+      pointer-events: none;
+      background: transparent;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--brand-grad);
+      box-shadow: 0 0 10px var(--brand-ring);
+      transition: width 70ms linear;
+    }
+
+    /* Tema 1 Signature #2: Rolling Odometer Counter Strip */
+    .odometer-strip {
+      margin-top: -1.35rem;
+      position: relative;
+      z-index: 12;
+      margin-bottom: 1.5rem;
+    }
+
+    .odometer-grid {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 820px) {
+      .odometer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .odo-cell {
+      padding: 0.25rem 0.65rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .odo-cell:last-child {
+      border-right: none;
+    }
+
+    @media (max-width: 820px) {
+      .odo-cell {
+        border-right: none;
+      }
+    }
+
+    .odo-val {
+      display: block;
+      font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--brand);
+      line-height: 1.15;
+    }
+
+    .odo-lbl {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    /* Tema 1 Signature #3: Tactile 3D Perspective Tilt + Specular Sheen */
+    .tilt-card {
+      --rx: 0deg;
+      --ry: 0deg;
+      --gx: 50%;
+      --gy: 50%;
+      position: relative;
+      transform: perspective(1050px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
+      transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms var(--ease-spring), border-color 220ms ease;
+      will-change: transform;
+    }
+
+    .tilt-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: radial-gradient(360px circle at var(--gx) var(--gy), rgba(255, 255, 255, 0.36), transparent 65%);
+      opacity: 0;
+      transition: opacity 240ms ease;
+    }
+
+    .tilt-card:hover {
+      border-color: var(--brand-soft-2);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .tilt-card:hover::after {
+      opacity: 1;
+    }
+
     /* Ads Compliance Shield */
     .compliance-bar {
       background: #f1f5f9;
@@ -1128,6 +1235,9 @@
   </style>
 </head>
 <body>
+  <div class="scroll-progress-wrap" aria-hidden="true">
+    <div id="scrollProgressBar" class="scroll-progress-bar"></div>
+  </div>
   <div id="studioBarHost"></div>
 
   <!-- Google Ads Compliance Legal Notice -->
@@ -1135,9 +1245,9 @@
     <div class="container-xl compliance-inner">
       <span class="compliance-badge">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Garantisi sona ermiş tüm marka cihazlar için 1 yıl parça &amp; işçilik garantili özel teknik servis hizmetidir.
+        <span data-servis-ads-text>Garantisi sona ermiş tüm marka cihazlar için 1 yıl parça &amp; işçilik garantili bağımsız özel teknik servis hizmetidir.</span>
       </span>
-      <span class="tnum">7/24 Çağrı Merkezi: <strong data-servis-phone>0850 380 02 02</strong> · Yedek Hat: <strong data-servis-phone-secondary>444 6 082</strong></span>
+      <span class="tnum">Çalışma Saatleri: <strong data-servis-hours-weekday>08:00 - 22:00</strong> · Hat: <strong data-servis-phone>0850 380 02 02</strong> · Yedek: <strong data-servis-phone-secondary>444 6 082</strong></span>
     </div>
   </div>
 
@@ -1163,7 +1273,7 @@
       </nav>
 
       <div class="header-actions">
-        <a class="btn-secondary-call tnum" href="tel:4446082">
+        <a class="btn-secondary-call tnum" data-servis-tel-secondary href="tel:4446082">
           <span>Yedek:</span>
           <span data-servis-phone-secondary>444 6 082</span>
         </a>
@@ -1182,27 +1292,27 @@
         <div>
           <div class="live-pill">
             <span class="live-dot" aria-hidden="true"></span>
-            <span>Türkiye Geneli 140+ Gezici Servis Aracı Şu An Sahada</span>
+            <span data-servis-hero-badge>Türkiye Geneli 140+ Gezici Servis Aracı Şu An Sahada</span>
           </div>
 
-          <h1>Beyaz eşya, kombi ve klimada <span class="accent-text">aynı gün garantili</span> uzman servis.</h1>
+          <h1 data-servis-hero-title>Beyaz eşya, kombi ve klimada <span class="accent-text">aynı gün garantili</span> uzman servis.</h1>
 
-          <p class="hero-lead">
-            Sözlü vaatlerle değil, <strong>12 ay resmi yedek parça garantili dijital iş emri fişiyle</strong> çalışıyoruz. Arıza tespiti sonrası net fiyat onayı almadan hiçbir işlem başlatmıyoruz.
+          <p class="hero-lead" data-servis-hero-sub>
+            Sözlü vaatlerle değil, <strong><span data-servis-warranty-months>12 Ay</span> resmi yedek parça garantili dijital iş emri fişiyle</strong> çalışıyoruz. <span data-servis-inspection-note>Onarım onaylandığında arıza tespit ve servis yönlendirme ücreti alınmaz.</span>
           </p>
 
           <div class="trust-strip">
             <span class="trust-chip">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <span>4.9/5 Puan (18.400+ Kayıtlı Onarım)</span>
+              <span>4.9/5 Puan (18.420+ Kayıtlı Onarım)</span>
             </span>
             <span class="trust-chip">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-              <span>1 Yıl Parça &amp; İşçilik Garantisi</span>
+              <span><span data-servis-warranty-months>12 Ay</span> Parça &amp; İşçilik Garantisi</span>
             </span>
             <span class="trust-chip tnum">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Ort. 32 Dk Adrese Varış</span>
+              <span>Ort. <span data-servis-eta>32 Dk</span> Adrese Varış</span>
             </span>
           </div>
 
@@ -1254,21 +1364,48 @@
       </div>
     </section>
 
-    <!-- Infinite 35-Brand Smooth Marquee -->
-    <section class="marquee-section" aria-label="Hizmet Verilen 35 Marka">
-      <div class="container-xl marquee-header">
-        <span>35 Dünya Markasında Uzman Özel Teknik Servis Desteği</span>
-        <span>Üzerine gelerek durdurabilirsiniz · Tüm markalarda 1 yıl parça garantisi</span>
-      </div>
-      <div class="marquee-viewport">
-        <div id="brandMarqueeTrack" class="marquee-track"></div>
+    <!-- Tema 1 Signature: Rolling Odometer Stats Strip -->
+    <section class="odometer-strip" aria-label="Saha Operasyon Rakamları">
+      <div class="container-xl">
+        <div class="odometer-grid spring-pop">
+          <div class="odo-cell">
+            <strong class="odo-val tnum" data-odo-target="18420" data-odo-suffix="+">18.420+</strong>
+            <span class="odo-lbl">Tamamlanan Garantili İş Emri</span>
+          </div>
+          <div class="odo-cell">
+            <strong class="odo-val tnum" data-odo-target="81" data-odo-suffix=" İl">81 İl</strong>
+            <span class="odo-lbl">973 İlçede Aktif Saha Ağı</span>
+          </div>
+          <div class="odo-cell">
+            <strong class="odo-val tnum" id="odoBrandCount" data-odo-target="35" data-odo-suffix=" Marka">35 Marka</strong>
+            <span class="odo-lbl">Araç İçi Orijinal Parça Stoğu</span>
+          </div>
+          <div class="odo-cell">
+            <strong class="odo-val tnum" data-odo-target="98" data-odo-prefix="%" data-odo-suffix=".4">%98.4</strong>
+            <span class="odo-lbl">İlk Ziyarette Yerinde Çözüm</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 7 Service Categories Bento Grid -->
+    <!-- Tema 1 Signature: Dual-Row Opposite-Direction Categorized Brand Streams -->
+    <section class="marquee-section" aria-label="Hizmet Verilen 35 Marka">
+      <div class="container-xl marquee-header">
+        <span>Çift Yönlü Kategorize Marka Ağı · Beyaz Eşya, Ankastre, Kombi &amp; İklimlendirme</span>
+        <span>Üzerine gelerek durdurabilirsiniz · Tüm markalarda <span data-servis-warranty-months>12 Ay</span> parça garantisi</span>
+      </div>
+      <div class="marquee-viewport" style="margin-bottom:0.65rem;">
+        <div id="brandMarqueeTrack" class="marquee-track"></div>
+      </div>
+      <div class="marquee-viewport">
+        <div id="brandMarqueeTrackReverse" class="marquee-track-reverse"></div>
+      </div>
+    </section>
+
+    <!-- 7 Service Categories Bento Grid (Live CMS Hydrated + 3D Perspective Tilt) -->
     <section id="hizmetler" class="section">
       <div class="container-xl">
-        <div class="section-head reveal-up">
+        <div class="section-head spring-pop">
           <div>
             <span class="eyebrow">Tam Kapsamlı Teknik Servis</span>
             <h2 class="section-title">7 Ana Branşta Aynı Gün Yerinde Müdahale</h2>
@@ -1280,30 +1417,30 @@
           </a>
         </div>
 
-        <div class="bento-services">
-          <article class="service-card featured hover-lift reveal-up">
+        <div class="bento-services" id="bentoServicesGrid">
+          <article class="service-card featured tilt-card spring-pop" data-cat-id="beyaz-esya">
             <div class="service-thumb">
               <img src="../assets/photos/hero-technician-kitchen.jpg" alt="Çamaşır, bulaşık makinesi ve buzdolabı teknik servisi" loading="lazy">
-              <span class="service-eta-tag tnum">Ort. 40 Dk Onarım</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 40 Dk Onarım</span>
             </div>
             <div class="service-body">
-              <h3>Beyaz Eşya Teknik Servisi</h3>
-              <p>Çamaşır makinesi kazan/pompa revizyonu, bulaşık makinesi AquaStop ve ısıtma onarımı, No-Frost &amp; gardırop buzdolabı inverter kompresör, gaz ve elektronik kart tamiri.</p>
+              <h3 data-cat-title>Beyaz Eşya Teknik Servisi</h3>
+              <p data-cat-desc>Çamaşır makinesi kazan/pompa revizyonu, bulaşık makinesi AquaStop ve ısıtma onarımı, No-Frost &amp; gardırop buzdolabı inverter kompresör, gaz ve elektronik kart tamiri.</p>
               <div class="service-foot">
-                <span class="service-warranty">12 Ay Parça Garantisi</span>
+                <span class="service-warranty"><span data-servis-warranty-months>12 Ay</span> Parça Garantisi</span>
                 <a href="#randevu" class="service-link" data-prefill-service="Beyaz Eşya Servisi">Servis Kaydı Aç →</a>
               </div>
             </div>
           </article>
 
-          <article class="service-card featured hover-lift reveal-up">
+          <article class="service-card featured tilt-card spring-pop" data-cat-id="kombi">
             <div class="service-thumb">
               <img src="../assets/photos/kombi-maintenance.jpg" alt="Yoğuşmalı kombi bakımı ve elektronik kart tamiri" loading="lazy">
-              <span class="service-eta-tag tnum">Baca Gazı Analizli</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 45 Dk · Baca Gazı Analizli</span>
             </div>
             <div class="service-body">
-              <h3>Yoğuşmalı Kombi Servisi &amp; Bakımı</h3>
-              <p>Vaillant, Viessmann, Buderus, Demirdöküm ve Baymak başta olmak üzere tüm kombilerde ateşleme, 3 yollu vana, eşanjör, sirkülasyon pompası, anakart ve azot basımlı kışlık bakım.</p>
+              <h3 data-cat-title>Yoğuşmalı Kombi Servisi &amp; Bakımı</h3>
+              <p data-cat-desc>Vaillant, Viessmann, Buderus, Demirdöküm ve Baymak başta olmak üzere tüm kombilerde ateşleme, 3 yollu vana, eşanjör, sirkülasyon pompası, anakart ve azot basımlı kışlık bakım.</p>
               <div class="service-foot">
                 <span class="service-warranty">Dijital Ölçüm Raporlu</span>
                 <a href="#randevu" class="service-link" data-prefill-service="Kombi Servisi & Bakımı">Servis Kaydı Aç →</a>
@@ -1311,14 +1448,14 @@
             </div>
           </article>
 
-          <article class="service-card hover-lift reveal-up">
+          <article class="service-card tilt-card spring-pop" data-cat-id="klima">
             <div class="service-thumb">
               <img src="../assets/photos/klima-service.jpg" alt="Inverter klima gaz dolumu, bakım ve montaj" loading="lazy">
-              <span class="service-eta-tag tnum">R32 / R410A Gaz</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 50 Dk · R32/R410A Gaz</span>
             </div>
             <div class="service-body">
-              <h3>Klima Servisi, Gaz &amp; Montaj</h3>
-              <p>Split, salon tipi ve VRF klimalarda manometreli gaz dolumu, vakumlu söküm-montaj, IPM inverter dış ünite kart tamiri ve antibakteriyel ilaçlı yıkama.</p>
+              <h3 data-cat-title>Klima Servisi, Gaz &amp; Montaj</h3>
+              <p data-cat-desc>Split, salon tipi ve VRF klimalarda manometreli gaz dolumu, vakumlu söküm-montaj, IPM inverter dış ünite kart tamiri ve antibakteriyel ilaçlı yıkama.</p>
               <div class="service-foot">
                 <span class="service-warranty">Vakumlu Kurulum</span>
                 <a href="#randevu" class="service-link" data-prefill-service="Klima Servisi & Montaj">Usta Çağır →</a>
@@ -1326,14 +1463,14 @@
             </div>
           </article>
 
-          <article class="service-card hover-lift reveal-up">
+          <article class="service-card tilt-card spring-pop" data-cat-id="petek">
             <div class="service-thumb">
               <img src="../assets/photos/petek-thermal.jpg" alt="Termal kameralı ilaçlı petek temizliği" loading="lazy">
-              <span class="service-eta-tag tnum">%28 Isı Tasarrufu</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 60 Dk · %28 Tasarruf</span>
             </div>
             <div class="service-body">
-              <h3>İlaçlı &amp; Termal Petek Temizliği</h3>
-              <p>Petekleri yerinden sökmeden, banyodan tek noktadan bağlanan çift yönlü darbeli makine ve koruyucu kimyasalla çamur/kireç tahliyesi ve termal ısı ölçümü.</p>
+              <h3 data-cat-title>İlaçlı &amp; Termal Petek Temizliği</h3>
+              <p data-cat-desc>Petekleri yerinden sökmeden, banyodan tek noktadan bağlanan çift yönlü darbeli makine ve koruyucu kimyasalla çamur/kireç tahliyesi ve termal ısı ölçümü.</p>
               <div class="service-foot">
                 <span class="service-warranty">Termal Kamera Kontrol</span>
                 <a href="#randevu" class="service-link" data-prefill-service="İlaçlı Petek Temizliği">Usta Çağır →</a>
@@ -1341,14 +1478,14 @@
             </div>
           </article>
 
-          <article class="service-card hover-lift reveal-up">
+          <article class="service-card tilt-card spring-pop" data-cat-id="ankastre">
             <div class="service-thumb">
               <img src="../assets/photos/ankastre-kitchen.jpg" alt="Ankastre fırın, indüksiyon ocak ve davlumbaz servisi" loading="lazy">
-              <span class="service-eta-tag tnum">Dolaba Zararsız Söküm</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 40 Dk · Zararsız Söküm</span>
             </div>
             <div class="service-body">
-              <h3>Fırın &amp; Ankastre Mutfak Servisi</h3>
-              <p>Miele, Gaggenau, Siemens, Bosch, Franke ve Teka ankastre fırın rezistans/termostat, indüksiyon cam ocak güç modülü ve dokunmatik davlumbaz onarımı.</p>
+              <h3 data-cat-title>Fırın &amp; Ankastre Mutfak Servisi</h3>
+              <p data-cat-desc>Miele, Gaggenau, Siemens, Bosch, Franke ve Teka ankastre fırın rezistans/termostat, indüksiyon cam ocak güç modülü ve dokunmatik davlumbaz onarımı.</p>
               <div class="service-foot">
                 <span class="service-warranty">Orijinal Modül</span>
                 <a href="#randevu" class="service-link" data-prefill-service="Fırın & Ankastre Servisi">Usta Çağır →</a>
@@ -1356,14 +1493,14 @@
             </div>
           </article>
 
-          <article class="service-card featured hover-lift reveal-up">
+          <article class="service-card featured tilt-card spring-pop" data-cat-id="tv">
             <div class="service-thumb">
               <img src="../assets/samsung-washing-machine-2.jpg" alt="Televizyon LED bar ve panel besleme kartı servisi" loading="lazy">
-              <span class="service-eta-tag tnum">Antistatik Laboratuvar</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 55 Dk · Antistatik</span>
             </div>
             <div class="service-body">
-              <h3>Televizyon (LED / QLED / OLED) Servisi</h3>
-              <p>Ses var görüntü yok arızalarında tam takım orijinal alüminyum soğutuculu LED bar değişimi, besleme kartı, T-Con onarımı ve lazer terazili duvar montajı.</p>
+              <h3 data-cat-title>Televizyon (LED / QLED / OLED) Servisi</h3>
+              <p data-cat-desc>Ses var görüntü yok arızalarında tam takım orijinal alüminyum soğutuculu LED bar değişimi, besleme kartı, T-Con onarımı ve lazer terazili duvar montajı.</p>
               <div class="service-foot">
                 <span class="service-warranty">1 Yıl LED Garantisi</span>
                 <a href="#randevu" class="service-link" data-prefill-service="Televizyon (TV) Servisi">Servis Kaydı Aç →</a>
@@ -1371,14 +1508,14 @@
             </div>
           </article>
 
-          <article class="service-card featured hover-lift reveal-up">
+          <article class="service-card featured tilt-card spring-pop" data-cat-id="endustriyel">
             <div class="service-thumb">
               <img src="../assets/photos/service-van-parts.jpg" alt="Endüstriyel soğutma ve ticari mutfak acil servis aracı" loading="lazy">
-              <span class="service-eta-tag tnum">İşletmelere Acil Ekip</span>
+              <span class="service-eta-tag tnum" data-cat-eta>Ort. 35 Dk · Acil Ekip</span>
             </div>
             <div class="service-body">
-              <h3>Endüstriyel Soğutma &amp; Ticari Mutfak</h3>
-              <p>Restoran, otel, market ve pastane tipi sanayi buzdolapları, soğuk hava depoları, buz makineleri ve giyotin tip sanayi bulaşık makinelerine öncelikli acil ekip.</p>
+              <h3 data-cat-title>Endüstriyel Soğutma &amp; Ticari Mutfak</h3>
+              <p data-cat-desc>Restoran, otel, market ve pastane tipi sanayi buzdolapları, soğuk hava depoları, buz makineleri ve giyotin tip sanayi bulaşık makinelerine öncelikli acil ekip.</p>
               <div class="service-foot">
                 <span class="service-warranty">Kurumsal Faturalı</span>
                 <a href="#randevu" class="service-link" data-prefill-service="Endüstriyel Soğutma & Mutfak">Acil Ekip İste →</a>
@@ -1506,34 +1643,17 @@
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ Section (Live CMS Hydrated) -->
     <section class="section">
       <div class="container-xl">
-        <div class="section-head reveal-up">
+        <div class="section-head spring-pop">
           <div>
             <span class="eyebrow">Şeffaf Hizmet Politikası</span>
             <h2 class="section-title">Müşterilerimizin Sıkça Sorduğu Sorular</h2>
           </div>
         </div>
 
-        <div class="faq-grid reveal-up">
-          <details class="faq-item" open>
-            <summary>Değişen yedek parçalar ne kadar süre garantili? <span>+</span></summary>
-            <p>Cihazınızda değiştirilen tüm elektronik ve mekanik parçalar, size teslim edilen dijital ve basılı servis iş emri fişi üzerinde 1 yıl (12 ay) resmi firma garantimiz altındadır.</p>
-          </details>
-          <details class="faq-item" open>
-            <summary>Onarım öncesi fiyat bilgisi veriliyor mu? <span>+</span></summary>
-            <p>Kesinlikle. Teknisyenimiz adreste dijital ölçümle arızayı netleştirdikten sonra toplam parça ve işçilik tutarını size sunar; onayınız olmadan hiçbir sürpriz işlem yapılmaz.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Yetkili servis misiniz yoksa özel servis mi? <span>+</span></summary>
-            <p>Firmamız üretici garantisi sona ermiş tüm marka cihazlara hızlı, şeffaf fiyatlı ve 1 yıl firma garantili onarım sunan bağımsız özel teknik servistir. Garantisi devam eden cihazlar için ilgili markanın yetkili servisine başvurmanızı öneririz.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Cihazım atölyeye gitmek zorunda mı? <span>+</span></summary>
-            <p>Hayır. Tam donanımlı gezici servis araçlarımızda 35 markanın temel yedek parçaları hazır bulunduğu için arızaların %92'si aynı gün evinizde veya iş yerinizde çözülür.</p>
-          </details>
-        </div>
+        <div id="faqDynamicGrid" class="faq-grid spring-pop"></div>
       </div>
     </section>
   </main>
@@ -1543,7 +1663,8 @@
       <div class="footer-grid">
         <div>
           <h4 data-servis-legal>Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi</h4>
-          <p style="color:#94a3b8;margin:0 0 0.85rem;">81 il ve 973 ilçede garantisi sona ermiş beyaz eşya, kombi, klima, ankastre ve televizyonlar için 1 yıl parça garantili bağımsız özel teknik servis organizasyonu.</p>
+          <p style="color:#94a3b8;margin:0 0 0.55rem;">81 il ve 973 ilçede garantisi sona ermiş beyaz eşya, kombi, klima, ankastre ve televizyonlar için <span data-servis-warranty-months>12 Ay</span> parça garantili bağımsız özel teknik servis organizasyonu.</p>
+          <p style="color:#94a3b8;margin:0 0 0.55rem;font-size:0.8rem;"><span data-servis-address>Yenişehir Mah. Kuvayi Milliye Cad. No:42 Yenişehir / Mersin</span> · <span data-servis-tax>İstiklal V.D.</span></p>
           <p class="tnum" style="margin:0;color:#ffffff;font-weight:700;">Çağrı Merkezi: <span data-servis-phone>0850 380 02 02</span> · Yedek: <span data-servis-phone-secondary>444 6 082</span></p>
         </div>
         <div>
@@ -1563,12 +1684,13 @@
             <li><a href="#markalar">35 Marka Listesi</a></li>
             <li><a href="#kapsama">81 İl Gezici Ekip Sorgu</a></li>
             <li><a href="../tema-2-hizli-cagri/index.html">1 Yıl Garanti Fişi Sorgula</a></li>
-            <li><a href="../yonetim-paneli/index.html">Yönetim &amp; Numara Paneli</a></li>
+            <li><a href="../yonetim-paneli/index.html">Tam Kapsamlı Yönetim Paneli</a></li>
           </ul>
         </div>
         <div>
-          <h4>Yasal Bilgilendirme</h4>
-          <p style="color:#94a3b8;margin:0;font-size:0.8rem;">Sitemizde yer alan tüm marka adları ve logolar ilgili hak sahiplerine aittir; yalnızca özel teknik servis hizmeti verilen cihaz gruplarını belirtmek amacıyla referans olarak kullanılmıştır.</p>
+          <h4>Çalışma Saatleri &amp; Yasal</h4>
+          <p class="tnum" style="color:#e2e8f0;margin:0 0 0.55rem;font-size:0.82rem;">Hafta İçi: <strong data-servis-hours-weekday>08:00 - 22:00</strong><br>Hafta Sonu: <strong data-servis-hours-weekend>09:00 - 20:00</strong></p>
+          <p style="color:#94a3b8;margin:0;font-size:0.79rem;">Sitemizde yer alan tüm marka adları ilgili hak sahiplerine aittir; yalnızca özel teknik servis hizmeti verilen cihaz gruplarını belirtmek amacıyla referans olarak kullanılmıştır.</p>
         </div>
       </div>
       <div style="padding-top:1.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:0.75rem;color:#64748b;font-size:0.8rem;">
@@ -1586,7 +1708,94 @@
       const MS = window.MerkezServis;
       MS.mountStudioChrome('tema1', '../');
 
-      // Populate Hero Quick Dispatch Finder
+      // Tema 1 Motion Signature #1: Top Reading Scroll-Progress Bar
+      const progBar = document.getElementById('scrollProgressBar');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docH > 0 ? Math.min(100, Math.max(0, (window.scrollY / docH) * 100)) : 0;
+            if (progBar) progBar.style.width = pct.toFixed(1) + '%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Tema 1 Motion Signature #2: Rolling Odometer Counters
+      const activeBrandsNow = MS.getActiveBrands();
+      const odoBrandEl = document.getElementById('odoBrandCount');
+      if (odoBrandEl) {
+        odoBrandEl.setAttribute('data-odo-target', String(activeBrandsNow.length));
+        odoBrandEl.textContent = activeBrandsNow.length + ' Marka';
+      }
+
+      const odoEls = document.querySelectorAll('[data-odo-target]');
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const odoIo = new IntersectionObserver((entries) => {
+          entries.forEach(ent => {
+            if (!ent.isIntersecting) return;
+            const el = ent.target;
+            odoIo.unobserve(el);
+            const target = Number(el.getAttribute('data-odo-target')) || 0;
+            const prefix = el.getAttribute('data-odo-prefix') || '';
+            const suffix = el.getAttribute('data-odo-suffix') || '';
+            const start = performance.now();
+            const dur = 1150;
+            function step(now) {
+              const p = Math.min(1, (now - start) / dur);
+              const eased = 1 - Math.pow(1 - p, 3);
+              const val = Math.round(target * eased);
+              el.textContent = prefix + val.toLocaleString('tr-TR') + suffix;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }, { threshold: 0.35 });
+        odoEls.forEach(el => odoIo.observe(el));
+      }
+
+      // Tema 1 Motion Signature #3: Tactile 3D Perspective Card Tilt + Specular Glare
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.tilt-card').forEach(card => {
+          card.addEventListener('pointermove', (e) => {
+            if (e.pointerType === 'touch') return;
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width;
+            const y = (e.clientY - r.top) / r.height;
+            const ry = ((x - 0.5) * 6.5).toFixed(2) + 'deg';
+            const rx = ((0.5 - y) * 6.5).toFixed(2) + 'deg';
+            card.style.setProperty('--rx', rx);
+            card.style.setProperty('--ry', ry);
+            card.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+            card.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+          });
+          card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
+          });
+        });
+      }
+
+      // Live Sync 7 Service Categories Bento from CMS
+      function syncServiceBentoFromCms() {
+        const cats = MS.getCategories();
+        cats.forEach(c => {
+          const card = document.querySelector(`[data-cat-id="${c.id}"]`);
+          if (!card) return;
+          card.style.display = c.enabled ? '' : 'none';
+          const titleEl = card.querySelector('[data-cat-title]');
+          const descEl = card.querySelector('[data-cat-desc]');
+          const etaEl = card.querySelector('[data-cat-eta]');
+          if (titleEl && c.name) titleEl.textContent = c.name;
+          if (descEl && c.items) descEl.textContent = c.items + '. ' + (c.feeNote || '');
+          if (etaEl && c.avgMin) etaEl.textContent = `Ort. ${c.avgMin} Dk · Garantili`;
+        });
+      }
+      syncServiceBentoFromCms();
+
+      // Populate Hero Quick Dispatch Finder (Live Active Brands & Categories)
       const heroProv = document.getElementById('heroProvince');
       const heroServ = document.getElementById('heroService');
       const heroBrand = document.getElementById('heroBrand');
@@ -1601,17 +1810,19 @@
       sortedProvs.forEach(p => {
         heroProv.add(new Option(`${p.plate} - ${p.name}`, p.slug));
       });
-      MS.SERVICE_CATEGORIES.forEach(c => {
+      MS.getActiveCategories().forEach(c => {
         heroServ.add(new Option(c.name, c.id));
       });
-      MS.BRANDS.forEach(b => {
+      activeBrandsNow.forEach(b => {
         heroBrand.add(new Option(b.name, b.slug));
       });
 
       function updateHeroDispatch() {
         const prov = MS.ALL_81_PROVINCES.find(p => p.slug === heroProv.value) || sortedProvs[0];
-        const brand = MS.BRANDS.find(b => b.slug === heroBrand.value) || MS.BRANDS[0];
-        const serv = MS.SERVICE_CATEGORIES.find(c => c.id === heroServ.value) || MS.SERVICE_CATEGORIES[0];
+        const brands = MS.getActiveBrands();
+        const brand = brands.find(b => b.slug === heroBrand.value) || brands[0];
+        const cats = MS.getActiveCategories();
+        const serv = cats.find(c => c.id === heroServ.value) || cats[0];
         const cfg = MS.getConfig();
         heroResult.innerHTML = `
           <span><strong>${prov.name} (${prov.districts.slice(0, 3).join(', ')})</strong> bölgesinde <strong>${brand.name} ${serv.name}</strong> için şu an <strong>${prov.activeVans} gezici araç</strong> müsait · Tahmini varış: <strong>${prov.eta} dk</strong></span>
@@ -1622,21 +1833,32 @@
       [heroProv, heroServ, heroBrand].forEach(el => el.addEventListener('change', updateHeroDispatch));
       updateHeroDispatch();
 
-      // Populate Infinite 35-Brand Marquee (doubled for seamless 50% translateX loop)
-      const track = document.getElementById('brandMarqueeTrack');
-      const pillsHtml = MS.BRANDS.map(b => `<span class="brand-pill" title="${b.name} (${b.group})">${MS.renderBrandMarkSvg(b)}</span>`).join('');
-      track.innerHTML = pillsHtml + pillsHtml;
+      // Tema 1 Motion Signature #4: Dual Opposite-Direction Categorized Brand Streams
+      function renderDualMarquees() {
+        const brands = MS.getActiveBrands();
+        const row1 = brands.filter(b => /beyaz|ankastre|buzdolab/i.test(b.group));
+        const row2 = brands.filter(b => !/beyaz|ankastre|buzdolab/i.test(b.group));
+        const safe1 = row1.length >= 6 ? row1 : brands;
+        const safe2 = row2.length >= 6 ? row2 : [...brands].reverse();
+        const toPills = (arr) => arr.map(b => `<span class="brand-pill" title="${b.name} (${b.group})">${MS.renderBrandMarkSvg(b)}</span>`).join('');
+        const t1 = document.getElementById('brandMarqueeTrack');
+        const t2 = document.getElementById('brandMarqueeTrackReverse');
+        if (t1) t1.innerHTML = toPills(safe1) + toPills(safe1);
+        if (t2) t2.innerHTML = toPills(safe2) + toPills(safe2);
+      }
+      renderDualMarquees();
 
-      // Fault-Code Diagnostic Studio
+      // Fault-Code Diagnostic Studio (Live CMS Faults)
       const chipHost = document.getElementById('faultChipContainer');
       const diagOut = document.getElementById('diagnosisOutput');
       const searchIn = document.getElementById('faultSearchInput');
-      let activeCode = MS.FAULT_DATABASE[0].code;
+      let activeCode = MS.getFaults()[0].code;
 
       function renderDiagnosis(fault) {
         const cfg = MS.getConfig();
-        const brandNames = fault.brands.map(slug => {
-          const found = MS.BRANDS.find(b => b.slug === slug);
+        const allB = MS.getAllBrands();
+        const brandNames = (fault.brands || []).map(slug => {
+          const found = allB.find(b => b.slug === slug);
           return found ? found.name : slug;
         }).join(', ');
         diagOut.innerHTML = `
@@ -1670,16 +1892,17 @@
       }
 
       function renderFaultChips(filterText) {
+        const db = MS.getFaults();
         const q = (filterText || '').trim().toLowerCase();
         const list = q
-          ? MS.FAULT_DATABASE.filter(f =>
+          ? db.filter(f =>
               f.code.toLowerCase().includes(q) ||
               f.title.toLowerCase().includes(q) ||
               f.symptom.toLowerCase().includes(q) ||
               f.device.toLowerCase().includes(q))
-          : MS.FAULT_DATABASE;
+          : db;
 
-        const targetList = list.length ? list : MS.FAULT_DATABASE;
+        const targetList = list.length ? list : db;
         if (!targetList.some(f => f.code === activeCode)) {
           activeCode = targetList[0].code;
         }
@@ -1695,19 +1918,22 @@
             renderFaultChips(searchIn.value);
           });
         });
-        const current = MS.FAULT_DATABASE.find(f => f.code === activeCode) || targetList[0];
+        const current = db.find(f => f.code === activeCode) || targetList[0];
         renderDiagnosis(current);
       }
 
       searchIn.addEventListener('input', () => renderFaultChips(searchIn.value));
       renderFaultChips('');
 
-      // 35-Brand Filterable Wall
+      // Active Brand Filterable Wall
       const wallGrid = document.getElementById('brandWallGrid');
+      const allTabBtn = document.querySelector('[data-brand-filter="all"]');
       function renderBrandWall(cat) {
+        const activeList = MS.getActiveBrands();
+        if (allTabBtn) allTabBtn.textContent = `Tümü (${activeList.length})`;
         const items = cat === 'all'
-          ? MS.BRANDS
-          : MS.BRANDS.filter(b => b.group.toLowerCase().includes(cat.toLowerCase()));
+          ? activeList
+          : activeList.filter(b => b.group.toLowerCase().includes(cat.toLowerCase()));
         wallGrid.innerHTML = items.map(b => `
           <div class="brand-tile">
             <div>${MS.renderBrandMarkSvg(b)}</div>
@@ -1724,6 +1950,19 @@
       });
       renderBrandWall('all');
 
+      // Live FAQ Accordion from CMS
+      const faqHost = document.getElementById('faqDynamicGrid');
+      function renderFaqs() {
+        const faqs = MS.getFaqs();
+        faqHost.innerHTML = faqs.map((f, idx) => `
+          <details class="faq-item" ${idx < 2 ? 'open' : ''}>
+            <summary>${f.q} <span>+</span></summary>
+            <p>${f.a}</p>
+          </details>
+        `).join('');
+      }
+      renderFaqs();
+
       // 81 Province Radar + Form Dropdowns
       const radarSel = document.getElementById('radarProvinceSelect');
       const fCity = document.getElementById('fCity');
@@ -1737,7 +1976,7 @@
         });
       });
       radarSel.value = 'istanbul';
-      MS.BRANDS.forEach(b => fBrand.add(new Option(b.name, b.name)));
+      activeBrandsNow.forEach(b => fBrand.add(new Option(b.name, b.name)));
 
       function updateRadar() {
         const prov = MS.ALL_81_PROVINCES.find(p => p.slug === radarSel.value) || MS.ALL_81_PROVINCES[0];
@@ -1748,7 +1987,6 @@
       radarSel.addEventListener('change', updateRadar);
       updateRadar();
 
-      // Prefill service links
       document.querySelectorAll('[data-prefill-service]').forEach(link => {
         link.addEventListener('click', () => {
           fFault.value = link.getAttribute('data-prefill-service') + ' talebi';
@@ -1756,12 +1994,12 @@
         });
       });
 
-      // Lead Capture Form -> Live CRM Storage
       const leadForm = document.getElementById('leadCaptureForm');
       const toast = document.getElementById('leadReceiptToast');
       leadForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const rec = MS.addLead({
+          source: 'Tema 1 Form',
           customer: document.getElementById('fName').value.trim(),
           phone: document.getElementById('fPhone').value.trim(),
           city: fCity.value,
@@ -1770,8 +2008,17 @@
           fault: fFault.value.trim()
         });
         toast.style.display = 'block';
-        toast.innerHTML = `<strong>Kaydınız Açıldı! Dijital İş Emri No: <span class="mono">${rec.id}</span></strong><br>${rec.city} bölge teknisyenimiz 5 dakika içinde <strong>${rec.phone}</strong> numaranızdan sizi arayacaktır. (Bu kayıt Canlı Yönetim Paneline de anlık düştü!)`;
+        toast.innerHTML = `<strong>Kaydınız Açıldı! Dijital İş Emri No: <span class="mono">${rec.id}</span></strong><br>${rec.city} bölge teknisyenimiz 5 dakika içinde <strong>${rec.phone}</strong> numaranızdan sizi arayacaktır. (Yönetim Paneline anlık düştü!)`;
         leadForm.reset();
+      });
+
+      window.addEventListener('storage', () => {
+        syncServiceBentoFromCms();
+        renderDualMarquees();
+        renderFaultChips(searchIn.value);
+        renderBrandWall('all');
+        renderFaqs();
+        updateHeroDispatch();
       });
     })();
   </script>

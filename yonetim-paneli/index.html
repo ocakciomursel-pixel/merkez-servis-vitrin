@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yönetim Paneli — Merkez Beyaz Eşya Servisi</title>
-  <meta name="description" content="Sade, şık ve kullanışlı teknik servis yönetim paneli: tek tıkla 0850 ve WhatsApp numarası değiştirme, tema ve renk seçimi, iş emri usta atama ve SEO yönetimi.">
+  <title>Tam Kapsamlı Yönetim Paneli (CMS &amp; Saha CRM) — Merkez Beyaz Eşya Servisi</title>
+  <meta name="description" content="Merkez Beyaz Eşya Servisi tam kapsamlı yönetim paneli: numaralar, çalışma saatleri, kampanya barı, iş emirleri, usta komisyonları, 7 branş, 35 marka, arıza kodları, yorumlar, SSS, tema, renk ve SEO yönetimi.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,11 +34,11 @@
     /* Clean Light Minimalist SaaS Shell (Apple / Linear / Stripe Style) */
     .admin-layout {
       display: grid;
-      grid-template-columns: 264px minmax(0, 1fr);
+      grid-template-columns: 276px minmax(0, 1fr);
       min-height: calc(100vh - 44px);
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1020px) {
       .admin-layout {
         grid-template-columns: 1fr;
       }
@@ -50,56 +50,66 @@
     .sidebar {
       background: var(--surface);
       border-right: 1px solid var(--border);
-      padding: 1.5rem 1.1rem;
+      padding: 1.35rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
+      gap: 1.1rem;
       position: sticky;
       top: 0;
       height: calc(100vh - 44px);
+      overflow-y: auto;
     }
 
     .side-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.72rem;
       padding: 0 0.4rem;
     }
 
     .side-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
       background: var(--brand-grad);
       color: #ffffff;
       display: grid;
       place-items: center;
       font-weight: 800;
-      font-size: 1.05rem;
+      font-size: 1rem;
       box-shadow: var(--shadow-brand);
       flex: none;
     }
 
+    .side-group-lbl {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      padding: 0.2rem 0.75rem 0;
+    }
+
     .side-nav {
       display: grid;
-      gap: 0.35rem;
+      gap: 0.24rem;
     }
 
     .nav-tab-btn {
       width: 100%;
       border: none;
       background: transparent;
-      padding: 0.72rem 0.9rem;
-      border-radius: 13px;
+      padding: 0.62rem 0.8rem;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.62rem;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--ink-2);
       cursor: pointer;
       text-align: left;
-      transition: all 160ms var(--ease-spring);
+      transition: all 150ms var(--ease-spring);
     }
 
     .nav-tab-btn:hover {
@@ -115,9 +125,9 @@
 
     .nav-tab-btn .badge-count {
       margin-left: auto;
-      padding: 0.14rem 0.52rem;
+      padding: 0.12rem 0.48rem;
       border-radius: 999px;
-      font-size: 0.73rem;
+      font-size: 0.71rem;
       font-weight: 700;
       background: var(--brand);
       color: #ffffff;
@@ -125,18 +135,18 @@
 
     .side-quick-links {
       border-top: 1px solid var(--border);
-      padding-top: 1rem;
+      padding-top: 0.85rem;
       display: grid;
-      gap: 0.35rem;
+      gap: 0.25rem;
     }
 
     .side-quick-links a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.83rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 0.48rem 0.85rem;
-      border-radius: 10px;
+      padding: 0.42rem 0.75rem;
+      border-radius: 9px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -152,18 +162,18 @@
       margin-top: auto;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 0.95rem 1rem;
-      font-size: 0.8rem;
+      border-radius: 14px;
+      padding: 0.85rem 0.95rem;
+      font-size: 0.78rem;
     }
 
     /* Mobile Horizontal Tab Strip */
     .mobile-tabs {
       display: none;
-      gap: 0.45rem;
+      gap: 0.4rem;
       overflow-x: auto;
       padding-bottom: 0.35rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
       scrollbar-width: none;
     }
 
@@ -171,7 +181,7 @@
       display: none;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1020px) {
       .mobile-tabs {
         display: flex;
       }
@@ -180,10 +190,10 @@
     .mob-tab-btn {
       border: 1px solid var(--border);
       background: var(--surface);
-      padding: 0.55rem 0.95rem;
+      padding: 0.5rem 0.88rem;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.79rem;
       color: var(--ink-2);
       white-space: nowrap;
       cursor: pointer;
@@ -197,8 +207,8 @@
 
     /* Main Workspace */
     .workspace {
-      padding: 1.85rem clamp(1rem, 3vw, 2.6rem) 4.5rem;
-      max-width: 1220px;
+      padding: 1.7rem clamp(1rem, 2.6vw, 2.4rem) 4.5rem;
+      max-width: 1260px;
       width: 100%;
     }
 
@@ -208,37 +218,38 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 1.65rem;
+      margin-bottom: 1.5rem;
     }
 
     .workspace-title {
       margin: 0;
-      font-size: 1.55rem;
+      font-size: 1.48rem;
       font-weight: 800;
       letter-spacing: -0.025em;
     }
 
     .workspace-sub {
       margin: 0.2rem 0 0;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--muted);
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.48rem;
-      padding: 0.72rem 1.25rem;
+      gap: 0.45rem;
+      padding: 0.68rem 1.18rem;
       border-radius: 12px;
       border: none;
       background: var(--brand-grad);
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       cursor: pointer;
       box-shadow: var(--shadow-brand);
       transition: transform 160ms var(--ease-spring), filter 160ms ease;
+      white-space: nowrap;
     }
 
     .btn-primary:hover {
@@ -249,17 +260,18 @@
     .btn-soft {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.68rem 1.1rem;
+      gap: 0.42rem;
+      padding: 0.64rem 1.02rem;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--ink-2);
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.86rem;
+      font-size: 0.83rem;
       cursor: pointer;
       transition: border-color 150ms ease, color 150ms ease;
+      white-space: nowrap;
     }
 
     .btn-soft:hover {
@@ -267,10 +279,25 @@
       color: var(--brand);
     }
 
+    .btn-danger-sm {
+      border: 1px solid #fecdd3;
+      background: #fff1f2;
+      color: #be123c;
+      border-radius: 8px;
+      padding: 0.3rem 0.58rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-danger-sm:hover {
+      background: #ffe4e6;
+    }
+
     /* Tab Panes */
     .tab-pane {
       display: none;
-      animation: pane-fade 220ms ease;
+      animation: pane-fade 200ms ease;
     }
 
     .tab-pane.active {
@@ -278,26 +305,26 @@
     }
 
     @keyframes pane-fade {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(5px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Minimal KPI Strip */
-    .kpi-row {
+    /* 6-Card KPI Grid */
+    .kpi-grid-6 {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.95rem;
+      margin-bottom: 1.35rem;
     }
 
-    @media (max-width: 900px) {
-      .kpi-row {
+    @media (max-width: 860px) {
+      .kpi-grid-6 {
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    @media (max-width: 500px) {
-      .kpi-row {
+    @media (max-width: 520px) {
+      .kpi-grid-6 {
         grid-template-columns: 1fr;
       }
     }
@@ -306,7 +333,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 1.2rem 1.3rem;
+      padding: 1.1rem 1.25rem;
       box-shadow: var(--shadow-xs);
     }
 
@@ -314,15 +341,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       font-weight: 600;
       color: var(--muted);
     }
 
     .kpi-pill {
-      padding: 0.15rem 0.52rem;
+      padding: 0.14rem 0.5rem;
       border-radius: 999px;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       background: #ecfdf5;
       color: #059669;
@@ -330,21 +357,27 @@
 
     .kpi-num {
       display: block;
-      font-size: 1.68rem;
+      font-size: 1.55rem;
       font-weight: 800;
       letter-spacing: -0.03em;
-      margin: 0.35rem 0 0.15rem;
+      margin: 0.3rem 0 0.12rem;
     }
 
-    /* Clean Cards */
+    /* Clean Cards & Grids */
     .grid-2 {
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 1.25rem;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: 1.2rem;
+    }
+
+    .grid-equal {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 1.2rem;
     }
 
     @media (max-width: 920px) {
-      .grid-2 {
+      .grid-2, .grid-equal {
         grid-template-columns: 1fr;
       }
     }
@@ -352,31 +385,31 @@
     .panel-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 1.6rem;
+      border-radius: 20px;
+      padding: 1.45rem;
       box-shadow: var(--shadow-xs);
     }
 
     .panel-card h2 {
-      margin: 0 0 0.25rem;
-      font-size: 1.12rem;
+      margin: 0 0 0.22rem;
+      font-size: 1.08rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
 
     .panel-sub {
-      margin: 0 0 1.25rem;
-      font-size: 0.84rem;
+      margin: 0 0 1.15rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
     .fields-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.95rem;
+      gap: 0.85rem;
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 580px) {
       .fields-grid {
         grid-template-columns: 1fr;
       }
@@ -384,21 +417,21 @@
 
     .field label {
       display: block;
-      font-size: 0.79rem;
+      font-size: 0.77rem;
       font-weight: 700;
       color: var(--ink-2);
-      margin-bottom: 0.32rem;
+      margin-bottom: 0.28rem;
     }
 
     .clean-input {
       width: 100%;
-      padding: 0.74rem 0.92rem;
-      border-radius: 12px;
+      padding: 0.68rem 0.85rem;
+      border-radius: 11px;
       border: 1.5px solid var(--border);
       background: var(--bg);
       color: var(--ink);
       font-weight: 600;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       outline: none;
       transition: border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
     }
@@ -406,49 +439,68 @@
     .clean-input:focus {
       border-color: var(--brand);
       background: var(--surface);
-      box-shadow: 0 0 0 4px var(--brand-ring);
+      box-shadow: 0 0 0 3.5px var(--brand-ring);
+    }
+
+    .switch-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.78rem 0.95rem;
+      border-radius: 13px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .switch-row input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--brand);
+      cursor: pointer;
+      flex: none;
     }
 
     .toast-saved {
       display: none;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.65rem 0.95rem;
-      border-radius: 12px;
+      padding: 0.62rem 0.92rem;
+      border-radius: 11px;
       background: #ecfdf5;
       border: 1px solid #a7f3d0;
       color: #065f46;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      margin-top: 1rem;
+      margin-top: 0.9rem;
     }
 
-    /* Leads CRM Table */
+    /* Tables & Filters */
     .toolbar-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1rem;
     }
 
     .filter-pills {
       display: inline-flex;
       flex-wrap: wrap;
-      gap: 0.35rem;
+      gap: 0.3rem;
       background: var(--bg);
-      padding: 0.3rem;
-      border-radius: 12px;
+      padding: 0.28rem;
+      border-radius: 11px;
       border: 1px solid var(--border);
     }
 
     .f-pill {
       border: none;
       background: transparent;
-      padding: 0.42rem 0.82rem;
-      border-radius: 9px;
-      font-size: 0.8rem;
+      padding: 0.38rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--muted);
       cursor: pointer;
@@ -465,8 +517,8 @@
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 1.15rem;
-      margin-bottom: 1.15rem;
+      padding: 1.1rem;
+      margin-bottom: 1.1rem;
     }
 
     .table-scroll {
@@ -476,13 +528,13 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.87rem;
+      font-size: 0.84rem;
     }
 
     th {
       text-align: left;
-      padding: 0.75rem 0.85rem;
-      font-size: 0.73rem;
+      padding: 0.7rem 0.75rem;
+      font-size: 0.71rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -492,47 +544,57 @@
     }
 
     td {
-      padding: 0.9rem 0.85rem;
+      padding: 0.82rem 0.75rem;
       border-bottom: 1px solid var(--border);
       vertical-align: middle;
     }
 
     .status-select {
-      padding: 0.36rem 0.65rem;
-      border-radius: 9px;
+      padding: 0.34rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      font-weight: 700;
+      font-size: 0.76rem;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .fee-mini-input {
+      width: 92px;
+      padding: 0.34rem 0.5rem;
+      border-radius: 8px;
       border: 1px solid var(--border);
       background: var(--bg);
       font-weight: 700;
       font-size: 0.78rem;
       color: var(--ink);
-      cursor: pointer;
     }
 
     .wa-send-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.38rem;
-      padding: 0.44rem 0.82rem;
-      border-radius: 10px;
+      gap: 0.32rem;
+      padding: 0.38rem 0.68rem;
+      border-radius: 9px;
       background: #16a34a;
       color: #ffffff;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       white-space: nowrap;
-      transition: background-color 150ms ease;
     }
 
-    .wa-send-btn:hover {
-      background: #15803d;
+    .wa-send-btn.secondary {
+      background: var(--brand);
     }
 
-    /* Theme & Color Picker Cards */
+    /* Theme & Color Cards */
     .themes-3-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.15rem;
-      margin-bottom: 1.5rem;
+      gap: 1.05rem;
+      margin-bottom: 1.35rem;
     }
 
     @media (max-width: 900px) {
@@ -544,7 +606,7 @@
     .theme-pick-card {
       background: var(--surface);
       border: 2px solid var(--border);
-      border-radius: 20px;
+      border-radius: 18px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -557,7 +619,7 @@
     }
 
     .theme-pick-thumb {
-      height: 155px;
+      height: 140px;
       overflow: hidden;
       background: #0f172a;
       position: relative;
@@ -571,38 +633,33 @@
 
     .theme-active-flag {
       position: absolute;
-      top: 0.7rem;
-      right: 0.7rem;
-      padding: 0.25rem 0.65rem;
+      top: 0.6rem;
+      right: 0.6rem;
+      padding: 0.22rem 0.6rem;
       border-radius: 999px;
       background: var(--brand);
       color: #ffffff;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 800;
     }
 
     .color-5-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
-      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 0.75rem;
     }
 
     .color-option-card {
       border: 1.5px solid var(--border);
       background: var(--bg);
-      border-radius: 16px;
-      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      padding: 0.8rem 0.9rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       cursor: pointer;
       text-align: left;
       transition: all 160ms ease;
-    }
-
-    .color-option-card:hover {
-      border-color: var(--brand);
-      background: var(--surface);
     }
 
     .color-option-card.active {
@@ -612,32 +669,32 @@
     }
 
     .color-circle {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       flex: none;
       box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
     }
 
-    /* Brand & Service Toggle Chips */
+    /* Toggle Chips & Sub-tabs */
     .toggle-chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
     .toggle-chip {
       border: 1px solid var(--border);
       background: var(--bg);
-      border-radius: 11px;
-      padding: 0.45rem 0.8rem;
-      font-size: 0.8rem;
+      border-radius: 10px;
+      padding: 0.4rem 0.72rem;
+      font-size: 0.78rem;
       font-weight: 700;
-      color: var(--ink-2);
+      color: var(--muted);
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.38rem;
       transition: all 150ms ease;
     }
 
@@ -646,226 +703,303 @@
       border-color: var(--brand-soft-2);
       color: var(--brand-ink);
     }
+
+    .cat-edit-row {
+      display: grid;
+      grid-template-columns: auto 1.1fr 90px 1.6fr auto;
+      gap: 0.6rem;
+      align-items: center;
+      padding: 0.7rem 0.85rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      margin-bottom: 0.55rem;
+    }
+
+    @media (max-width: 860px) {
+      .cat-edit-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .channel-bar-track {
+      height: 8px;
+      border-radius: 999px;
+      background: var(--surface-2);
+      overflow: hidden;
+      margin-top: 0.28rem;
+    }
+
+    .channel-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--brand-grad);
+    }
   </style>
 </head>
 <body>
   <div id="studioBarHost"></div>
 
   <div class="admin-layout">
-    <!-- Clean Minimalist Left Sidebar -->
+    <!-- Clean 8-Module Sidebar -->
     <aside class="sidebar">
       <div class="side-header">
         <span class="side-mark">M</span>
         <div>
-          <strong style="display:block;font-size:0.96rem;line-height:1.2;" data-servis-company>Merkez Beyaz Eşya Servisi</strong>
-          <span style="font-size:0.74rem;color:var(--muted);font-weight:600;">Yönetim Paneli</span>
+          <strong style="display:block;font-size:0.92rem;line-height:1.2;" data-servis-company>Merkez Beyaz Eşya Servisi</strong>
+          <span style="font-size:0.72rem;color:var(--muted);font-weight:600;">Tam Kapsamlı Yönetim (CMS)</span>
         </div>
       </div>
 
-      <nav class="side-nav" aria-label="Yönetim Sekmeleri">
+      <span class="side-group-lbl">Analitik &amp; Saha CRM</span>
+      <nav class="side-nav" aria-label="Saha ve Analitik">
         <button type="button" class="nav-tab-btn active" data-tab-target="overview">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
-          <span>Numara &amp; Hızlı Ayarlar</span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>
+          <span>Genel Özet &amp; Analitik</span>
         </button>
 
         <button type="button" class="nav-tab-btn" data-tab-target="orders">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-          <span>Servis Kayıtları &amp; Ustalar</span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+          <span>İş Emirleri &amp; Hakediş</span>
           <span class="badge-count tnum" id="sideLeadBadge">5</span>
         </button>
 
-        <button type="button" class="nav-tab-btn" data-tab-target="appearance">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c3.31 0 6-2.69 6-6 0-4.96-4.49-9-10-9z"/></svg>
-          <span>Tema &amp; 5 Renk Seçimi</span>
+        <button type="button" class="nav-tab-btn" data-tab-target="techs">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          <span>Saha Ustaları &amp; Komisyon</span>
+          <span class="badge-count tnum" id="sideTechBadge" style="background:#0f172a;">6</span>
+        </button>
+      </nav>
+
+      <span class="side-group-lbl">Site İçerikleri &amp; Katalog</span>
+      <nav class="side-nav" aria-label="Site İçerik Yönetimi">
+        <button type="button" class="nav-tab-btn" data-tab-target="contact">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Numaralar &amp; Saatler</span>
         </button>
 
-        <button type="button" class="nav-tab-btn" data-tab-target="seo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>35 Marka &amp; SEO Kalkanı</span>
+        <button type="button" class="nav-tab-btn" data-tab-target="content">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          <span>Kampanya, Başlık &amp; Garanti</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="catalog">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>7 Branş, 35 Marka &amp; Kodlar</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="reviews">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span>Müşteri Yorumları &amp; S.S.S.</span>
+        </button>
+
+        <button type="button" class="nav-tab-btn" data-tab-target="appearance">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Tema, Renk, SEO &amp; Reklam</span>
         </button>
       </nav>
 
       <div class="side-quick-links">
-        <span style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:0 0.85rem;">Canlı Siteyi Aç</span>
-        <a href="../tema-1-kurumsal/index.html"><span>Tema 1: Modern Kurumsal</span><span>↗</span></a>
-        <a href="../tema-2-hizli-cagri/index.html"><span>Tema 2: Hızlı Çağrı</span><span>↗</span></a>
-        <a href="../tema-3-prestij/index.html"><span>Tema 3: Prestij Vitrin</span><span>↗</span></a>
+        <span style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:0 0.75rem;">Canlı Vitrinleri Aç</span>
+        <a href="../tema-1-kurumsal/index.html"><span>Tema 1: Kurumsal 3D Bento</span><span>↗</span></a>
+        <a href="../tema-2-hizli-cagri/index.html"><span>Tema 2: Kinetik Hızlı Çağrı</span><span>↗</span></a>
+        <a href="../tema-3-prestij/index.html"><span>Tema 3: Prestij Spotlight</span><span>↗</span></a>
       </div>
 
       <div class="side-status-box">
-        <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.3rem;">
+        <div style="display:flex;align-items:center;gap:0.45rem;margin-bottom:0.25rem;">
           <span class="live-dot"></span>
-          <strong style="font-size:0.8rem;">Aktif Çağrı Numarası</strong>
+          <strong style="font-size:0.78rem;">Aktif Çağrı Hattı</strong>
         </div>
-        <span class="mono" style="font-size:0.95rem;font-weight:700;color:var(--brand);" data-servis-phone>0850 380 02 02</span>
+        <span class="mono" style="font-size:0.92rem;font-weight:700;color:var(--brand);" data-servis-phone>0850 380 02 02</span>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- Main Workspace -->
     <main class="workspace">
-      <!-- Mobile Tab Switcher -->
       <div class="mobile-tabs" role="tablist">
-        <button type="button" class="mob-tab-btn active" data-tab-target="overview">Numara &amp; Özet</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="orders">Servis Kayıtları</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="appearance">Tema &amp; Renkler</button>
-        <button type="button" class="mob-tab-btn" data-tab-target="seo">35 Marka &amp; SEO</button>
+        <button type="button" class="mob-tab-btn active" data-tab-target="overview">1. Özet</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="orders">2. İş Emirleri</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="techs">3. Ustalar</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="contact">4. Numaralar</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="content">5. İçerik &amp; Kampanya</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="catalog">6. Marka &amp; Kodlar</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="reviews">7. Yorum &amp; SSS</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="appearance">8. Tema &amp; SEO</button>
       </div>
 
       <div class="workspace-header">
         <div>
-          <h1 class="workspace-title" id="paneHeading">Numara &amp; Hızlı Site Ayarları</h1>
-          <p class="workspace-sub" id="paneSubheading">Telefon numaranızı, WhatsApp hattınızı ve firma başlığınızı tek tıkla tüm sayfalarda güncelleyin.</p>
+          <h1 class="workspace-title" id="paneHeading">Genel Özet &amp; Çok Kanallı Analitik</h1>
+          <p class="workspace-sub" id="paneSubheading">Saha operasyonunuzu, çağrı trafiğinizi, usta komisyonlarını ve sitedeki tüm detayları tek merkezden yönetin.</p>
         </div>
-        <div style="display:flex;gap:0.55rem;flex-wrap:wrap;">
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <button type="button" class="btn-soft" data-jump-tab="contact">Hızlı Numara Değiştir</button>
           <a id="openActiveThemeBtn" href="../tema-1-kurumsal/index.html" class="btn-primary">Sitede Canlı Gör ↗</a>
         </div>
       </div>
 
-      <!-- TAB 1: HIZLI AYARLAR & NUMARA -->
+      <!-- 1. GENEL ÖZET & ANALİTİK -->
       <section class="tab-pane active" id="pane-overview">
-        <div class="kpi-row">
+        <div class="kpi-grid-6">
           <div class="kpi-box">
-            <div class="kpi-top"><span>Bugünkü Çağrı &amp; Talep</span><span class="kpi-pill">+18%</span></div>
-            <strong class="kpi-num tnum" id="kpiCallsCount">148</strong>
-            <span style="font-size:0.77rem;color:var(--muted);">0850 Hat + WhatsApp + Web</span>
+            <div class="kpi-top"><span>Bugünkü Çağrı &amp; Form</span><span class="kpi-pill">+18%</span></div>
+            <strong class="kpi-num tnum" id="kpiTotalCalls">148</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">0850 Hat + WhatsApp + Web Sihirbazı</span>
           </div>
           <div class="kpi-box">
-            <div class="kpi-top"><span>Sahadaki Aktif Servis</span><span class="kpi-pill">Canlı</span></div>
-            <strong class="kpi-num tnum">14 Usta</strong>
-            <span style="font-size:0.77rem;color:var(--muted);">Ort. adrese varış: 32 dk</span>
+            <div class="kpi-top"><span>Aktif Saha Ustası</span><span class="kpi-pill">Canlı</span></div>
+            <strong class="kpi-num tnum" id="kpiActiveTechs">5 / 6 Usta</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Ort. varış hedefi: <span data-servis-eta>32 Dk</span></span>
           </div>
           <div class="kpi-box">
-            <div class="kpi-top"><span>Günlük Usta Payı (%30)</span><span class="kpi-pill">Net</span></div>
-            <strong class="kpi-num tnum" style="color:var(--brand);">14.280 ₺</strong>
-            <span style="font-size:0.77rem;color:var(--muted);">Toplam İşlem: 47.600 ₺</span>
+            <div class="kpi-top"><span>Kayıtlı İş Emri Sayısı</span><span class="kpi-pill" id="kpiPendingBadge">1 Bekleyen</span></div>
+            <strong class="kpi-num tnum" id="kpiLeadTotal">5 Kayıt</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Dijital garanti fişli kayıtlar</span>
           </div>
           <div class="kpi-box">
-            <div class="kpi-top"><span>Domain &amp; SEO Sağlığı</span><span class="kpi-pill">%100</span></div>
-            <strong class="kpi-num tnum">Güvenli</strong>
-            <span style="font-size:0.77rem;color:var(--muted);">Spam Korumalı Kademeli İndeks</span>
+            <div class="kpi-top"><span>Kayıtlı İşlem Cirosu</span><span class="kpi-pill">Brüt</span></div>
+            <strong class="kpi-num tnum" id="kpiGrossTl">9.600 ₺</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Tahsil edilen servis toplamı</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Usta Hakediş Payı</span><span class="kpi-pill">Saha</span></div>
+            <strong class="kpi-num tnum" id="kpiTechShareTl">6.720 ₺</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">Usta payı düşüldükten sonra</span>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-top"><span>Merkez Net Komisyon Kârı</span><span class="kpi-pill">Net %30</span></div>
+            <strong class="kpi-num tnum" style="color:var(--brand);" id="kpiCenterCommissionTl">2.880 ₺</strong>
+            <span style="font-size:0.76rem;color:var(--muted);">İş emirlerinden otomatik hesaplanır</span>
           </div>
         </div>
 
         <div class="grid-2">
-          <!-- 1-Click Phone & Company Form -->
           <div class="panel-card">
-            <h2>Telefon, WhatsApp ve Firma Bilgileri</h2>
-            <p class="panel-sub">Numarayı değiştirip kaydettiğiniz anda sitedeki tüm "Hemen Ara" ve "WhatsApp" butonları otomatik güncellenir.</p>
-
-            <form id="quickPhoneForm">
-              <div class="fields-grid">
-                <div class="field" style="grid-column:1 / -1;">
-                  <label for="inCompany">Sitede Görünen Firma Adı</label>
-                  <input id="inCompany" type="text" class="clean-input" placeholder="Merkez Beyaz Eşya Servisi">
-                </div>
-                <div class="field">
-                  <label for="inPhone1">Ana Çağrı Hattı (0850 / Cep)</label>
-                  <input id="inPhone1" type="text" class="clean-input mono" placeholder="0850 380 02 02">
-                </div>
-                <div class="field">
-                  <label for="inPhone2">Yedek Hat (444 / Sabit)</label>
-                  <input id="inPhone2" type="text" class="clean-input mono" placeholder="444 6 082">
-                </div>
-                <div class="field" style="grid-column:1 / -1;">
-                  <label for="inWa">WhatsApp Müşteri Hattı</label>
-                  <input id="inWa" type="text" class="clean-input mono" placeholder="0850 380 02 02">
-                </div>
-              </div>
-
-              <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;margin-top:1.25rem;">
-                <button type="submit" class="btn-primary">Kaydet ve Tüm Sitede Güncelle ✓</button>
-                <button type="button" class="btn-soft" data-jump-tab="appearance">Tema &amp; Rengi Değiştir →</button>
-              </div>
-
-              <div id="phoneSavedToast" class="toast-saved" role="status">
-                <span>✓ Numara ve firma bilgileri kaydedildi! Üç temada birden anında aktif oldu.</span>
-              </div>
-            </form>
-          </div>
-
-          <!-- Clean 7-Day Call Trend + Quick Color Bar -->
-          <div class="panel-card" style="display:flex;flex-direction:column;justify-content:space-between;gap:1.1rem;">
-            <div>
-              <h2>Son 7 Günlük Çağrı &amp; Form Grafiği</h2>
-              <p class="panel-sub">81 il ve arıza kodu sayfalarından gelen günlük müşteri talepleri</p>
-
-              <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1rem;">
-                <svg viewBox="0 0 440 140" width="100%" height="140" role="img" aria-label="7 Günlük Çağrı Grafiği">
-                  <defs>
-                    <linearGradient id="admArea" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="var(--brand)" stop-opacity="0.25"/>
-                      <stop offset="100%" stop-color="var(--brand)" stop-opacity="0.0"/>
-                    </linearGradient>
-                  </defs>
-                  <line x1="16" y1="24" x2="424" y2="24" stroke="#e2e8f0" stroke-dasharray="3 3"/>
-                  <line x1="16" y1="64" x2="424" y2="64" stroke="#e2e8f0" stroke-dasharray="3 3"/>
-                  <line x1="16" y1="104" x2="424" y2="104" stroke="#e2e8f0"/>
-                  <path d="M22,92 C80,84 115,68 165,60 C215,52 255,42 305,34 C355,26 390,20 420,15 L420,104 L22,104 Z" fill="url(#admArea)"/>
-                  <path d="M22,92 C80,84 115,68 165,60 C215,52 255,42 305,34 C355,26 390,20 420,15" fill="none" stroke="var(--brand)" stroke-width="3" stroke-linecap="round"/>
-                  <circle cx="22" cy="92" r="4" fill="var(--brand)"/>
-                  <circle cx="165" cy="60" r="4" fill="var(--brand)"/>
-                  <circle cx="305" cy="34" r="4" fill="var(--brand)"/>
-                  <circle cx="420" cy="15" r="5" fill="var(--brand)"/>
-                  <g fill="#64748b" font-size="11" font-weight="600">
-                    <text x="16" y="126">Pzt (94)</text>
-                    <text x="145" y="126">Çar (118)</text>
-                    <text x="282" y="126">Cum (134)</text>
-                    <text x="372" y="126">Bugün (148)</text>
-                  </g>
-                </svg>
-              </div>
+            <h2>Son 7 Günlük Çağrı, WhatsApp ve Form Dönüşüm Grafiği</h2>
+            <p class="panel-sub">81 il ve arıza kodu sayfalarından gelen günlük organik + Google Ads müşteri trafiği</p>
+            <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1rem;margin-bottom:1.1rem;">
+              <svg viewBox="0 0 460 150" width="100%" height="150" role="img" aria-label="7 Günlük Çağrı Grafiği">
+                <defs>
+                  <linearGradient id="admArea" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--brand)" stop-opacity="0.26"/>
+                    <stop offset="100%" stop-color="var(--brand)" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="16" y1="24" x2="444" y2="24" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                <line x1="16" y1="68" x2="444" y2="68" stroke="#e2e8f0" stroke-dasharray="3 3"/>
+                <line x1="16" y1="112" x2="444" y2="112" stroke="#e2e8f0"/>
+                <path d="M24,96 L94,82 L164,88 L234,60 L304,50 L374,36 L438,22 L438,112 L24,112 Z" fill="url(#admArea)"/>
+                <polyline points="24,96 94,82 164,88 234,60 304,50 374,36 438,22" fill="none" stroke="var(--brand)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <polyline points="24,106 94,100 164,102 234,90 304,85 374,78 438,70" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4 3"/>
+                <circle cx="438" cy="22" r="5" fill="var(--brand)"/>
+                <g font-size="11" fill="#64748b" font-weight="600">
+                  <text x="16" y="134">Pzt</text>
+                  <text x="86" y="134">Sal</text>
+                  <text x="156" y="134">Çar</text>
+                  <text x="226" y="134">Per</text>
+                  <text x="296" y="134">Cum</text>
+                  <text x="366" y="134">Cmt</text>
+                  <text x="424" y="134">Bugün</text>
+                </g>
+              </svg>
             </div>
 
-            <div style="background:var(--bg);border:1px solid var(--border);border-radius:15px;padding:0.9rem 1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.65rem;">
+            <div style="display:grid;gap:0.75rem;">
               <div>
-                <strong style="font-size:0.83rem;display:block;">Hızlı Site Rengi: <span data-active-palette-name style="color:var(--brand);">Puls Güven Mavisi</span></strong>
-                <span style="font-size:0.75rem;color:var(--muted);">Tıkladığınız an tüm site bu renge geçer</span>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;"><span>0850 &amp; 444 Doğrudan Telefon Çağrısı</span><span class="tnum">%58 (86 Çağrı)</span></div>
+                <div class="channel-bar-track"><div class="channel-bar-fill" style="width:58%;"></div></div>
               </div>
-              <div id="miniColorRow" style="display:flex;gap:0.45rem;"></div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;"><span>WhatsApp Arıza Fotoğraf / Konum Hattı</span><span class="tnum">%27 (40 Mesaj)</span></div>
+                <div class="channel-bar-track"><div class="channel-bar-fill" style="width:27%;background:#16a34a;"></div></div>
+              </div>
+              <div>
+                <div style="display:flex;justify-content:space-between;font-size:0.8rem;font-weight:700;"><span>Web Hızlı Kayıt Sihirbazı &amp; Form</span><span class="tnum">%15 (22 Form)</span></div>
+                <div class="channel-bar-track"><div class="channel-bar-fill" style="width:15%;background:#0ea5e9;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card" style="display:flex;flex-direction:column;justify-content:space-between;gap:1rem;">
+            <div>
+              <h2>Canlı Sistem &amp; Yönetim Kısayolları</h2>
+              <p class="panel-sub">Sitenin şu anki aktif yayın parametreleri — değiştirmek istediğiniz modüle tek tıkla geçin:</p>
+              <div id="overviewLiveStatusList" style="display:grid;gap:0.6rem;font-size:0.83rem;"></div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+              <button type="button" class="btn-soft" data-jump-tab="content">Kampanya Barını Düzenle →</button>
+              <button type="button" class="btn-soft" data-jump-tab="orders">İş Emirleri &amp; Hakediş →</button>
+              <button type="button" class="btn-soft" data-jump-tab="catalog">Marka &amp; Arıza Kodu Ekle →</button>
+              <button type="button" class="btn-soft" data-jump-tab="appearance">Tema, Renk &amp; SEO →</button>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- TAB 2: SERVİS KAYITLARI & USTALAR -->
+      <!-- 2. İŞ EMİRLERİ, HAKEDİŞ & DİJİTAL GARANTİ FİŞİ -->
       <section class="tab-pane" id="pane-orders">
         <div class="panel-card">
           <div class="toolbar-row">
-            <div class="filter-pills" role="tablist" aria-label="İş Emri Filtresi">
-              <button type="button" class="f-pill active" data-lead-filter="all">Tümü</button>
-              <button type="button" class="f-pill" data-lead-filter="pending">Bekleyenler</button>
-              <button type="button" class="f-pill" data-lead-filter="active">Sahada / Yolda</button>
-              <button type="button" class="f-pill" data-lead-filter="completed">Tamamlananlar</button>
+            <div style="display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center;">
+              <div class="filter-pills" id="orderFilterBar">
+                <button type="button" class="f-pill active" data-order-filter="all">Tümü</button>
+                <button type="button" class="f-pill" data-order-filter="pending">Bekleyen</button>
+                <button type="button" class="f-pill" data-order-filter="assigned">Atandı</button>
+                <button type="button" class="f-pill" data-order-filter="onway">Yolda</button>
+                <button type="button" class="f-pill" data-order-filter="completed">Tamamlandı</button>
+              </div>
+              <input id="orderSearchIn" type="search" class="clean-input" style="width:230px;padding:0.46rem 0.8rem;font-size:0.82rem;" placeholder="Müşteri, fiş no, ilçe, marka ara...">
             </div>
-            <button type="button" class="btn-primary" id="toggleNewOrderBtn">+ Telefon Kaydı Ekle</button>
+            <button type="button" class="btn-primary" id="toggleNewOrderBtn">+ Yeni İş Emri Aç</button>
           </div>
 
-          <!-- Expandable Quick Manual Phone Ticket Form -->
-          <form id="manualOrderDrawer" class="quick-add-drawer">
-            <strong style="display:block;font-size:0.9rem;margin-bottom:0.75rem;">0850 Çağrı Merkezinden Gelen Yeni Kaydı Aç</strong>
-            <div class="fields-grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));">
-              <input id="mCust" class="clean-input" style="background:#fff;" required placeholder="Müşteri Adı Soyadı">
-              <input id="mPhone" class="clean-input mono" style="background:#fff;" required placeholder="05XX XXX XX XX">
-              <input id="mCity" class="clean-input" style="background:#fff;" required placeholder="İl / İlçe (Örn: Mersin / Mezitli)">
-              <input id="mBrand" class="clean-input" style="background:#fff;" required placeholder="Marka & Cihaz (Örn: Bosch Kombi)">
-              <input id="mFault" class="clean-input" style="background:#fff;" required placeholder="Arıza Özeti">
-            </div>
-            <div style="display:flex;justify-content:flex-end;gap:0.5rem;margin-top:0.85rem;">
-              <button type="button" class="btn-soft" id="cancelNewOrderBtn">Vazgeç</button>
-              <button type="submit" class="btn-primary">İş Emri Oluştur ✓</button>
-            </div>
-          </form>
+          <div id="newOrderDrawer" class="quick-add-drawer">
+            <strong style="display:block;margin-bottom:0.75rem;font-size:0.9rem;">Telefonla Gelen Çağrı İçin Manuel İş Emri Oluştur</strong>
+            <form id="manualOrderForm" class="fields-grid">
+              <div class="field">
+                <label for="moName">Müşteri Adı Soyadı</label>
+                <input id="moName" type="text" class="clean-input" required placeholder="Örn: Mehmet Kaya">
+              </div>
+              <div class="field">
+                <label for="moPhone">Müşteri Telefonu</label>
+                <input id="moPhone" type="tel" class="clean-input mono" required placeholder="0532 XXX XX XX">
+              </div>
+              <div class="field">
+                <label for="moCity">İl / İlçe</label>
+                <input id="moCity" type="text" class="clean-input" required placeholder="Örn: Mersin / Mezitli">
+              </div>
+              <div class="field">
+                <label for="moBrand">Marka &amp; Cihaz</label>
+                <input id="moBrand" type="text" class="clean-input" required placeholder="Örn: Vaillant Kombi">
+              </div>
+              <div class="field">
+                <label for="moFault">Arıza Notu</label>
+                <input id="moFault" type="text" class="clean-input" required placeholder="Örn: F28 Ateşleme yapmıyor">
+              </div>
+              <div class="field">
+                <label for="moFee">Tahmini / Alınan Ücret (₺)</label>
+                <input id="moFee" type="number" min="0" step="50" class="clean-input mono" value="1800">
+              </div>
+              <div class="field" style="grid-column:1 / -1;display:flex;gap:0.6rem;">
+                <button type="submit" class="btn-primary">İş Emrini Kaydet ✓</button>
+                <button type="button" class="btn-soft" id="cancelNewOrderBtn">Vazgeç</button>
+              </div>
+            </form>
+          </div>
 
           <div class="table-scroll">
             <table>
               <thead>
                 <tr>
-                  <th>Fiş No</th>
-                  <th>Müşteri &amp; Telefon</th>
-                  <th>İl / İlçe</th>
-                  <th>Cihaz &amp; Arıza</th>
-                  <th>Durum Değiştir</th>
-                  <th>Ustaya İlet</th>
+                  <th>Fiş No / Kanal</th>
+                  <th>Müşteri &amp; Bölge</th>
+                  <th>Marka &amp; Arıza</th>
+                  <th>Atanan Saha Ustası</th>
+                  <th>Durum</th>
+                  <th>Ücret &amp; Merkez Payı</th>
+                  <th>WhatsApp Aksiyonları</th>
                 </tr>
               </thead>
               <tbody id="ordersTableBody"></tbody>
@@ -874,103 +1008,485 @@
         </div>
       </section>
 
-      <!-- TAB 3: TEMA & 5 RENK SEÇİMİ -->
-      <section class="tab-pane" id="pane-appearance">
-        <div class="panel-card" style="margin-bottom:1.25rem;">
-          <h2>Sitenizin Aktif Tasarım Temasını Seçin</h2>
-          <p class="panel-sub">İstediğiniz temayı tek tıkla varsayılan yapabilir veya canlı önizleyebilirsiniz.</p>
+      <!-- 3. SAHA USTALARI & BÖLGE EKİP YÖNETİMİ -->
+      <section class="tab-pane" id="pane-techs">
+        <div class="panel-card" style="margin-bottom:1.2rem;">
+          <div class="toolbar-row">
+            <div>
+              <h2 style="margin:0;">Anlaşmalı Saha Ustaları &amp; Komisyon Oranları</h2>
+              <p class="panel-sub" style="margin:0.2rem 0 0;">Eklediğiniz her usta İş Emirleri sekmesindeki atama listesine otomatik düşer ve kendi komisyon yüzdesiyle hesaplanır.</p>
+            </div>
+            <button type="button" class="btn-primary" id="toggleNewTechBtn">+ Yeni Saha Ustası Ekle</button>
+          </div>
 
-          <div class="themes-3-grid" id="themeCardsHost">
-            <div class="theme-pick-card selected" data-theme-card="tema-1-kurumsal">
-              <div class="theme-pick-thumb">
-                <img src="../assets/photos/hero-technician-kitchen.jpg" alt="Tema 1 Modern Kurumsal">
-                <span class="theme-active-flag">1. Tema</span>
+          <div id="newTechDrawer" class="quick-add-drawer">
+            <form id="newTechForm" class="fields-grid">
+              <div class="field">
+                <label for="ntName">Usta Adı &amp; Bölge Kodu</label>
+                <input id="ntName" type="text" class="clean-input" required placeholder="Örn: Hasan Usta (Adana-1)">
               </div>
-              <div style="padding:1.15rem;display:flex;flex-direction:column;gap:0.6rem;flex:1;">
-                <strong style="font-size:1rem;">Tema 1: Modern Kurumsal</strong>
-                <span style="font-size:0.82rem;color:var(--muted);flex:1;">Ferah kurumsal güven tasarımı, hızlı ekip sorgu barı ve arıza kodu teşhis ekranı.</span>
-                <div style="display:flex;gap:0.5rem;">
-                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:0.58rem;" data-pick-theme="tema-1-kurumsal">Temayı Seç</button>
-                  <a href="../tema-1-kurumsal/index.html" class="btn-soft" style="padding:0.58rem 0.8rem;">Gör ↗</a>
+              <div class="field">
+                <label for="ntPhone">Usta WhatsApp / Cep Hattı</label>
+                <input id="ntPhone" type="tel" class="clean-input mono" required placeholder="0533 XXX XX XX">
+              </div>
+              <div class="field">
+                <label for="ntRegion">Hizmet İli &amp; İlçeleri</label>
+                <input id="ntRegion" type="text" class="clean-input" required placeholder="Örn: Adana / Çukurova - Seyhan">
+              </div>
+              <div class="field">
+                <label for="ntSpec">Uzmanlık Branşı</label>
+                <input id="ntSpec" type="text" class="clean-input" required placeholder="Örn: Kombi, Klima & Beyaz Eşya">
+              </div>
+              <div class="field">
+                <label for="ntPct">Merkez Komisyon Oranı (%)</label>
+                <input id="ntPct" type="number" min="5" max="80" class="clean-input mono" value="30">
+              </div>
+              <div class="field" style="display:flex;align-items:flex-end;gap:0.6rem;">
+                <button type="submit" class="btn-primary">Ustayı Kaydet ✓</button>
+                <button type="button" class="btn-soft" id="cancelNewTechBtn">Kapat</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Usta Adı</th>
+                  <th>Telefon</th>
+                  <th>Bölge</th>
+                  <th>Uzmanlık</th>
+                  <th>Merkez Payı (%)</th>
+                  <th>Saha Durumu</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="techsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. NUMARALAR, FİRMA BİLGİLERİ & ÇALIŞMA SAATLERİ -->
+      <section class="tab-pane" id="pane-contact">
+        <div class="panel-card">
+          <h2>Telefon Numaraları, WhatsApp Şablonu, Resmi Ünvan &amp; Çalışma Saatleri</h2>
+          <p class="panel-sub">Kaydettiğiniz anda 3 temadaki tüm arama butonları, WhatsApp bağlantıları, üst/alt bilgi alanları ve Schema.org verileri anında güncellenir.</p>
+
+          <form id="fullContactForm">
+            <div class="fields-grid">
+              <div class="field">
+                <label for="cCompany">Sitede Görünen Kısa Firma Adı</label>
+                <input id="cCompany" type="text" class="clean-input">
+              </div>
+              <div class="field">
+                <label for="cLegal">Resmi Ticaret Ünvanı (Footer &amp; Yasal)</label>
+                <input id="cLegal" type="text" class="clean-input">
+              </div>
+              <div class="field">
+                <label for="cPhone1">Ana Çağrı Merkezi Hattı (0850 / Cep)</label>
+                <input id="cPhone1" type="text" class="clean-input mono">
+              </div>
+              <div class="field">
+                <label for="cPhone2">Yedek Çağrı Hattı (444 / Sabit)</label>
+                <input id="cPhone2" type="text" class="clean-input mono">
+              </div>
+              <div class="field">
+                <label for="cNightPhone">Acil Gece Nöbetçi Ekip Hattı</label>
+                <input id="cNightPhone" type="text" class="clean-input mono">
+              </div>
+              <div class="field">
+                <label for="cWaPhone">WhatsApp Müşteri Hattı</label>
+                <input id="cWaPhone" type="text" class="clean-input mono">
+              </div>
+              <div class="field" style="grid-column:1 / -1;">
+                <label for="cWaGreeting">WhatsApp Otomatik Müşteri Karşılama Mesajı</label>
+                <input id="cWaGreeting" type="text" class="clean-input">
+              </div>
+              <div class="field">
+                <label for="cHoursWd">Hafta İçi Çalışma Saatleri</label>
+                <input id="cHoursWd" type="text" class="clean-input mono" placeholder="08:00 - 22:00">
+              </div>
+              <div class="field">
+                <label for="cHoursWe">Hafta Sonu Çalışma Saatleri</label>
+                <input id="cHoursWe" type="text" class="clean-input mono" placeholder="09:00 - 20:00">
+              </div>
+              <div class="field">
+                <label for="cAddress">Merkez Ofis / Fatura Adresi</label>
+                <input id="cAddress" type="text" class="clean-input">
+              </div>
+              <div class="field">
+                <label for="cTax">Vergi Dairesi &amp; Mersis / Sicil Bilgisi</label>
+                <input id="cTax" type="text" class="clean-input">
+              </div>
+              <div class="field" style="grid-column:1 / -1;">
+                <label class="switch-row">
+                  <span>
+                    <strong style="display:block;font-size:0.86rem;">7/24 Acil Nöbetçi Servis Modu Aktif</strong>
+                    <span style="font-size:0.77rem;color:var(--muted);">Mesai sonrası kombi su kaçağı ve endüstriyel soğutma arızaları için nöbetçi ekip ibaresini açık tutar.</span>
+                  </span>
+                  <input type="checkbox" id="cNightActive">
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-top:1.2rem;">
+              <button type="submit" class="btn-primary">İletişim ve Firma Bilgilerini Tüm Sitede Güncelle ✓</button>
+              <div id="contactSavedToast" class="toast-saved">✓ Tüm telefon numaraları, WhatsApp şablonu, adres ve saatler 3 temada birden güncellendi!</div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 5. SİTE İÇERİKLERİ, KAMPANYA DUYURU BARI, HERO & GARANTİ/FİYAT POLİTİKASI -->
+      <section class="tab-pane" id="pane-content">
+        <div class="panel-card">
+          <h2>Kampanya Duyuru Şeridi, Ana Başlıklar, Garanti Süresi &amp; Görünüm Kontrolleri</h2>
+          <p class="panel-sub">Sezonluk indirim duyurularını, garanti ayını, ortalama varış süresini ve sitedeki yüzen bileşenleri buradan anlık yönetebilirsiniz.</p>
+
+          <form id="siteContentForm">
+            <div class="fields-grid">
+              <div class="field" style="grid-column:1 / -1;">
+                <label class="switch-row">
+                  <span>
+                    <strong style="display:block;font-size:0.88rem;">Üst Kampanya / Fırsat Duyuru Şeridi Gösterilsin</strong>
+                    <span style="font-size:0.77rem;color:var(--muted);">Açık olduğunda 3 temanın en üstünde dikkat çekici kampanya ve kupon şeridi yayınlanır.</span>
+                  </span>
+                  <input type="checkbox" id="scPromoActive">
+                </label>
+              </div>
+
+              <div class="field">
+                <label for="scPromoText">Kampanya Duyuru Metni</label>
+                <input id="scPromoText" type="text" class="clean-input">
+              </div>
+              <div class="field">
+                <label for="scPromoCode">Kampanya İndirim Kodu (İsteğe Bağlı)</label>
+                <input id="scPromoCode" type="text" class="clean-input mono" placeholder="Örn: KIS20">
+              </div>
+
+              <div class="field">
+                <label for="scWarranty">Resmi Yedek Parça Garanti Süresi (Ay)</label>
+                <input id="scWarranty" type="number" min="3" max="60" class="clean-input mono">
+              </div>
+              <div class="field">
+                <label for="scEta">Ortalama Adrese Varış Süresi (Dakika)</label>
+                <input id="scEta" type="number" min="15" max="120" class="clean-input mono">
+              </div>
+
+              <div class="field">
+                <label for="scInspFee">Standart Arıza Tespit Ücreti (₺)</label>
+                <input id="scInspFee" type="number" min="0" step="50" class="clean-input mono">
+              </div>
+              <div class="field">
+                <label for="scInspNote">Sitede Görünen Şeffaf Fiyat / Tespit Notu</label>
+                <input id="scInspNote" type="text" class="clean-input">
+              </div>
+
+              <div class="field" style="grid-column:1 / -1;">
+                <label for="scHeroBadge">Özel Hero Üst Rozet Metni (Boş bırakılırsa her temanın kendi rozeti görünür)</label>
+                <input id="scHeroBadge" type="text" class="clean-input" placeholder="Örn: Kış Sezonuna Özel 81 İlde Aynı Gün Kombi & Beyaz Eşya Ekibi">
+              </div>
+              <div class="field" style="grid-column:1 / -1;">
+                <label for="scHeroTitle">Özel Hero Ana Başlık (Boş bırakılırsa her temanın kendi özel başlığı görünür)</label>
+                <input id="scHeroTitle" type="text" class="clean-input" placeholder="İsteğe bağlı özel manşet başlığı...">
+              </div>
+              <div class="field" style="grid-column:1 / -1;">
+                <label for="scHeroSub">Özel Hero Alt Açıklama Metni (İsteğe Bağlı)</label>
+                <input id="scHeroSub" type="text" class="clean-input" placeholder="İsteğe bağlı özel alt açıklama...">
+              </div>
+
+              <div class="field">
+                <label class="switch-row">
+                  <span>
+                    <strong style="display:block;font-size:0.84rem;">Sağ Alt Sabit Arama &amp; WhatsApp Butonu</strong>
+                    <span style="font-size:0.75rem;color:var(--muted);">Mobilde ve masaüstünde yüzen hızlı arama barı</span>
+                  </span>
+                  <input type="checkbox" id="scDockActive">
+                </label>
+              </div>
+
+              <div class="field">
+                <label class="switch-row">
+                  <span>
+                    <strong style="display:block;font-size:0.84rem;">Canlı Saha Yönlendirme Bildirim Balonu</strong>
+                    <span style="font-size:0.75rem;color:var(--muted);">"Az önce Kadıköy'e usta yönlendirildi" canlı akışı</span>
+                  </span>
+                  <input type="checkbox" id="scTickerActive">
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-top:1.2rem;">
+              <button type="submit" class="btn-primary">İçerik ve Kampanya Ayarlarını Kaydet ✓</button>
+              <div id="contentSavedToast" class="toast-saved">✓ Kampanya şeridi, garanti süresi ve içerik ayarları canlı olarak tüm temalara uygulandı!</div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 6. 7 HİZMET BRANŞI, 35+ MARKA & ARIZA KODU VERİTABANI -->
+      <section class="tab-pane" id="pane-catalog">
+        <!-- 7 Service Categories Editor -->
+        <div class="panel-card" style="margin-bottom:1.2rem;">
+          <h2>7 Ana Hizmet Branşı Yönetimi (Aç/Kapat, Başlık, Süre &amp; Kapsam Düzenle)</h2>
+          <p class="panel-sub">Kapattığınız branş siteden gizlenir; başlık, ortalama dakika veya açıklama değişikliğiniz Tema 1 ve Tema 2'de anında güncellenir.</p>
+          <div id="categoriesEditorHost"></div>
+          <div id="catSavedToast" class="toast-saved">✓ Hizmet branşı güncellendi ve sitede yayına alındı!</div>
+        </div>
+
+        <!-- 35+ Brands Manager -->
+        <div class="panel-card" style="margin-bottom:1.2rem;">
+          <div class="toolbar-row">
+            <div>
+              <h2 style="margin:0;">Hizmet Verilen Markalar (<span id="activeBrandsCountLbl">35</span> Aktif Marka)</h2>
+              <p class="panel-sub" style="margin:0.2rem 0 0;">Markanın üzerine tıklayarak sitede aktif/pasif yapabilir veya yeni marka ekleyebilirsiniz.</p>
+            </div>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+              <input id="brandFilterIn" type="search" class="clean-input" style="width:190px;padding:0.44rem 0.75rem;font-size:0.8rem;" placeholder="Marka ara...">
+              <button type="button" class="btn-soft" id="enableAllBrandsBtn">Tümünü Aktif Et</button>
+            </div>
+          </div>
+
+          <form id="addBrandForm" style="display:flex;flex-wrap:wrap;gap:0.55rem;margin-bottom:1rem;padding:0.85rem;background:var(--bg);border:1px solid var(--border);border-radius:14px;">
+            <input id="nbName" type="text" class="clean-input" style="flex:1;min-width:150px;" required placeholder="Yeni Marka Adı (Örn: Daikin)">
+            <input id="nbGroup" type="text" class="clean-input" style="flex:1.2;min-width:180px;" required placeholder="Branş (Örn: Inverter Klima & Isı Pompası)">
+            <input id="nbCodes" type="text" class="clean-input mono" style="flex:1;min-width:150px;" placeholder="Kodlar (U4, L5, E7)">
+            <button type="submit" class="btn-primary">+ Marka Ekle</button>
+          </form>
+
+          <div id="brandsToggleHost" class="toggle-chips"></div>
+        </div>
+
+        <!-- Fault Codes Database Manager -->
+        <div class="panel-card">
+          <div class="toolbar-row">
+            <div>
+              <h2 style="margin:0;">Arıza Kodu Ön Teşhis Veritabanı (<span id="faultCountLbl">9</span> Kod)</h2>
+              <p class="panel-sub" style="margin:0.2rem 0 0;">Buradan eklediğiniz her arıza kodu Tema 1'deki "Arıza Kodu Sorgulama" konsolunda müşteriler tarafından anında aratılabilir.</p>
+            </div>
+            <button type="button" class="btn-primary" id="toggleNewFaultBtn">+ Yeni Arıza Kodu Ekle</button>
+          </div>
+
+          <div id="newFaultDrawer" class="quick-add-drawer">
+            <form id="newFaultForm" class="fields-grid">
+              <div class="field">
+                <label for="nfCode">Arıza Kodu</label>
+                <input id="nfCode" type="text" class="clean-input mono" required placeholder="Örn: E24 veya F75">
+              </div>
+              <div class="field">
+                <label for="nfDevice">Cihaz Grubu &amp; Ort. Süre (Dk)</label>
+                <input id="nfDevice" type="text" class="clean-input" required placeholder="Örn: Bulaşık Makinesi">
+              </div>
+              <div class="field">
+                <label for="nfTitle">Teknik Arıza Başlığı</label>
+                <input id="nfTitle" type="text" class="clean-input" required placeholder="Örn: Tahliye Pompası Süzgeç Tıkanıklığı">
+              </div>
+              <div class="field">
+                <label for="nfBrands">İlgili Markalar (Virgülle)</label>
+                <input id="nfBrands" type="text" class="clean-input" placeholder="bosch, siemens, profilo">
+              </div>
+              <div class="field">
+                <label for="nfSymptom">Cihazdaki Belirti</label>
+                <input id="nfSymptom" type="text" class="clean-input" required placeholder="Program bitiminde tabanda su kalıyor...">
+              </div>
+              <div class="field">
+                <label for="nfAction">Yerinde Garantili Çözüm Açıklaması</label>
+                <input id="nfAction" type="text" class="clean-input" required placeholder="Pompa pervanesi ve gider valfi yerinde yenilenir.">
+              </div>
+              <div class="field" style="grid-column:1 / -1;display:flex;gap:0.6rem;">
+                <button type="submit" class="btn-primary">Arıza Kodunu Veritabanına Ekle ✓</button>
+                <button type="button" class="btn-soft" id="cancelNewFaultBtn">Kapat</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Kod</th>
+                  <th>Cihaz</th>
+                  <th>Arıza Başlığı &amp; Çözüm</th>
+                  <th>Süre</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody id="faultsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. MÜŞTERİ YORUMLARI & S.S.S. YÖNETİMİ -->
+      <section class="tab-pane" id="pane-reviews">
+        <div class="grid-equal">
+          <!-- Reviews Manager -->
+          <div class="panel-card">
+            <h2>Doğrulanmış Müşteri Yorumları</h2>
+            <p class="panel-sub">Eklediğiniz yorumlar Tema 2'deki kaydırılabilir müşteri deneyimleri karuselinde canlı yayınlanır.</p>
+
+            <form id="addReviewForm" style="display:grid;gap:0.6rem;margin-bottom:1.1rem;padding:0.9rem;background:var(--bg);border:1px solid var(--border);border-radius:14px;">
+              <div class="fields-grid">
+                <input id="rvName" type="text" class="clean-input" required placeholder="Müşteri Adı (Örn: Ayşe K.)">
+                <input id="rvCity" type="text" class="clean-input" required placeholder="İl / İlçe (Örn: Mersin / Mezitli)">
+              </div>
+              <input id="rvBrand" type="text" class="clean-input" required placeholder="Hizmet / Marka (Örn: Arçelik Buzdolabı)">
+              <input id="rvText" type="text" class="clean-input" required placeholder="Müşteri yorum metni...">
+              <button type="submit" class="btn-primary" style="justify-self:start;">+ Yorumu Sitede Yayınla</button>
+            </form>
+
+            <div id="reviewsAdminList" style="display:grid;gap:0.65rem;"></div>
+          </div>
+
+          <!-- FAQs Manager -->
+          <div class="panel-card">
+            <h2>Sıkça Sorulan Sorular (S.S.S.)</h2>
+            <p class="panel-sub">Eklediğiniz soru-cevaplar Tema 1'deki S.S.S. akordeon bölümünde anında görünür.</p>
+
+            <form id="addFaqForm" style="display:grid;gap:0.6rem;margin-bottom:1.1rem;padding:0.9rem;background:var(--bg);border:1px solid var(--border);border-radius:14px;">
+              <input id="fqQ" type="text" class="clean-input" required placeholder="Soru başlığı (Örn: Pazar günü servis var mı?)">
+              <input id="fqA" type="text" class="clean-input" required placeholder="Net cevap metni...">
+              <button type="submit" class="btn-primary" style="justify-self:start;">+ Soru &amp; Cevap Ekle</button>
+            </form>
+
+            <div id="faqsAdminList" style="display:grid;gap:0.65rem;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. TEMA, 5 RENK, 81 İL SEO ŞABLONU & REKLAM KODLARI -->
+      <section class="tab-pane" id="pane-appearance">
+        <div class="panel-card" style="margin-bottom:1.2rem;">
+          <h2>1. Aktif Site Teması Seçimi (Her Temanın Kendine Özgü Animasyon &amp; Efekt Stili Vardır)</h2>
+          <p class="panel-sub">Dilediğiniz temayı vitrin tasarımı olarak seçebilir, üstüne aşağıdan 5 kurumsal renkten istediğinizi uygulayabilirsiniz.</p>
+
+          <div class="themes-3-grid" id="adminThemeCards">
+            <div class="theme-pick-card" data-theme-card="tema-1-kurumsal">
+              <div class="theme-pick-thumb">
+                <img src="../assets/photos/hero-technician-kitchen.jpg" alt="Tema 1 Kurumsal 3D Bento">
+                <span class="theme-active-flag" style="display:none;">AKTİF TEMA</span>
+              </div>
+              <div style="padding:1.1rem;display:flex;flex-direction:column;gap:0.55rem;flex:1;">
+                <strong style="font-size:0.98rem;">Tema 1: Kurumsal 3D Bento</strong>
+                <span style="font-size:0.8rem;color:var(--muted);flex:1;">3D perspektif kart eğimi, kayan sayaçlar, okuma ilerleme çubuğu, çift yönlü marka akışı ve arıza teşhis konsolu.</span>
+                <div style="display:flex;gap:0.45rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;" data-pick-theme="tema-1-kurumsal">Aktif Yap</button>
+                  <a href="../tema-1-kurumsal/index.html" class="btn-soft">Aç ↗</a>
                 </div>
               </div>
             </div>
 
             <div class="theme-pick-card" data-theme-card="tema-2-hizli-cagri">
               <div class="theme-pick-thumb">
-                <img src="../assets/photos/klima-service.jpg" alt="Tema 2 Hızlı Çağrı ve Garanti">
-                <span class="theme-active-flag">2. Tema</span>
+                <img src="../assets/photos/klima-service.jpg" alt="Tema 2 Kinetik Hızlı Çağrı">
+                <span class="theme-active-flag" style="display:none;">AKTİF TEMA</span>
               </div>
-              <div style="padding:1.15rem;display:flex;flex-direction:column;gap:0.6rem;flex:1;">
-                <strong style="font-size:1rem;">Tema 2: Hızlı Çağrı &amp; Garanti</strong>
-                <span style="font-size:0.82rem;color:var(--muted);flex:1;">60 saniyede 3 adımlı usta çağırma sihirbazı ve webden 1 yıl garanti fişi sorgulama.</span>
-                <div style="display:flex;gap:0.5rem;">
-                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:0.58rem;" data-pick-theme="tema-2-hizli-cagri">Temayı Seç</button>
-                  <a href="../tema-2-hizli-cagri/index.html" class="btn-soft" style="padding:0.58rem 0.8rem;">Gör ↗</a>
+              <div style="padding:1.1rem;display:flex;flex-direction:column;gap:0.55rem;flex:1;">
+                <strong style="font-size:0.98rem;">Tema 2: Kinetik Hızlı Çağrı</strong>
+                <span style="font-size:0.8rem;color:var(--muted);flex:1;">Canlı radar halkaları, anlık saha bildirim bandı, ışık efektli CTA, kayar adımlı sihirbaz, şeffaf süre sekmeleri ve yorum karuseli.</span>
+                <div style="display:flex;gap:0.45rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;" data-pick-theme="tema-2-hizli-cagri">Aktif Yap</button>
+                  <a href="../tema-2-hizli-cagri/index.html" class="btn-soft">Aç ↗</a>
                 </div>
               </div>
             </div>
 
             <div class="theme-pick-card" data-theme-card="tema-3-prestij">
               <div class="theme-pick-thumb">
-                <img src="../assets/photos/ankastre-kitchen.jpg" alt="Tema 3 Prestij Koyu ve Açık Mod">
-                <span class="theme-active-flag">3. Tema</span>
+                <img src="../assets/photos/ankastre-kitchen.jpg" alt="Tema 3 Prestij Spotlight">
+                <span class="theme-active-flag" style="display:none;">AKTİF TEMA</span>
               </div>
-              <div style="padding:1.15rem;display:flex;flex-direction:column;gap:0.6rem;flex:1;">
-                <strong style="font-size:1rem;">Tema 3: Prestij (Koyu / Açık Mod)</strong>
-                <span style="font-size:0.82rem;color:var(--muted);flex:1;">Ankastre &amp; kombi odaklı lüks vitrin, tasarruf hesaplayıcı ve canlı Google SEO önizleme.</span>
-                <div style="display:flex;gap:0.5rem;">
-                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;padding:0.58rem;" data-pick-theme="tema-3-prestij">Temayı Seç</button>
-                  <a href="../tema-3-prestij/index.html" class="btn-soft" style="padding:0.58rem 0.8rem;">Gör ↗</a>
+              <div style="padding:1.1rem;display:flex;flex-direction:column;gap:0.55rem;flex:1;">
+                <strong style="font-size:0.98rem;">Tema 3: Prestij Spotlight &amp; SEO</strong>
+                <span style="font-size:0.8rem;color:var(--muted);flex:1;">Fare takipli spotlight ışık, 4 panelli genişleyen akordeon vitrin, termal petek öncesi/sonrası sürgüsü ve Koyu/Açık mod.</span>
+                <div style="display:flex;gap:0.45rem;">
+                  <button type="button" class="btn-primary" style="flex:1;justify-content:center;" data-pick-theme="tema-3-prestij">Aktif Yap</button>
+                  <a href="../tema-3-prestij/index.html" class="btn-soft">Aç ↗</a>
                 </div>
               </div>
             </div>
           </div>
+
+          <h2>2. Canlı Kurumsal Renk Paleti (5 Renk)</h2>
+          <p class="panel-sub">Tıkladığınız anda tüm butonlar, rozetler ve vurgular seçilen renge bürünür.</p>
+          <div id="adminColorCards" class="color-5-grid"></div>
         </div>
 
-        <div class="panel-card">
-          <h2>5 Kurumsal Renk Paleti (Tek Tıkla Değiştir)</h2>
-          <p class="panel-sub">Seçtiğiniz renk tüm butonlara, ikonlara, vurgu alanlarına ve hızlı arama çubuğuna anında uygulanır.</p>
-          <div id="fullColorCards" class="color-5-grid"></div>
-        </div>
-      </section>
-
-      <!-- TAB 4: 35 MARKA, 7 HİZMET & KÖKLÜ DOMAİN SEO KALKANI -->
-      <section class="tab-pane" id="pane-seo">
-        <div class="grid-2" style="margin-bottom:1.25rem;">
+        <div class="grid-2">
+          <!-- SEO & 23-Year Domain Drip-Feed Protection -->
           <div class="panel-card">
-            <h2>Köklü Domain Koruyucu Anti-Spam SEO Ayarı</h2>
-            <p class="panel-sub">23 yıllık otoriter bir domain adınız bile olsa bir günde milyonlarca kopya sayfa açmak siteyi spam filtresine sokar. Buradan günlük doğal indeks hızını güvenle yönetirsiniz.</p>
+            <h2>3. 81 İl × 973 İlçe SEO Şablonu &amp; Köklü Domain Kalkanı</h2>
+            <p class="panel-sub">23 yıllık köklü bir domaini bile spam cezasına sokabilen kontrolsüz sayfa basımı yerine, Google'a günlük kademeli URL açan güvenli yapı.</p>
 
-            <div style="background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:1.15rem;margin-bottom:1rem;">
-              <div style="display:flex;justify-content:space-between;font-weight:700;font-size:0.88rem;margin-bottom:0.45rem;">
-                <span>Günlük Kademeli (Drip-Feed) Sitemap Açılış Hızı</span>
-                <span class="mono" id="seoDripLabel" style="color:var(--brand);">250 Sayfa / Gün</span>
+            <form id="seoSettingsForm" style="display:grid;gap:0.85rem;">
+              <div class="field">
+                <label for="seoTitleTpl">Dinamik Google Başlık (Title) Şablonu</label>
+                <input id="seoTitleTpl" type="text" class="clean-input mono" style="font-size:0.8rem;">
+                <span style="font-size:0.72rem;color:var(--muted);">Değişkenler: <code>{il}</code> <code>{ilce}</code> <code>{marka}</code> <code>{hizmet}</code> <code>{sure}</code> <code>{telefon}</code></span>
               </div>
-              <input type="range" id="seoDripRange" min="50" max="600" step="50" value="250" style="width:100%;accent-color:var(--brand);">
-              <span style="font-size:0.76rem;color:var(--muted);display:block;margin-top:0.35rem;">Önerilen güvenli aralık: Günlük 150 – 300 özgün ilçe/marka sayfası.</span>
+              <div class="field">
+                <label for="seoMetaTpl">Dinamik Meta Açıklama (Description) Şablonu</label>
+                <input id="seoMetaTpl" type="text" class="clean-input" style="font-size:0.82rem;">
+              </div>
+              <div class="field">
+                <div style="display:flex;justify-content:space-between;font-size:0.82rem;font-weight:700;margin-bottom:0.3rem;">
+                  <span>Günlük Drip-Feed Sitemap İndeks Limiti</span>
+                  <span class="mono" style="color:var(--brand);" id="dripSliderVal">250 URL / Gün</span>
+                </div>
+                <input type="range" id="dripSlider" min="50" max="1000" step="50" value="250" style="width:100%;accent-color:var(--brand);">
+              </div>
+              <div class="field">
+                <label class="switch-row">
+                  <span>
+                    <strong style="display:block;font-size:0.84rem;">Google Ads "Bağımsız Özel Servis" Askı Kalkanı</strong>
+                    <span style="font-size:0.75rem;color:var(--muted);">Üst şeffaf bilgilendirme barını tüm sayfalarda aktif tutar</span>
+                  </span>
+                  <input type="checkbox" id="adsShieldToggle">
+                </label>
+              </div>
+              <div class="field">
+                <label for="adsShieldTextIn">Google Ads Yasal Bilgilendirme Metni</label>
+                <input id="adsShieldTextIn" type="text" class="clean-input" style="font-size:0.82rem;">
+              </div>
+              <button type="submit" class="btn-primary" style="justify-self:start;">SEO &amp; Politika Ayarlarını Kaydet ✓</button>
+              <div id="seoSavedToast" class="toast-saved">✓ SEO şablonları, Drip-Feed hızı ve Google Ads kalkanı güncellendi!</div>
+            </form>
+          </div>
+
+          <!-- Tracking Pixels & Backup / Reset -->
+          <div class="panel-card" style="display:flex;flex-direction:column;justify-content:space-between;gap:1.1rem;">
+            <div>
+              <h2>4. Google Ads Dönüşüm, Analytics &amp; Yedekleme</h2>
+              <p class="panel-sub">Telefon tıklamalarını ve form kayıtlarını Google Ads panelinize dönüşüm olarak saydırmak için takip kodlarınızı girin.</p>
+
+              <form id="trackingForm" style="display:grid;gap:0.8rem;">
+                <div class="field">
+                  <label for="trGa4">Google Analytics 4 Ölçüm Kimliği</label>
+                  <input id="trGa4" type="text" class="clean-input mono" placeholder="G-XXXXXXXXXX">
+                </div>
+                <div class="field">
+                  <label for="trAdsId">Google Ads Dönüşüm Kimliği (AW-)</label>
+                  <input id="trAdsId" type="text" class="clean-input mono" placeholder="AW-948271602">
+                </div>
+                <div class="field">
+                  <label for="trAdsLbl">Telefon Tıklama Dönüşüm Etiketi</label>
+                  <input id="trAdsLbl" type="text" class="clean-input mono" placeholder="call_conv_0850">
+                </div>
+                <div class="field">
+                  <label for="trGtm">Google Tag Manager (GTM)</label>
+                  <input id="trGtm" type="text" class="clean-input mono" placeholder="GTM-XXXXXXX">
+                </div>
+                <button type="submit" class="btn-primary" style="justify-self:start;">Takip Kodlarını Kaydet ✓</button>
+                <div id="trackingSavedToast" class="toast-saved">✓ Google Ads ve Analytics dönüşüm kodları kaydedildi!</div>
+              </form>
             </div>
 
-            <label style="display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.9rem 1.05rem;border-radius:15px;background:var(--bg);border:1px solid var(--border);cursor:pointer;">
-              <div>
-                <strong style="font-size:0.88rem;display:block;">Google Ads "Bağımsız Özel Servis" Politika Kalkanı</strong>
-                <span style="font-size:0.78rem;color:var(--muted);">Sitenin en üstünde şeffaf özel servis bilgilendirmesi göstererek reklam hesabını korur.</span>
-              </div>
-              <input type="checkbox" id="seoAdsCheck" checked style="width:20px;height:20px;accent-color:var(--brand);">
-            </label>
+            <div style="border-top:1px solid var(--border);padding-top:1rem;display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:space-between;align-items:center;">
+              <button type="button" class="btn-soft" id="exportJsonBtn">Tüm Verileri JSON Yedek İndir ↓</button>
+              <button type="button" class="btn-danger-sm" id="factoryResetBtn" style="padding:0.55rem 0.85rem;">Varsayılan Ayarlara Sıfırla</button>
+            </div>
           </div>
-
-          <div class="panel-card">
-            <h2>Aktif Hizmet Branşları (7 Ana Hizmet)</h2>
-            <p class="panel-sub">Hizmet verdiğiniz branşları tek tıkla açıp kapatabilirsiniz.</p>
-            <div id="serviceBranchToggles" class="toggle-chips"></div>
-          </div>
-        </div>
-
-        <div class="panel-card">
-          <h2>Aktif Marka Sayfaları (35 Marka)</h2>
-          <p class="panel-sub">81 il ve 973 ilçede otomatik arıza kodu ve servis sayfası üretilen 35 marka:</p>
-          <div id="brandTogglesHost" class="toggle-chips"></div>
         </div>
       </section>
     </main>
@@ -982,203 +1498,683 @@
       const MS = window.MerkezServis;
       MS.mountStudioChrome('admin', '../');
 
-      // Tab Navigation
+      function flashToast(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.display = 'inline-flex';
+        setTimeout(() => { el.style.display = 'none'; }, 3600);
+      }
+
+      // 8-Tab Navigation Controller
       const tabMeta = {
-        overview: ['Numara & Hızlı Site Ayarları', 'Telefon numaranızı, WhatsApp hattınızı ve firma başlığınızı tek tıkla tüm sayfalarda güncelleyin.'],
-        orders: ['Servis Kayıtları & Ustaya WhatsApp Atama', 'Siteden veya çağrı merkezinden gelen taleplerin durumunu güncelleyin ve tek tuşla bölge ustasına gönderin.'],
-        appearance: ['Site Teması & 5 Canlı Renk Seçimi', '3 farklı modern tasarım ve 5 kurumsal renk paleti arasından dilediğinizi tek tıkla aktif edin.'],
-        seo: ['35 Marka, 7 Branş & Köklü Domain SEO Kalkanı', 'Domain otoritenizi spam filtresinden koruyan kademeli indeksleme ve Google Ads uyum ayarları.']
+        overview: { title: 'Genel Özet & Çok Kanallı Analitik', sub: 'Saha operasyonunuzu, çağrı trafiğinizi, usta komisyonlarını ve sitedeki tüm detayları tek merkezden yönetin.' },
+        orders: { title: 'İş Emirleri, Hakediş & Dijital Garanti Fişi', sub: 'Gelen servis taleplerine usta atayın, tahsil edilen ücretten otomatik komisyon hesaplayın ve WhatsApp fişi gönderin.' },
+        techs: { title: 'Saha Ustaları & Bölge Komisyon Yönetimi', sub: 'Anlaşmalı ustalarınızı, hizmet bölgelerini, müsaitlik durumlarını ve merkez komisyon oranlarını yönetin.' },
+        contact: { title: 'Numaralar, Firma Bilgileri & Çalışma Saatleri', sub: '0850, 444, nöbetçi cep, WhatsApp karşılama mesajı, resmi ticaret ünvanı ve çalışma saatlerini tek tıkla güncelleyin.' },
+        content: { title: 'Kampanya Şeridi, Başlıklar & Garanti / Fiyat Politikası', sub: 'Üst kampanya duyuru barını, garanti süresini, varış dakikasını ve sitedeki canlı bileşenleri kontrol edin.' },
+        catalog: { title: '7 Hizmet Branşı, 35+ Marka & Arıza Kodu Veritabanı', sub: 'Hizmet branşlarını düzenleyin, markaları açıp kapatın veya yeni marka ve arıza teşhis kodu ekleyin.' },
+        reviews: { title: 'Doğrulanmış Müşteri Yorumları & S.S.S. Yönetimi', sub: 'Sitede yayınlanan müşteri yorumlarını ve sıkça sorulan soruları anlık ekleyin veya kaldırın.' },
+        appearance: { title: 'Tema, 5 Renk, 81 İl SEO Şablonu & Reklam Kodları', sub: '3 farklı animasyon stilindeki temayı, 5 rengi, 23 yıllık domain koruyucu SEO hızını ve Google Ads kodlarını yönetin.' }
       };
 
-      function switchTab(tabId) {
-        document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === 'pane-' + tabId));
-        document.querySelectorAll('[data-tab-target]').forEach(b => b.classList.toggle('active', b.getAttribute('data-tab-target') === tabId));
-        const [h, s] = tabMeta[tabId] || tabMeta.overview;
-        document.getElementById('paneHeading').textContent = h;
-        document.getElementById('paneSubheading').textContent = s;
+      function activateTab(tabId) {
+        if (!tabMeta[tabId]) return;
+        document.querySelectorAll('[data-tab-target]').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-tab-target') === tabId);
+        });
+        document.querySelectorAll('.tab-pane').forEach(p => {
+          p.classList.toggle('active', p.id === 'pane-' + tabId);
+        });
+        document.getElementById('paneHeading').textContent = tabMeta[tabId].title;
+        document.getElementById('paneSubheading').textContent = tabMeta[tabId].sub;
       }
 
       document.querySelectorAll('[data-tab-target]').forEach(btn => {
-        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab-target')));
+        btn.addEventListener('click', () => activateTab(btn.getAttribute('data-tab-target')));
       });
       document.querySelectorAll('[data-jump-tab]').forEach(btn => {
-        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-jump-tab')));
+        btn.addEventListener('click', () => activateTab(btn.getAttribute('data-jump-tab')));
       });
 
-      // Form & Theme Sync
-      const inCompany = document.getElementById('inCompany');
-      const inPhone1 = document.getElementById('inPhone1');
-      const inPhone2 = document.getElementById('inPhone2');
-      const inWa = document.getElementById('inWa');
-      const openBtn = document.getElementById('openActiveThemeBtn');
-
-      function refreshConfigUI() {
+      function syncOpenThemeLink() {
         const cfg = MS.getConfig();
-        inCompany.value = cfg.companyName;
-        inPhone1.value = cfg.primaryPhoneDisplay;
-        inPhone2.value = cfg.secondaryPhoneDisplay;
-        inWa.value = cfg.whatsappDisplay;
-        const activeTheme = cfg.activeTheme || 'tema-1-kurumsal';
-        openBtn.setAttribute('href', `../${activeTheme}/index.html`);
+        const map = {
+          'tema-1-kurumsal': '../tema-1-kurumsal/index.html',
+          'tema-2-hizli-cagri': '../tema-2-hizli-cagri/index.html',
+          'tema-3-prestij': '../tema-3-prestij/index.html'
+        };
+        document.getElementById('openActiveThemeBtn').setAttribute('href', map[cfg.activeTheme] || map['tema-1-kurumsal']);
+      }
 
-        document.querySelectorAll('[data-theme-card]').forEach(card => {
-          const isSel = card.getAttribute('data-theme-card') === activeTheme;
-          card.classList.toggle('selected', isSel);
+      // 1. Overview KPI & Live Status Renderer
+      function renderOverviewStats() {
+        const cfg = MS.getConfig();
+        const leads = MS.getLeads();
+        const techs = MS.getTechnicians();
+        const activeTechCount = techs.filter(t => t.status !== 'off').length;
+        const pendingCount = leads.filter(l => l.status === 'pending').length;
+        const gross = leads.reduce((s, l) => s + (Number(l.feeTl) || 0), 0);
+        const centerNet = leads.reduce((s, l) => s + (Number(l.commissionTl) || 0), 0);
+        const techShare = Math.max(0, gross - centerNet);
+
+        document.getElementById('sideLeadBadge').textContent = leads.length;
+        document.getElementById('sideTechBadge').textContent = techs.length;
+        document.getElementById('kpiTotalCalls').textContent = String(143 + leads.length);
+        document.getElementById('kpiActiveTechs').textContent = `${activeTechCount} / ${techs.length} Usta`;
+        document.getElementById('kpiLeadTotal').textContent = `${leads.length} Kayıt`;
+        document.getElementById('kpiPendingBadge').textContent = `${pendingCount} Bekleyen`;
+        document.getElementById('kpiGrossTl').textContent = gross.toLocaleString('tr-TR') + ' ₺';
+        document.getElementById('kpiTechShareTl').textContent = techShare.toLocaleString('tr-TR') + ' ₺';
+        document.getElementById('kpiCenterCommissionTl').textContent = centerNet.toLocaleString('tr-TR') + ' ₺';
+
+        const themeNames = {
+          'tema-1-kurumsal': 'Tema 1: Kurumsal 3D Bento',
+          'tema-2-hizli-cagri': 'Tema 2: Kinetik Hızlı Çağrı',
+          'tema-3-prestij': 'Tema 3: Prestij Spotlight & SEO'
+        };
+        const palObj = MS.COLOR_PALETTES.find(p => p.id === cfg.colorPalette) || MS.COLOR_PALETTES[0];
+        const statusRows = [
+          ['Aktif Vitrin Teması', themeNames[cfg.activeTheme] || 'Tema 1'],
+          ['Seçili Kurumsal Renk', palObj.name],
+          ['Ana Hat & WhatsApp', `${cfg.primaryPhoneDisplay} / ${cfg.whatsappDisplay}`],
+          ['Üst Kampanya Şeridi', cfg.promoBannerActive ? `Açık (${cfg.promoBannerCode || 'Aktif'})` : 'Kapalı'],
+          ['Aktif Hizmet & Marka', `${MS.getActiveCategories().length} Branş · ${MS.getActiveBrands().length} Marka · ${MS.getFaults().length} Arıza Kodu`],
+          ['Drip-Feed SEO & Garanti', `Günde ${cfg.dailyDripLimit} URL · ${cfg.warrantyMonths} Ay Garanti`]
+        ];
+        document.getElementById('overviewLiveStatusList').innerHTML = statusRows.map(([k, v]) => `
+          <div style="display:flex;justify-content:space-between;gap:0.75rem;padding:0.55rem 0.75rem;border-radius:10px;background:var(--bg);border:1px solid var(--border);">
+            <span style="color:var(--muted);font-weight:600;">${k}</span>
+            <strong style="text-align:right;">${v}</strong>
+          </div>
+        `).join('');
+        syncOpenThemeLink();
+      }
+
+      // 2. Work Orders, Commission & Digital Warranty Table
+      let currentOrderFilter = 'all';
+      const orderSearchIn = document.getElementById('orderSearchIn');
+      const ordersBody = document.getElementById('ordersTableBody');
+
+      function renderOrdersTable() {
+        const cfg = MS.getConfig();
+        const techs = MS.getTechnicians();
+        const q = (orderSearchIn.value || '').trim().toLowerCase();
+        const all = MS.getLeads();
+        const filtered = all.filter(l => {
+          if (currentOrderFilter !== 'all' && l.status !== currentOrderFilter) return false;
+          if (!q) return true;
+          return [l.id, l.customer, l.phone, l.city, l.brand, l.device, l.fault, l.tech].join(' ').toLowerCase().includes(q);
         });
 
-        const activePal = document.documentElement.getAttribute('data-palette') || cfg.colorPalette || 'royal-blue';
-        document.getElementById('miniColorRow').innerHTML = MS.COLOR_PALETTES.map(p => `
-          <button type="button" data-adm-pal="${p.id}" title="${p.name}" style="width:24px;height:24px;border-radius:50%;background:${p.hex};border:${p.id === activePal ? '3px solid #0f172a' : '2px solid #fff'};box-shadow:0 2px 6px rgba(0,0,0,0.18);cursor:pointer;"></button>
+        ordersBody.innerHTML = filtered.map(item => {
+          const techOptions = ['Atama Bekliyor', ...techs.map(t => t.name)];
+          if (item.tech && !techOptions.includes(item.tech)) techOptions.push(item.tech);
+
+          const selectedTechObj = techs.find(t => t.name === item.tech);
+          const techPhoneDigits = selectedTechObj ? selectedTechObj.phone.replace(/\D/g, '').replace(/^0/, '90') : cfg.whatsappPhone;
+          const custPhoneDigits = (item.phone || '').replace(/\D/g, '').replace(/^0/, '90') || cfg.whatsappPhone;
+
+          const techWaMsg = `*[İŞ EMRİ ATAMASI - ${item.id}]*\nMüşteri: ${item.customer} (${item.phone})\nBölge: ${item.city}\nCihaz: ${item.brand} - ${item.device}\nArıza: ${item.fault}\nTahmini Tutar: ${item.feeTl || 0} TL (Merkez Payı %${item.commissionPct || 30})`;
+          const warrantyWaMsg = `*[DİJİTAL GARANTİ BELGESİ - ${cfg.companyName}]*\nSayın ${item.customer}, *${item.id}* numaralı ${item.brand} (${item.device}) servis işleminiz *${cfg.warrantyMonths} Ay Resmi Parça ve İşçilik Garantisi* altına alınmıştır. Destek: ${cfg.primaryPhoneDisplay}`;
+
+          return `<tr>
+            <td>
+              <strong class="mono" style="color:var(--brand);display:block;font-size:0.8rem;">${item.id}</strong>
+              <span style="font-size:0.72rem;color:var(--muted);">${item.createdAt} · ${item.source || 'Web'}</span>
+            </td>
+            <td>
+              <strong style="display:block;">${item.customer}</strong>
+              <span class="mono" style="font-size:0.75rem;color:var(--ink-2);display:block;">${item.phone}</span>
+              <span style="font-size:0.74rem;color:var(--muted);">${item.city}</span>
+            </td>
+            <td>
+              <strong style="display:block;">${item.brand} · ${item.device}</strong>
+              <span style="font-size:0.77rem;color:var(--muted);">${item.fault}</span>
+            </td>
+            <td>
+              <select class="status-select" data-lead-tech="${item.id}" aria-label="Usta Ata">
+                ${techOptions.map(tn => `<option value="${tn}" ${item.tech === tn ? 'selected' : ''}>${tn}</option>`).join('')}
+              </select>
+            </td>
+            <td>
+              <select class="status-select" data-lead-status="${item.id}" aria-label="Durum">
+                <option value="pending" ${item.status === 'pending' ? 'selected' : ''}>Bekleyen</option>
+                <option value="assigned" ${item.status === 'assigned' ? 'selected' : ''}>Atandı</option>
+                <option value="onway" ${item.status === 'onway' ? 'selected' : ''}>Yolda</option>
+                <option value="completed" ${item.status === 'completed' ? 'selected' : ''}>Tamamlandı</option>
+              </select>
+            </td>
+            <td>
+              <div style="display:flex;align-items:center;gap:0.3rem;margin-bottom:0.2rem;">
+                <input type="number" min="0" step="50" class="fee-mini-input mono" data-lead-fee="${item.id}" value="${item.feeTl || 0}" aria-label="Alınan Ücret">
+                <span style="font-size:0.75rem;font-weight:700;">₺</span>
+              </div>
+              <span class="tnum" style="font-size:0.73rem;color:#059669;font-weight:700;">Net Pay (%${item.commissionPct || 30}): ${(item.commissionTl || 0).toLocaleString('tr-TR')} ₺</span>
+            </td>
+            <td>
+              <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
+                <a class="wa-send-btn" href="https://wa.me/${techPhoneDigits}?text=${encodeURIComponent(techWaMsg)}" target="_blank" rel="noopener" title="Ustaya WhatsApp İş Emri Gönder">Ustaya Gönder</a>
+                <a class="wa-send-btn secondary" href="https://wa.me/${custPhoneDigits}?text=${encodeURIComponent(warrantyWaMsg)}" target="_blank" rel="noopener" title="Müşteriye Dijital Garanti Belgesi Gönder">Garanti Fişi</a>
+                <button type="button" class="btn-danger-sm" data-del-lead="${item.id}" title="Kaydı Sil">✕</button>
+              </div>
+            </td>
+          </tr>`;
+        }).join('');
+
+        ordersBody.querySelectorAll('[data-lead-tech]').forEach(sel => {
+          sel.addEventListener('change', () => {
+            const id = sel.getAttribute('data-lead-tech');
+            const val = sel.value;
+            MS.updateLead(id, { tech: val, ...(val !== 'Atama Bekliyor' ? { status: 'assigned' } : {}) });
+            renderOrdersTable();
+            renderOverviewStats();
+          });
+        });
+
+        ordersBody.querySelectorAll('[data-lead-status]').forEach(sel => {
+          sel.addEventListener('change', () => {
+            MS.updateLead(sel.getAttribute('data-lead-status'), { status: sel.value });
+            renderOrdersTable();
+            renderOverviewStats();
+          });
+        });
+
+        ordersBody.querySelectorAll('[data-lead-fee]').forEach(inp => {
+          inp.addEventListener('change', () => {
+            MS.updateLead(inp.getAttribute('data-lead-fee'), { feeTl: Number(inp.value) || 0 });
+            renderOrdersTable();
+            renderOverviewStats();
+          });
+        });
+
+        ordersBody.querySelectorAll('[data-del-lead]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.removeLead(btn.getAttribute('data-del-lead'));
+            renderOrdersTable();
+            renderOverviewStats();
+          });
+        });
+      }
+
+      document.querySelectorAll('[data-order-filter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('[data-order-filter]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentOrderFilter = btn.getAttribute('data-order-filter');
+          renderOrdersTable();
+        });
+      });
+      orderSearchIn.addEventListener('input', renderOrdersTable);
+
+      const newOrderDrawer = document.getElementById('newOrderDrawer');
+      document.getElementById('toggleNewOrderBtn').addEventListener('click', () => {
+        newOrderDrawer.style.display = newOrderDrawer.style.display === 'block' ? 'none' : 'block';
+      });
+      document.getElementById('cancelNewOrderBtn').addEventListener('click', () => { newOrderDrawer.style.display = 'none'; });
+      document.getElementById('manualOrderForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addLead({
+          source: '0850 Çağrı',
+          customer: document.getElementById('moName').value.trim(),
+          phone: document.getElementById('moPhone').value.trim(),
+          city: document.getElementById('moCity').value.trim(),
+          brand: document.getElementById('moBrand').value.trim(),
+          device: document.getElementById('moBrand').value.trim(),
+          fault: document.getElementById('moFault').value.trim(),
+          feeTl: Number(document.getElementById('moFee').value) || 0
+        });
+        e.target.reset();
+        newOrderDrawer.style.display = 'none';
+        renderOrdersTable();
+        renderOverviewStats();
+      });
+
+      // 3. Field Technicians Manager
+      const techsBody = document.getElementById('techsTableBody');
+      function renderTechsTable() {
+        const list = MS.getTechnicians();
+        techsBody.innerHTML = list.map(t => {
+          const waDigits = (t.phone || '').replace(/\D/g, '').replace(/^0/, '90');
+          return `<tr>
+            <td><strong>${t.name}</strong></td>
+            <td class="mono">${t.phone}</td>
+            <td>${t.region}</td>
+            <td>${t.specialty}</td>
+            <td>
+              <input type="number" min="5" max="80" class="fee-mini-input mono" style="width:68px;" data-tech-pct="${t.id}" value="${t.commissionPct}"> %
+            </td>
+            <td>
+              <select class="status-select" data-tech-status="${t.id}">
+                <option value="available" ${t.status === 'available' ? 'selected' : ''}>🟢 Müsait</option>
+                <option value="busy" ${t.status === 'busy' ? 'selected' : ''}>🟠 Sahada İşlemde</option>
+                <option value="off" ${t.status === 'off' ? 'selected' : ''}>⚪ İzinli</option>
+              </select>
+            </td>
+            <td>
+              <div style="display:flex;gap:0.35rem;">
+                <a class="wa-send-btn" href="https://wa.me/${waDigits}" target="_blank" rel="noopener">WhatsApp</a>
+                <button type="button" class="btn-danger-sm" data-del-tech="${t.id}">Sil</button>
+              </div>
+            </td>
+          </tr>`;
+        }).join('');
+
+        techsBody.querySelectorAll('[data-tech-pct]').forEach(inp => {
+          inp.addEventListener('change', () => {
+            MS.updateTechnician(inp.getAttribute('data-tech-pct'), { commissionPct: Number(inp.value) || 30 });
+            renderOverviewStats();
+          });
+        });
+        techsBody.querySelectorAll('[data-tech-status]').forEach(sel => {
+          sel.addEventListener('change', () => {
+            MS.updateTechnician(sel.getAttribute('data-tech-status'), { status: sel.value });
+            renderOverviewStats();
+          });
+        });
+        techsBody.querySelectorAll('[data-del-tech]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.removeTechnician(btn.getAttribute('data-del-tech'));
+            renderTechsTable();
+            renderOrdersTable();
+            renderOverviewStats();
+          });
+        });
+      }
+
+      const newTechDrawer = document.getElementById('newTechDrawer');
+      document.getElementById('toggleNewTechBtn').addEventListener('click', () => {
+        newTechDrawer.style.display = newTechDrawer.style.display === 'block' ? 'none' : 'block';
+      });
+      document.getElementById('cancelNewTechBtn').addEventListener('click', () => { newTechDrawer.style.display = 'none'; });
+      document.getElementById('newTechForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addTechnician({
+          name: document.getElementById('ntName').value,
+          phone: document.getElementById('ntPhone').value,
+          region: document.getElementById('ntRegion').value,
+          specialty: document.getElementById('ntSpec').value,
+          commissionPct: Number(document.getElementById('ntPct').value) || 30
+        });
+        e.target.reset();
+        newTechDrawer.style.display = 'none';
+        renderTechsTable();
+        renderOrdersTable();
+        renderOverviewStats();
+      });
+
+      // 4. Contact, Phones & Working Hours Form
+      function loadContactForm() {
+        const cfg = MS.getConfig();
+        document.getElementById('cCompany').value = cfg.companyName;
+        document.getElementById('cLegal').value = cfg.legalName;
+        document.getElementById('cPhone1').value = cfg.primaryPhoneDisplay;
+        document.getElementById('cPhone2').value = cfg.secondaryPhoneDisplay;
+        document.getElementById('cNightPhone').value = cfg.emergencyNightPhone;
+        document.getElementById('cWaPhone').value = cfg.whatsappDisplay;
+        document.getElementById('cWaGreeting').value = cfg.whatsappGreeting;
+        document.getElementById('cHoursWd').value = cfg.workingHoursWeekday;
+        document.getElementById('cHoursWe').value = cfg.workingHoursWeekend;
+        document.getElementById('cAddress').value = cfg.headOfficeAddress;
+        document.getElementById('cTax').value = cfg.taxInfo;
+        document.getElementById('cNightActive').checked = !!cfg.nightShiftActive;
+      }
+
+      document.getElementById('fullContactForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.saveConfig({
+          companyName: document.getElementById('cCompany').value.trim(),
+          legalName: document.getElementById('cLegal').value.trim(),
+          primaryPhoneDisplay: document.getElementById('cPhone1').value.trim(),
+          secondaryPhoneDisplay: document.getElementById('cPhone2').value.trim(),
+          emergencyNightPhone: document.getElementById('cNightPhone').value.trim(),
+          whatsappDisplay: document.getElementById('cWaPhone').value.trim(),
+          whatsappGreeting: document.getElementById('cWaGreeting').value.trim(),
+          workingHoursWeekday: document.getElementById('cHoursWd').value.trim(),
+          workingHoursWeekend: document.getElementById('cHoursWe').value.trim(),
+          headOfficeAddress: document.getElementById('cAddress').value.trim(),
+          taxInfo: document.getElementById('cTax').value.trim(),
+          nightShiftActive: document.getElementById('cNightActive').checked
+        });
+        renderOverviewStats();
+        renderOrdersTable();
+        flashToast('contactSavedToast');
+      });
+
+      // 5. Site Content, Promo Banner & Warranty/Pricing Form
+      function loadSiteContentForm() {
+        const cfg = MS.getConfig();
+        document.getElementById('scPromoActive').checked = !!cfg.promoBannerActive;
+        document.getElementById('scPromoText').value = cfg.promoBannerText;
+        document.getElementById('scPromoCode').value = cfg.promoBannerCode;
+        document.getElementById('scWarranty').value = cfg.warrantyMonths;
+        document.getElementById('scEta').value = cfg.avgArrivalMinutes;
+        document.getElementById('scInspFee').value = cfg.inspectionFeeTl;
+        document.getElementById('scInspNote').value = cfg.inspectionNote;
+        document.getElementById('scHeroBadge').value = cfg.heroCustomBadge || '';
+        document.getElementById('scHeroTitle').value = cfg.heroCustomTitle || '';
+        document.getElementById('scHeroSub').value = cfg.heroCustomSub || '';
+        document.getElementById('scDockActive').checked = !!cfg.floatingDockActive;
+        document.getElementById('scTickerActive').checked = !!cfg.liveDispatchTickerActive;
+      }
+
+      document.getElementById('siteContentForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.saveConfig({
+          promoBannerActive: document.getElementById('scPromoActive').checked,
+          promoBannerText: document.getElementById('scPromoText').value.trim(),
+          promoBannerCode: document.getElementById('scPromoCode').value.trim(),
+          warrantyMonths: Number(document.getElementById('scWarranty').value) || 12,
+          avgArrivalMinutes: Number(document.getElementById('scEta').value) || 32,
+          inspectionFeeTl: Number(document.getElementById('scInspFee').value) || 0,
+          inspectionNote: document.getElementById('scInspNote').value.trim(),
+          heroCustomBadge: document.getElementById('scHeroBadge').value.trim(),
+          heroCustomTitle: document.getElementById('scHeroTitle').value.trim(),
+          heroCustomSub: document.getElementById('scHeroSub').value.trim(),
+          floatingDockActive: document.getElementById('scDockActive').checked,
+          liveDispatchTickerActive: document.getElementById('scTickerActive').checked
+        });
+        renderOverviewStats();
+        flashToast('contentSavedToast');
+      });
+
+      // 6. Catalog: 7 Categories + 35+ Brands + Fault Codes DB
+      const catHost = document.getElementById('categoriesEditorHost');
+      function renderCategoriesEditor() {
+        const cats = MS.getCategories();
+        catHost.innerHTML = cats.map(c => `
+          <div class="cat-edit-row">
+            <input type="checkbox" ${c.enabled ? 'checked' : ''} data-cat-toggle="${c.id}" style="width:19px;height:19px;accent-color:var(--brand);cursor:pointer;" title="Aktif / Pasif">
+            <input type="text" class="clean-input" data-cat-name="${c.id}" value="${c.name}" aria-label="Branş Adı">
+            <input type="number" class="clean-input mono" data-cat-min="${c.id}" value="${c.avgMin}" aria-label="Ort. Dakika" title="Ortalama Onarım Süresi (Dk)">
+            <input type="text" class="clean-input" data-cat-items="${c.id}" value="${c.items}" aria-label="Kapsam Açıklaması">
+            <button type="button" class="btn-soft" data-cat-save="${c.id}">Kaydet</button>
+          </div>
         `).join('');
 
-        document.getElementById('fullColorCards').innerHTML = MS.COLOR_PALETTES.map(p => `
+        catHost.querySelectorAll('[data-cat-toggle]').forEach(chk => {
+          chk.addEventListener('change', () => {
+            MS.toggleCategoryActive(chk.getAttribute('data-cat-toggle'));
+            renderOverviewStats();
+            flashToast('catSavedToast');
+          });
+        });
+        catHost.querySelectorAll('[data-cat-save]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-cat-save');
+            MS.updateCategory(id, {
+              name: catHost.querySelector(`[data-cat-name="${id}"]`).value.trim(),
+              avgMin: Number(catHost.querySelector(`[data-cat-min="${id}"]`).value) || 40,
+              items: catHost.querySelector(`[data-cat-items="${id}"]`).value.trim()
+            });
+            flashToast('catSavedToast');
+          });
+        });
+      }
+
+      const brandFilterIn = document.getElementById('brandFilterIn');
+      const brandsHost = document.getElementById('brandsToggleHost');
+      function renderBrandsManager() {
+        const cfg = MS.getConfig();
+        const all = MS.getAllBrands();
+        const activeCount = MS.getActiveBrands().length;
+        document.getElementById('activeBrandsCountLbl').textContent = activeCount;
+        const q = (brandFilterIn.value || '').trim().toLowerCase();
+        const shown = q ? all.filter(b => b.name.toLowerCase().includes(q) || b.group.toLowerCase().includes(q)) : all;
+        brandsHost.innerHTML = shown.map(b => {
+          const isOn = !cfg.disabledBrands.includes(b.slug);
+          return `<button type="button" class="toggle-chip ${isOn ? 'on' : ''}" data-brand-toggle="${b.slug}">
+            <span>${isOn ? '✓' : '✕'}</span>
+            <span>${b.name}</span>
+          </button>`;
+        }).join('');
+        brandsHost.querySelectorAll('[data-brand-toggle]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.toggleBrandActive(btn.getAttribute('data-brand-toggle'));
+            renderBrandsManager();
+            renderOverviewStats();
+          });
+        });
+      }
+      brandFilterIn.addEventListener('input', renderBrandsManager);
+      document.getElementById('enableAllBrandsBtn').addEventListener('click', () => {
+        MS.saveConfig({ disabledBrands: [] });
+        renderBrandsManager();
+        renderOverviewStats();
+      });
+      document.getElementById('addBrandForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addCustomBrand({
+          name: document.getElementById('nbName').value,
+          group: document.getElementById('nbGroup').value,
+          codes: document.getElementById('nbCodes').value
+        });
+        e.target.reset();
+        renderBrandsManager();
+        renderOverviewStats();
+      });
+
+      const faultsBody = document.getElementById('faultsTableBody');
+      function renderFaultsManager() {
+        const list = MS.getFaults();
+        document.getElementById('faultCountLbl').textContent = list.length;
+        faultsBody.innerHTML = list.map(f => `
+          <tr>
+            <td><strong class="mono" style="color:var(--brand);font-size:0.9rem;">${f.code}</strong></td>
+            <td><strong>${f.device}</strong></td>
+            <td>
+              <strong style="display:block;">${f.title}</strong>
+              <span style="font-size:0.77rem;color:var(--muted);">${f.action}</span>
+            </td>
+            <td class="tnum">${f.durationMin} dk</td>
+            <td><button type="button" class="btn-danger-sm" data-del-fault="${f.code}">Sil</button></td>
+          </tr>
+        `).join('');
+        faultsBody.querySelectorAll('[data-del-fault]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.removeFault(btn.getAttribute('data-del-fault'));
+            renderFaultsManager();
+            renderOverviewStats();
+          });
+        });
+      }
+
+      const newFaultDrawer = document.getElementById('newFaultDrawer');
+      document.getElementById('toggleNewFaultBtn').addEventListener('click', () => {
+        newFaultDrawer.style.display = newFaultDrawer.style.display === 'block' ? 'none' : 'block';
+      });
+      document.getElementById('cancelNewFaultBtn').addEventListener('click', () => { newFaultDrawer.style.display = 'none'; });
+      document.getElementById('newFaultForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addFault({
+          code: document.getElementById('nfCode').value,
+          device: document.getElementById('nfDevice').value,
+          title: document.getElementById('nfTitle').value,
+          brands: document.getElementById('nfBrands').value,
+          symptom: document.getElementById('nfSymptom').value,
+          action: document.getElementById('nfAction').value
+        });
+        e.target.reset();
+        newFaultDrawer.style.display = 'none';
+        renderFaultsManager();
+        renderOverviewStats();
+      });
+
+      // 7. Reviews & FAQs Manager
+      const revListHost = document.getElementById('reviewsAdminList');
+      const faqListHost = document.getElementById('faqsAdminList');
+
+      function renderReviewsAndFaqs() {
+        revListHost.innerHTML = MS.getReviews().map(r => `
+          <div style="padding:0.85rem;border-radius:13px;background:var(--bg);border:1px solid var(--border);display:flex;justify-content:space-between;gap:0.75rem;align-items:flex-start;">
+            <div>
+              <strong style="font-size:0.85rem;display:block;">${r.customer} — ${r.city} <span style="color:var(--brand);">(${r.brand})</span></strong>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--ink-2);">"${r.text}"</p>
+            </div>
+            <button type="button" class="btn-danger-sm" data-del-rev="${r.id}">Sil</button>
+          </div>
+        `).join('');
+        revListHost.querySelectorAll('[data-del-rev]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.removeReview(btn.getAttribute('data-del-rev'));
+            renderReviewsAndFaqs();
+          });
+        });
+
+        faqListHost.innerHTML = MS.getFaqs().map(f => `
+          <div style="padding:0.85rem;border-radius:13px;background:var(--bg);border:1px solid var(--border);display:flex;justify-content:space-between;gap:0.75rem;align-items:flex-start;">
+            <div>
+              <strong style="font-size:0.85rem;display:block;">${f.q}</strong>
+              <p style="margin:0.25rem 0 0;font-size:0.8rem;color:var(--muted);">${f.a}</p>
+            </div>
+            <button type="button" class="btn-danger-sm" data-del-faq="${f.id}">Sil</button>
+          </div>
+        `).join('');
+        faqListHost.querySelectorAll('[data-del-faq]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.removeFaq(btn.getAttribute('data-del-faq'));
+            renderReviewsAndFaqs();
+          });
+        });
+      }
+
+      document.getElementById('addReviewForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addReview({
+          customer: document.getElementById('rvName').value,
+          city: document.getElementById('rvCity').value,
+          brand: document.getElementById('rvBrand').value,
+          text: document.getElementById('rvText').value
+        });
+        e.target.reset();
+        renderReviewsAndFaqs();
+      });
+
+      document.getElementById('addFaqForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.addFaq({
+          q: document.getElementById('fqQ').value,
+          a: document.getElementById('fqA').value
+        });
+        e.target.reset();
+        renderReviewsAndFaqs();
+      });
+
+      // 8. Theme, 5 Colors, SEO Template & Tracking Pixels
+      function renderThemeAndColors() {
+        const cfg = MS.getConfig();
+        document.querySelectorAll('[data-theme-card]').forEach(card => {
+          const isSel = card.getAttribute('data-theme-card') === cfg.activeTheme;
+          card.classList.toggle('selected', isSel);
+          const flag = card.querySelector('.theme-active-flag');
+          if (flag) flag.style.display = isSel ? 'inline-block' : 'none';
+        });
+
+        const activePal = document.documentElement.getAttribute('data-palette') || cfg.colorPalette;
+        const colorHost = document.getElementById('adminColorCards');
+        colorHost.innerHTML = MS.COLOR_PALETTES.map(p => `
           <button type="button" class="color-option-card ${p.id === activePal ? 'active' : ''}" data-adm-pal="${p.id}">
             <span class="color-circle" style="background:${p.hex};"></span>
             <span>
-              <strong style="display:block;font-size:0.86rem;">${p.name}</strong>
-              <span style="font-size:0.74rem;color:var(--muted);">${p.note}</span>
+              <strong style="display:block;font-size:0.84rem;color:var(--ink);">${p.name}</strong>
+              <span style="font-size:0.73rem;color:var(--muted);">${p.note}</span>
             </span>
           </button>
         `).join('');
-
-        document.querySelectorAll('[data-adm-pal]').forEach(b => {
-          b.addEventListener('click', () => {
-            MS.setPalette(b.getAttribute('data-adm-pal'));
-            refreshConfigUI();
+        colorHost.querySelectorAll('[data-adm-pal]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            MS.setPalette(btn.getAttribute('data-adm-pal'));
+            renderThemeAndColors();
+            renderOverviewStats();
           });
         });
-
-        document.getElementById('seoDripRange').value = cfg.dailyDripLimit || 250;
-        document.getElementById('seoDripLabel').textContent = (cfg.dailyDripLimit || 250) + ' Sayfa / Gün';
-        document.getElementById('seoAdsCheck').checked = cfg.adsComplianceBanner !== false;
       }
-
-      window.addEventListener('merkez:palette-changed', refreshConfigUI);
-      refreshConfigUI();
-
-      document.getElementById('quickPhoneForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        MS.saveConfig({
-          companyName: inCompany.value.trim(),
-          primaryPhoneDisplay: inPhone1.value.trim(),
-          secondaryPhoneDisplay: inPhone2.value.trim(),
-          whatsappDisplay: inWa.value.trim()
-        });
-        MS.hydrateLiveConfig();
-        const t = document.getElementById('phoneSavedToast');
-        t.style.display = 'flex';
-        setTimeout(() => { t.style.display = 'none'; }, 4200);
-      });
 
       document.querySelectorAll('[data-pick-theme]').forEach(btn => {
         btn.addEventListener('click', () => {
-          const th = btn.getAttribute('data-pick-theme');
-          MS.saveConfig({ activeTheme: th });
-          refreshConfigUI();
+          MS.saveConfig({ activeTheme: btn.getAttribute('data-pick-theme') });
+          renderThemeAndColors();
+          renderOverviewStats();
         });
       });
 
-      // Orders CRM Table
-      let currentFilter = 'all';
-      const tbody = document.getElementById('ordersTableBody');
+      function loadSeoAndTrackingForms() {
+        const cfg = MS.getConfig();
+        document.getElementById('seoTitleTpl').value = cfg.seoTitleTemplate;
+        document.getElementById('seoMetaTpl').value = cfg.seoMetaTemplate;
+        document.getElementById('dripSlider').value = cfg.dailyDripLimit;
+        document.getElementById('dripSliderVal').textContent = cfg.dailyDripLimit + ' URL / Gün';
+        document.getElementById('adsShieldToggle').checked = !!cfg.adsComplianceBanner;
+        document.getElementById('adsShieldTextIn').value = cfg.adsComplianceText;
 
-      function renderOrders() {
-        const all = MS.getLeads();
-        document.getElementById('sideLeadBadge').textContent = all.length;
-        document.getElementById('kpiCallsCount').textContent = 143 + all.length;
-
-        const filtered = all.filter(item => {
-          if (currentFilter === 'pending') return item.status === 'pending';
-          if (currentFilter === 'active') return item.status === 'assigned' || item.status === 'onway';
-          if (currentFilter === 'completed') return item.status === 'completed';
-          return true;
-        });
-
-        tbody.innerHTML = filtered.map(l => {
-          const waMsg = `*[SERVİS İŞ EMRİ ${l.id}]*\nMüşteri: ${l.customer}\nTelefon: ${l.phone}\nAdres: ${l.city}\nCihaz: ${l.brand} (${l.device})\nArıza: ${l.fault}`;
-          return `
-            <tr>
-              <td class="mono"><strong>${l.id}</strong><br><span style="font-size:0.73rem;color:var(--muted);">${l.createdAt}</span></td>
-              <td><strong>${l.customer}</strong><br><span class="mono" style="font-size:0.79rem;color:var(--ink-2);">${l.phone}</span></td>
-              <td>${l.city}</td>
-              <td><strong>${l.brand}</strong><br><span style="font-size:0.8rem;color:var(--muted);">${l.fault}</span></td>
-              <td>
-                <select class="status-select" data-status-id="${l.id}">
-                  <option value="pending" ${l.status === 'pending' ? 'selected' : ''}>⏳ Usta Bekliyor</option>
-                  <option value="assigned" ${l.status === 'assigned' ? 'selected' : ''}>👨‍🔧 Usta Atandı</option>
-                  <option value="onway" ${l.status === 'onway' ? 'selected' : ''}>🚐 Araç Yolda</option>
-                  <option value="completed" ${l.status === 'completed' ? 'selected' : ''}>✅ Garantili Tamamlandı</option>
-                </select>
-              </td>
-              <td>
-                <a class="wa-send-btn" href="https://wa.me/?text=${encodeURIComponent(waMsg)}" target="_blank" rel="noopener">WhatsApp Ustaya Gönder</a>
-              </td>
-            </tr>
-          `;
-        }).join('');
-
-        tbody.querySelectorAll('[data-status-id]').forEach(sel => {
-          sel.addEventListener('change', () => {
-            MS.updateLeadStatus(sel.getAttribute('data-status-id'), sel.value);
-            renderOrders();
-          });
-        });
+        document.getElementById('trGa4').value = cfg.googleAnalyticsId || '';
+        document.getElementById('trAdsId').value = cfg.googleAdsId || '';
+        document.getElementById('trAdsLbl').value = cfg.googleAdsLabel || '';
+        document.getElementById('trGtm').value = cfg.gtmId || '';
       }
 
-      document.querySelectorAll('[data-lead-filter]').forEach(b => {
-        b.addEventListener('click', () => {
-          document.querySelectorAll('[data-lead-filter]').forEach(x => x.classList.remove('active'));
-          b.classList.add('active');
-          currentFilter = b.getAttribute('data-lead-filter');
-          renderOrders();
-        });
+      document.getElementById('dripSlider').addEventListener('input', (e) => {
+        document.getElementById('dripSliderVal').textContent = e.target.value + ' URL / Gün';
       });
 
-      const drawer = document.getElementById('manualOrderDrawer');
-      document.getElementById('toggleNewOrderBtn').addEventListener('click', () => {
-        drawer.style.display = drawer.style.display === 'block' ? 'none' : 'block';
-      });
-      document.getElementById('cancelNewOrderBtn').addEventListener('click', () => {
-        drawer.style.display = 'none';
-      });
-      drawer.addEventListener('submit', (e) => {
+      document.getElementById('seoSettingsForm').addEventListener('submit', (e) => {
         e.preventDefault();
-        MS.addLead({
-          customer: document.getElementById('mCust').value.trim(),
-          phone: document.getElementById('mPhone').value.trim(),
-          city: document.getElementById('mCity').value.trim(),
-          brand: document.getElementById('mBrand').value.trim(),
-          device: document.getElementById('mBrand').value.trim(),
-          fault: document.getElementById('mFault').value.trim()
+        MS.saveConfig({
+          seoTitleTemplate: document.getElementById('seoTitleTpl').value.trim(),
+          seoMetaTemplate: document.getElementById('seoMetaTpl').value.trim(),
+          dailyDripLimit: Number(document.getElementById('dripSlider').value) || 250,
+          adsComplianceBanner: document.getElementById('adsShieldToggle').checked,
+          adsComplianceText: document.getElementById('adsShieldTextIn').value.trim()
         });
-        drawer.reset();
-        drawer.style.display = 'none';
-        renderOrders();
-      });
-      renderOrders();
-
-      // SEO & Toggles
-      const dripR = document.getElementById('seoDripRange');
-      dripR.addEventListener('input', () => {
-        document.getElementById('seoDripLabel').textContent = dripR.value + ' Sayfa / Gün';
-        MS.saveConfig({ dailyDripLimit: Number(dripR.value) });
-      });
-      document.getElementById('seoAdsCheck').addEventListener('change', (e) => {
-        MS.saveConfig({ adsComplianceBanner: e.target.checked });
+        renderOverviewStats();
+        flashToast('seoSavedToast');
       });
 
-      document.getElementById('serviceBranchToggles').innerHTML = MS.SERVICE_CATEGORIES.map(c => `
-        <button type="button" class="toggle-chip on"><span>✓</span><span>${c.name}</span></button>
-      `).join('');
-      document.getElementById('brandTogglesHost').innerHTML = MS.BRANDS.map(b => `
-        <button type="button" class="toggle-chip on"><span>✓</span><span>${b.name}</span></button>
-      `).join('');
-      document.querySelectorAll('.toggle-chip').forEach(ch => {
-        ch.addEventListener('click', () => {
-          ch.classList.toggle('on');
-          ch.querySelector('span').textContent = ch.classList.contains('on') ? '✓' : '+';
+      document.getElementById('trackingForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        MS.saveConfig({
+          googleAnalyticsId: document.getElementById('trGa4').value.trim(),
+          googleAdsId: document.getElementById('trAdsId').value.trim(),
+          googleAdsLabel: document.getElementById('trAdsLbl').value.trim(),
+          gtmId: document.getElementById('trGtm').value.trim()
         });
+        flashToast('trackingSavedToast');
       });
+
+      document.getElementById('exportJsonBtn').addEventListener('click', () => {
+        const blob = new Blob([MS.exportAllDataJson()], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'merkez-servis-tam-yedek.json';
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById('factoryResetBtn').addEventListener('click', () => {
+        MS.resetAllData();
+        initAll();
+      });
+
+      function initAll() {
+        loadContactForm();
+        loadSiteContentForm();
+        loadSeoAndTrackingForms();
+        renderCategoriesEditor();
+        renderBrandsManager();
+        renderFaultsManager();
+        renderReviewsAndFaqs();
+        renderTechsTable();
+        renderOrdersTable();
+        renderThemeAndColors();
+        renderOverviewStats();
+      }
+
+      window.addEventListener('merkez:palette-changed', () => {
+        renderThemeAndColors();
+        renderOverviewStats();
+      });
+      window.addEventListener('storage', initAll);
+      initAll();
     })();
   </script>
 </body>
