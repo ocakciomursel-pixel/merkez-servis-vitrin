@@ -1881,7 +1881,7 @@
               io.unobserve(ent.target);
             }
           });
-        }, { threshold: 0.06, rootMargin: '0px 0px -4% 0px' });
+        }, { threshold: 0.01, rootMargin: '0px 0px 40px 0px' });
         revealEls.forEach(el => io.observe(el));
       } else {
         revealEls.forEach(el => el.classList.add('is-visible'));
