@@ -39,10 +39,10 @@ $html = str_replace(
 );
 
 // Telefon numarası panelden değiştirilmişse sunucu tarafında da HTML içine doğrudan işle (Googlebot & anlık açılış için)
-$primaryDisplay = trim((string)($cfg['primaryPhoneDisplay'] ?? '444 60 82'));
-$primaryTel     = preg_replace('/[^\d+]/', '', $primaryDisplay) ?: '4446082';
-if ($primaryDisplay !== '444 60 82') {
-    $html = str_replace(['444 60 82', 'tel:4446082'], [htmlspecialchars($primaryDisplay, ENT_QUOTES, 'UTF-8'), 'tel:' . $primaryTel], $html);
+$primaryDisplay = trim((string)($cfg['primaryPhoneDisplay'] ?? '0850 380 02 02'));
+$primaryTel     = preg_replace('/[^\d+]/', '', $primaryDisplay) ?: '08503800202';
+if ($primaryDisplay !== '0850 380 02 02') {
+    $html = str_replace(['0850 380 02 02', 'tel:08503800202'], [htmlspecialchars($primaryDisplay, ENT_QUOTES, 'UTF-8'), 'tel:' . $primaryTel], $html);
 }
 
 // Search Console, Yandex, Bing, GA4, Google Ads ve Özel <head> kodlarını sunucu tarafında <head> içine göm

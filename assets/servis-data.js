@@ -1,43 +1,42 @@
-// Merkez Servis Full Live CMS, Google Ads Landing Engine & Real-Time Visitor Telemetry v3
+// Merkez Servis Full Live CMS, Google Ads Landing Engine & Real-Time Visitor Telemetry v4
 // 4 Distinct Themes x 5 Live Color Palettes, 38 Authentic Brands (with custom vector SVG logos),
 // 71 Exact Google Ads Keywords (incl. Endustriyel Mutfak & Soguk Hava Deposu), 10 Ultra-HD Product Photo Branches,
-// 1-Click Global 444 60 82 Phone Sync, Search Console / GA4 / Ads Code Injector, and Dual PHP + LocalStorage Sync.
+// 1-Click Global 0850 380 02 02 Phone Sync, Search Console / GA4 / Ads Code Injector, and Dual PHP + LocalStorage Sync.
 
 (function () {
-  const STORAGE_KEY = 'merkez_servis_config_v3';
-  const LEADS_KEY = 'merkez_servis_leads_v3';
-  const TECHS_KEY = 'merkez_servis_techs_v3';
-  const CUSTOM_BRANDS_KEY = 'merkez_servis_custom_brands_v3';
-  const CUSTOM_FAULTS_KEY = 'merkez_servis_custom_faults_v3';
-  const REVIEWS_KEY = 'merkez_servis_reviews_v3';
-  const FAQS_KEY = 'merkez_servis_faqs_v3';
-  const VISITORS_KEY = 'merkez_servis_visitors_v3';
-  const SESSION_ID_KEY = 'merkez_servis_current_sid_v3';
-  const HIDE_PILL_KEY = 'merkez_servis_hide_demo_pill_v3';
+  const STORAGE_KEY = 'merkez_servis_config_v4';
+  const LEADS_KEY = 'merkez_servis_leads_v4';
+  const TECHS_KEY = 'merkez_servis_techs_v4';
+  const CUSTOM_BRANDS_KEY = 'merkez_servis_custom_brands_v4';
+  const CUSTOM_FAULTS_KEY = 'merkez_servis_custom_faults_v4';
+  const REVIEWS_KEY = 'merkez_servis_reviews_v4';
+  const FAQS_KEY = 'merkez_servis_faqs_v4';
+  const VISITORS_KEY = 'merkez_servis_visitors_v4';
+  const SESSION_ID_KEY = 'merkez_servis_current_sid_v4';
+  const HIDE_PILL_KEY = 'merkez_servis_hide_demo_pill_v4';
 
   const liveChannel = (typeof BroadcastChannel !== 'undefined')
-    ? new BroadcastChannel('merkez_servis_live_v3')
+    ? new BroadcastChannel('merkez_servis_live_v4')
     : null;
 
   const DEFAULT_CONFIG = {
-    companyName: 'Merkez Beyaz Eşya Servisi',
-    legalName: 'Merkez Beyaz Eşya Servisi Ticaret Limited Şirketi',
+    companyName: 'Merkez Yetkili Servisi',
+    legalName: 'Merkez Teknik Servis Hizmetleri Ticaret Limited Şirketi',
     headOfficeAddress: 'Yenişehir Mah. Kuvayi Milliye Cad. No:42 Yenişehir / Mersin',
     taxInfo: 'İstiklal V.D. · Mersis: 0618094281000019',
-    primaryPhoneDisplay: '444 60 82',
-    primaryPhoneTel: '4446082',
+    primaryPhoneDisplay: '0850 380 02 02',
+    primaryPhoneTel: '08503800202',
     secondaryPhoneDisplay: '0850 380 02 02',
     secondaryPhoneTel: '08503800202',
-    emergencyNightPhone: '444 60 82',
-    whatsappPhone: '904446082',
-    whatsappDisplay: '444 60 82',
+    emergencyNightPhone: '0850 380 02 02',
+    whatsappPhone: '908503800202',
+    whatsappDisplay: '0850 380 02 02',
     singleNumberSync: true,
     savedPhonePresets: [
-      { label: 'Kurumsal Ana Hat (444)', phone: '444 60 82', wa: '444 60 82' },
-      { label: 'Ulusal Çağrı Hattı (0850)', phone: '0850 380 02 02', wa: '0850 380 02 02' },
+      { label: 'Ulusal Çağrı Merkezi (0850)', phone: '0850 380 02 02', wa: '0850 380 02 02' },
       { label: 'Nöbetçi Mobil Saha Hattı', phone: '0532 610 02 02', wa: '0532 610 02 02' }
     ],
-    whatsappGreeting: 'Merhaba, arızalı cihazım için teknik servis ve fiyat bilgisi almak istiyorum.',
+    whatsappGreeting: 'Merhaba, arızalı cihazım için yetkili servis ve fiyat bilgisi almak istiyorum.',
     workingHoursWeekday: '08:00 - 22:00',
     workingHoursWeekend: '09:00 - 20:00',
     nightShiftActive: true,
@@ -54,15 +53,15 @@
     paletteOverridden: false,
     dailyDripLimit: 250,
     adsComplianceBanner: true,
-    adsComplianceText: 'Garantisi sona ermiş tüm marka cihazlar için 1 yıl parça & işçilik garantili bağımsız özel teknik servis hizmetidir.',
+    adsComplianceText: '81 ilde tüm marka beyaz eşya, kombi, klima ve endüstriyel soğutma cihazları için 1 yıl orijinal parça ve işçilik garantili Yetkili Servisi hizmeti sunuyoruz.',
     warrantyMonths: 12,
     avgArrivalMinutes: 30,
     inspectionFeeTl: 450,
     inspectionNote: 'Onarım onaylandığında arıza tespit ve servis yönlendirme ücreti alınmaz.',
     floatingDockActive: true,
     liveDispatchTickerActive: true,
-    seoTitleTemplate: '{ilce} {marka} Servisi — {sure} Dk Yerinde Onarım | {telefon}',
-    seoMetaTemplate: '{il} {ilce} bölgesinde {marka} {hizmet} için {arac} gezici araçla ort. {sure} dakikada {garanti} ay parça garantili özel teknik servis. Hemen Ara: {telefon}',
+    seoTitleTemplate: '{il} {ilce} {marka} Yetkili Servisi — {sure} Dk Yerinde Onarım | {telefon}',
+    seoMetaTemplate: '{il} {ilce} bölgesinde {marka} {hizmet} için {arac} gezici araçla ort. {sure} dakikada {garanti} ay parça garantili Yetkili Servisi. Hemen Ara: {telefon}',
     siteDomainUrl: 'https://merkezservis.com.tr',
     googleSearchConsoleVerification: '',
     yandexVerification: '',
@@ -96,7 +95,7 @@
 
   function normalizeWaDigits(displayStr) {
     const digits = String(displayStr || '').replace(/\D/g, '');
-    if (!digits) return '904446082';
+    if (!digits) return '908503800202';
     if (digits.startsWith('90')) return digits;
     if (digits.startsWith('0')) return '9' + digits;
     return '90' + digits;
@@ -107,6 +106,23 @@
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return { ...DEFAULT_CONFIG };
       const parsed = JSON.parse(raw);
+      if (/^444/.test(String(parsed.primaryPhoneDisplay || '')) || /^444/.test(String(parsed.primaryPhoneTel || ''))) {
+        parsed.primaryPhoneDisplay = '0850 380 02 02';
+        parsed.primaryPhoneTel = '08503800202';
+      }
+      if (/^444/.test(String(parsed.emergencyNightPhone || ''))) {
+        parsed.emergencyNightPhone = '0850 380 02 02';
+      }
+      if (/^444/.test(String(parsed.whatsappDisplay || ''))) {
+        parsed.whatsappDisplay = '0850 380 02 02';
+        parsed.whatsappPhone = '908503800202';
+      }
+      if (parsed.adsComplianceText && /teknik\s*servis/i.test(parsed.adsComplianceText) && !/Yetkili\s*Servisi/i.test(parsed.adsComplianceText)) {
+        parsed.adsComplianceText = DEFAULT_CONFIG.adsComplianceText;
+      }
+      if (parsed.seoMetaTemplate && !/Yetkili\s*Servisi/i.test(parsed.seoMetaTemplate)) {
+        parsed.seoMetaTemplate = DEFAULT_CONFIG.seoMetaTemplate;
+      }
       return {
         ...DEFAULT_CONFIG,
         ...parsed,
@@ -161,7 +177,7 @@
 
   // 1-Click Global Phone Replacement Across Entire Website, 4 Themes, 38 Brand Pages, 71 Keyword Pages & JSON-LD
   function applySinglePhoneEverywhere(phoneDisplay, options) {
-    const clean = String(phoneDisplay || '').trim() || '444 60 82';
+    const clean = String(phoneDisplay || '').trim() || '0850 380 02 02';
     const opts = options || {};
     const patch = {
       primaryPhoneDisplay: clean,
@@ -232,20 +248,43 @@
       .replace(/^-+|-+$/g, '') || ('marka-' + Date.now());
   }
 
+  function resolveCleanFolderHref(folderPath) {
+    const clean = String(folderPath || '').replace(/\/+$/, '');
+    if (typeof window !== 'undefined' && window.location && window.location.protocol === 'file:') {
+      return `${clean}/index.html`;
+    }
+    return `${clean}/`;
+  }
+
   function getBrandUrl(slug, prefix) {
     const pre = prefix || './';
-    return `${pre}marka-servisi/index.html?marka=${encodeURIComponent(slug)}`;
+    const bSlug = String(slug || 'bosch').replace(/-servisi$/i, '');
+    return resolveCleanFolderHref(`${pre}${encodeURIComponent(bSlug)}-servisi`);
   }
 
   function getServiceUrl(slug, prefix) {
     const pre = prefix || './';
-    return `${pre}marka-servisi/index.html?hizmet=${encodeURIComponent(slug)}`;
+    const sSlug = String(slug || 'beyaz-esya-servisi').replace(/^\/+|\/+$/g, '');
+    return resolveCleanFolderHref(`${pre}${encodeURIComponent(sSlug)}`);
+  }
+
+  function getProvinceUrl(provSlug, prefix) {
+    const pre = prefix || './';
+    const pSlug = slugifyTr(provSlug || 'ankara').replace(/-servisi$/i, '');
+    return resolveCleanFolderHref(`${pre}${encodeURIComponent(pSlug)}-servisi`);
   }
 
   function getLocalLandingUrl(provSlug, distName, brandSlug, prefix) {
     const pre = prefix || './';
-    const dSlug = slugifyTr(distName || 'merkez');
-    return `${pre}marka-servisi/index.html?marka=${encodeURIComponent(brandSlug)}&il=${encodeURIComponent(provSlug)}&ilce=${encodeURIComponent(dSlug)}`;
+    const pSlug = slugifyTr(provSlug || 'ankara').replace(/-servisi$/i, '');
+    const bSlug = brandSlug ? slugifyTr(brandSlug).replace(/-servisi$/i, '') : '';
+    const dSlug = distName ? slugifyTr(distName) : '';
+    const folder = bSlug ? `${pre}${pSlug}-${bSlug}-servisi` : `${pre}${pSlug}-servisi`;
+    const baseHref = resolveCleanFolderHref(folder);
+    if (dSlug && dSlug !== 'merkez' && dSlug !== pSlug) {
+      return `${baseHref}?ilce=${encodeURIComponent(dSlug)}`;
+    }
+    return baseHref;
   }
 
   // Authentic Custom Vector SVG Brand Wordmarks & Emblems for All 38 Brands
@@ -472,7 +511,7 @@
     const label = String(brand.name || 'MARKA').toUpperCase();
     const accent = brand.accent || '#0066ff';
     const w = Math.max(118, label.length * 10 + 36);
-    return `<svg viewBox="0 0 ${w} 34" width="${w}" height="34" role="img" aria-label="${brand.name} Özel Teknik Servis" xmlns="http://www.w3.org/2000/svg">
+    return `<svg viewBox="0 0 ${w} 34" width="${w}" height="34" role="img" aria-label="${brand.name} Yetkili Servisi" xmlns="http://www.w3.org/2000/svg">
       <rect x="3" y="7" width="18" height="20" rx="5" fill="${accent}"/>
       <text x="12" y="21.5" text-anchor="middle" fill="#fff" font-family="'Plus Jakarta Sans',sans-serif" font-size="12" font-weight="800">${label.charAt(0)}</text>
       <text x="28" y="22.5" fill="currentColor" font-family="'Plus Jakarta Sans',system-ui,sans-serif" font-size="14.5" font-weight="800" letter-spacing="0.05em">${label}</text>
@@ -700,12 +739,12 @@
     // Brand Keywords (38)
     ...BRANDS.map(b => ({
       slug: `${b.slug}-servisi`,
-      keyword: `${b.name.replace(/\./g, '')} Servisi`,
+      keyword: `${b.name.replace(/\./g, '')} Yetkili Servisi`,
       type: 'brand',
       brandSlug: b.slug,
       catId: /kombi|ısıtma/i.test(b.group) && !/beyaz/i.test(b.group) ? 'kombi' : 'beyaz-esya',
       photo: b.photo || 'photos/hero-technician-kitchen.jpg',
-      groupLabel: 'Marka Özel Servisleri'
+      groupLabel: 'Marka Yetkili Servisleri'
     })),
     // Household White Goods & TV Keywords
     { slug: 'beyaz-esya-servisi', keyword: 'Beyaz Eşya Servisi', type: 'service', catId: 'beyaz-esya', photo: 'photos/hero-technician-kitchen.jpg', groupLabel: 'Beyaz Eşya & TV' },
@@ -834,11 +873,11 @@
 
   // Leads / Work Orders
   const INITIAL_LEADS = [
-    { id: 'SRV-2026-8419', createdAt: 'Bugün 08:32', source: '444 60 82 Çağrı', customer: 'Hakan Demirtaş', phone: '0532 614 88 21', city: 'İstanbul / Kadıköy', brand: 'Vaillant', device: 'Yoğuşmalı Kombi', fault: 'F28 Ateşleme Hatası', tech: 'Murat Usta (Anadolu-2)', status: 'assigned', feeTl: 2450, commissionPct: 30, commissionTl: 735 },
+    { id: 'SRV-2026-8419', createdAt: 'Bugün 08:32', source: '0850 380 02 02 Çağrı', customer: 'Hakan Demirtaş', phone: '0532 614 88 21', city: 'İstanbul / Kadıköy', brand: 'Vaillant', device: 'Yoğuşmalı Kombi', fault: 'F28 Ateşleme Hatası', tech: 'Murat Usta (Anadolu-2)', status: 'assigned', feeTl: 2450, commissionPct: 30, commissionTl: 735 },
     { id: 'SRV-2026-8418', createdAt: 'Bugün 08:19', source: 'Google Ads Form', customer: 'Selin Yurdakul', phone: '0544 309 41 10', city: 'Mersin / Yenişehir', brand: 'Bosch', device: 'Çamaşır Makinesi', fault: 'E18 Su Boşaltmıyor', tech: 'Kemal Usta (Mersin-1)', status: 'onway', feeTl: 1850, commissionPct: 30, commissionTl: 555 },
-    { id: 'SRV-2026-8417', createdAt: 'Bugün 07:54', source: 'WhatsApp', customer: 'Ahmet Karaca', phone: '0505 782 19 63', city: 'Ankara / Çankaya', brand: 'Endüstriyel Soğutma', device: 'Soğuk Hava Deposu', fault: 'Kompresör Devreye Girmiyor', tech: 'Emre Usta (Ankara-2)', status: 'assigned', feeTl: 4200, commissionPct: 35, commissionTl: 1470 },
-    { id: 'SRV-2026-8415', createdAt: 'Dün 21:40', source: '444 60 82 Çağrı', customer: 'Derya Özkan', phone: '0533 418 07 54', city: 'İzmir / Karşıyaka', brand: 'Siemens', device: 'Bulaşık Makinesi', fault: 'E15 AquaStop Su Kaçağı', tech: 'Serkan Usta (İzmir-3)', status: 'completed', feeTl: 2100, commissionPct: 30, commissionTl: 630 },
-    { id: 'SRV-2026-8412', createdAt: 'Dün 18:15', source: '444 60 82 Çağrı', customer: 'Mustafa Çelik', phone: '0542 891 33 08', city: 'Bursa / Nilüfer', brand: 'E.C.A.', device: 'Proteus Premix Kombi + Petek', fault: 'E01 Hatası + İlaçlı Petek', tech: 'Orhan Usta (Bursa-1)', status: 'completed', feeTl: 3200, commissionPct: 30, commissionTl: 960 }
+    { id: 'SRV-2026-8417', createdAt: 'Bugün 07:54', source: '0850 380 02 02 Çağrı', customer: 'Ahmet Karaca', phone: '0505 782 19 63', city: 'Ankara / Çankaya', brand: 'Endüstriyel Soğutma', device: 'Soğuk Hava Deposu', fault: 'Kompresör Devreye Girmiyor', tech: 'Emre Usta (Ankara-2)', status: 'assigned', feeTl: 4200, commissionPct: 35, commissionTl: 1470 },
+    { id: 'SRV-2026-8415', createdAt: 'Dün 21:40', source: '0850 380 02 02 Çağrı', customer: 'Derya Özkan', phone: '0533 418 07 54', city: 'İzmir / Karşıyaka', brand: 'Siemens', device: 'Bulaşık Makinesi', fault: 'E15 AquaStop Su Kaçağı', tech: 'Serkan Usta (İzmir-3)', status: 'completed', feeTl: 2100, commissionPct: 30, commissionTl: 630 },
+    { id: 'SRV-2026-8412', createdAt: 'Dün 18:15', source: '0850 380 02 02 Çağrı', customer: 'Mustafa Çelik', phone: '0542 891 33 08', city: 'Bursa / Nilüfer', brand: 'E.C.A.', device: 'Proteus Premix Kombi + Petek', fault: 'E01 Hatası + İlaçlı Petek', tech: 'Orhan Usta (Bursa-1)', status: 'completed', feeTl: 3200, commissionPct: 30, commissionTl: 960 }
   ];
 
   function getLeads() {
@@ -925,7 +964,7 @@
 
   // Verified Customer Reviews
   const INITIAL_REVIEWS = [
-    { id: 'REV-1', customer: 'Selin Y.', city: 'Mersin / Yenişehir', ticketId: 'SRV-2026-8418', brand: 'Bosch Çamaşır', rating: 5, text: 'Bosch çamaşır makinem gece E18 hatası verdi. Sabah 444 60 82 hattından kayıt açtım, 30 dakikada Kemal Usta kapıdaydı. Pompayı yerinde değiştirip 1 yıllık dijital garanti fişimi ilettiler.' },
+    { id: 'REV-1', customer: 'Selin Y.', city: 'Mersin / Yenişehir', ticketId: 'SRV-2026-8418', brand: 'Bosch Çamaşır', rating: 5, text: 'Bosch çamaşır makinem gece E18 hatası verdi. Sabah 0850 380 02 02 hattından kayıt açtım, 30 dakikada Kemal Usta kapıdaydı. Pompayı yerinde değiştirip 1 yıllık dijital garanti fişimi ilettiler.' },
     { id: 'REV-2', customer: 'Hakan D.', city: 'İstanbul / Kadıköy', ticketId: 'SRV-2026-8419', brand: 'Vaillant Kombi', rating: 5, text: 'Vaillant kombimiz F28 ateşleme arızasına geçmişti. Anakart değişecek diye korkuyorduk, gaz valfi ve elektrot kalibrasyonuyla çok makul fiyata aynı gün çözdüler.' },
     { id: 'REV-3', customer: 'Ahmet K. (Restoran İşletmesi)', city: 'Ankara / Çankaya', ticketId: 'SRV-2026-8417', brand: 'Soğuk Hava Deposu', rating: 5, text: 'Restoranımızın soğuk hava deposu ve sanayi tipi bulaşık makinesi arızasına 25 dakika içinde acil ekip gönderdiler, ürünlerimiz bozulmadan yerinde çözdüler.' },
     { id: 'REV-4', customer: 'Mustafa Ç.', city: 'Bursa / Nilüfer', ticketId: 'SRV-2026-8412', brand: 'E.C.A. Kombi + Petek', rating: 5, text: 'Peteklerin alt yarısı buz gibiydi. Darbeli makineyle ilaçlı temizlik yapıp termal kamerayla öncesi-sonrası ısı farkını gösterdiler, kombi en kısıkta bile evi ısıtıyor.' },
@@ -967,7 +1006,7 @@
   const INITIAL_FAQS = [
     { id: 'FAQ-1', q: 'Değişen yedek parçalar ne kadar süre garantili?', a: 'Cihazınızda değiştirilen tüm elektronik ve mekanik parçalar, size teslim edilen dijital ve basılı servis iş emri fişi üzerinde 1 yıl (12 ay) resmi firma garantimiz altındadır.' },
     { id: 'FAQ-2', q: 'Onarım öncesi net fiyat bilgisi veriliyor mu?', a: 'Kesinlikle. Teknisyenimiz adreste dijital ölçümle arızayı netleştirdikten sonra toplam parça ve işçilik tutarını size sunar; onayınız olmadan hiçbir sürpriz işlem yapılmaz.' },
-    { id: 'FAQ-3', q: 'Yetkili servis misiniz yoksa özel servis mi?', a: 'Firmamız üretici garantisi sona ermiş tüm marka ev tipi ve endüstriyel cihazlara hızlı, şeffaf fiyatlı ve 1 yıl firma garantili onarım sunan bağımsız özel teknik servistir.' },
+    { id: 'FAQ-3', q: 'Yetkili servis güvencesi ve orijinal yedek parça sağlıyor musunuz?', a: 'Merkez Servis, tüm marka ev tipi ve endüstriyel cihazlara hızlı, şeffaf fiyatlı ve 1 yıl resmi garantili onarım sunan Yetkili Servisi olarak hizmet vermektedir.' },
     { id: 'FAQ-4', q: 'Endüstriyel mutfak, soğuk hava deposu ve buz makinesine bakıyor musunuz?', a: 'Evet. Restoran, otel, market, kafe ve yemekhanelerdeki sanayi tipi buzdolabı, endüstriyel bulaşık/çamaşır makinesi, soğuk hava deposu, buz makinesi, sanayi tipi ocak ve çay kazanlarına aynı gün öncelikli acil ekip yönlendiriyoruz.' }
   ];
 
@@ -1017,10 +1056,10 @@
       lastSeenTime: '08:44:30',
       durationSec: 198,
       pages: [
-        { title: 'Bosch Servisi Özel Sayfası', path: '/bosch-servisi', time: '08:41' },
+        { title: 'Bosch Yetkili Servisi Sayfası', path: '/bosch-servisi', time: '08:41' },
         { title: 'Çamaşır Makinesi Servisi (E18)', path: '/camasir-makinesi-servisi', time: '08:42' }
       ],
-      actions: ['🔍 E18 Kodu Sorguladı', '📞 Tıkla Ara: 444 60 82'],
+      actions: ['🔍 E18 Kodu Sorguladı', '📞 Tıkla Ara: 0850 380 02 02'],
       convertedCall: true,
       adClickCount: 1,
       suspectedFraud: false
@@ -1040,10 +1079,10 @@
       lastSeenTime: '08:29:49',
       durationSec: 164,
       pages: [
-        { title: 'E.C.A. Servisi Özel Sayfası', path: '/eca-servisi', time: '08:27' },
+        { title: 'E.C.A. Yetkili Servisi Sayfası', path: '/eca-servisi', time: '08:27' },
         { title: 'Kombi Bakımı & Petek Temizliği', path: '/kombi-servisi', time: '08:28' }
       ],
-      actions: ['📞 Tıkla Ara: 444 60 82'],
+      actions: ['📞 Tıkla Ara: 0850 380 02 02'],
       convertedCall: true,
       adClickCount: 1,
       suspectedFraud: false
@@ -1066,7 +1105,7 @@
         { title: 'Soğuk Hava Deposu Servisi', path: '/soguk-hava-deposu-servisi', time: '08:09' },
         { title: 'Endüstriyel Mutfak Servisi', path: '/endustriyel-mutfak-servisi', time: '08:11' }
       ],
-      actions: ['💬 WhatsApp Konum/Fotoğraf Tıkladı', '📋 Servis Formu Gönderdi'],
+      actions: ['📞 Tıkla Ara: 0850 380 02 02', '📋 Servis Formu Gönderdi'],
       convertedCall: true,
       adClickCount: 1,
       suspectedFraud: false
@@ -1109,10 +1148,10 @@
       durationSec: 145,
       pages: [
         { title: 'Ana Sayfa', path: '/', time: '07:38' },
-        { title: 'Arçelik Servisi Özel Sayfası', path: '/arcelik-servisi', time: '07:39' },
+        { title: 'Arçelik Yetkili Servisi Sayfası', path: '/arcelik-servisi', time: '07:39' },
         { title: 'Buzdolabı Servisi', path: '/buzdolabi-servisi', time: '07:40' }
       ],
-      actions: ['📞 Tıkla Ara: 444 60 82'],
+      actions: ['📞 Tıkla Ara: 0850 380 02 02'],
       convertedCall: true,
       adClickCount: 0,
       suspectedFraud: false
@@ -1756,7 +1795,7 @@
       { key: 'tema2', label: 'Tema 2: Google Ads Hızlı Çağrı', href: pre + 'tema-2-hizli-cagri/index.html' },
       { key: 'tema3', label: 'Tema 3: Prestij Showroom', href: pre + 'tema-3-prestij/index.html' },
       { key: 'tema4', label: 'Tema 4: Apple Galeri Vitrin', href: pre + 'tema-4-apple-vitrin/index.html' },
-      { key: 'brand', label: 'Örnek Marka Sayfası (Bosch)', href: pre + 'marka-servisi/index.html?marka=bosch' },
+      { key: 'brand', label: 'Örnek Marka Sayfası (Bosch)', href: getBrandUrl('bosch', pre) },
       { key: 'admin', label: 'Yönetim & Ziyaretçi Paneli', href: pre + 'yonetim-paneli/index.html' }
     ];
 
@@ -1856,11 +1895,7 @@
 
     const dockHost = document.getElementById('floatingDockHost');
     if (dockHost) {
-      dockHost.innerHTML = `<div class="floating-dock" aria-label="Hızlı Tıkla Ara ve WhatsApp" style="${cfg.floatingDockActive ? '' : 'display:none;'}">
-        <a class="dock-wa" data-servis-wa href="https://wa.me/${cfg.whatsappPhone}" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <span>WhatsApp</span>
-        </a>
+      dockHost.innerHTML = `<div class="floating-dock" aria-label="Hızlı Tıkla Ara" style="${cfg.floatingDockActive ? '' : 'display:none;'}">
         <a class="dock-call tnum" data-servis-tel href="tel:${cfg.primaryPhoneTel}">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
           <span>Tıkla Ara: <span data-servis-phone>${cfg.primaryPhoneDisplay}</span></span>
@@ -1910,7 +1945,7 @@
     const topFault = matchingFaults[0] || faults[0];
 
     const distSlug = slugifyTr(dist);
-    const urlPath = `/${prov.slug}/${distSlug}-${brand.slug}-servisi/`;
+    const urlPath = `/${prov.slug}-${brand.slug}-servisi/`;
     const livePreviewHref = getLocalLandingUrl(prov.slug, dist, brand.slug, prefix || '../');
     const tokens = {
       '{il}': prov.name,
@@ -1925,13 +1960,13 @@
     const applyTpl = (tpl) => Object.entries(tokens).reduce((acc, [k, v]) => acc.split(k).join(v), tpl);
 
     const title = applyTpl(cfg.seoTitleTemplate || DEFAULT_CONFIG.seoTitleTemplate);
-    const h1 = `${prov.name} ${dist} ${brand.name} Özel Teknik Servisi`;
-    const uniqueIntro = `${prov.name} ${dist} bölgesindeki gezici ${brand.name} (${brand.group}) ekibimiz şu an ${prov.activeVans} aktif servis aracıyla ortalama ${prov.eta} dakika içinde adresinize ulaşmaktadır. Garantisi sona ermiş ${brand.name} cihazlarınızda ${(brand.codes || ['E18']).join(', ')} arıza kodları başta olmak üzere tüm elektronik kart, pompa ve ısıtma/soğutma arızaları ${cfg.warrantyMonths} ay parça garantili iş emri fişiyle yerinde giderilir. Acil Çağrı Hattı: ${cfg.primaryPhoneDisplay}.`;
+    const h1 = `${prov.name} ${dist} ${brand.name} Yetkili Servisi`;
+    const uniqueIntro = `${prov.name} ${dist} bölgesindeki gezici ${brand.name} (${brand.group}) Yetkili Servisi ekibimiz şu an ${prov.activeVans} aktif servis aracıyla ortalama ${prov.eta} dakika içinde adresinize ulaşmaktadır. ${brand.name} cihazlarınızda ${(brand.codes || ['E18']).join(', ')} arıza kodları başta olmak üzere tüm elektronik kart, pompa ve ısıtma/soğutma arızaları ${cfg.warrantyMonths} ay orijinal parça garantili iş emri fişiyle yerinde giderilir. Acil Çağrı Hattı: ${cfg.primaryPhoneDisplay}.`;
 
     const schemaObj = {
       '@context': 'https://schema.org',
       '@type': 'HomeAndConstructionBusiness',
-      name: `${cfg.companyName} - ${dist} ${brand.name} Özel Servis Birimi`,
+      name: `${cfg.companyName} - ${prov.name} ${dist} ${brand.name} Yetkili Servisi`,
       telephone: '+90-' + cfg.primaryPhoneTel.replace(/^0/, ''),
       address: cfg.headOfficeAddress,
       areaServed: {
@@ -1948,7 +1983,7 @@
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
-          name: `${dist} ${brand.name} ${cat.name}`,
+          name: `${prov.name} ${dist} ${brand.name} Yetkili Servisi (${cat.name})`,
           description: applyTpl(cfg.seoMetaTemplate || DEFAULT_CONFIG.seoMetaTemplate)
         }
       }
@@ -1989,6 +2024,7 @@
     toggleBrandActive,
     getBrandUrl,
     getServiceUrl,
+    getProvinceUrl,
     getLocalLandingUrl,
     getCategories,
     getActiveCategories,

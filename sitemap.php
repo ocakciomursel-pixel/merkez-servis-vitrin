@@ -1,6 +1,6 @@
 <?php
 /**
- * Merkez Beyaz Eşya Servisi — Dinamik Google Search Console XML Site Haritası (/sitemap.xml)
+ * Merkez Yetkili Servisi — Dinamik Google Search Console XML Site Haritası (/sitemap.xml)
  */
 
 header('Content-Type: application/xml; charset=utf-8');
@@ -38,12 +38,33 @@ $services = [
     'soguk-hava-deposu-servisi','sogutma-sistemleri-servisi','buz-makinesi-servisi','cay-kazani-tamircisi'
 ];
 
+$provinces = [
+    'adana','adiyaman','afyonkarahisar','agri','amasya','ankara','antalya','artvin','aydin','balikesir',
+    'bilecik','bingol','bitlis','bolu','burdur','bursa','canakkale','cankiri','corum','denizli',
+    'diyarbakir','edirne','elazig','erzincan','erzurum','eskisehir','gaziantep','giresun','gumushane','hakkari',
+    'hatay','isparta','mersin','istanbul','izmir','kars','kastamonu','kayseri','kirklareli','kirsehir',
+    'kocaeli','konya','kutahya','malatya','manisa','kahramanmaras','mardin','mugla','mus','nevsehir',
+    'nigde','ordu','rize','sakarya','samsun','siirt','sinop','sivas','tekirdag','tokat',
+    'trabzon','tunceli','sanliurfa','usak','van','yozgat','zonguldak','aksaray','bayburt','karaman',
+    'kirikkale','batman','sirnak','bartin','ardahan','igdir','yalova','karabuk','kilis','osmaniye','duzce'
+];
+
+$majorCities = ['istanbul','ankara','izmir','bursa','antalya','adana','konya','kocaeli','gaziantep','mersin'];
+
 $urls = [$base . '/'];
 foreach ($brands as $b) {
-    $urls[] = $base . '/' . $b . '-servisi';
+    $urls[] = $base . '/' . $b . '-servisi/';
 }
 foreach ($services as $s) {
-    $urls[] = $base . '/' . $s;
+    $urls[] = $base . '/' . $s . '/';
+}
+foreach ($provinces as $p) {
+    $urls[] = $base . '/' . $p . '-yetkili-servisi/';
+}
+foreach ($majorCities as $c) {
+    foreach ($brands as $b) {
+        $urls[] = $base . '/' . $c . '-' . $b . '-servisi/';
+    }
 }
 
 echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";

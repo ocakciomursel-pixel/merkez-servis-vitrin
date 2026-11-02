@@ -1,4 +1,4 @@
-# Merkez Beyaz Eşya Servisi — Temiz Google Ads & SEO URL Yapılandırması (Apache / LiteSpeed / cPanel)
+# Merkez Yetkili Servisi — Temiz Google Ads & SEO URL Yapılandırması (Apache / LiteSpeed / cPanel)
 DirectoryIndex index.php index.html
 Options -Indexes
 
@@ -18,7 +18,10 @@ Options -Indexes
   # 81 İl x 973 İlçe x 38 Marka Yerel SEO URL'leri (Örn: /mersin/yenisehir-bosch-servisi)
   RewriteRule ^([a-z0-9\-]+)/([a-z0-9\-]+)-([a-z0-9]+)-servisi/?$ marka-servisi/index.html?il=$1&ilce=$2&marka=$3 [QSA,L]
 
-  # 38 Marka Özel Google Ads Açılış Sayfaları (Örn: /bosch-servisi, /eca-servisi, /arcelik-servisi)
+  # 81 İl + 38 Marka Birleşik URL'leri (Örn: /ankara-bosch-servisi)
+  RewriteRule ^([a-z0-9]+)-(arcelik|beko|bosch|siemens|profilo|samsung|lg|vestel|eca|vaillant|viessmann|buderus|demirdokum|baymak|alarko|baykan|altus|miele|electrolux|aeg|regal|seg|sharp|hotpoint|ariston|indesit|ferroli|airfel|protherm|immergas|lambert|gaggenau|franke|teka|beretta|zanussi|westinghouse|amana)-servisi/?$ marka-servisi/index.html?il=$1&marka=$2 [QSA,L]
+
+  # 38 Marka Google Ads Yetkili Servisi Sayfaları (Örn: /bosch-servisi, /eca-servisi, /arcelik-servisi)
   RewriteRule ^(arcelik|beko|bosch|siemens|profilo|samsung|lg|vestel|eca|vaillant|viessmann|buderus|demirdokum|baymak|alarko|baykan|altus|miele|electrolux|aeg|regal|seg|sharp|hotpoint|ariston|indesit|ferroli|airfel|protherm|immergas|lambert|gaggenau|franke|teka|beretta|zanussi|westinghouse|amana)-servisi/?$ marka-servisi/index.html?marka=$1 [QSA,L]
 
   # 71 Hizmet & Endüstriyel / Soğuk Hava Google Ads Sayfaları (Örn: /kombi-servisi, /soguk-hava-deposu-servisi, /cay-kazani-tamircisi)
