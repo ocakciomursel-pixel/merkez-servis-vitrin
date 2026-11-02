@@ -21,7 +21,7 @@
 
   const DEFAULT_CONFIG = {
     companyName: 'Merkez Yetkili Servisi',
-    legalName: 'Merkez Teknik Servis Hizmetleri Ticaret Limited Şirketi',
+    legalName: 'Merkez Yetkili Servisi Hizmetleri Ticaret Limited Şirketi',
     headOfficeAddress: 'Yenişehir Mah. Kuvayi Milliye Cad. No:42 Yenişehir / Mersin',
     taxInfo: 'İstiklal V.D. · Mersis: 0618094281000019',
     primaryPhoneDisplay: '0850 380 02 02',
