@@ -609,7 +609,7 @@
             </div>
             <div class="showcase-body">
               <h3>Tema 4: Apple Galeri &amp; 2 Adımlı Cihaz / Marka Seçici</h3>
-              <p>Apple Store berraklığında galeri deneyimi: müşteri 1. adımda arızalı cihazının fotoğrafını, 2. adımda orijinal marka logosunu seçip tek dokunuşla <strong>0850 380 02 02</strong>'yi arar veya markanın kendi bağımsız Yetkili Servisi URL'sine geçer.</p>
+              <p>Apple Store berraklığında galeri deneyimi: müşteri 1. adımda arızalı cihazının fotoğrafını, 2. adımda orijinal marka logosunu seçip tek dokunuşla <strong>0850 380 02 02</strong>'yi arar veya markanın kendi Yetkili Servisi URL'sine geçer.</p>
               <div class="feature-bullets">
                 <span class="f-chip">2 Adımlı Görsel Cihaz + Marka Seçici</span>
                 <span class="f-chip">Tam Boy Ultra-HD Ürün Galerisi</span>
@@ -661,19 +661,19 @@
       <div class="container-xl">
         <div style="margin-bottom:1.8rem;" class="reveal-up">
           <span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">Her Bölüm Ayrı Bir Sayfa &amp; Ayrı Kopyalanabilir URL</span>
-          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0.45rem;">38 Orijinal Marka Logosu &amp; 71 Google Ads Bağımsız Yetkili Servisi Sayfası</h2>
+          <h2 class="font-outfit" style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin:0.3rem 0 0.45rem;">38 Orijinal Marka Logosu &amp; 71 Google Ads Yetkili Servisi Sayfası</h2>
           <p style="margin:0;color:var(--muted);max-width:74ch;font-size:0.93rem;">
-            Aşağıdaki herhangi bir markaya, hizmete veya il+marka bölümüne tıkladığınızda doğrudan <strong>kendi bağımsız URL'sine</strong> (ör. <code>/bosch-servisi/</code>, <code>/ankara-bosch-servisi/</code>, <code>/kombi-servisi/</code>) gider; tarayıcı adres çubuğundaki linki doğrudan kopyalayıp Google Ads reklamlarınıza yapıştırabilirsiniz:
+            Aşağıdaki herhangi bir markaya, hizmete veya il+marka bölümüne tıkladığınızda doğrudan <strong>kendi doğrudan URL'sine</strong> (ör. <code>/bosch-servisi/</code>, <code>/ankara-bosch-servisi/</code>, <code>/kombi-servisi/</code>) gider; tarayıcı adres çubuğundaki linki doğrudan kopyalayıp Google Ads reklamlarınıza yapıştırabilirsiniz:
           </p>
         </div>
 
         <h3 style="font-size:0.92rem;margin:0 0 0.75rem;color:var(--ink-2);">1. 38 Markanın Orijinal Logolu Yetkili Servisi Sayfaları (Her Biri Ayrı URL — Tıklayıp Test Edin):</h3>
         <div id="hubBrandsGrid" class="brand-demo-grid reveal-up"></div>
 
-        <h3 style="font-size:0.92rem;margin:0 0 0.75rem;color:var(--ink-2);">2. Ev Tipi, Kombi/Klima, Endüstriyel Mutfak &amp; Soğuk Hava Deposu Bağımsız Google Ads Sayfaları:</h3>
+        <h3 style="font-size:0.92rem;margin:0 0 0.75rem;color:var(--ink-2);">2. Ev Tipi, Kombi/Klima, Endüstriyel Mutfak &amp; Soğuk Hava Deposu Yetkili Servisi Google Ads Sayfaları:</h3>
         <div id="hubKeywordsPills" class="kw-demo-pills reveal-up"></div>
 
-        <h3 style="font-size:0.92rem;margin:1.6rem 0 0.75rem;color:var(--ink-2);">3. Örnek İl × Marka Bağımsız Yetkili Servisi Sayfaları (Ankara, İstanbul, İzmir, Mersin, Bursa, Antalya...):</h3>
+        <h3 style="font-size:0.92rem;margin:1.6rem 0 0.75rem;color:var(--ink-2);">3. Örnek İl × Marka Yetkili Servisi Sayfaları (Ankara, İstanbul, İzmir, Mersin, Bursa, Antalya...):</h3>
         <div id="hubCityBrandPills" class="kw-demo-pills reveal-up"></div>
       </div>
     </section>
@@ -705,7 +705,7 @@
           <div class="extra-card">
             <span class="extra-num">04</span>
             <h3 style="margin:0 0 0.4rem;font-size:1.06rem;">Tam Google İndeksleme &amp; Ayrı Sayfa URL Yapısı</h3>
-            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Her marka, hizmet ve şehir bölümü kendi bağımsız HTML dosyasına, statik başlığına, Schema.org verisine ve sitemap.xml kaydına sahiptir.</p>
+            <p style="margin:0;color:var(--muted);font-size:0.87rem;">Her marka, hizmet ve şehir bölümü kendi müstakil HTML dosyasına, statik başlığına, Schema.org verisine ve sitemap.xml kaydına sahiptir.</p>
           </div>
           <div class="extra-card">
             <span class="extra-num">05</span>
@@ -804,7 +804,7 @@
       const brandsGrid = document.getElementById('hubBrandsGrid');
       if (brandsGrid) {
         brandsGrid.innerHTML = MS.getAllBrands().map(b => `
-          <a class="brand-demo-tile" href="${MS.getBrandUrl(b.slug, './')}" title="${b.name} Yetkili Servisi Bağımsız Sayfası">
+          <a class="brand-demo-tile" href="${MS.getBrandUrl(b.slug, './')}" title="${b.name} Yetkili Servisi Sayfası">
             ${MS.renderBrandMarkSvg(b, 26)}
           </a>
         `).join('');

@@ -14,7 +14,7 @@ Sistem herhangi bir veritabanı (MySQL) kurulumu gerektirmeden, doğrudan standa
 - **Google Search Console & Google Ads Kodları (`5. Sekme`):** Hiçbir yazılım dosyasına dokunmadan Search Console doğrulama kodunuzu, Google Analytics 4 ve Google Ads telefon dönüşüm kodunuzu kutuya yapıştırıp kaydedebilirsiniz.
 - **Hazır Site Haritası:** `https://siteniz.com/sitemap.xml` adresi Search Console'a eklenmeye hazırdır.
 
-## 3. Hazır Bağımsız Google Ads Yetkili Servisi Açılış Sayfaları (Örnekler)
+## 3. Hazır Google Ads Yetkili Servisi Açılış Sayfaları (Örnekler)
 - `https://siteniz.com/bosch-servisi/`
 - `https://siteniz.com/ankara-bosch-servisi/`
 - `https://siteniz.com/istanbul-bosch-servisi/`
