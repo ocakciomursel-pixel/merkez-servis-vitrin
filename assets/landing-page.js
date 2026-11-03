@@ -28,6 +28,8 @@
 
   // Smart URL resolver for 404.html on GitHub Pages (preserves exact URL in address bar via history.replaceState)
   if (is404Fallback) {
+    // 404.html carries placeholder data-* attributes (bosch); resolve purely from the URL
+    curProv = ''; curBrand = ''; curService = ''; curDistLabel = '';
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '');
     const parts = rawPath.split('/').filter(Boolean);
     const lastSeg = (parts[parts.length - 1] || '').replace(/\.html$/i, '');
