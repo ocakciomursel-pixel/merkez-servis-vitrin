@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#244636" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta
+      name="description"
+      content="Yayladan: bal ve arıcılık ürünleri için etkileşimli mağaza demosu."
+    />
+    <link rel="icon" href="assets/o2io_logo.svg" />
+    <title>Yayladan — Doğadan, olduğu gibi.</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="themes.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">İçeriğe geç</a>
+    <div class="demo-bar">
+      <span
+        ><i></i> O2IO tasarım demosu
+        <span class="demo-extra">· Örnek marka, ürün ve fiyatlar</span></span
+      ><a href="admin.html"
+        >Yönetim panelini dene <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <div class="announcement" id="announcement">
+      750 TL ve üzeri siparişlerde kargo bizden.
+    </div>
+    <header class="header">
+      <a href="#" class="wordmark" aria-label="Yayladan ana sayfa"
+        >yayladan<span>bal & arıcılık</span></a
+      >
+      <nav aria-label="Ana menü">
+        <a href="#urunler">Bal koleksiyonu</a
+        ><a href="#hikaye">Kovandan sofraya</a
+        ><a href="#sorular">Merak edilenler</a>
+      </nav>
+      <button class="bag-button" id="open-cart" aria-label="Sepeti aç">
+        <span data-icon="bag"></span> <span class="bag-label">Sepetim</span
+        ><span class="count" id="cart-count">0</span>
+      </button>
+    </header>
+    <div id="theme-selector"></div>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="origin">
+            <span class="little-flower">✳</span> Doğadan, olduğu gibi.
+          </div>
+          <h1 id="hero-title">
+            İyi balın<br />
+            bir hikâyesi var.
+          </h1>
+          <p>
+            Çiçekten kovana, kovandan sofranıza.<br />
+            Günün en güzel başlangıcı için<br />
+            kendinize bir kavanoz ayırın.
+          </p>
+          <a class="button primary" href="#urunler"
+            >Sofrana bir tat kat <span data-icon="arrow"></span
+          ></a>
+          <div class="hero-foot">
+            <span class="drawn-line"></span
+            ><span
+              >Biraz yavaşla.<br />
+              Doğanın tadını çıkar.</span
+            >
+          </div>
+        </div>
+        <div class="hero-art">
+          <img
+            id="hero-image"
+            src="assets/hero-honey.webp"
+            alt="Gün ışığında bal kavanozu, petek ve yayla çiçeklerinden oluşan konsept ürün sunumu"
+            fetchpriority="high"
+            width="1536"
+            height="1024"
+          /><span class="photo-note">Yayladan bir sofra hikâyesi</span>
+          <div class="round-note">
+            <span>Bir kaşık</span><strong>mutluluk.</strong
+            ><span>Her sabah yeniden</span>
+          </div>
+        </div>
+      </section>
+      <div class="benefit-strip">
+        <span><span data-icon="leaf"></span> Damak tadına göre seçim</span
+        ><span><span data-icon="bag"></span> Kavanozunu, gramajını seç</span
+        ><span><span data-icon="truck"></span> Kargo tutarı baştan belli</span
+        ><a href="#hikaye"
+          >Balı biraz daha yakından tanı <span aria-hidden="true">↘</span></a
+        >
+      </div>
+      <section
+        class="collection section"
+        id="urunler"
+        aria-labelledby="collection-title"
+      >
+        <div class="section-intro">
+          <div>
+            <span class="section-note">Kahvaltının en tatlı tarafı</span>
+            <h2 id="collection-title">Sana göre bir kavanoz.</h2>
+          </div>
+          <p>
+            Hafif ve çiçeksi mi, yoğun ve karakterli mi?<br />
+            Sevdiğin lezzeti bul, gramajını seç.
+          </p>
+        </div>
+        <div class="catalog-toolbar">
+          <div class="filters" role="group" aria-label="Ürün kategorileri">
+            <button class="filter active" data-filter="all" aria-pressed="true">
+              Hepsi</button
+            ><button class="filter" data-filter="suzme" aria-pressed="false">
+              Süzme bal</button
+            ><button class="filter" data-filter="petek" aria-pressed="false">
+              Petek bal</button
+            ><button class="filter" data-filter="ari" aria-pressed="false">
+              Arı ürünleri
+            </button>
+          </div>
+          <div class="catalog-tools">
+            <label class="search-box"
+              ><span data-icon="search"></span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Lezzet ara"
+                aria-label="Ürün ara" /></label
+            ><label class="sr-only" for="sort">Ürün sıralaması</label
+            ><select id="sort">
+              <option value="featured">Önerilen sıralama</option>
+              <option value="asc">Fiyat: düşükten yükseğe</option>
+              <option value="desc">Fiyat: yüksekten düşüğe</option>
+            </select>
+          </div>
+        </div>
+        <p class="sr-only" id="result-count" role="status"></p>
+        <div class="product-grid" id="products"></div>
+        <p class="sample-caption">
+          Ürünler, görseller ve fiyatlar demo sunumu içindir. Marka ve gerçek
+          ürün bilgileri işletmeyle birlikte netleştirilir.
+        </p>
+      </section>
+      <section class="story section" id="hikaye">
+        <div class="story-photo">
+          <img
+            src="assets/apiary.webp"
+            alt="Doğada arı kovanları ve arıcılık çalışmaları"
+            loading="lazy"
+            width="800"
+            height="533"
+          /><span>Küçük bir kovandan, kocaman bir sofraya.</span>
+        </div>
+        <div class="story-copy">
+          <span class="section-note">Kovandan sofraya</span>
+          <h2>
+            Doğanın ritmine<br />
+            bir yer açın.
+          </h2>
+          <p>
+            Bir kavanoz bal; çiçeklerin, arıların ve emeğin buluşması. Bizce iyi
+            bir sofra, neyi sevdiğinizi bilmekle başlıyor.
+          </p>
+          <p>
+            Çiçek balıyla yumuşak bir başlangıç yapın, kestanenin yoğun
+            aromasını keşfedin veya peteğin doğal dokusuna yer açın.
+          </p>
+          <a class="text-link" href="#urunler"
+            >Kendi lezzetini bul <span data-icon="arrow"></span
+          ></a>
+          <div class="story-disclaimer">
+            Bu alan, işletmenin gerçek üretim hikâyesi ve hasat bilgileriyle
+            özelleştirilecek örnek anlatımdır.
+          </div>
+        </div>
+      </section>
+      <section class="pairing section">
+        <div>
+          <span class="section-note">Küçük bir sofra önerisi</span>
+          <h2>
+            Bir kaşık bal.<br />
+            Binbir güzel eşlikçi.
+          </h2>
+          <p>
+            Sıcak bir dilim ekmek, taze bir peynir veya yoğurdun üzerine küçük
+            bir dokunuş. Sevdiğiniz ritüelinize biraz tat katın.
+          </p>
+          <a href="#urunler" class="button primary"
+            >Kahvaltını tamamla <span data-icon="arrow"></span
+          ></a>
+        </div>
+        <img
+          src="assets/honeycomb.webp"
+          alt="Bal peteğinin sıcak rengi ve doğal dokusu"
+          loading="lazy"
+          width="800"
+          height="533"
+        />
+      </section>
+      <section class="faq section" id="sorular">
+        <div>
+          <span class="section-note">Aklınızda kalmasın</span>
+          <h2>Merak edilenler.</h2>
+          <p>Seçimden siparişe, ihtiyacınız olan bilgiler.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Hangi balı seçmeliyim?</summary>
+            <p>
+              Hafif ve çiçeksi bir tat için çiçek balını, belirgin bir aroma
+              için kestane balını seçebilirsiniz. Her ürünün detayında lezzet ve
+              gramaj bilgileri yer alır.
+            </p>
+          </details>
+          <details>
+            <summary>Kargo ücreti nasıl hesaplanıyor?</summary>
+            <p id="shipping-faq">
+              İndirim sonrası 750 TL ve üzeri alışverişlerde ücretsiz, altındaki
+              siparişlerde 65 TL. Sepette tüm tutarlar birlikte gösterilir.
+            </p>
+          </details>
+          <details>
+            <summary>Balın kristalleşmesi normal mi?</summary>
+            <p>
+              Bal zamanla kristalleşebilir; bu doğal bir süreçtir. Serin, kuru
+              ve doğrudan güneş almayan bir yerde, kapağı kapalı saklayın.
+            </p>
+          </details>
+          <details>
+            <summary>Tahlil ve ürün belgelerini görebilir miyim?</summary>
+            <p>
+              Ürün detaylarında sentetik verilerle hazırlanmış örnek analiz
+              kartlarını inceleyebilirsiniz. Bunlar gerçek tahlil belgesi
+              değildir. Gerçek mağazada doğrulanmış parti belgeleri işletme
+              tarafından sağlanacak.
+            </p>
+          </details>
+          <details>
+            <summary>Bu demoda gerçek sipariş verebilir miyim?</summary>
+            <p>
+              Burada mağaza deneyimini güvenle deneyebilirsiniz. Siparişler
+              yalnızca bu tarayıcıda demo olarak saklanır. Gerçek ödeme alınmaz
+              ve WhatsApp mesajı gönderilmez. Lütfen gerçek kişisel bilgi
+              girmeyin.
+            </p>
+          </details>
+          <p class="small muted">
+            Bal, 1 yaşından küçük bebekler için uygun değildir. Arı ürünlerine
+            karşı alerjiniz varsa dikkatli olun.
+          </p>
+        </div>
+      </section>
+      <section class="closing">
+        <span class="little-flower">✳</span>
+        <h2>Sofranızda doğaya yer var.</h2>
+        <a href="#urunler" class="button pale"
+          >Koleksiyonu keşfet <span data-icon="arrow"></span
+        ></a>
+      </section>
+    </main>
+    <div id="store-contact" class="store-contact"></div>
+    <footer class="footer">
+      <a href="#" class="wordmark">yayladan<span>bal & arıcılık</span></a>
+      <p>Doğadan, olduğu gibi.</p>
+      <div>
+        <span>O2IO tarafından hazırlanan etkileşimli demo</span
+        ><a href="admin.html">Yönetim paneli ↗</a>
+      </div>
+    </footer>
+    <dialog id="cart-dialog" class="drawer" aria-labelledby="cart-title">
+      <div class="dialog-heading">
+        <div>
+          <span class="section-note">Güzel bir seçim</span>
+          <h2 id="cart-title">Sepetiniz</h2>
+        </div>
+        <button
+          class="icon-button"
+          data-close="cart-dialog"
+          aria-label="Sepeti kapat"
+        >
+          ×
+        </button>
+      </div>
+      <div id="cart-content"></div>
+    </dialog>
+    <dialog
+      id="product-dialog"
+      class="product-dialog"
+      aria-labelledby="detail-title"
+    >
+      <button
+        class="icon-button corner-close"
+        data-close="product-dialog"
+        aria-label="Ürün detayını kapat"
+      >
+        ×
+      </button>
+      <div id="product-detail"></div>
+    </dialog>
+    <dialog
+      id="checkout-dialog"
+      class="checkout-dialog"
+      aria-labelledby="checkout-title"
+    >
+      <div class="dialog-heading">
+        <div>
+          <span class="section-note">Son bir adım</span>
+          <h2 id="checkout-title">Demo siparişini tamamla</h2>
+        </div>
+        <button
+          class="icon-button"
+          data-close="checkout-dialog"
+          aria-label="Sipariş ekranını kapat"
+        >
+          ×
+        </button>
+      </div>
+      <div id="checkout-content"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <button id="mobile-cart" class="mobile-cart">
+      <span data-icon="bag"></span><span>Sepeti görüntüle</span
+      ><strong id="mobile-total">₺0</strong>
+    </button>
+  </body>
+</html>

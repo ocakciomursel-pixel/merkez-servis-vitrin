@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#244636" />
+    <link rel="icon" href="assets/o2io_logo.svg" />
+    <title>Yayladan — Mağaza yönetimi demosu</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="themes.css" />
+    <script type="module" src="admin.js"></script>
+  </head>
+  <body class="admin-body">
+    <a class="skip" href="#admin-main">İçeriğe geç</a>
+    <aside class="sidebar">
+      <a href="index.html" class="wordmark"
+        >yayladan<span>mağaza yönetimi</span></a
+      ><span class="sidebar-caption">Çalışma alanınız</span>
+      <nav aria-label="Yönetim menüsü">
+        <button data-tab="studio" class="admin-nav">
+          ◈ <span>Tasarım & içerik</span>
+        </button>
+        <button data-tab="campaigns" class="admin-nav">
+          ◉ <span>Kampanyalar & sipariş</span>
+        </button>
+        <button data-tab="overview" class="admin-nav active">
+          ◷ <span>Genel bakış</span></button
+        ><button data-tab="orders" class="admin-nav">
+          ▤ <span>Siparişler</span
+          ><span id="order-badge" class="tiny-count">0</span></button
+        ><button data-tab="products" class="admin-nav">
+          ▦ <span>Ürünler & stok</span></button
+        ><button data-tab="settings" class="admin-nav">
+          ⚙ <span>Mağaza ayarları</span>
+        </button>
+      </nav>
+      <a href="index.html" class="store-link">Mağazayı görüntüle ↗</a>
+      <div class="sandbox-note">
+        <span class="status-dot"></span><strong>Demo çalışma alanı</strong>
+        <p>
+          Değişiklikler bu tarayıcıda saklanır. Gerçek satış veya tahsilat
+          yapılmaz.
+        </p>
+      </div>
+      <span class="powered">O2IO tasarım & geliştirme</span>
+    </aside>
+    <div class="admin-shell">
+      <header class="admin-header">
+        <span
+          >Mağazam <span class="muted">/</span>
+          <strong id="breadcrumb">Genel bakış</strong></span
+        >
+        <div>
+          <span class="local-badge">Tarayıcı içi demo</span
+          ><span class="avatar">Y</span>
+        </div>
+      </header>
+      <main id="admin-main" class="admin-main">
+        <div id="admin-content"></div>
+      </main>
+    </div>
+    <dialog
+      id="edit-dialog"
+      class="checkout-dialog"
+      aria-labelledby="edit-title"
+    >
+      <div class="dialog-heading">
+        <h2 id="edit-title">Ürün düzenle</h2>
+        <button
+          class="icon-button"
+          data-close="edit-dialog"
+          aria-label="Düzenlemeyi kapat"
+        >
+          ×
+        </button>
+      </div>
+      <div id="edit-content"></div>
+    </dialog>
+    <dialog
+      id="confirm-dialog"
+      class="checkout-dialog"
+      aria-labelledby="confirm-title"
+    >
+      <div class="dialog-heading">
+        <h2 id="confirm-title">Demoyu sıfırla</h2>
+        <button
+          class="icon-button"
+          data-close="confirm-dialog"
+          aria-label="İptal et"
+        >
+          ×
+        </button>
+      </div>
+      <p>
+        Bu tarayıcıdaki demo siparişleri, sepet ve yaptığınız değişiklikler
+        silinecek. Başlangıç ürünleri ve stoklar geri yüklenecek.
+      </p>
+      <div class="button-row">
+        <button class="button secondary" data-close="confirm-dialog">
+          Vazgeç</button
+        ><button id="confirm-reset" class="button danger">
+          Evet, demoyu sıfırla
+        </button>
+      </div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
