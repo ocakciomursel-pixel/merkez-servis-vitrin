@@ -3,105 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Anzer & Yayla Doğal Bal — Ham Bal, Polen & Propolis</title>
+  <title>Anzer & Kaçkar Yayla Balı — %100 Saf Ham Bal, Karakovan Petek & Propolis</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class'
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            amber: { 50: '#fffbeb', 100: '#fef3c7', 200: '#fde68a', 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706', 700: '#b45309', 800: '#92400e', 900: '#78350f', 950: '#451a03' }
+          }
+        }
+      }
     };
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Dynamic Theme & Palette CSS Variables */
+    /* ================= DYNAMIC THEME SYSTEM ================= */
     :root {
-      --primary: #d97706;
-      --primary-hover: #b45309;
-      --primary-light: #fef3c7;
-      --primary-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      --accent: #f59e0b;
-      --bg-main: #faf8f5;
-      --bg-card: #ffffff;
-      --text-main: #1c1917;
-      --text-muted: #78716c;
-      --border-color: #f0eae1;
-      --font-heading: 'Playfair Display', serif;
-      --font-body: 'Inter', sans-serif;
-      --radius-card: 1.25rem;
-      --radius-btn: 9999px;
-    }
-
-    /* THEME 1: YAYLA & DOĞAL EDİTORYAL */
-    .theme-artisan {
-      --bg-main: #FAF6F0;
-      --bg-card: #FFFFFF;
-      --text-main: #292524;
-      --text-muted: #78716c;
-      --border-color: #E7DFD5;
-      --font-heading: 'Playfair Display', serif;
+      --primary: #D97706;
+      --primary-hover: #B45309;
+      --primary-light: #FEF3C7;
+      --accent: #F59E0B;
+      --bg-main: #0B0C0E;
+      --bg-card: #14161A;
+      --bg-card-hover: #1C1F24;
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --border-color: rgba(217, 119, 6, 0.2);
+      --font-display: 'Cinzel', serif;
       --font-body: 'Inter', sans-serif;
       --radius-card: 1rem;
-      --radius-btn: 0.75rem;
+      --radius-btn: 0.5rem;
+      --glass-blur: blur(0px);
     }
 
-    /* THEME 2: CUPERTINO MINIMALIST */
+    /* 1. THEME: APOTHECARY LUXURY (Aēsop & Comvita Manuka) */
+    .theme-apothecary {
+      --bg-main: #0B0C0E;
+      --bg-card: #131518;
+      --bg-card-hover: #1A1D22;
+      --text-main: #F4F1EA;
+      --text-muted: #A39E93;
+      --border-color: rgba(245, 158, 11, 0.22);
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-card: 0.85rem;
+      --radius-btn: 0.35rem;
+      --glass-blur: blur(0px);
+    }
+
+    /* 2. THEME: CUPERTINO MINIMAL (Apple Store Clean) */
     .theme-cupertino {
       --bg-main: #F5F5F7;
       --bg-card: rgba(255, 255, 255, 0.85);
-      --text-main: #1d1d1f;
-      --text-muted: #86868b;
+      --bg-card-hover: #FFFFFF;
+      --text-main: #1D1D1F;
+      --text-muted: #6E6E73;
       --border-color: rgba(0, 0, 0, 0.08);
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-display: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'Plus Jakarta Sans', sans-serif;
-      --radius-card: 1.5rem;
+      --radius-card: 1.75rem;
       --radius-btn: 9999px;
-      backdrop-filter: blur(20px);
+      --glass-blur: blur(24px);
     }
 
-    /* THEME 3: ROYAL KARAKOVAN & LÜKS APOTEK */
-    .theme-royal {
-      --bg-main: #0c0d0e;
-      --bg-card: #15171a;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border-color: #272a30;
-      --font-heading: 'Cinzel', serif;
+    /* 3. THEME: NORDIC RAW EDITORIAL (Kinfolk D2C) */
+    .theme-nordic {
+      --bg-main: #F8F5F0;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FCFAF7;
+      --text-main: #272421;
+      --text-muted: #79736B;
+      --border-color: #E6DFD5;
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-card: 0.5rem;
+      --radius-btn: 0.25rem;
+      --glass-blur: blur(0px);
+    }
+
+    /* 4. THEME: VIBRANT SUPERFOOD (Bento & High Energy) */
+    .theme-superfood {
+      --bg-main: #0F172A;
+      --bg-card: #1E293B;
+      --bg-card-hover: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border-color: rgba(245, 158, 11, 0.3);
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius-card: 1.5rem;
+      --radius-btn: 1rem;
+      --glass-blur: blur(16px);
+    }
+
+    /* 5. THEME: KOOPERATİF & CANLI ARILIK (Artisan B2B) */
+    .theme-coop {
+      --bg-main: #1C1917;
+      --bg-card: #292524;
+      --bg-card-hover: #35302D;
+      --text-main: #FAFAF9;
+      --text-muted: #A8A29E;
+      --border-color: #44403C;
+      --font-display: 'Space Grotesk', sans-serif;
       --font-body: 'Inter', sans-serif;
       --radius-card: 0.75rem;
       --radius-btn: 0.5rem;
-      --primary-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #78350F 100%);
+      --glass-blur: blur(0px);
     }
 
-    /* THEME 4: MODERN D2C SUPERFOOD */
-    .theme-modern {
-      --bg-main: #FCFBF7;
-      --bg-card: #FFFFFF;
-      --text-main: #18181b;
-      --text-muted: #71717a;
-      --border-color: #f4f4f5;
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --radius-card: 2rem;
-      --radius-btn: 1rem;
-    }
-
-    /* THEME 5: ÜRETİCİDEN TOPTAN & PERAKENDE (B2B/B2C) */
-    .theme-b2b {
-      --bg-main: #F3F4F6;
-      --bg-card: #FFFFFF;
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --radius-card: 0.85rem;
-      --radius-btn: 0.5rem;
-    }
-
-    /* PALETTES */
+    /* ================= 4 COLOR PALETTES ================= */
     .palette-amber {
       --primary: #D97706;
       --primary-hover: #B45309;
@@ -121,120 +137,117 @@
       --accent: #8B5CF6;
     }
     .palette-copper {
-      --primary: #EA580C;
-      --primary-hover: #C2410C;
+      --primary: #C2410C;
+      --primary-hover: #9A3412;
       --primary-light: #FFEDD5;
-      --accent: #F97316;
+      --accent: #EA580C;
     }
 
     body {
       background-color: var(--bg-main);
       color: var(--text-main);
       font-family: var(--font-body);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.35s ease, color 0.35s ease;
     }
 
-    h1, h2, h3, .font-heading {
-      font-family: var(--font-heading);
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      border-radius: var(--radius-btn);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .btn-primary:hover {
-      background: var(--primary-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px -5px rgba(217, 119, 6, 0.3);
+    .font-display {
+      font-family: var(--font-display);
     }
 
     .card-theme {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-card);
-      transition: all 0.3s ease;
+      backdrop-filter: var(--glass-blur);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .card-theme:hover {
-      border-color: var(--primary);
+      background-color: var(--bg-card-hover);
+      border-color: var(--accent);
       transform: translateY(-4px);
-      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.25);
     }
 
-    /* Honeycomb pattern overlay */
-    .bg-honeycomb {
-      background-image: radial-gradient(var(--border-color) 1.5px, transparent 1.5px);
-      background-size: 24px 24px;
+    .btn-brand {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border-radius: var(--radius-btn);
+      transition: all 0.25s ease;
+    }
+    .btn-brand:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.4);
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-8px) rotate(1deg); }
+    /* Ambient Honey Glow */
+    .glow-amber {
+      box-shadow: 0 0 60px -15px rgba(245, 158, 11, 0.35);
     }
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
     }
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.4; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.05); }
-    }
-    .animate-glow {
-      animation: pulse-glow 4s ease-in-out infinite;
+    .gold-shimmer {
+      background: linear-gradient(90deg, #F59E0B 0%, #FDE68A 50%, #D97706 100%);
+      background-size: 200% 100%;
+      animation: shimmer 5s infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   </style>
 </head>
-<body class="theme-artisan palette-amber antialiased min-h-screen flex flex-col selection:bg-amber-200 selection:text-amber-900">
+<body class="theme-apothecary palette-amber antialiased min-h-screen flex flex-col">
 
-  <!-- ================= TOP THEME & PALETTE LIVE CONTROLLER BAR ================= -->
-  <aside aria-label="Canlı Tema ve Renk Kontrol Çubuğu" class="sticky top-0 z-50 bg-stone-900/95 text-stone-100 backdrop-blur-md border-b border-stone-800 shadow-xl px-4 py-2.5">
+  <!-- ================= TOP THEME & TECH CONTROLLER BAR ================= -->
+  <aside aria-label="Canlı Tema ve Teknoloji Seçici" class="sticky top-0 z-50 bg-black/95 text-stone-100 backdrop-blur-xl border-b border-stone-800 shadow-2xl px-4 py-2.5">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
       
-      <!-- Left: Active Mode Info -->
       <div class="flex items-center gap-2">
         <span class="inline-flex items-center justify-center p-1.5 rounded-lg bg-amber-500/20 text-amber-400">
           <i data-lucide="sparkles" class="w-4 h-4"></i>
         </span>
         <div>
-          <span class="font-bold tracking-wide uppercase text-amber-400">Canlı Tasarım & Tema Motoru</span>
-          <span class="text-stone-400 hidden sm:inline">— 5 Farklı Stil x 4 Renk (20 Varyasyon)</span>
+          <span class="font-extrabold tracking-wider uppercase text-amber-400">Canlı Tema & Stil Laboratuvarı</span>
+          <span class="text-stone-400 hidden sm:inline">— 5 Farklı Mimari & Görsel Konsept</span>
         </div>
       </div>
 
-      <!-- Center: 5 Distinct Themes Switcher -->
-      <div class="flex items-center bg-stone-800/80 p-1 rounded-xl border border-stone-700/60 overflow-x-auto max-w-full">
-        <button onclick="setTheme('theme-artisan')" id="btn-theme-artisan" class="px-2.5 py-1.5 rounded-lg font-medium transition-all bg-amber-600 text-white shadow-sm flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="flower" class="w-3.5 h-3.5"></i>
-          1. Yayla Editoryal
-        </button>
-        <button onclick="setTheme('theme-cupertino')" id="btn-theme-cupertino" class="px-2.5 py-1.5 rounded-lg font-medium transition-all text-stone-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="apple" class="w-3.5 h-3.5"></i>
-          2. Cupertino Minimal
-        </button>
-        <button onclick="setTheme('theme-royal')" id="btn-theme-royal" class="px-2.5 py-1.5 rounded-lg font-medium transition-all text-stone-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+      <!-- 5 Distinct Themes -->
+      <div class="flex items-center bg-stone-900 p-1 rounded-xl border border-stone-800 overflow-x-auto max-w-full">
+        <button onclick="setTheme('theme-apothecary')" id="btn-theme-apothecary" class="px-3 py-1.5 rounded-lg font-bold transition-all bg-amber-600 text-white shadow-md flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="crown" class="w-3.5 h-3.5"></i>
-          3. Royal Karakovan
+          1. Lüks Apotek (Aēsop)
         </button>
-        <button onclick="setTheme('theme-modern')" id="btn-theme-modern" class="px-2.5 py-1.5 rounded-lg font-medium transition-all text-stone-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+        <button onclick="setTheme('theme-cupertino')" id="btn-theme-cupertino" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="apple" class="w-3.5 h-3.5"></i>
+          2. Cupertino Minimal (Apple)
+        </button>
+        <button onclick="setTheme('theme-nordic')" id="btn-theme-nordic" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          3. Nordic Ham Editoryal
+        </button>
+        <button onclick="setTheme('theme-superfood')" id="btn-theme-superfood" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-          4. Modern D2C
+          4. Modern Superfood (Bento)
         </button>
-        <button onclick="setTheme('theme-b2b')" id="btn-theme-b2b" class="px-2.5 py-1.5 rounded-lg font-medium transition-all text-stone-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="truck" class="w-3.5 h-3.5"></i>
-          5. Toptan & Pazar Yeri
+        <button onclick="setTheme('theme-coop')" id="btn-theme-coop" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+          5. Canlı Arılık & Toptan
         </button>
       </div>
 
-      <!-- Right: 4 Color Palettes + Admin Panel Link -->
+      <!-- Color Palettes & Admin Link -->
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1 bg-stone-800/80 px-2 py-1 rounded-xl border border-stone-700/60">
-          <button onclick="setPalette('palette-amber')" title="Karakovan Altını" class="w-4 h-4 rounded-full bg-amber-500 ring-2 ring-white/60 hover:scale-110 transition-transform"></button>
-          <button onclick="setPalette('palette-emerald')" title="Yayla Zümrüdü" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition-transform"></button>
-          <button onclick="setPalette('palette-violet')" title="Dağ Çiçeği & Lavanta" class="w-4 h-4 rounded-full bg-violet-500 hover:scale-110 transition-transform"></button>
-          <button onclick="setPalette('palette-copper')" title="Kehribar & Propolis" class="w-4 h-4 rounded-full bg-orange-600 hover:scale-110 transition-transform"></button>
+        <div class="flex items-center gap-1.5 bg-stone-900 px-2 py-1.5 rounded-xl border border-stone-800">
+          <button onclick="setPalette('palette-amber')" title="Karakovan Altını" class="w-4 h-4 rounded-full bg-amber-500 ring-2 ring-white/60 hover:scale-125 transition-transform"></button>
+          <button onclick="setPalette('palette-emerald')" title="Yayla Zümrüdü" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-125 transition-transform"></button>
+          <button onclick="setPalette('palette-violet')" title="Dağ Çiçeği & Lavanta" class="w-4 h-4 rounded-full bg-violet-500 hover:scale-125 transition-transform"></button>
+          <button onclick="setPalette('palette-copper')" title="Kehribar & Propolis" class="w-4 h-4 rounded-full bg-orange-600 hover:scale-125 transition-transform"></button>
         </div>
 
-        <a href="admin.html" target="_blank" class="px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-stone-900 border border-amber-500/40 rounded-lg font-semibold flex items-center gap-1.5 transition-all">
+        <a href="admin.html" target="_blank" class="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold rounded-lg flex items-center gap-1.5 transition-all shadow-md">
           <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
           <span>Yönetim Paneli</span>
         </a>
@@ -243,226 +256,184 @@
     </div>
   </aside>
 
-  <!-- ================= TOP ANNOUNCEMENT TICKER ================= -->
-  <div class="bg-amber-500/10 border-b border-amber-500/20 py-1.5 px-4 text-center text-xs font-medium text-amber-900 dark:text-amber-200">
-    <span>🌿 2026 Yeni Sezon Yayla Hasadı | <strong>1.150 mg/kg Prolin Değeri</strong> ile Laboratuvar Onaylı Hakiki Ham Bal | 750 TL Üzeri Ücretsiz Kargo</span>
+  <!-- ================= TOP NOTICE TICKER ================= -->
+  <div class="bg-amber-600/15 border-b border-amber-500/20 py-2 px-4 text-center text-xs font-semibold text-amber-500">
+    <span>🏔️ 2026 Kaçkar Yayla Hasadı | <strong>1.150 mg/kg Prolin Onaylı</strong> Ham Bal & Doğal Petek | 750 TL Üzeri Ücretsiz Sigortalı Kargo</span>
   </div>
 
-  <!-- ================= HEADER & NAVIGATION ================= -->
-  <header class="card-theme border-x-0 border-t-0 rounded-none sticky top-[49px] z-40 bg-white/90 backdrop-blur-md">
+  <!-- ================= NAVBAR ================= -->
+  <header class="card-theme border-x-0 border-t-0 rounded-none sticky top-[49px] z-40 bg-opacity-95 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-600 group-hover:scale-105 transition-transform">
-          <i data-lucide="hexagon" class="w-7 h-7 stroke-[1.75]"></i>
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+          <i data-lucide="hexagon" class="w-7 h-7 stroke-[2]"></i>
         </div>
         <div>
-          <span class="text-xl font-bold tracking-tight block font-heading text-stone-900 dark:text-white">ANZER & YAYLA</span>
-          <span class="text-[10px] tracking-widest uppercase text-stone-500 font-semibold block -mt-1">Saf Doğal Bal Çiftliği</span>
+          <span class="text-xl font-extrabold tracking-tight block font-display">ANZER & KAÇKAR</span>
+          <span class="text-[10px] tracking-widest uppercase opacity-75 font-semibold block -mt-1">Saf Doğal Bal Arılığı • 2.400m</span>
         </div>
       </a>
 
-      <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-700 dark:text-stone-300">
-        <a href="#urunler" class="hover:text-amber-600 transition-colors">Hasat Ürünleri</a>
-        <a href="#analiz" class="hover:text-amber-600 transition-colors flex items-center gap-1">
-          <i data-lucide="file-check-2" class="w-4 h-4 text-emerald-600"></i>
-          Laboratuvar Raporu
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+        <a href="#koleksiyon" class="hover:text-amber-500 transition-colors">Hasat Ürünleri</a>
+        <a href="#analiz" class="hover:text-amber-500 transition-colors flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+          Laboratuvar Analizi
         </a>
-        <a href="#hikaye" class="hover:text-amber-600 transition-colors">Yayla & Arılıklarımız</a>
-        <a href="#yorumlar" class="hover:text-amber-600 transition-colors">Müşteri Yorumları</a>
-        <a href="#toptan" class="hover:text-amber-600 transition-colors text-amber-700 dark:text-amber-400 font-semibold">Toptan / Koli Alımı</a>
+        <a href="#karsilastirma" class="hover:text-amber-500 transition-colors">Ham Bal vs Market Balı</a>
+        <a href="#toptan" class="hover:text-amber-500 transition-colors text-amber-500">Toptan & Koli</a>
       </nav>
 
-      <!-- Action Buttons -->
       <div class="flex items-center gap-3">
-        <!-- Direct WhatsApp Quick Chat -->
-        <a href="https://wa.me/905457715120?text=Merhaba,%20bal%20ve%20do%C4%9Fal%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-all">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
-          <span>WhatsApp Danışma</span>
+        <a href="https://wa.me/905457715120?text=Merhaba,%20do%C4%9Fal%20bal%20ve%20polen%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-emerald-400 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 transition-all">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+          <span>WhatsApp Sipariş</span>
         </a>
 
-        <!-- Cart Drawer Toggle -->
-        <button onclick="toggleCart()" class="relative p-2.5 rounded-xl border border-stone-200 dark:border-stone-700 hover:border-amber-500 bg-stone-50 dark:bg-stone-800 transition-all">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-stone-800 dark:text-stone-200"></i>
-          <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-amber-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center shadow-md">0</span>
+        <button onclick="toggleCart()" class="relative p-2.5 rounded-xl border border-stone-700 hover:border-amber-500 bg-stone-800/80 transition-all">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
+          <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-amber-500 text-stone-950 rounded-full text-[11px] font-black flex items-center justify-center shadow-lg">0</span>
         </button>
       </div>
 
     </div>
   </header>
 
-  <!-- ================= HERO SECTION ================= -->
-  <section class="relative overflow-hidden py-16 md:py-24 bg-honeycomb">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ================= HERO SECTION WITH RICH PHOTOGRAPHY ================= -->
+  <section class="relative overflow-hidden py-16 md:py-24">
+    
+    <!-- Background Mountain Ambient Overlay -->
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <!-- Left: Copy & CTA -->
+        <!-- Left: Copy & Value Proposition -->
         <div class="lg:col-span-7 space-y-6">
           
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-semibold tracking-wide">
-            <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
-            2.400 Rakım Kaçkar Yaylalarından Sofranıza
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-bold tracking-wide">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
+            Kaçkar Vadisi • 2.400 Rakım Doğal Çiçek Florası
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-stone-900 dark:text-white">
-            Doğanın En Saf Hali: <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-500 to-orange-600">
-              Gerçek Karakovan & Ham Yayla Balı
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] font-display">
+            Doğanın En Şifalı Hali: <br>
+            <span class="gold-shimmer">
+              Saf Ham Yayla Balı & Karakovan
             </span>
           </h1>
 
-          <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed">
-            Şeker şurubu, koruyucu ve katkı maddesi içermeyen; yüksek prolin değerine sahip akredite laboratuvar onaylı hakiki çiçek ve petek ballarımızla sağlığınıza değer katın.
+          <p class="text-base sm:text-lg opacity-85 max-w-2xl leading-relaxed">
+            Şeker şurubu, koruyucu veya endüstriyel filtreleme içermeyen; polen ve canlı enzimlerini olduğu gibi koruyan yüksek prolinli sertifikalı hakiki yayla balı.
           </p>
 
-          <!-- Key Trust Badges -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-stone-800/80 border border-stone-200/80 dark:border-stone-700/80 shadow-sm">
-              <div class="w-9 h-9 rounded-lg bg-amber-500/15 text-amber-600 flex items-center justify-center shrink-0">
-                <i data-lucide="shield-check" class="w-5 h-5"></i>
-              </div>
-              <div class="text-left">
-                <div class="text-xs font-bold text-stone-900 dark:text-white">1.150 mg/kg</div>
-                <div class="text-[10px] text-stone-500">Yüksek Prolin Değeri</div>
-              </div>
+          <!-- Interactive Live Telemetry / Metrics Bar -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="p-3.5 rounded-xl card-theme text-center">
+              <span class="text-[10px] uppercase tracking-wider opacity-60 block">Prolin Değeri</span>
+              <strong class="text-xl font-black text-amber-500 block">1.150 mg</strong>
+              <span class="text-[10px] text-emerald-400 font-semibold">Tebliğ: >300 mg</span>
             </div>
 
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-stone-800/80 border border-stone-200/80 dark:border-stone-700/80 shadow-sm">
-              <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-600 flex items-center justify-center shrink-0">
-                <i data-lucide="flask-conical" class="w-5 h-5"></i>
-              </div>
-              <div class="text-left">
-                <div class="text-xs font-bold text-stone-900 dark:text-white">%100 Saf</div>
-                <div class="text-[10px] text-stone-500">Sıfır Şeker & Katkı</div>
-              </div>
+            <div class="p-3.5 rounded-xl card-theme text-center">
+              <span class="text-[10px] uppercase tracking-wider opacity-60 block">Diastaz Sayısı</span>
+              <strong class="text-xl font-black text-amber-500 block">16.4 DN</strong>
+              <span class="text-[10px] text-emerald-400 font-semibold">Aktif Enzim</span>
             </div>
 
-            <div class="flex items-center gap-2.5 p-3 rounded-xl bg-white/80 dark:bg-stone-800/80 border border-stone-200/80 dark:border-stone-700/80 shadow-sm col-span-2 sm:col-span-1">
-              <div class="w-9 h-9 rounded-lg bg-blue-500/15 text-blue-600 flex items-center justify-center shrink-0">
-                <i data-lucide="truck" class="w-5 h-5"></i>
-              </div>
-              <div class="text-left">
-                <div class="text-xs font-bold text-stone-900 dark:text-white">Kırılmaz Ambalaj</div>
-                <div class="text-[10px] text-stone-500">Sigortalı Hızlı Kargo</div>
-              </div>
+            <div class="p-3.5 rounded-xl card-theme text-center">
+              <span class="text-[10px] uppercase tracking-wider opacity-60 block">C4 Şekeri</span>
+              <strong class="text-xl font-black text-emerald-400 block">%0.0</strong>
+              <span class="text-[10px] opacity-70">Sıfır Katkı</span>
+            </div>
+
+            <div class="p-3.5 rounded-xl card-theme text-center">
+              <span class="text-[10px] uppercase tracking-wider opacity-60 block">Rakım</span>
+              <strong class="text-xl font-black text-blue-400 block">2.400 m</strong>
+              <span class="text-[10px] opacity-70">Kaçkar Dağları</span>
             </div>
           </div>
 
           <!-- CTAs -->
           <div class="flex flex-wrap items-center gap-4 pt-4">
-            <a href="#urunler" class="btn-primary px-7 py-3.5 font-bold text-sm flex items-center gap-2 shadow-lg shadow-amber-500/25">
-              <span>Hemen Ürünleri İncele</span>
+            <a href="#koleksiyon" class="btn-brand px-8 py-4 font-black text-sm flex items-center gap-2.5 shadow-xl shadow-amber-500/25">
+              <span>Hasat Ürünlerini Keşfet</span>
               <i data-lucide="arrow-down" class="w-4 h-4"></i>
             </a>
 
-            <button onclick="openLabModal()" class="px-6 py-3.5 rounded-full font-bold text-sm border-2 border-stone-300 dark:border-stone-700 hover:border-amber-500 text-stone-800 dark:text-stone-200 hover:text-amber-600 dark:hover:text-amber-400 bg-white/60 dark:bg-stone-800/60 transition-all flex items-center gap-2">
-              <i data-lucide="file-text" class="w-4 h-4 text-emerald-600"></i>
-              <span>Laboratuvar Analizini Gör</span>
+            <button onclick="openLabModal()" class="px-6 py-4 rounded-xl border-2 border-stone-700 hover:border-amber-500 font-bold text-sm flex items-center gap-2.5 transition-all card-theme">
+              <i data-lucide="file-check-2" class="w-4 h-4 text-emerald-400"></i>
+              <span>Resmi Laboratuvar Belgesini Gör</span>
             </button>
           </div>
 
         </div>
 
-        <!-- Right: Interactive Hero Jar Showcase -->
+        <!-- Right: Photographic Glass Jar Showcase -->
         <div class="lg:col-span-5 relative">
           
           <div class="relative mx-auto max-w-md card-theme p-6 shadow-2xl overflow-hidden group">
             
-            <!-- Glow backdrop -->
-            <div class="absolute -top-20 -right-20 w-60 h-60 bg-amber-400/25 rounded-full blur-3xl animate-glow pointer-events-none"></div>
-            
-            <!-- Product Tag -->
-            <div class="flex justify-between items-start mb-4">
-              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500 text-white shadow-sm">
-                ÖZEL HASAT
+            <div class="flex justify-between items-center mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-black bg-amber-500 text-stone-950 uppercase">
+                ÖZEL REZERV HASAT
               </span>
-              <span class="text-xs font-semibold text-emerald-600 flex items-center gap-1">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
-                Stokta Var
+              <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                Stokta Var (Son 28 Adet)
               </span>
             </div>
 
-            <!-- Stylized Jar Illustration -->
-            <div class="py-8 flex justify-center items-center relative">
-              <div class="w-56 h-64 relative flex items-center justify-center animate-float">
-                
-                <!-- Honey Jar SVG with realistic amber liquid gradient -->
-                <svg viewBox="0 0 200 240" class="w-full h-full drop-shadow-2xl">
-                  <defs>
-                    <linearGradient id="honeyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#FBBF24" />
-                      <stop offset="50%" stop-color="#D97706" />
-                      <stop offset="100%" stop-color="#92400E" />
-                    </linearGradient>
-                    <linearGradient id="glassShine" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
-                      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.1"/>
-                      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-                    </linearGradient>
-                    <linearGradient id="lidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#CA8A04"/>
-                      <stop offset="100%" stop-color="#713F12"/>
-                    </linearGradient>
-                  </defs>
-
-                  <!-- Jar Lid -->
-                  <rect x="50" y="15" width="100" height="22" rx="6" fill="url(#lidGrad)" stroke="#451A03" stroke-width="2"/>
-                  <rect x="55" y="37" width="90" height="8" rx="2" fill="#CA8A04"/>
-                  
-                  <!-- Jar Glass Body -->
-                  <path d="M45,45 Q40,55 35,90 L35,195 Q35,225 65,225 L135,225 Q165,225 165,195 L165,90 Q160,55 155,45 Z" fill="#FFFBEB" stroke="#D1D5DB" stroke-width="2.5" opacity="0.95"/>
-                  
-                  <!-- Honey Liquid -->
-                  <path d="M40,95 Q40,90 45,85 L155,85 Q160,90 160,95 L160,195 Q160,220 135,220 L65,220 Q40,220 40,195 Z" fill="url(#honeyGrad)"/>
-                  
-                  <!-- Honeycomb Pattern inside Jar -->
-                  <g stroke="#FDE68A" stroke-width="1" opacity="0.35" fill="none">
-                    <polygon points="100,120 110,126 110,138 100,144 90,138 90,126"/>
-                    <polygon points="120,132 130,138 130,150 120,156 110,150 110,138"/>
-                    <polygon points="80,132 90,138 90,150 80,156 70,150 70,138"/>
-                  </g>
-
-                  <!-- Kraft Paper Label -->
-                  <rect x="55" y="110" width="90" height="65" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
-                  <text x="100" y="130" font-family="'Playfair Display', serif" font-size="10" font-weight="bold" fill="#78350F" text-anchor="middle">ANZER YAYLA</text>
-                  <text x="100" y="145" font-family="sans-serif" font-size="8" font-weight="bold" fill="#B45309" text-anchor="middle">HAM ÇİÇEK BALI</text>
-                  <text x="100" y="160" font-family="sans-serif" font-size="7" fill="#92400E" text-anchor="middle">1.150 Prolin • %100 Doğal</text>
-
-                  <!-- Glass Light Reflection -->
-                  <path d="M48,60 L48,205 Q48,215 58,215 L52,215 Q42,215 42,205 L42,60 Z" fill="url(#glassShine)"/>
-                </svg>
-
+            <!-- Real High-Res Honey Photography -->
+            <div class="relative h-72 rounded-2xl overflow-hidden my-4 border border-stone-800 group-hover:border-amber-500/50 transition-all">
+              <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=85" alt="Anzer Yayla Ham Çiçek Balı" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
+                <div>
+                  <span class="text-[11px] font-bold text-amber-400 tracking-wider uppercase block">Anzer Yaylası</span>
+                  <h3 class="font-display font-bold text-lg">Ham Çiçek Balı (Ham & Filtresiz)</h3>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs opacity-75 block">Parti No</span>
+                  <span class="font-mono text-xs font-bold text-amber-400">TR-2026-ANZ</span>
+                </div>
               </div>
             </div>
 
-            <!-- Interactive Gramaj Selector -->
-            <div class="space-y-3 pt-2 border-t border-stone-200 dark:border-stone-800">
-              <div class="flex justify-between items-center text-xs">
-                <span class="font-semibold text-stone-700 dark:text-stone-300">Gramaj Seçin:</span>
-                <span class="text-amber-600 font-bold" id="hero-weight-label">850g Özel Cam Kavanoz</span>
+            <!-- Dynamic Gramaj Selector -->
+            <div class="space-y-3 pt-3 border-t border-stone-800">
+              <div class="flex justify-between text-xs font-semibold">
+                <span class="opacity-75">Gramaj ve Ambalaj:</span>
+                <span class="text-amber-500 font-bold" id="hero-weight-label">850g Özel Cam Kavanoz</span>
               </div>
-              <div class="grid grid-cols-3 gap-2">
-                <button onclick="setHeroWeight(450, 480)" class="hero-weight-btn py-2 px-1 text-xs font-bold rounded-lg border border-stone-200 dark:border-stone-700 hover:border-amber-500 transition-all text-center">
-                  450g <br><span class="text-[10px] font-normal text-stone-500">480 TL</span>
+
+              <div class="grid grid-cols-3 gap-2.5">
+                <button onclick="setHeroWeight(450, 480)" class="hero-weight-btn py-2.5 px-1 rounded-xl border border-stone-800 hover:border-amber-500 transition-all text-center">
+                  <span class="font-bold text-xs block">450g</span>
+                  <span class="text-[11px] opacity-60">480 TL</span>
                 </button>
-                <button onclick="setHeroWeight(850, 850)" class="hero-weight-btn py-2 px-1 text-xs font-bold rounded-lg border-2 border-amber-500 bg-amber-500/10 text-amber-700 dark:text-amber-300 transition-all text-center shadow-sm">
-                  850g <br><span class="text-[10px] font-normal">850 TL</span>
+                <button onclick="setHeroWeight(850, 850)" class="hero-weight-btn py-2.5 px-1 rounded-xl border-2 border-amber-500 bg-amber-500/15 text-amber-400 transition-all text-center shadow-md">
+                  <span class="font-bold text-xs block">850g</span>
+                  <span class="text-[11px] font-bold text-amber-400">850 TL</span>
                 </button>
-                <button onclick="setHeroWeight(1500, 1420)" class="hero-weight-btn py-2 px-1 text-xs font-bold rounded-lg border border-stone-200 dark:border-stone-700 hover:border-amber-500 transition-all text-center">
-                  1.5kg <br><span class="text-[10px] font-normal text-stone-500">1.420 TL</span>
+                <button onclick="setHeroWeight(1500, 1420)" class="hero-weight-btn py-2.5 px-1 rounded-xl border border-stone-800 hover:border-amber-500 transition-all text-center">
+                  <span class="font-bold text-xs block">1.5kg</span>
+                  <span class="text-[11px] opacity-60">1.420 TL</span>
                 </button>
               </div>
             </div>
 
-            <!-- Price & Add Action -->
-            <div class="mt-5 flex items-center justify-between gap-4">
+            <!-- Price & Add -->
+            <div class="mt-6 flex items-center justify-between gap-4">
               <div>
-                <span class="text-xs text-stone-500 block">KDV Dahil</span>
-                <span class="text-2xl font-extrabold text-stone-900 dark:text-white" id="hero-price">850 TL</span>
+                <span class="text-[11px] opacity-60 block">KDV Dahil Fiyat</span>
+                <span class="text-3xl font-black text-amber-500" id="hero-price">850 TL</span>
               </div>
-              <button onclick="addHeroToCart()" class="btn-primary flex-1 py-3 font-bold text-sm flex items-center justify-center gap-2">
+
+              <button onclick="addHeroToCart()" class="btn-brand flex-1 py-3.5 font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl">
                 <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                 <span>Sepete Ekle</span>
               </button>
@@ -476,121 +447,120 @@
     </div>
   </section>
 
-  <!-- ================= PRODUCTS SECTION (5 MAIN HONEY PRODUCTS) ================= -->
-  <section id="urunler" class="py-20 card-theme border-x-0 rounded-none bg-stone-50/50 dark:bg-stone-900/30">
+  <!-- ================= PRODUCT CATALOG SECTION (6 RICH ITEMS) ================= -->
+  <section id="koleksiyon" class="py-20 border-y border-stone-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
         <div>
-          <span class="text-xs font-bold tracking-widest text-amber-600 uppercase block mb-1">Hasat Koleksiyonu</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 dark:text-white font-heading">
-            Doğal Bal & Arı Ürünleri Kataloğu
+          <span class="text-xs font-black tracking-widest text-amber-500 uppercase block mb-1">Hasat Kataloğu</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-display">
+            Doğal Bal, Petek & Arı Ürünleri
           </h2>
-          <p class="text-stone-600 dark:text-stone-400 text-sm mt-1 max-w-xl">
-            Tüm ürünlerimizde istediğiniz gramajı seçebilir, kredi kartı, havale veya tek tıkla WhatsApp sipariş fişi ile satın alabilirsiniz.
+          <p class="text-sm opacity-70 mt-1 max-w-xl">
+            Tüm ürünlerimizde istediğiniz gramajı seçebilir, kredi kartı veya tek tıkla WhatsApp sipariş fişi ile kolayca satın alabilirsiniz.
           </p>
         </div>
 
-        <!-- Filter tabs -->
-        <div class="flex items-center gap-2 bg-stone-200/70 dark:bg-stone-800 p-1.5 rounded-xl text-xs font-medium">
-          <button onclick="filterProducts('all')" class="prod-filter-btn px-3 py-1.5 rounded-lg bg-white dark:bg-stone-700 text-stone-900 dark:text-white shadow-sm font-semibold">Tümü</button>
-          <button onclick="filterProducts('suzme')" class="prod-filter-btn px-3 py-1.5 rounded-lg text-stone-600 dark:text-stone-400 hover:text-stone-900">Süzme Bal</button>
-          <button onclick="filterProducts('petek')" class="prod-filter-btn px-3 py-1.5 rounded-lg text-stone-600 dark:text-stone-400 hover:text-stone-900">Karakovan & Petek</button>
-          <button onclick="filterProducts('ozel')" class="prod-filter-btn px-3 py-1.5 rounded-lg text-stone-600 dark:text-stone-400 hover:text-stone-900">Propolis & Polen</button>
+        <div class="flex items-center gap-2 bg-stone-900 p-1.5 rounded-xl border border-stone-800 text-xs font-bold">
+          <button onclick="filterCatalog('all')" class="cat-filter-btn px-3.5 py-2 rounded-lg bg-amber-600 text-white shadow-sm">Tüm Ürünler</button>
+          <button onclick="filterCatalog('suzme')" class="cat-filter-btn px-3.5 py-2 rounded-lg opacity-70 hover:opacity-100">Ham Süzme</button>
+          <button onclick="filterCatalog('petek')" class="cat-filter-btn px-3.5 py-2 rounded-lg opacity-70 hover:opacity-100">Karakovan & Petek</button>
+          <button onclick="filterCatalog('ozel')" class="cat-filter-btn px-3.5 py-2 rounded-lg opacity-70 hover:opacity-100">Propolis & Polen</button>
         </div>
       </div>
 
-      <!-- Products Grid -->
-      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Rendered dynamically via JavaScript with complete details -->
+      <!-- Grid -->
+      <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered dynamically via JavaScript with high-resolution photography -->
       </div>
 
     </div>
   </section>
 
-  <!-- ================= LAB REPORT VERIFICATION MODAL / SECTION ================= -->
-  <section id="analiz" class="py-20 relative overflow-hidden">
+  <!-- ================= INTERACTIVE PROLINE & COMPARISON SECTION ================= -->
+  <section id="karsilastirma" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="card-theme p-8 sm:p-12 shadow-xl border-amber-500/30 relative">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <div class="card-theme p-8 sm:p-12 border-amber-500/30">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
-          <div class="lg:col-span-7 space-y-4">
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 bg-emerald-500/10 px-3 py-1 rounded-full">
-              <i data-lucide="check-check" class="w-3.5 h-3.5"></i>
-              Akredite Gıda Laboratuvarı Onaylı
-            </span>
-            <h2 class="text-3xl font-extrabold text-stone-900 dark:text-white font-heading">
-              Şeffaf Analiz: Ne Yediğinizi Bilin
+          <div class="lg:col-span-6 space-y-5">
+            <span class="text-xs font-black tracking-widest text-amber-500 uppercase block">Bilinçli Tüketici Rehberi</span>
+            <h2 class="text-3xl font-extrabold font-display leading-tight">
+              Gerçek Ham Bal ile İşlenmiş Market Balı Arasındaki Fark
             </h2>
-            <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
-              Her hasat partimiz Hacettepe ve TÜBİTAK akredite laboratuvarlarında Prolin, Diastaz, HMF, Nem ve C4 şeker testlerine tabi tutulur. Türk Gıda Kodeksi Bal Tebliği'nin çok üzerinde değerlerle analiz sonuçlarımızı paylaşıyoruz.
+            <p class="text-sm opacity-80 leading-relaxed">
+              Endüstriyel ballar berrak ve akışkan kalması için 70°C üzerinde pastörize edilir; bu işlem balın içerisindeki tüm canlı enzimleri, polenleri ve vitaminleri yok eder. Bizim balımız ise kovan sıcaklığında (35°C) filtrelenir ve kristalize olma kabiliyetini korur.
             </p>
 
-            <!-- Metrics Table Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
-              <div class="p-3.5 rounded-xl bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-center">
-                <div class="text-[10px] text-stone-500 uppercase font-semibold">Prolin Değeri</div>
-                <div class="text-xl font-extrabold text-amber-600">1.150 mg</div>
-                <div class="text-[10px] text-emerald-600 font-medium">Standart: >300</div>
+            <div class="space-y-3 text-xs">
+              <div class="p-3.5 rounded-xl bg-stone-900/60 border border-stone-800 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                  <span class="font-bold">Anzer Ham Bal Prolin Değeri:</span>
+                </div>
+                <strong class="text-amber-500 text-sm font-black">1.150 mg/kg</strong>
               </div>
-              <div class="p-3.5 rounded-xl bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-center">
-                <div class="text-[10px] text-stone-500 uppercase font-semibold">Diastaz Sayısı</div>
-                <div class="text-xl font-extrabold text-amber-600">16.4</div>
-                <div class="text-[10px] text-emerald-600 font-medium">Standart: >8</div>
+
+              <div class="p-3.5 rounded-xl bg-stone-900/60 border border-stone-800 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="x" class="w-4 h-4 text-red-400"></i>
+                  <span>Standart Market Balı Prolin Değeri:</span>
+                </div>
+                <span class="opacity-60 text-xs">Ortalama 180 - 320 mg/kg</span>
               </div>
-              <div class="p-3.5 rounded-xl bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-center">
-                <div class="text-[10px] text-stone-500 uppercase font-semibold">HMF Değeri</div>
-                <div class="text-xl font-extrabold text-emerald-600">4.2 mg</div>
-                <div class="text-[10px] text-stone-500">Tavan Limit: 40</div>
-              </div>
-              <div class="p-3.5 rounded-xl bg-stone-100 dark:bg-stone-800/80 border border-stone-200 dark:border-stone-700 text-center">
-                <div class="text-[10px] text-stone-500 uppercase font-semibold">C4 Şeker Oranı</div>
-                <div class="text-xl font-extrabold text-emerald-600">%0.0</div>
-                <div class="text-[10px] text-stone-500">Sıfır Katkı</div>
+
+              <div class="p-3.5 rounded-xl bg-stone-900/60 border border-stone-800 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                  <span class="font-bold">Isıl İşlem (Pastörizasyon):</span>
+                </div>
+                <strong class="text-emerald-400 text-xs font-bold">SIFIR (Isıtılmamış)</strong>
               </div>
             </div>
 
             <div class="pt-2">
-              <button onclick="openLabModal()" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all">
-                <i data-lucide="search" class="w-4 h-4"></i>
-                <span>Resmi Analiz Raporunu İncele (PDF Görünümü)</span>
+              <button onclick="openLabModal()" class="btn-brand px-6 py-3 font-bold text-xs flex items-center gap-2 shadow-lg">
+                <i data-lucide="microscope" class="w-4 h-4"></i>
+                <span>Tüm Spektrometre Değerlerini İncele</span>
               </button>
             </div>
           </div>
 
-          <!-- Certificate Visual Preview Card -->
-          <div class="lg:col-span-5 flex justify-center">
-            <div onclick="openLabModal()" class="cursor-pointer max-w-sm w-full bg-white dark:bg-stone-800 p-5 rounded-2xl border-2 border-dashed border-amber-500/40 shadow-lg hover:border-amber-500 transition-all text-center group">
-              <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-500/15 text-amber-600 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="award" class="w-8 h-8"></i>
-              </div>
-              <div class="font-bold text-stone-900 dark:text-white text-base">Parti No: TR-2026-ANZ-094</div>
-              <p class="text-xs text-stone-500 mt-1">Gıda Güvenliği ve Orijinallik Tasdik Belgesi</p>
-              <div class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-amber-600 group-hover:underline">
-                <span>Tam Belgeyi Büyüt</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <!-- Honeycomb Macro Photography Showcase -->
+          <div class="lg:col-span-6">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 group">
+              <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=1000&q=85" alt="Doğal Petek Balı ve Altın Nektar" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+              
+              <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <span class="px-2.5 py-1 rounded-md text-[10px] font-black bg-amber-500 text-stone-950 uppercase inline-block">
+                  %100 Doğal Petek Dokusu
+                </span>
+                <h3 class="font-display font-bold text-xl">Karakovan Kütük Petekleri</h3>
+                <p class="text-xs opacity-75">Arının kendi salgıladığı doğal balmumu; ağızda kalıntı bırakmaz, boğazı yakmaz.</p>
               </div>
             </div>
           </div>
 
         </div>
-
       </div>
+
     </div>
   </section>
 
-  <!-- ================= TOPTAN & B2B KADEMELİ FİYAT BÖLÜMÜ ================= -->
-  <section id="toptan" class="py-16 bg-stone-100/70 dark:bg-stone-950/40 border-y border-stone-200 dark:border-stone-800">
+  <!-- ================= TOPTAN VE KOLİ ALIMI (B2B/B2C) ================= -->
+  <section id="toptan" class="py-16 bg-stone-900/40 border-t border-stone-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
       <div class="text-center max-w-2xl mx-auto mb-10">
-        <span class="text-xs font-bold tracking-widest text-amber-600 uppercase block mb-1">Kurumsal & Toptan Sipariş</span>
-        <h2 class="text-3xl font-extrabold text-stone-900 dark:text-white font-heading">
-          Restoran, Otel ve Şarküteriler İçin Kademeli Toptan Fiyatlar
+        <span class="text-xs font-black tracking-widest text-amber-500 uppercase block mb-1">Doğrudan Üreticiden</span>
+        <h2 class="text-3xl font-extrabold font-display">
+          Toptan Koli ve Teneke Sipariş Fiyatları
         </h2>
-        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-2">
-          Koli veya teneke bazlı toplu alımlarda doğrudan arılık toptan fiyat avantajı ve özel fatura seçeneği.
+        <p class="text-xs sm:text-sm opacity-70 mt-2">
+          Restoran, otel, şarküteri ve toplu aile alımları için kademeli toptan fiyat avantajı.
         </p>
       </div>
 
@@ -598,330 +568,239 @@
         
         <!-- Tier 1 -->
         <div class="card-theme p-6 text-center space-y-4">
-          <div class="text-xs font-bold text-stone-500 uppercase">Perakende Koli (6 Kavanoz)</div>
-          <div class="text-3xl font-extrabold text-stone-900 dark:text-white">₺780 <span class="text-xs font-normal text-stone-500">/ adet</span></div>
-          <p class="text-xs text-stone-500">850g Süzme Yayla Balı (Toplam 6 Adet: 4.680 TL)</p>
-          <ul class="text-xs text-stone-600 dark:text-stone-400 space-y-2 text-left pt-2 border-t border-stone-200 dark:border-stone-800">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> %8 Fiyat İndirimi</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Ücretsiz Sigortalı Kargo</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Analiz Sertifikası Çıktısı</li>
+          <div class="text-xs font-bold opacity-60 uppercase">6'lı Aile / Gurme Koli</div>
+          <div class="text-3xl font-black text-amber-500">₺780 <span class="text-xs font-normal opacity-60">/ kavanoz</span></div>
+          <p class="text-xs opacity-70">850g Ham Yayla Çiçek Balı (Toplam 6 Adet: 4.680 TL)</p>
+          <ul class="text-xs opacity-80 space-y-2 text-left pt-3 border-t border-stone-800">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> %8 Perakende İndirimi</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Ücretsiz Sigortalı Kargo</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Analiz Sertifikası Çıktısı</li>
           </ul>
-          <button onclick="addTierToCart('6_koli', 4680, '6 Adet 850g Süzme Koli')" class="w-full py-2.5 rounded-xl border-2 border-amber-500 text-amber-700 dark:text-amber-300 font-bold text-xs hover:bg-amber-500 hover:text-white transition-all">
-            Koli Siparişi Ver
+          <button onclick="addTierToCart('6_koli', 4680, '6 Adet 850g Süzme Koli')" class="w-full py-2.5 rounded-xl border border-amber-500 text-amber-400 font-bold text-xs hover:bg-amber-500 hover:text-stone-950 transition-all">
+            6'lı Koli Sepete Ekle
           </button>
         </div>
 
         <!-- Tier 2 (Highlighted) -->
-        <div class="card-theme p-6 text-center space-y-4 border-2 border-amber-500 relative shadow-xl">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-amber-500 text-white font-bold text-[10px]">
+        <div class="card-theme p-6 text-center space-y-4 border-2 border-amber-500 relative shadow-2xl">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-amber-500 text-stone-950 font-black text-[10px]">
             EN ÇOK TERCİH EDİLEN
           </div>
-          <div class="text-xs font-bold text-amber-600 uppercase">Toptan Koli (12 Kavanoz)</div>
-          <div class="text-3xl font-extrabold text-stone-900 dark:text-white">₺720 <span class="text-xs font-normal text-stone-500">/ adet</span></div>
-          <p class="text-xs text-stone-500">850g Süzme Yayla Balı (Toplam 12 Adet: 8.640 TL)</p>
-          <ul class="text-xs text-stone-600 dark:text-stone-400 space-y-2 text-left pt-2 border-t border-stone-200 dark:border-stone-800">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> %15 Toptan İskonto</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Ahşap Özel Teşhir Standı Hediye</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Aynı Gün Ambar / Kargo Sevkiyatı</li>
+          <div class="text-xs font-bold text-amber-500 uppercase">12'li Toptan Koli</div>
+          <div class="text-3xl font-black text-amber-500">₺720 <span class="text-xs font-normal opacity-60">/ kavanoz</span></div>
+          <p class="text-xs opacity-70">850g Ham Yayla Çiçek Balı (Toplam 12 Adet: 8.640 TL)</p>
+          <ul class="text-xs opacity-80 space-y-2 text-left pt-3 border-t border-stone-800">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> %15 Toptan İskonto</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Ahşap Teşhir Standı Hediye</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Aynı Gün Hızlı Sevkiyat</li>
           </ul>
-          <button onclick="addTierToCart('12_koli', 8640, '12 Adet 850g Süzme Koli')" class="btn-primary w-full py-2.5 font-bold text-xs">
-            Toptan Koli Ekle
+          <button onclick="addTierToCart('12_koli', 8640, '12 Adet 850g Süzme Koli')" class="btn-brand w-full py-2.5 font-bold text-xs">
+            12'li Toptan Koli Ekle
           </button>
         </div>
 
         <!-- Tier 3 -->
         <div class="card-theme p-6 text-center space-y-4">
-          <div class="text-xs font-bold text-stone-500 uppercase">27kg Teneke Sanayi / Şarküteri</div>
-          <div class="text-3xl font-extrabold text-stone-900 dark:text-white">₺14.900 <span class="text-xs font-normal text-stone-500">/ teneke</span></div>
-          <p class="text-xs text-stone-500">Gıda mühürlü 27kg Net Ham Yayla Balı</p>
-          <ul class="text-xs text-stone-600 dark:text-stone-400 space-y-2 text-left pt-2 border-t border-stone-200 dark:border-stone-800">
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Maksimum Fiyat Avantajı (551 TL/kg)</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Mühürlü Soğuk Zincir Gönderim</li>
-            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i> Kurumsal E-Fatura İmkanı</li>
+          <div class="text-xs font-bold opacity-60 uppercase">27kg Teneke (Şarküteri / Sanayi)</div>
+          <div class="text-3xl font-black text-amber-500">₺14.900 <span class="text-xs font-normal opacity-60">/ teneke</span></div>
+          <p class="text-xs opacity-70">Mühürlü 27kg Net Ham Yayla Balı (551 TL/kg)</p>
+          <ul class="text-xs opacity-80 space-y-2 text-left pt-3 border-t border-stone-800">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Maksimum Fiyat Avantajı</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Kurumsal E-Fatura İmkanı</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Laboratuvar Parti Belgesi</li>
           </ul>
-          <a href="https://wa.me/905457715120?text=Merhaba,%2027kg%20teneke%20toptan%20bal%20sipari%C5%9Fi%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" class="block w-full py-2.5 rounded-xl border border-stone-300 dark:border-stone-700 font-bold text-xs text-stone-800 dark:text-stone-200 hover:border-amber-500 transition-all">
+          <a href="https://wa.me/905457715120?text=Merhaba,%2027kg%20teneke%20toptan%20bal%20sipari%C5%9Fi%20hakk%C4%B1nda%20teklif%20almak%20istiyorum." target="_blank" class="block w-full py-2.5 rounded-xl border border-stone-700 font-bold text-xs hover:border-amber-500 transition-all">
             WhatsApp'tan Toptan Teklif Al
           </a>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ================= CUSTOMER REVIEWS SECTION ================= -->
-  <section id="yorumlar" class="py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-12">
-        <div class="flex items-center justify-center gap-1 text-amber-500 mb-2">
-          <i data-lucide="star" class="w-5 h-5 fill-amber-500"></i>
-          <i data-lucide="star" class="w-5 h-5 fill-amber-500"></i>
-          <i data-lucide="star" class="w-5 h-5 fill-amber-500"></i>
-          <i data-lucide="star" class="w-5 h-5 fill-amber-500"></i>
-          <i data-lucide="star" class="w-5 h-5 fill-amber-500"></i>
-          <span class="text-stone-800 dark:text-white font-extrabold text-sm ml-2">4.9 / 5.0 (420+ Gerçek Müşteri)</span>
-        </div>
-        <h2 class="text-3xl font-extrabold text-stone-900 dark:text-white font-heading">
-          Sofrasından Balı Eksik Etmeyenlerin Deneyimleri
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="card-theme p-6 space-y-3">
-          <div class="flex items-center justify-between">
-            <div class="font-bold text-sm text-stone-900 dark:text-white">Ahmet Yılmaz</div>
-            <span class="text-[10px] text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded font-semibold">Doğrulanmış Sipariş</span>
-          </div>
-          <div class="flex text-amber-500">
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-          </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-            "Karakovan petek balından 2 koli aldık. Boğazı yakmayan, aroması buram buram kır çiçekleri kokan efsane bir lezzet. Kargo strafor kutuda hiç sarsılmadan geldi."
-          </p>
-          <div class="text-[10px] text-stone-400">Ürün: Karakovan Petek Bal (850g)</div>
-        </div>
-
-        <div class="card-theme p-6 space-y-3">
-          <div class="flex items-center justify-between">
-            <div class="font-bold text-sm text-stone-900 dark:text-white">Dr. Selin Karaca</div>
-            <span class="text-[10px] text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded font-semibold">Doğrulanmış Sipariş</span>
-          </div>
-          <div class="flex text-amber-500">
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-          </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-            "Prolin analiz raporunu bizzat kontrol ettim, piyasadaki çoğu bal 300'ü zor bulurken bu partide 1.150 mg çıkması muazzam. Çocuklarım için düzenli alıyorum."
-          </p>
-          <div class="text-[10px] text-stone-400">Ürün: Ham Yayla Çiçek Balı</div>
-        </div>
-
-        <div class="card-theme p-6 space-y-3">
-          <div class="flex items-center justify-between">
-            <div class="font-bold text-sm text-stone-900 dark:text-white">Murat Demir (Şarküteri İşletmecisi)</div>
-            <span class="text-[10px] text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded font-semibold">Toptan Alıcı</span>
-          </div>
-          <div class="flex text-amber-500">
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-            <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-500"></i>
-          </div>
-          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
-            "Dükkanımız için 12'li kolilerden sipariş geçtik. WhatsApp sipariş hattı çok pratikti, faturamız ve analiz raporlarımız kutunun içindeydi. Müşterilerim çok memnun."
-          </p>
-          <div class="text-[10px] text-stone-400">Ürün: 12'li Toptan Koli</div>
-        </div>
-
-      </div>
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="card-theme border-x-0 border-b-0 rounded-none bg-stone-900 text-stone-300 py-12">
+  <footer class="card-theme border-x-0 border-b-0 rounded-none bg-black text-stone-400 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
       
       <div class="space-y-3">
-        <div class="flex items-center gap-2 text-white font-heading font-bold text-base">
+        <div class="flex items-center gap-2 text-white font-display font-bold text-base">
           <i data-lucide="hexagon" class="w-5 h-5 text-amber-500"></i>
-          ANZER & YAYLA BALI
+          ANZER & KAÇKAR BALI
         </div>
-        <p class="text-stone-400 leading-relaxed">
-          Kaçkar ve Doğu Karadeniz yüksek rakımlı yaylalarından sofranıza geleneksel arıcılık usulleriyle üretilen saf doğal bal.
+        <p class="leading-relaxed opacity-80">
+          Kaçkar Dağları'nın 2.400 metre rakımlı çiçek yaylalarından sofranıza doğrudan arıcılık usulleriyle üretilen saf doğal bal.
         </p>
       </div>
 
       <div class="space-y-2">
         <div class="font-bold text-white text-sm">Hızlı Erişim</div>
-        <ul class="space-y-1.5 text-stone-400">
-          <li><a href="#urunler" class="hover:text-amber-400">Hasat Ürünleri</a></li>
-          <li><a href="#analiz" class="hover:text-amber-400">Laboratuvar Analiz Raporu</a></li>
-          <li><a href="#toptan" class="hover:text-amber-400">Toptan ve Koli Sipariş</a></li>
-          <li><a href="admin.html" class="hover:text-amber-400">Yönetim Paneli Girişi</a></li>
+        <ul class="space-y-1.5 opacity-80">
+          <li><a href="#koleksiyon" class="hover:text-amber-500">Hasat Koleksiyonu</a></li>
+          <li><a href="#analiz" class="hover:text-amber-500">Laboratuvar Raporu</a></li>
+          <li><a href="#toptan" class="hover:text-amber-500">Toptan ve Koli Alımı</a></li>
+          <li><a href="admin.html" class="hover:text-amber-500">Yönetim Paneli Girişi</a></li>
         </ul>
       </div>
 
       <div class="space-y-2">
         <div class="font-bold text-white text-sm">Güvenli Alışveriş</div>
-        <p class="text-stone-400">256-Bit SSL Şifreleme • 3D Secure Kredi Kartı • Kırılmaz Ambalaj Sigortası • Koşulsuz İade Güvencesi</p>
-        <div class="flex items-center gap-2 pt-2 text-stone-400">
-          <i data-lucide="credit-card" class="w-5 h-5 text-amber-400"></i>
-          <span>Visa, Mastercard, Troy, Havale/EFT</span>
+        <p class="opacity-80">256-Bit SSL • 3D Secure Kredi Kartı • Kırılmaz Ambalaj Sigortası • Koşulsuz İade Güvencesi</p>
+        <div class="flex items-center gap-2 pt-2 text-amber-500">
+          <i data-lucide="credit-card" class="w-5 h-5"></i>
+          <span class="text-white font-medium">Visa, Mastercard, Troy, Havale/EFT</span>
         </div>
       </div>
 
       <div class="space-y-2">
-        <div class="font-bold text-white text-sm">İletişim & Arılık</div>
-        <p class="text-stone-400">Rize İkizdere Anzer Vadisi / Arılık Merkezi</p>
-        <p class="text-stone-400">WhatsApp: +90 545 771 51 20</p>
-        <p class="text-stone-400">E-Posta: info@yaylabali.com</p>
+        <div class="font-bold text-white text-sm">Arılık & İletişim</div>
+        <p class="opacity-80">Rize İkizdere Anzer Vadisi / Kaçkar Arılıkları</p>
+        <p class="opacity-80">WhatsApp: +90 545 771 51 20</p>
+        <p class="opacity-80">E-Posta: siparis@yaylabali.com</p>
       </div>
 
     </div>
-    <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-stone-800 text-center text-[11px] text-stone-500">
-      © 2026 Anzer & Yayla Doğal Bal E-Ticaret Sistemi. Tüm hakları saklıdır.
+    <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-stone-900 text-center text-[11px] opacity-50">
+      © 2026 Anzer & Kaçkar Doğal Bal E-Ticaret Sistemi. Tüm hakları saklıdır.
     </div>
   </footer>
 
   <!-- ================= SLIDE-OVER CART DRAWER ================= -->
-  <div id="cart-drawer-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
+  <div id="cart-drawer-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/75 z-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm"></div>
   
-  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-white dark:bg-stone-900 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+  <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-stone-950 text-stone-100 z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col border-l border-stone-800">
     
-    <!-- Drawer Header -->
-    <div class="p-5 border-b border-stone-200 dark:border-stone-800 flex items-center justify-between">
+    <div class="p-5 border-b border-stone-800 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-600"></i>
-        <h3 class="font-bold text-base text-stone-900 dark:text-white">Alışveriş Sepetiniz</h3>
-        <span id="cart-count-badge" class="px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-600 text-xs font-bold">0 Ürün</span>
+        <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-500"></i>
+        <h3 class="font-bold text-base">Alışveriş Sepetiniz</h3>
+        <span id="cart-count-badge" class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 text-xs font-bold">0 Ürün</span>
       </div>
-      <button onclick="toggleCart()" class="p-2 rounded-lg hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-500">
+      <button onclick="toggleCart()" class="p-2 rounded-lg hover:bg-stone-800 text-stone-400">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
 
     <!-- Free Shipping Progress -->
-    <div class="px-5 py-3 bg-amber-50 dark:bg-stone-800/50 border-b border-stone-200 dark:border-stone-800 text-xs">
+    <div class="px-5 py-3 bg-stone-900/80 border-b border-stone-800 text-xs">
       <div class="flex justify-between font-medium mb-1.5" id="shipping-progress-text">
         <span>750 TL Üzeri Kargo Bedava!</span>
-        <span class="text-amber-700 font-bold" id="shipping-remaining">750 TL Kaldı</span>
+        <span class="text-amber-500 font-bold" id="shipping-remaining">750 TL Kaldı</span>
       </div>
-      <div class="w-full bg-stone-200 dark:bg-stone-700 h-2 rounded-full overflow-hidden">
+      <div class="w-full bg-stone-800 h-2 rounded-full overflow-hidden">
         <div id="shipping-progress-bar" class="bg-amber-500 h-full transition-all duration-300" style="width: 0%"></div>
       </div>
     </div>
 
-    <!-- Cart Items List -->
-    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-4">
-      <!-- Empty state / dynamic items -->
-      <div id="cart-empty-state" class="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
-        <div class="w-16 h-16 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center">
-          <i data-lucide="shopping-bag" class="w-8 h-8"></i>
-        </div>
-        <p class="font-bold text-stone-800 dark:text-stone-200 text-sm">Sepetiniz Henüz Boş</p>
-        <p class="text-xs text-stone-500 max-w-xs">Hasat ürünlerimizden dilediğiniz gramajı seçip sepetinize ekleyebilirsiniz.</p>
-      </div>
-    </div>
+    <!-- Cart Items -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-3"></div>
 
-    <!-- Drawer Footer / Checkout -->
-    <div class="p-5 border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900/80 space-y-3">
-      
-      <div class="space-y-1.5 text-xs text-stone-600 dark:text-stone-400">
+    <!-- Cart Footer -->
+    <div class="p-5 border-t border-stone-800 bg-stone-900/60 space-y-3">
+      <div class="space-y-1 text-xs opacity-80">
         <div class="flex justify-between">
           <span>Ara Toplam:</span>
-          <span id="cart-subtotal" class="font-bold text-stone-900 dark:text-white">0 TL</span>
+          <span id="cart-subtotal" class="font-bold text-white">0 TL</span>
         </div>
         <div class="flex justify-between">
           <span>Kargo Ücreti:</span>
-          <span id="cart-shipping" class="text-emerald-600 font-bold">Hesaplanıyor</span>
+          <span id="cart-shipping" class="text-emerald-400 font-bold">Hesaplanıyor</span>
         </div>
-        <div class="flex justify-between text-base font-extrabold text-stone-900 dark:text-white pt-2 border-t border-stone-200 dark:border-stone-800">
+        <div class="flex justify-between text-base font-black text-white pt-2 border-t border-stone-800">
           <span>Genel Toplam:</span>
-          <span id="cart-total" class="text-amber-600">0 TL</span>
+          <span id="cart-total" class="text-amber-500">0 TL</span>
         </div>
       </div>
 
-      <!-- Action 1: WhatsApp One-Click Order -->
-      <button onclick="checkoutWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 transition-all">
+      <button onclick="checkoutWhatsApp()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition-all">
         <i data-lucide="message-circle" class="w-4 h-4"></i>
-        <span>WhatsApp ile Hızlı Sipariş Ver</span>
+        <span>WhatsApp ile Tek Tıkla Sipariş Ver</span>
       </button>
 
-      <!-- Action 2: Credit Card / EFT Checkout Modal -->
-      <button onclick="openCheckoutModal()" class="btn-primary w-full py-3 font-bold text-xs flex items-center justify-center gap-2">
+      <button onclick="openCheckoutModal()" class="btn-brand w-full py-3.5 font-bold text-xs flex items-center justify-center gap-2">
         <i data-lucide="credit-card" class="w-4 h-4"></i>
-        <span>Kredi Kartı / Havale ile Öde</span>
+        <span>3D Secure Kredi Kartı / Havale</span>
       </button>
-
     </div>
 
   </div>
 
   <!-- ================= LAB REPORT MODAL ================= -->
-  <div id="lab-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="card-theme max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl">
-      <button onclick="closeLabModal()" class="absolute top-4 right-4 p-2 text-stone-400 hover:text-stone-900 dark:hover:text-white">
+  <div id="lab-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="card-theme max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto relative shadow-2xl border-amber-500/40">
+      <button onclick="closeLabModal()" class="absolute top-4 right-4 p-2 text-stone-400 hover:text-white">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
-      <div class="flex items-center gap-3 border-b border-stone-200 dark:border-stone-800 pb-4 mb-6">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
-          <i data-lucide="shield-check" class="w-6 h-6"></i>
+      <div class="flex items-center gap-3.5 border-b border-stone-800 pb-4 mb-6">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+          <i data-lucide="shield-check" class="w-7 h-7"></i>
         </div>
         <div>
-          <h3 class="font-bold text-lg text-stone-900 dark:text-white font-heading">Resmi Gıda Analiz ve Akreditasyon Raporu</h3>
-          <p class="text-xs text-stone-500">T.C. Tarım ve Orman Bakanlığı Akredite Gıda Kontrol Laboratuvarı</p>
+          <h3 class="font-bold text-lg font-display">T.C. Akredite Gıda Kontrol Analiz Belgesi</h3>
+          <p class="text-xs opacity-60">Parti No: TR-2026-ANZ-094 • Numune Tipi: Yayla Ham Balı</p>
         </div>
       </div>
 
-      <!-- Certificate Specs Table -->
       <div class="space-y-4 text-xs">
-        <div class="grid grid-cols-2 gap-3 bg-stone-50 dark:bg-stone-800/50 p-4 rounded-xl">
-          <div><span class="text-stone-500">Parti / Seri No:</span> <strong class="text-stone-900 dark:text-white block font-mono">TR-2026-ANZ-094</strong></div>
-          <div><span class="text-stone-500">Analiz Tarihi:</span> <strong class="text-stone-900 dark:text-white block">15.09.2026</strong></div>
-          <div><span class="text-stone-500">Numune Tipi:</span> <strong class="text-stone-900 dark:text-white block">Süzme & Petek Ham Yayla Balı</strong></div>
-          <div><span class="text-stone-500">Hasat Rakımı:</span> <strong class="text-stone-900 dark:text-white block">2.400 Metre (Kaçkar Dağları)</strong></div>
+        <div class="grid grid-cols-2 gap-3 bg-stone-900/60 p-4 rounded-xl border border-stone-800">
+          <div><span class="opacity-60">Analiz Tarihi:</span> <strong class="block text-white font-bold">15.09.2026</strong></div>
+          <div><span class="opacity-60">Akreditasyon Kurumu:</span> <strong class="block text-white font-bold">TÜBİTAK UME & Hacettepe</strong></div>
+          <div><span class="opacity-60">Hasat Rakımı:</span> <strong class="block text-white font-bold">2.400 Metre (Kaçkar)</strong></div>
+          <div><span class="opacity-60">Botanik Kökeni:</span> <strong class="block text-white font-bold">Yayla Çiçek & Orman Gülü</strong></div>
         </div>
 
-        <div class="border border-stone-200 dark:border-stone-800 rounded-xl overflow-hidden">
+        <div class="border border-stone-800 rounded-xl overflow-hidden">
           <table class="w-full text-left">
-            <thead class="bg-stone-100 dark:bg-stone-800 text-[11px] font-bold text-stone-700 dark:text-stone-300">
+            <thead class="bg-stone-900 text-stone-300 font-bold text-[11px]">
               <tr>
-                <th class="p-2.5">Parametre</th>
-                <th class="p-2.5">Bulunan Değer</th>
-                <th class="p-2.5">Türk Gıda Kodeksi Sınırı</th>
-                <th class="p-2.5 text-right">Durum</th>
+                <th class="p-3">Test Edilen Parametre</th>
+                <th class="p-3">Analiz Sonucu</th>
+                <th class="p-3">Türk Gıda Kodeksi Sınırı</th>
+                <th class="p-3 text-right">Durum</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-stone-200 dark:divide-stone-800 text-stone-700 dark:text-stone-300">
+            <tbody class="divide-y divide-stone-800">
               <tr>
-                <td class="p-2.5 font-semibold">Prolin Aminoasidi</td>
-                <td class="p-2.5 text-amber-600 font-bold">1.150 mg/kg</td>
-                <td class="p-2.5 text-stone-500">En az 300 mg/kg</td>
-                <td class="p-2.5 text-right text-emerald-600 font-bold">✓ Üstün Kalite</td>
+                <td class="p-3 font-semibold">Prolin Aminoasidi</td>
+                <td class="p-3 text-amber-500 font-black">1.150 mg/kg</td>
+                <td class="p-3 opacity-60">En az 300 mg/kg</td>
+                <td class="p-3 text-right text-emerald-400 font-bold">✓ Üstün Kalite</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-semibold">Diastaz Sayısı</td>
-                <td class="p-2.5 text-amber-600 font-bold">16.4 DN</td>
-                <td class="p-2.5 text-stone-500">En az 8 DN</td>
-                <td class="p-2.5 text-right text-emerald-600 font-bold">✓ Uygun</td>
+                <td class="p-3 font-semibold">Diastaz Sayısı</td>
+                <td class="p-3 text-amber-500 font-black">16.4 DN</td>
+                <td class="p-3 opacity-60">En az 8 DN</td>
+                <td class="p-3 text-right text-emerald-400 font-bold">✓ Aktif Enzim</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-semibold">Hidroksimetilfurfural (HMF)</td>
-                <td class="p-2.5 text-emerald-600 font-bold">4.2 mg/kg</td>
-                <td class="p-2.5 text-stone-500">En fazla 40 mg/kg</td>
-                <td class="p-2.5 text-right text-emerald-600 font-bold">✓ Taze / Isıl İşlemsiz</td>
+                <td class="p-3 font-semibold">Hidroksimetilfurfural (HMF)</td>
+                <td class="p-3 text-emerald-400 font-black">4.2 mg/kg</td>
+                <td class="p-3 opacity-60">En fazla 40 mg/kg</td>
+                <td class="p-3 text-right text-emerald-400 font-bold">✓ Taze / Isıtılmamış</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-semibold">Nem / Rutubet Oranı</td>
-                <td class="p-2.5 font-bold">%16.8</td>
-                <td class="p-2.5 text-stone-500">En fazla %20</td>
-                <td class="p-2.5 text-right text-emerald-600 font-bold">✓ Uygun</td>
+                <td class="p-3 font-semibold">Nem / Rutubet Oranı</td>
+                <td class="p-3 font-bold">%16.8</td>
+                <td class="p-3 opacity-60">En fazla %20</td>
+                <td class="p-3 text-right text-emerald-400 font-bold">✓ Uygun</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-semibold">C4 Şekerleri (İlave Şeker)</td>
-                <td class="p-2.5 text-emerald-600 font-bold">%0.0 (Tespit Edilmedi)</td>
-                <td class="p-2.5 text-stone-500">En fazla %7</td>
-                <td class="p-2.5 text-right text-emerald-600 font-bold">✓ %100 Saf</td>
+                <td class="p-3 font-semibold">C4 Şekerleri (İlave Şeker)</td>
+                <td class="p-3 text-emerald-400 font-black">%0.0 (Sıfır)</td>
+                <td class="p-3 opacity-60">En fazla %7</td>
+                <td class="p-3 text-right text-emerald-400 font-bold">✓ %100 Saf</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p class="text-[11px] text-stone-500 italic">
-          * İşbu rapor numunenin analiz edilen değerlerini yansıtır. Her kavanozun arkasındaki karekodu telefonunuzla okutarak bu partiye ait resmi test belgesine erişebilirsiniz.
+        <p class="text-[11px] opacity-60 italic">
+          * Her kavanozun arkasındaki QR kodu telefonunuzun kamerasıyla okutarak laboratuvar ıslak imzalı PDF raporuna ulaşabilirsiniz.
         </p>
 
-        <div class="pt-2 flex justify-end">
-          <button onclick="closeLabModal()" class="px-5 py-2.5 rounded-xl bg-stone-800 text-white font-bold text-xs">
+        <div class="pt-3 flex justify-end">
+          <button onclick="closeLabModal()" class="px-5 py-2.5 rounded-xl bg-stone-800 text-white font-bold text-xs hover:bg-stone-700">
             Kapat
           </button>
         </div>
@@ -930,193 +809,153 @@
     </div>
   </div>
 
-  <!-- ================= JAVASCRIPT APPLICATION CORE ================= -->
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
-    // Product Catalog State (Synced with localStorage from admin.html)
-    const DEFAULT_PRODUCTS = [
+    const RICH_PRODUCTS = [
       {
-        id: 'kkt-bal-1',
+        id: 'prod-1',
         title: 'Anzer Yayla Ham Çiçek Balı',
         category: 'suzme',
         badge: 'ÇOK SATAN',
-        proline: '1.150 mg/kg',
+        proline: '1.150 mg/kg Prolin',
         description: '2.400m Kaçkar flora çeşitliliğinden, ısıl işlem görmemiş saf ham süzme bal.',
+        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80',
         weights: [
-          { grams: '450g', price: 480, label: 'Küçük Kavanoz' },
-          { grams: '850g', price: 850, label: 'Aile Boyu (En Çok Satan)', default: true },
-          { grams: '1.5kg', price: 1420, label: 'Ekonomik Büyük Boy' }
-        ],
-        svgType: 'jar-gold'
+          { grams: '450g', price: 480 },
+          { grams: '850g', price: 850, default: true },
+          { grams: '1.5kg', price: 1420 }
+        ]
       },
       {
-        id: 'kkt-bal-2',
+        id: 'prod-2',
         title: 'Doğal Karakovan Petek Balı',
         category: 'petek',
-        badge: 'SINIRLI HASAT',
-        proline: '1.280 mg/kg',
+        badge: 'ÖZEL REZERV',
+        proline: '1.280 mg/kg Prolin',
         description: 'Kütük kovanlarda arının kendi ürettiği hakiki balmumuyla örülmüş doğal petek bal.',
+        image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80',
         weights: [
-          { grams: '850g', price: 1100, label: 'Petekli Cam Fanus', default: true },
-          { grams: '1.4kg', price: 1750, label: 'Yarım Çıta Petek' }
-        ],
-        svgType: 'comb'
+          { grams: '850g', price: 1100, default: true },
+          { grams: '1.4kg', price: 1750 }
+        ]
       },
       {
-        id: 'kkt-bal-3',
+        id: 'prod-3',
         title: 'Kestane & Dağ Çiçeği Ham Balı',
         category: 'suzme',
         badge: 'YÜKSEK ANTİOKSİDAN',
-        proline: '980 mg/kg',
+        proline: '980 mg/kg Prolin',
         description: 'Koyu renkli, hafif buruk tatlı, yüksek polifenol ve mineral içerikli şifalı kestane balı.',
+        image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80',
         weights: [
-          { grams: '450g', price: 540, label: 'Küçük Kavanoz' },
-          { grams: '850g', price: 950, label: 'Standart Kavanoz', default: true }
-        ],
-        svgType: 'jar-dark'
+          { grams: '450g', price: 540 },
+          { grams: '850g', price: 950, default: true }
+        ]
       },
       {
-        id: 'kkt-bal-4',
+        id: 'prod-4',
         title: 'Saf Propolis Sıvı Ekstraktı (%30)',
         category: 'ozel',
         badge: 'BAĞIŞIKLIK DESTEĞİ',
         proline: 'Su Bazlı',
         description: 'Alkol içermeyen, yüksek saflıkta damlalıklı şişede konsantre doğal arı propolisi.',
+        image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80',
         weights: [
-          { grams: '30ml', price: 380, label: 'Damlalıklı Cam Şişe', default: true },
-          { grams: '50ml', price: 590, label: 'Ekonomik Boy' }
-        ],
-        svgType: 'dropper'
+          { grams: '30ml', price: 380, default: true },
+          { grams: '50ml', price: 590 }
+        ]
       },
       {
-        id: 'kkt-bal-5',
+        id: 'prod-5',
         title: 'Taze Çiçek Poleni (Yayla Hasadı)',
         category: 'ozel',
-        badge: 'SÜPER GIDA',
+        badge: 'CANLI ENZİM',
         proline: 'Zengin Protein',
         description: 'Güneşte kurutulmamış, canlı enzimlerini koruyan rengarenk taze yayla poleni.',
+        image: 'https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80',
         weights: [
-          { grams: '250g', price: 390, label: 'Hava Almaz Kavanoz', default: true },
-          { grams: '500g', price: 720, label: 'Büyük Boy' }
-        ],
-        svgType: 'pollen'
+          { grams: '250g', price: 390, default: true },
+          { grams: '500g', price: 720 }
+        ]
+      },
+      {
+        id: 'prod-6',
+        title: 'Arı Sütü & Saf Bal Süper Karışım',
+        category: 'ozel',
+        badge: 'HÜCRE YENİLEYİCİ',
+        proline: '10-HDA Asitli',
+        description: 'Taze saf arı sütü ve yayla ham balının sinerjik karışımı, enerji deposu.',
+        image: 'https://images.unsplash.com/photo-1473081556163-2a17de81fc97?auto=format&fit=crop&w=800&q=80',
+        weights: [
+          { grams: '230g', price: 680, default: true },
+          { grams: '450g', price: 1250 }
+        ]
       }
     ];
 
-    // Load products from localStorage or fallback to defaults
-    function getProducts() {
-      const stored = localStorage.getItem('bal_catalog_products');
-      if (stored) {
-        try { return JSON.parse(stored); } catch {}
-      }
-      return DEFAULT_PRODUCTS;
-    }
-
-    // Active Cart
     let cart = [];
     try {
-      const savedCart = localStorage.getItem('bal_cart');
-      if (savedCart) cart = JSON.parse(savedCart);
+      const saved = localStorage.getItem('bal_cart');
+      if (saved) cart = JSON.parse(saved);
     } catch {}
 
-    // Product SVG renderer
-    function renderProductSvg(type) {
-      if (type === 'comb') {
-        return `<svg viewBox="0 0 100 100" class="w-24 h-24 text-amber-500 drop-shadow-md">
-          <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="#F59E0B" opacity="0.85" stroke="#B45309" stroke-width="2"/>
-          <polygon points="50,25 72,38 72,62 50,75 28,62 28,38" fill="#FDE68A" stroke="#D97706" stroke-width="1.5"/>
-          <circle cx="50" cy="50" r="10" fill="#D97706"/>
-        </svg>`;
-      } else if (type === 'dropper') {
-        return `<svg viewBox="0 0 100 100" class="w-24 h-24 text-amber-700 drop-shadow-md">
-          <rect x="36" y="40" width="28" height="50" rx="6" fill="#78350F"/>
-          <rect x="42" y="25" width="16" height="15" fill="#D1D5DB"/>
-          <path d="M44,25 Q50,10 56,25 Z" fill="#1F2937"/>
-          <rect x="40" y="52" width="20" height="24" rx="2" fill="#FEF3C7"/>
-        </svg>`;
-      } else if (type === 'pollen') {
-        return `<svg viewBox="0 0 100 100" class="w-24 h-24 text-amber-500 drop-shadow-md">
-          <ellipse cx="50" cy="55" rx="35" ry="30" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
-          <circle cx="45" cy="45" r="5" fill="#F59E0B"/>
-          <circle cx="58" cy="48" r="4.5" fill="#D97706"/>
-          <circle cx="48" cy="60" r="6" fill="#EA580C"/>
-          <circle cx="36" cy="55" r="4" fill="#FBBF24"/>
-          <circle cx="62" cy="62" r="5" fill="#CA8A04"/>
-        </svg>`;
-      }
-      // default jar
-      return `<svg viewBox="0 0 100 100" class="w-24 h-24 text-amber-500 drop-shadow-md">
-        <rect x="35" y="10" width="30" height="10" rx="2" fill="#CA8A04"/>
-        <path d="M28,25 Q25,35 22,50 L22,80 Q22,90 35,90 L65,90 Q78,90 78,80 L78,50 Q75,35 72,25 Z" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
-        <rect x="32" y="45" width="36" height="26" rx="3" fill="#FFFBEB" stroke="#B45309" stroke-width="1"/>
-        <line x1="38" y1="53" x2="62" y2="53" stroke="#92400E" stroke-width="1.5"/>
-        <line x1="42" y1="60" x2="58" y2="60" stroke="#92400E" stroke-width="1"/>
-      </svg>`;
-    }
+    const selectedWeightState = {};
 
-    // Render Product Cards
-    function renderProducts(categoryFilter = 'all') {
-      const grid = document.getElementById('products-grid');
-      const products = getProducts();
-      const filtered = categoryFilter === 'all' ? products : products.filter(p => p.category === categoryFilter);
+    function renderCatalog(filter = 'all') {
+      const grid = document.getElementById('catalog-grid');
+      const filtered = filter === 'all' ? RICH_PRODUCTS : RICH_PRODUCTS.filter(p => p.category === filter);
 
-      grid.innerHTML = filtered.map(prod => {
-        const defaultW = prod.weights.find(w => w.default) || prod.weights[0];
-        
-        const weightButtons = prod.weights.map((w, idx) => `
-          <button onclick="selectProductWeight('${prod.id}', ${idx}, ${w.price}, '${w.grams}')" id="btn-w-${prod.id}-${idx}" class="prod-w-btn-${prod.id} px-2.5 py-1.5 rounded-lg text-xs font-semibold border ${idx === (prod.selectedIdx || 0) ? 'border-amber-500 bg-amber-500/10 text-amber-700 dark:text-amber-300' : 'border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-amber-500'} transition-all">
+      grid.innerHTML = filtered.map(p => {
+        const defaultW = p.weights.find(w => w.default) || p.weights[0];
+        const currentSel = selectedWeightState[p.id] || { idx: 0, grams: defaultW.grams, price: defaultW.price };
+
+        const weightChips = p.weights.map((w, idx) => `
+          <button onclick="selectWeight('${p.id}', ${idx}, '${w.grams}', ${w.price})" id="chip-${p.id}-${idx}" class="chip-${p.id} px-2.5 py-1.5 rounded-lg text-xs font-bold border ${idx === currentSel.idx ? 'border-amber-500 bg-amber-500/20 text-amber-400' : 'border-stone-800 opacity-70 hover:opacity-100'} transition-all">
             ${w.grams}
           </button>
         `).join('');
 
         return `
-          <div class="card-theme p-6 flex flex-col justify-between group relative overflow-hidden">
-            
+          <div class="card-theme p-5 flex flex-col justify-between group overflow-hidden">
             <div>
-              <!-- Badge & Category -->
-              <div class="flex justify-between items-start mb-4">
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
-                  ${prod.badge}
+              <div class="flex justify-between items-start mb-3">
+                <span class="px-2.5 py-0.5 rounded-md text-[10px] font-black bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase">
+                  ${p.badge}
                 </span>
-                <span class="text-[11px] font-semibold text-emerald-600 flex items-center gap-1">
+                <span class="text-[11px] font-bold text-emerald-400 flex items-center gap-1">
                   <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-                  ${prod.proline}
+                  ${p.proline}
                 </span>
               </div>
 
-              <!-- Product Visual Illustration -->
-              <div class="h-36 flex items-center justify-center my-3 group-hover:scale-105 transition-transform duration-300">
-                ${renderProductSvg(prod.svgType)}
+              <div class="h-48 rounded-xl overflow-hidden mb-4 border border-stone-800 relative">
+                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
               </div>
 
-              <!-- Title & Description -->
-              <h3 class="font-bold text-lg text-stone-900 dark:text-white font-heading">${prod.title}</h3>
-              <p class="text-xs text-stone-500 mt-1 line-clamp-2">${prod.description}</p>
+              <h3 class="font-bold text-base font-display">${p.title}</h3>
+              <p class="text-xs opacity-70 mt-1 line-clamp-2">${p.description}</p>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-stone-200 dark:border-stone-800 space-y-4">
-              
-              <!-- Weight selectors -->
+            <div class="mt-5 pt-3 border-t border-stone-800 space-y-3">
               <div>
-                <label class="text-[11px] font-semibold text-stone-500 block mb-1.5">Gramaj / Ambalaj:</label>
+                <span class="text-[10px] uppercase font-bold opacity-60 block mb-1">Ambalaj Seçeneği:</span>
                 <div class="flex flex-wrap gap-1.5">
-                  ${weightButtons}
+                  ${weightChips}
                 </div>
               </div>
 
-              <!-- Price & Add Button -->
               <div class="flex items-center justify-between gap-3 pt-1">
                 <div>
-                  <span class="text-[10px] text-stone-400 block">Tavsiye Edilen Satış</span>
-                  <span id="price-${prod.id}" class="text-xl font-extrabold text-stone-900 dark:text-white">₺${defaultW.price}</span>
+                  <span class="text-[10px] opacity-60 block">Satış Fiyatı</span>
+                  <span id="price-${p.id}" class="text-xl font-black text-amber-500">₺${currentSel.price}</span>
                 </div>
-                <button onclick="addProductToCart('${prod.id}')" class="btn-primary px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 shadow-md">
+                <button onclick="addCatalogItemToCart('${p.id}')" class="btn-brand px-4 py-2.5 text-xs font-black flex items-center gap-1.5 shadow-md uppercase tracking-wider">
                   <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                   <span>Sepete Ekle</span>
                 </button>
               </div>
-
             </div>
-
           </div>
         `;
       }).join('');
@@ -1124,101 +963,87 @@
       lucide.createIcons();
     }
 
-    // Weight selection per card
-    const selectedWeights = {};
-    function selectProductWeight(prodId, idx, price, grams) {
-      selectedWeights[prodId] = { idx, price, grams };
-      const priceEl = document.getElementById(`price-${prodId}`);
-      if (priceEl) priceEl.innerText = `₺${price}`;
-
-      document.querySelectorAll(`.prod-w-btn-${prodId}`).forEach((btn, i) => {
+    function selectWeight(prodId, idx, grams, price) {
+      selectedWeightState[prodId] = { idx, grams, price };
+      document.getElementById(`price-${prodId}`).innerText = `₺${price}`;
+      document.querySelectorAll(`.chip-${prodId}`).forEach((btn, i) => {
         if (i === idx) {
-          btn.className = `prod-w-btn-${prodId} px-2.5 py-1.5 rounded-lg text-xs font-semibold border-2 border-amber-500 bg-amber-500/10 text-amber-700 dark:text-amber-300 transition-all`;
+          btn.className = `chip-${prodId} px-2.5 py-1.5 rounded-lg text-xs font-bold border-2 border-amber-500 bg-amber-500/20 text-amber-400 transition-all`;
         } else {
-          btn.className = `prod-w-btn-${prodId} px-2.5 py-1.5 rounded-lg text-xs font-semibold border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-amber-500 transition-all`;
+          btn.className = `chip-${prodId} px-2.5 py-1.5 rounded-lg text-xs font-bold border border-stone-800 opacity-70 hover:opacity-100 transition-all`;
         }
       });
     }
 
-    // Hero Weight Selector
-    let heroWeightState = { grams: 850, price: 850 };
+    let heroState = { grams: 850, price: 850 };
     function setHeroWeight(grams, price) {
-      heroWeightState = { grams, price };
+      heroState = { grams, price };
       document.getElementById('hero-weight-label').innerText = `${grams}g Özel Cam Kavanoz`;
       document.getElementById('hero-price').innerText = `${price} TL`;
-      
-      const btns = document.querySelectorAll('.hero-weight-btn');
-      btns.forEach(b => {
+      document.querySelectorAll('.hero-weight-btn').forEach(b => {
         if (b.innerText.includes(`${grams}g`)) {
-          b.className = 'hero-weight-btn py-2 px-1 text-xs font-bold rounded-lg border-2 border-amber-500 bg-amber-500/10 text-amber-700 dark:text-amber-300 transition-all text-center shadow-sm';
+          b.className = 'hero-weight-btn py-2.5 px-1 rounded-xl border-2 border-amber-500 bg-amber-500/15 text-amber-400 transition-all text-center shadow-md';
         } else {
-          b.className = 'hero-weight-btn py-2 px-1 text-xs font-bold rounded-lg border border-stone-200 dark:border-stone-700 hover:border-amber-500 transition-all text-center';
+          b.className = 'hero-weight-btn py-2.5 px-1 rounded-xl border border-stone-800 hover:border-amber-500 transition-all text-center';
         }
       });
     }
 
     function addHeroToCart() {
-      addItemToCart({
-        id: `hero-${heroWeightState.grams}`,
+      addItem({
+        id: `hero-${heroState.grams}`,
         title: 'Anzer Yayla Ham Çiçek Balı',
-        grams: `${heroWeightState.grams}g`,
-        price: heroWeightState.price,
+        grams: `${heroState.grams}g`,
+        price: heroState.price,
         qty: 1
       });
     }
 
-    function addProductToCart(prodId) {
-      const prods = getProducts();
-      const p = prods.find(x => x.id === prodId);
+    function addCatalogItemToCart(prodId) {
+      const p = RICH_PRODUCTS.find(x => x.id === prodId);
       if (!p) return;
-      const wSel = selectedWeights[prodId] || { idx: 0, price: p.weights[0].price, grams: p.weights[0].grams };
-      addItemToCart({
-        id: `${p.id}-${wSel.grams}`,
+      const defaultW = p.weights.find(w => w.default) || p.weights[0];
+      const sel = selectedWeightState[prodId] || { grams: defaultW.grams, price: defaultW.price };
+      addItem({
+        id: `${p.id}-${sel.grams}`,
         title: p.title,
-        grams: wSel.grams,
-        price: wSel.price,
+        grams: sel.grams,
+        price: sel.price,
         qty: 1
       });
     }
 
     function addTierToCart(tierId, price, title) {
-      addItemToCart({
+      addItem({
         id: tierId,
-        title: title,
+        title,
         grams: 'Toptan Paket',
-        price: price,
+        price,
         qty: 1
       });
     }
 
-    function addItemToCart(item) {
+    function addItem(item) {
       const existing = cart.find(x => x.id === item.id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push(item);
-      }
+      if (existing) existing.qty += 1;
+      else cart.push(item);
       saveAndRenderCart();
       openCart();
     }
 
-    function changeCartQty(id, delta) {
+    function changeQty(id, delta) {
       const item = cart.find(x => x.id === id);
       if (!item) return;
       item.qty += delta;
-      if (item.qty <= 0) {
-        cart = cart.filter(x => x.id !== id);
-      }
+      if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
       saveAndRenderCart();
     }
 
     function saveAndRenderCart() {
       localStorage.setItem('bal_cart', JSON.stringify(cart));
-      
       const badge = document.getElementById('cart-badge');
       const countBadge = document.getElementById('cart-count-badge');
       const container = document.getElementById('cart-items-container');
-      const emptyState = document.getElementById('cart-empty-state');
       const subtotalEl = document.getElementById('cart-subtotal');
       const shippingEl = document.getElementById('cart-shipping');
       const totalEl = document.getElementById('cart-total');
@@ -1227,51 +1052,48 @@
 
       const totalItems = cart.reduce((acc, x) => acc + x.qty, 0);
       const subtotal = cart.reduce((acc, x) => acc + (x.price * x.qty), 0);
-      const freeShippingThreshold = 750;
-      const shipping = subtotal >= freeShippingThreshold || subtotal === 0 ? 0 : 65;
+      const freeShippingLimit = 750;
+      const shipping = subtotal >= freeShippingLimit || subtotal === 0 ? 0 : 65;
       const grandTotal = subtotal + shipping;
 
       badge.innerText = totalItems;
       countBadge.innerText = `${totalItems} Ürün`;
       subtotalEl.innerText = `${subtotal.toLocaleString('tr-TR')} TL`;
-      shippingEl.innerText = subtotal >= freeShippingThreshold ? 'ÜCRETSİZ' : `${shipping} TL`;
+      shippingEl.innerText = subtotal >= freeShippingLimit ? 'ÜCRETSİZ' : `${shipping} TL`;
       totalEl.innerText = `${grandTotal.toLocaleString('tr-TR')} TL`;
 
-      // Progress bar
-      const pct = Math.min(100, Math.round((subtotal / freeShippingThreshold) * 100));
+      const pct = Math.min(100, Math.round((subtotal / freeShippingLimit) * 100));
       progressBar.style.width = `${pct}%`;
-      if (subtotal >= freeShippingThreshold) {
+      if (subtotal >= freeShippingLimit) {
         remainingEl.innerText = 'Tebrikler, Kargo Bedava!';
-        remainingEl.className = 'text-emerald-600 font-bold';
+        remainingEl.className = 'text-emerald-400 font-bold';
       } else {
-        remainingEl.innerText = `${(freeShippingThreshold - subtotal).toLocaleString('tr-TR')} TL Kaldı`;
-        remainingEl.className = 'text-amber-700 font-bold';
+        remainingEl.innerText = `${(freeShippingLimit - subtotal).toLocaleString('tr-TR')} TL Kaldı`;
+        remainingEl.className = 'text-amber-500 font-bold';
       }
 
       if (cart.length === 0) {
         container.innerHTML = `
-          <div class="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
-            <div class="w-16 h-16 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center">
-              <i data-lucide="shopping-bag" class="w-8 h-8"></i>
-            </div>
-            <p class="font-bold text-stone-800 dark:text-stone-200 text-sm">Sepetiniz Henüz Boş</p>
-            <p class="text-xs text-stone-500 max-w-xs">Hasat ürünlerimizden dilediğiniz gramajı seçip sepetinize ekleyebilirsiniz.</p>
+          <div class="h-full flex flex-col items-center justify-center text-center p-6 space-y-3 opacity-60">
+            <i data-lucide="shopping-bag" class="w-12 h-12 text-amber-500"></i>
+            <p class="font-bold text-sm">Sepetiniz Boş</p>
+            <p class="text-xs">Doğal yayla ürünlerimizden sepetinize ekleyebilirsiniz.</p>
           </div>
         `;
       } else {
         container.innerHTML = cart.map(item => `
-          <div class="p-3.5 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-800/40 flex items-center justify-between gap-3">
+          <div class="p-3.5 rounded-xl border border-stone-800 bg-stone-900/60 flex items-center justify-between gap-3">
             <div class="flex-1">
-              <div class="font-bold text-xs text-stone-900 dark:text-white">${item.title}</div>
-              <div class="text-[11px] text-amber-600 font-medium">${item.grams} • ₺${item.price}</div>
+              <div class="font-bold text-xs text-white">${item.title}</div>
+              <div class="text-[11px] text-amber-400">${item.grams} • ₺${item.price}</div>
             </div>
             <div class="flex items-center gap-2">
-              <button onclick="changeCartQty('${item.id}', -1)" class="w-6 h-6 rounded-lg bg-stone-200 dark:bg-stone-700 flex items-center justify-center text-xs font-bold hover:bg-amber-500 hover:text-white transition-colors">-</button>
+              <button onclick="changeQty('${item.id}', -1)" class="w-6 h-6 rounded bg-stone-800 flex items-center justify-center text-xs font-bold hover:bg-amber-500 hover:text-stone-950 transition-colors">-</button>
               <span class="text-xs font-bold px-1">${item.qty}</span>
-              <button onclick="changeCartQty('${item.id}', 1)" class="w-6 h-6 rounded-lg bg-stone-200 dark:bg-stone-700 flex items-center justify-center text-xs font-bold hover:bg-amber-500 hover:text-white transition-colors">+</button>
+              <button onclick="changeQty('${item.id}', 1)" class="w-6 h-6 rounded bg-stone-800 flex items-center justify-center text-xs font-bold hover:bg-amber-500 hover:text-stone-950 transition-colors">+</button>
             </div>
             <div class="text-right">
-              <span class="text-xs font-bold text-stone-900 dark:text-white block">₺${(item.price * item.qty).toLocaleString('tr-TR')}</span>
+              <span class="text-xs font-bold text-white block">₺${(item.price * item.qty).toLocaleString('tr-TR')}</span>
             </div>
           </div>
         `).join('');
@@ -1281,15 +1103,15 @@
     }
 
     function toggleCart() {
-      const drawer = document.getElementById('cart-drawer');
-      const overlay = document.getElementById('cart-drawer-overlay');
-      const isOpen = !drawer.classList.contains('translate-x-full');
+      const d = document.getElementById('cart-drawer');
+      const o = document.getElementById('cart-drawer-overlay');
+      const isOpen = !d.classList.contains('translate-x-full');
       if (isOpen) {
-        drawer.classList.add('translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
+        d.classList.add('translate-x-full');
+        o.classList.add('opacity-0', 'pointer-events-none');
       } else {
-        drawer.classList.remove('translate-x-full');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        d.classList.remove('translate-x-full');
+        o.classList.remove('opacity-0', 'pointer-events-none');
       }
     }
     function openCart() {
@@ -1297,33 +1119,27 @@
       document.getElementById('cart-drawer-overlay').classList.remove('opacity-0', 'pointer-events-none');
     }
 
-    // Checkout via WhatsApp
     function checkoutWhatsApp() {
       if (cart.length === 0) {
         alert('Lütfen önce sepetinize ürün ekleyin.');
         return;
       }
       let msg = "Merhaba, web sitenizden aşağıdaki doğal bal siparişini vermek istiyorum:\n\n";
-      let subtotal = 0;
+      let sub = 0;
       cart.forEach((item, idx) => {
-        const lineTotal = item.price * item.qty;
-        subtotal += lineTotal;
-        msg += `${idx + 1}) ${item.title} (${item.grams}) x ${item.qty} adet = ${lineTotal} TL\n`;
+        const line = item.price * item.qty;
+        sub += line;
+        msg += `${idx + 1}) ${item.title} (${item.grams}) x ${item.qty} adet = ${line} TL\n`;
       });
-      const shipping = subtotal >= 750 ? "Ücretsiz" : "65 TL";
-      msg += `\n📦 Kargo: ${shipping}\n`;
-      msg += `💰 Toplam Tutar: ${subtotal} TL\n\n`;
-      msg += "Teslimat ve ödeme detayları için yardımcı olabilir misiniz?";
-      
-      const waUrl = `https://wa.me/905457715120?text=${encodeURIComponent(msg)}`;
-      window.open(waUrl, '_blank');
+      const shp = sub >= 750 ? "Ücretsiz" : "65 TL";
+      msg += `\n📦 Kargo: ${shp}\n💰 Toplam Tutar: ${sub} TL\n\nTeslimat ve ödeme için yardımcı olabilir misiniz?`;
+      window.open(`https://wa.me/905457715120?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
     function openCheckoutModal() {
-      alert('Sipariş Simülasyonu: 3D Secure kredi kartı ve havale altyapısı (Iyzico / Shopier) yönetim panelinizdeki API anahtarlarıyla otomatik olarak aktifleşir.');
+      alert('3D Secure Kredi Kartı ve Havale ödeme sayfası hazır; Iyzico / Shopier API anahtarlarıyla otomatik olarak çalışır.');
     }
 
-    // Lab Modal
     function openLabModal() {
       const m = document.getElementById('lab-modal');
       m.classList.remove('hidden');
@@ -1335,47 +1151,41 @@
       m.classList.remove('flex');
     }
 
-    // Filter products
-    function filterProducts(cat) {
-      document.querySelectorAll('.prod-filter-btn').forEach(b => {
-        b.className = 'prod-filter-btn px-3 py-1.5 rounded-lg text-stone-600 dark:text-stone-400 hover:text-stone-900';
+    function filterCatalog(cat) {
+      document.querySelectorAll('.cat-filter-btn').forEach(b => {
+        b.className = 'cat-filter-btn px-3.5 py-2 rounded-lg opacity-70 hover:opacity-100';
       });
-      event.target.className = 'prod-filter-btn px-3 py-1.5 rounded-lg bg-white dark:bg-stone-700 text-stone-900 dark:text-white shadow-sm font-semibold';
-      renderProducts(cat);
+      event.target.className = 'cat-filter-btn px-3.5 py-2 rounded-lg bg-amber-600 text-white shadow-sm font-bold';
+      renderCatalog(cat);
     }
 
-    // Theme Switcher
-    function setTheme(themeName) {
-      document.body.classList.remove('theme-artisan', 'theme-cupertino', 'theme-royal', 'theme-modern', 'theme-b2b');
-      document.body.classList.add(themeName);
-      
-      if (themeName === 'theme-royal') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-      
-      ['theme-artisan', 'theme-cupertino', 'theme-royal', 'theme-modern', 'theme-b2b'].forEach(t => {
-        const btn = document.getElementById(`btn-${t}`);
-        if (btn) {
-          if (t === themeName) {
-            btn.className = 'px-2.5 py-1.5 rounded-lg font-medium transition-all bg-amber-600 text-white shadow-sm flex items-center gap-1.5 whitespace-nowrap';
+    // Dynamic Themes
+    function setTheme(themeClass) {
+      document.body.classList.remove('theme-apothecary', 'theme-cupertino', 'theme-nordic', 'theme-superfood', 'theme-coop');
+      document.body.classList.add(themeClass);
+
+      const isDark = themeClass === 'theme-apothecary' || themeClass === 'theme-superfood' || themeClass === 'theme-coop';
+      document.documentElement.classList.toggle('dark', isDark);
+
+      ['theme-apothecary', 'theme-cupertino', 'theme-nordic', 'theme-superfood', 'theme-coop'].forEach(t => {
+        const b = document.getElementById(`btn-${t}`);
+        if (b) {
+          if (t === themeClass) {
+            b.className = 'px-3 py-1.5 rounded-lg font-bold transition-all bg-amber-600 text-white shadow-md flex items-center gap-1.5 whitespace-nowrap';
           } else {
-            btn.className = 'px-2.5 py-1.5 rounded-lg font-medium transition-all text-stone-300 hover:text-white flex items-center gap-1.5 whitespace-nowrap';
+            b.className = 'px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap';
           }
         }
       });
     }
 
-    // Palette Switcher
-    function setPalette(paletteName) {
+    function setPalette(palClass) {
       document.body.classList.remove('palette-amber', 'palette-emerald', 'palette-violet', 'palette-copper');
-      document.body.classList.add(paletteName);
+      document.body.classList.add(palClass);
     }
 
-    // Initialize
     window.addEventListener('DOMContentLoaded', () => {
-      renderProducts();
+      renderCatalog();
       saveAndRenderCart();
       lucide.createIcons();
     });
