@@ -42,79 +42,96 @@
       --glass-blur: blur(0px);
     }
 
-    /* 1. THEME: APOTHECARY LUXURY (Aēsop & Comvita Manuka) */
-    .theme-apothecary {
-      --bg-main: #0B0C0E;
-      --bg-card: #131518;
-      --bg-card-hover: #1A1D22;
-      --text-main: #F4F1EA;
-      --text-muted: #A39E93;
-      --border-color: rgba(245, 158, 11, 0.22);
-      --font-display: 'Cinzel', serif;
-      --font-body: 'Inter', sans-serif;
-      --radius-card: 0.85rem;
-      --radius-btn: 0.35rem;
-      --glass-blur: blur(0px);
-    }
-
-    /* 2. THEME: CUPERTINO MINIMAL (Apple Store Clean) */
+    /* ================= 5 OFFICIAL BRAND DESIGN SYSTEMS (VoltAgent/awesome-design-md) ================= */
+    
+    /* 1. APPLE CUPERTINO STORE (VoltAgent/awesome-design-md - apple/DESIGN.md) */
     .theme-cupertino {
       --bg-main: #F5F5F7;
-      --bg-card: rgba(255, 255, 255, 0.85);
-      --bg-card-hover: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FAFAFC;
       --text-main: #1D1D1F;
       --text-muted: #6E6E73;
-      --border-color: rgba(0, 0, 0, 0.08);
-      --font-display: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --radius-card: 1.75rem;
-      --radius-btn: 9999px;
-      --glass-blur: blur(24px);
+      --border-color: #E5E5E7;
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", sans-serif;
+      --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Plus Jakarta Sans", sans-serif;
+      --radius-card: 1.125rem; /* 18px Apple store-utility-card */
+      --radius-btn: 9999px;    /* Apple full-pill CTA */
+      --glass-blur: blur(20px);
+      --primary: #0066CC;
+      --primary-hover: #0071E3;
+      --accent: #2997FF;
     }
 
-    /* 3. THEME: NORDIC RAW EDITORIAL (Kinfolk D2C) */
-    .theme-nordic {
-      --bg-main: #F8F5F0;
-      --bg-card: #FFFFFF;
-      --bg-card-hover: #FCFAF7;
-      --text-main: #272421;
-      --text-muted: #79736B;
-      --border-color: #E6DFD5;
-      --font-display: 'Playfair Display', serif;
+    /* 2. LINEAR OBSIDIAN LUXURY (VoltAgent/awesome-design-md - linear.app/DESIGN.md) */
+    .theme-apothecary {
+      --bg-main: #010102;      /* Deepest dark surface */
+      --bg-card: #0F1011;      /* Charcoal panel */
+      --bg-card-hover: #141516;
+      --text-main: #F7F8F8;
+      --text-muted: #8A8F98;
+      --border-color: #23252A; /* Precision hairline */
+      --font-display: 'Cinzel', serif;
       --font-body: 'Inter', sans-serif;
-      --radius-card: 0.5rem;
-      --radius-btn: 0.25rem;
-      --glass-blur: blur(0px);
-    }
-
-    /* 4. THEME: VIBRANT SUPERFOOD (Bento & High Energy) */
-    .theme-superfood {
-      --bg-main: #0F172A;
-      --bg-card: #1E293B;
-      --bg-card-hover: #334155;
-      --text-main: #F8FAFC;
-      --text-muted: #94A3B8;
-      --border-color: rgba(245, 158, 11, 0.3);
-      --font-display: 'Outfit', sans-serif;
-      --font-body: 'Plus Jakarta Sans', sans-serif;
-      --radius-card: 1.5rem;
-      --radius-btn: 1rem;
-      --glass-blur: blur(16px);
-    }
-
-    /* 5. THEME: KOOPERATİF & CANLI ARILIK (Artisan B2B) */
-    .theme-coop {
-      --bg-main: #1C1917;
-      --bg-card: #292524;
-      --bg-card-hover: #35302D;
-      --text-main: #FAFAF9;
-      --text-muted: #A8A29E;
-      --border-color: #44403C;
-      --font-display: 'Space Grotesk', sans-serif;
-      --font-body: 'Inter', sans-serif;
-      --radius-card: 0.75rem;
+      --radius-card: 0.75rem;  /* 12px panel */
       --radius-btn: 0.5rem;
       --glass-blur: blur(0px);
+      --primary: #D97706;
+      --primary-hover: #B45309;
+      --accent: #F59E0B;
+    }
+
+    /* 3. STARBUCKS RESERVE & BOTANICAL (VoltAgent/awesome-design-md - starbucks/DESIGN.md) */
+    .theme-nordic {
+      --bg-main: #F2F0EB;      /* Warm cream café canvas */
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #EDEBE9;
+      --text-main: #1E3932;    /* House Green deep ink */
+      --text-muted: #565F5C;
+      --border-color: #D4CEBE;
+      --font-display: 'Playfair Display', serif; /* Lander Tall serif echo */
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius-card: 0.75rem;  /* 12px */
+      --radius-btn: 50px;      /* 50px Starbucks full-pill */
+      --glass-blur: blur(0px);
+      --primary: #006241;      /* Starbucks historic green */
+      --primary-hover: #00754A;/* Green Accent */
+      --accent: #CBA258;       /* Gold Reserve */
+    }
+
+    /* 4. STRIPE FINTECH D2C & GRADIENT (VoltAgent/awesome-design-md - stripe/DESIGN.md) */
+    .theme-superfood {
+      --bg-main: #F6F9FC;      /* Stripe soft canvas */
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FFFFFF;
+      --text-main: #0D253D;    /* Deep navy ink */
+      --text-muted: #64748D;
+      --border-color: #E3E8EE; /* Hairline */
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius-card: 1.25rem;
+      --radius-btn: 0.625rem;
+      --glass-blur: blur(12px);
+      --primary: #533AFD;      /* Electric Indigo */
+      --primary-hover: #4434D4;
+      --accent: #F59E0B;
+    }
+
+    /* 5. RAYCAST BENTO & LIVE TELEMETRY (VoltAgent/awesome-design-md - raycast) */
+    .theme-coop {
+      --bg-main: #0C0D0E;      /* Matte dark canvas */
+      --bg-card: #16171A;      /* Bento container */
+      --bg-card-hover: #212226;
+      --text-main: #FAFAF9;
+      --text-muted: #9CA3AF;
+      --border-color: #27272A;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-card: 1rem;
+      --radius-btn: 0.5rem;
+      --glass-blur: blur(0px);
+      --primary: #F59E0B;
+      --primary-hover: #D97706;
+      --accent: #10B981;
     }
 
     /* ================= 4 COLOR PALETTES ================= */
@@ -209,32 +226,32 @@
           <i data-lucide="sparkles" class="w-4 h-4"></i>
         </span>
         <div>
-          <span class="font-extrabold tracking-wider uppercase text-amber-400">Canlı Tema & Stil Laboratuvarı</span>
-          <span class="text-stone-400 hidden sm:inline">— 5 Farklı Mimari & Görsel Konsept</span>
+          <span class="font-extrabold tracking-wider uppercase text-amber-400">VoltAgent / Awesome-Design-MD</span>
+          <span class="text-stone-400 hidden sm:inline">— 5 Farklı Resmi Marka Tasarım Sistemi</span>
         </div>
       </div>
 
       <!-- 5 Distinct Themes -->
       <div class="flex items-center bg-stone-900 p-1 rounded-xl border border-stone-800 overflow-x-auto max-w-full">
-        <button onclick="setTheme('theme-apothecary')" id="btn-theme-apothecary" class="px-3 py-1.5 rounded-lg font-bold transition-all bg-amber-600 text-white shadow-md flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="crown" class="w-3.5 h-3.5"></i>
-          1. Lüks Apotek (Aēsop)
-        </button>
         <button onclick="setTheme('theme-cupertino')" id="btn-theme-cupertino" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="apple" class="w-3.5 h-3.5"></i>
-          2. Cupertino Minimal (Apple)
+          1. Apple Cupertino Store
+        </button>
+        <button onclick="setTheme('theme-apothecary')" id="btn-theme-apothecary" class="px-3 py-1.5 rounded-lg font-bold transition-all bg-amber-600 text-white shadow-md flex items-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+          2. Linear Obsidian Luxury
         </button>
         <button onclick="setTheme('theme-nordic')" id="btn-theme-nordic" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-          3. Nordic Ham Editoryal
+          <i data-lucide="coffee" class="w-3.5 h-3.5"></i>
+          3. Starbucks Reserve Botanik
         </button>
         <button onclick="setTheme('theme-superfood')" id="btn-theme-superfood" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-          4. Modern Superfood (Bento)
+          <i data-lucide="credit-card" class="w-3.5 h-3.5"></i>
+          4. Stripe FinTech D2C
         </button>
         <button onclick="setTheme('theme-coop')" id="btn-theme-coop" class="px-3 py-1.5 rounded-lg font-medium transition-all text-stone-400 hover:text-white flex items-center gap-1.5 whitespace-nowrap">
-          <i data-lucide="radio" class="w-3.5 h-3.5"></i>
-          5. Canlı Arılık & Toptan
+          <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+          5. Raycast Telemetri & Toptan
         </button>
       </div>
 
@@ -304,7 +321,7 @@
   <section class="relative overflow-hidden py-16 md:py-24">
     
     <!-- Background Mountain Ambient Overlay -->
-    <div class="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center" style="background-image: url('./assets/kovanlar_6.jpg');"></div>
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -388,7 +405,7 @@
 
             <!-- Real High-Res Honey Photography -->
             <div class="relative h-72 rounded-2xl overflow-hidden my-4 border border-stone-800 group-hover:border-amber-500/50 transition-all">
-              <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=85" alt="Anzer Yayla Ham Çiçek Balı" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="./assets/bal_kavanoz_1.jpg" alt="Anzer Yayla Ham Çiçek Balı" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
               
               <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end text-white">
@@ -531,7 +548,7 @@
           <!-- Honeycomb Macro Photography Showcase -->
           <div class="lg:col-span-6">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/40 group">
-              <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=1000&q=85" alt="Doğal Petek Balı ve Altın Nektar" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
+              <img src="./assets/petek_bal_3.jpg" alt="Doğal Petek Balı ve Altın Nektar" class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
               
               <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
@@ -819,7 +836,7 @@
         badge: 'ÇOK SATAN',
         proline: '1.150 mg/kg Prolin',
         description: '2.400m Kaçkar flora çeşitliliğinden, ısıl işlem görmemiş saf ham süzme bal.',
-        image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80',
+        image: './assets/bal_kasik_2.jpg',
         weights: [
           { grams: '450g', price: 480 },
           { grams: '850g', price: 850, default: true },
@@ -833,7 +850,7 @@
         badge: 'ÖZEL REZERV',
         proline: '1.280 mg/kg Prolin',
         description: 'Kütük kovanlarda arının kendi ürettiği hakiki balmumuyla örülmüş doğal petek bal.',
-        image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=800&q=80',
+        image: './assets/petek_bal_3.jpg',
         weights: [
           { grams: '850g', price: 1100, default: true },
           { grams: '1.4kg', price: 1750 }
@@ -846,7 +863,7 @@
         badge: 'YÜKSEK ANTİOKSİDAN',
         proline: '980 mg/kg Prolin',
         description: 'Koyu renkli, hafif buruk tatlı, yüksek polifenol ve mineral içerikli şifalı kestane balı.',
-        image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=800&q=80',
+        image: './assets/koyu_bal_5.jpg',
         weights: [
           { grams: '450g', price: 540 },
           { grams: '850g', price: 950, default: true }
@@ -859,7 +876,7 @@
         badge: 'BAĞIŞIKLIK DESTEĞİ',
         proline: 'Su Bazlı',
         description: 'Alkol içermeyen, yüksek saflıkta damlalıklı şişede konsantre doğal arı propolisi.',
-        image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80',
+        image: './assets/ari_petek_4.jpg',
         weights: [
           { grams: '30ml', price: 380, default: true },
           { grams: '50ml', price: 590 }
@@ -872,7 +889,7 @@
         badge: 'CANLI ENZİM',
         proline: 'Zengin Protein',
         description: 'Güneşte kurutulmamış, canlı enzimlerini koruyan rengarenk taze yayla poleni.',
-        image: 'https://images.unsplash.com/photo-1471943311424-646960669fbc?auto=format&fit=crop&w=800&q=80',
+        image: './assets/bal_kavanoz_1.jpg',
         weights: [
           { grams: '250g', price: 390, default: true },
           { grams: '500g', price: 720 }
@@ -885,7 +902,7 @@
         badge: 'HÜCRE YENİLEYİCİ',
         proline: '10-HDA Asitli',
         description: 'Taze saf arı sütü ve yayla ham balının sinerjik karışımı, enerji deposu.',
-        image: 'https://images.unsplash.com/photo-1473081556163-2a17de81fc97?auto=format&fit=crop&w=800&q=80',
+        image: './assets/bal_kasik_2.jpg',
         weights: [
           { grams: '230g', price: 680, default: true },
           { grams: '450g', price: 1250 }
@@ -1164,7 +1181,7 @@
       document.body.classList.remove('theme-apothecary', 'theme-cupertino', 'theme-nordic', 'theme-superfood', 'theme-coop');
       document.body.classList.add(themeClass);
 
-      const isDark = themeClass === 'theme-apothecary' || themeClass === 'theme-superfood' || themeClass === 'theme-coop';
+      const isDark = themeClass === 'theme-apothecary' || themeClass === 'theme-coop';
       document.documentElement.classList.toggle('dark', isDark);
 
       ['theme-apothecary', 'theme-cupertino', 'theme-nordic', 'theme-superfood', 'theme-coop'].forEach(t => {
