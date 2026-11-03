@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (20)</option><option value="kastamonu-abana-bosch-servisi">Abana</option><option value="kastamonu-agli-bosch-servisi">Ağlı</option><option value="kastamonu-arac-bosch-servisi">Araç</option><option value="kastamonu-azdavay-bosch-servisi">Azdavay</option><option value="kastamonu-bozkurt-bosch-servisi">Bozkurt</option><option value="kastamonu-cide-bosch-servisi">Cide</option><option value="kastamonu-catalzeytin-bosch-servisi">Çatalzeytin</option><option value="kastamonu-daday-bosch-servisi">Daday</option><option value="kastamonu-devrekani-bosch-servisi">Devrekani</option><option value="kastamonu-doganyurt-bosch-servisi">Doğanyurt</option><option value="kastamonu-hanonu-bosch-servisi">Hanönü</option><option value="kastamonu-ihsangazi-bosch-servisi">İhsangazi</option><option value="kastamonu-inebolu-bosch-servisi">İnebolu</option><option value="kastamonu-kure-bosch-servisi">Küre</option><option value="kastamonu-merkez-bosch-servisi">Merkez</option><option value="kastamonu-pinarbasi-bosch-servisi">Pınarbaşı</option><option value="kastamonu-seydiler-bosch-servisi">Seydiler</option><option value="kastamonu-senpazar-bosch-servisi">Şenpazar</option><option value="kastamonu-taskopru-bosch-servisi">Taşköprü</option><option value="kastamonu-tosya-bosch-servisi">Tosya</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Kastamonu İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Kastamonu İlçelerinde Bosch Yetkili Servisi (20 İlçe)</h2>
+        <div class="ilce-grid"><a href="../kastamonu-abana-bosch-servisi/">Abana Bosch Servisi</a><a href="../kastamonu-agli-bosch-servisi/">Ağlı Bosch Servisi</a><a href="../kastamonu-arac-bosch-servisi/">Araç Bosch Servisi</a><a href="../kastamonu-azdavay-bosch-servisi/">Azdavay Bosch Servisi</a><a href="../kastamonu-bozkurt-bosch-servisi/">Bozkurt Bosch Servisi</a><a href="../kastamonu-cide-bosch-servisi/">Cide Bosch Servisi</a><a href="../kastamonu-catalzeytin-bosch-servisi/">Çatalzeytin Bosch Servisi</a><a href="../kastamonu-daday-bosch-servisi/">Daday Bosch Servisi</a><a href="../kastamonu-devrekani-bosch-servisi/">Devrekani Bosch Servisi</a><a href="../kastamonu-doganyurt-bosch-servisi/">Doğanyurt Bosch Servisi</a><a href="../kastamonu-hanonu-bosch-servisi/">Hanönü Bosch Servisi</a><a href="../kastamonu-ihsangazi-bosch-servisi/">İhsangazi Bosch Servisi</a><a href="../kastamonu-inebolu-bosch-servisi/">İnebolu Bosch Servisi</a><a href="../kastamonu-kure-bosch-servisi/">Küre Bosch Servisi</a><a href="../kastamonu-merkez-bosch-servisi/">Merkez Bosch Servisi</a><a href="../kastamonu-pinarbasi-bosch-servisi/">Pınarbaşı Bosch Servisi</a><a href="../kastamonu-seydiler-bosch-servisi/">Seydiler Bosch Servisi</a><a href="../kastamonu-senpazar-bosch-servisi/">Şenpazar Bosch Servisi</a><a href="../kastamonu-taskopru-bosch-servisi/">Taşköprü Bosch Servisi</a><a href="../kastamonu-tosya-bosch-servisi/">Tosya Bosch Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (12)</option><option value="tokat-almus-bosch-servisi">Almus</option><option value="tokat-artova-bosch-servisi">Artova</option><option value="tokat-basciftlik-bosch-servisi">Başçiftlik</option><option value="tokat-erbaa-bosch-servisi">Erbaa</option><option value="tokat-merkez-bosch-servisi">Merkez</option><option value="tokat-niksar-bosch-servisi">Niksar</option><option value="tokat-pazar-bosch-servisi">Pazar</option><option value="tokat-resadiye-bosch-servisi">Reşadiye</option><option value="tokat-sulusaray-bosch-servisi">Sulusaray</option><option value="tokat-turhal-bosch-servisi">Turhal</option><option value="tokat-yesilyurt-bosch-servisi">Yeşilyurt</option><option value="tokat-zile-bosch-servisi">Zile</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Tokat İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Tokat İlçelerinde Bosch Yetkili Servisi (12 İlçe)</h2>
+        <div class="ilce-grid"><a href="../tokat-almus-bosch-servisi/">Almus Bosch Servisi</a><a href="../tokat-artova-bosch-servisi/">Artova Bosch Servisi</a><a href="../tokat-basciftlik-bosch-servisi/">Başçiftlik Bosch Servisi</a><a href="../tokat-erbaa-bosch-servisi/">Erbaa Bosch Servisi</a><a href="../tokat-merkez-bosch-servisi/">Merkez Bosch Servisi</a><a href="../tokat-niksar-bosch-servisi/">Niksar Bosch Servisi</a><a href="../tokat-pazar-bosch-servisi/">Pazar Bosch Servisi</a><a href="../tokat-resadiye-bosch-servisi/">Reşadiye Bosch Servisi</a><a href="../tokat-sulusaray-bosch-servisi/">Sulusaray Bosch Servisi</a><a href="../tokat-turhal-bosch-servisi/">Turhal Bosch Servisi</a><a href="../tokat-yesilyurt-bosch-servisi/">Yeşilyurt Bosch Servisi</a><a href="../tokat-zile-bosch-servisi/">Zile Bosch Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

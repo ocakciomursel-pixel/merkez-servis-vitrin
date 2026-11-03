@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (15)</option><option value="hatay-altinozu-yetkili-servisi">Altınözü</option><option value="hatay-antakya-yetkili-servisi">Antakya</option><option value="hatay-arsuz-yetkili-servisi">Arsuz</option><option value="hatay-belen-yetkili-servisi">Belen</option><option value="hatay-defne-yetkili-servisi">Defne</option><option value="hatay-dortyol-yetkili-servisi">Dörtyol</option><option value="hatay-erzin-yetkili-servisi">Erzin</option><option value="hatay-hassa-yetkili-servisi">Hassa</option><option value="hatay-iskenderun-yetkili-servisi">İskenderun</option><option value="hatay-kirikhan-yetkili-servisi">Kırıkhan</option><option value="hatay-kumlu-yetkili-servisi">Kumlu</option><option value="hatay-payas-yetkili-servisi">Payas</option><option value="hatay-reyhanli-yetkili-servisi">Reyhanlı</option><option value="hatay-samandag-yetkili-servisi">Samandağ</option><option value="hatay-yayladagi-yetkili-servisi">Yayladağı</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Hatay İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Hatay İlçeleri — İlçe Yetkili Servis Sayfaları (15 İlçe)</h2>
+        <div class="ilce-grid"><a href="../hatay-altinozu-yetkili-servisi/">Altınözü Yetkili Servisi</a><a href="../hatay-antakya-yetkili-servisi/">Antakya Yetkili Servisi</a><a href="../hatay-arsuz-yetkili-servisi/">Arsuz Yetkili Servisi</a><a href="../hatay-belen-yetkili-servisi/">Belen Yetkili Servisi</a><a href="../hatay-defne-yetkili-servisi/">Defne Yetkili Servisi</a><a href="../hatay-dortyol-yetkili-servisi/">Dörtyol Yetkili Servisi</a><a href="../hatay-erzin-yetkili-servisi/">Erzin Yetkili Servisi</a><a href="../hatay-hassa-yetkili-servisi/">Hassa Yetkili Servisi</a><a href="../hatay-iskenderun-yetkili-servisi/">İskenderun Yetkili Servisi</a><a href="../hatay-kirikhan-yetkili-servisi/">Kırıkhan Yetkili Servisi</a><a href="../hatay-kumlu-yetkili-servisi/">Kumlu Yetkili Servisi</a><a href="../hatay-payas-yetkili-servisi/">Payas Yetkili Servisi</a><a href="../hatay-reyhanli-yetkili-servisi/">Reyhanlı Yetkili Servisi</a><a href="../hatay-samandag-yetkili-servisi/">Samandağ Yetkili Servisi</a><a href="../hatay-yayladagi-yetkili-servisi/">Yayladağı Yetkili Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

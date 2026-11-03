@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (16)</option><option value="giresun-alucra-bosch-servisi">Alucra</option><option value="giresun-bulancak-bosch-servisi">Bulancak</option><option value="giresun-camoluk-bosch-servisi">Çamoluk</option><option value="giresun-canakci-bosch-servisi">Çanakçı</option><option value="giresun-dereli-bosch-servisi">Dereli</option><option value="giresun-dogankent-bosch-servisi">Doğankent</option><option value="giresun-espiye-bosch-servisi">Espiye</option><option value="giresun-eynesil-bosch-servisi">Eynesil</option><option value="giresun-gorele-bosch-servisi">Görele</option><option value="giresun-guce-bosch-servisi">Güce</option><option value="giresun-kesap-bosch-servisi">Keşap</option><option value="giresun-merkez-bosch-servisi">Merkez</option><option value="giresun-piraziz-bosch-servisi">Piraziz</option><option value="giresun-sebinkarahisar-bosch-servisi">Şebinkarahisar</option><option value="giresun-tirebolu-bosch-servisi">Tirebolu</option><option value="giresun-yaglidere-bosch-servisi">Yağlıdere</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Giresun İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Giresun İlçelerinde Bosch Yetkili Servisi (16 İlçe)</h2>
+        <div class="ilce-grid"><a href="../giresun-alucra-bosch-servisi/">Alucra Bosch Servisi</a><a href="../giresun-bulancak-bosch-servisi/">Bulancak Bosch Servisi</a><a href="../giresun-camoluk-bosch-servisi/">Çamoluk Bosch Servisi</a><a href="../giresun-canakci-bosch-servisi/">Çanakçı Bosch Servisi</a><a href="../giresun-dereli-bosch-servisi/">Dereli Bosch Servisi</a><a href="../giresun-dogankent-bosch-servisi/">Doğankent Bosch Servisi</a><a href="../giresun-espiye-bosch-servisi/">Espiye Bosch Servisi</a><a href="../giresun-eynesil-bosch-servisi/">Eynesil Bosch Servisi</a><a href="../giresun-gorele-bosch-servisi/">Görele Bosch Servisi</a><a href="../giresun-guce-bosch-servisi/">Güce Bosch Servisi</a><a href="../giresun-kesap-bosch-servisi/">Keşap Bosch Servisi</a><a href="../giresun-merkez-bosch-servisi/">Merkez Bosch Servisi</a><a href="../giresun-piraziz-bosch-servisi/">Piraziz Bosch Servisi</a><a href="../giresun-sebinkarahisar-bosch-servisi/">Şebinkarahisar Bosch Servisi</a><a href="../giresun-tirebolu-bosch-servisi/">Tirebolu Bosch Servisi</a><a href="../giresun-yaglidere-bosch-servisi/">Yağlıdere Bosch Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

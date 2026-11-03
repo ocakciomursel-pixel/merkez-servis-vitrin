@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (9)</option><option value="bolu-dortdivan-yetkili-servisi">Dörtdivan</option><option value="bolu-gerede-yetkili-servisi">Gerede</option><option value="bolu-goynuk-yetkili-servisi">Göynük</option><option value="bolu-kibriscik-yetkili-servisi">Kıbrıscık</option><option value="bolu-mengen-yetkili-servisi">Mengen</option><option value="bolu-merkez-yetkili-servisi">Merkez</option><option value="bolu-mudurnu-yetkili-servisi">Mudurnu</option><option value="bolu-seben-yetkili-servisi">Seben</option><option value="bolu-yenicaga-yetkili-servisi">Yeniçağa</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Bolu İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Bolu İlçeleri — İlçe Yetkili Servis Sayfaları (9 İlçe)</h2>
+        <div class="ilce-grid"><a href="../bolu-dortdivan-yetkili-servisi/">Dörtdivan Yetkili Servisi</a><a href="../bolu-gerede-yetkili-servisi/">Gerede Yetkili Servisi</a><a href="../bolu-goynuk-yetkili-servisi/">Göynük Yetkili Servisi</a><a href="../bolu-kibriscik-yetkili-servisi/">Kıbrıscık Yetkili Servisi</a><a href="../bolu-mengen-yetkili-servisi/">Mengen Yetkili Servisi</a><a href="../bolu-merkez-yetkili-servisi/">Merkez Yetkili Servisi</a><a href="../bolu-mudurnu-yetkili-servisi/">Mudurnu Yetkili Servisi</a><a href="../bolu-seben-yetkili-servisi/">Seben Yetkili Servisi</a><a href="../bolu-yenicaga-yetkili-servisi/">Yeniçağa Yetkili Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

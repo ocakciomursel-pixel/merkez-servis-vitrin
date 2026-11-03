@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (17)</option><option value="bursa-buyukorhan-baymak-servisi">Büyükorhan</option><option value="bursa-gemlik-baymak-servisi">Gemlik</option><option value="bursa-gursu-baymak-servisi">Gürsu</option><option value="bursa-harmancik-baymak-servisi">Harmancık</option><option value="bursa-inegol-baymak-servisi">İnegöl</option><option value="bursa-iznik-baymak-servisi">İznik</option><option value="bursa-karacabey-baymak-servisi">Karacabey</option><option value="bursa-keles-baymak-servisi">Keles</option><option value="bursa-kestel-baymak-servisi">Kestel</option><option value="bursa-mudanya-baymak-servisi">Mudanya</option><option value="bursa-mustafakemalpasa-baymak-servisi">Mustafakemalpaşa</option><option value="bursa-nilufer-baymak-servisi">Nilüfer</option><option value="bursa-orhaneli-baymak-servisi">Orhaneli</option><option value="bursa-orhangazi-baymak-servisi">Orhangazi</option><option value="bursa-osmangazi-baymak-servisi">Osmangazi</option><option value="bursa-yenisehir-baymak-servisi">Yenişehir</option><option value="bursa-yildirim-baymak-servisi">Yıldırım</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Bursa İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Bursa İlçelerinde Baymak Yetkili Servisi (17 İlçe)</h2>
+        <div class="ilce-grid"><a href="../bursa-buyukorhan-baymak-servisi/">Büyükorhan Baymak Servisi</a><a href="../bursa-gemlik-baymak-servisi/">Gemlik Baymak Servisi</a><a href="../bursa-gursu-baymak-servisi/">Gürsu Baymak Servisi</a><a href="../bursa-harmancik-baymak-servisi/">Harmancık Baymak Servisi</a><a href="../bursa-inegol-baymak-servisi/">İnegöl Baymak Servisi</a><a href="../bursa-iznik-baymak-servisi/">İznik Baymak Servisi</a><a href="../bursa-karacabey-baymak-servisi/">Karacabey Baymak Servisi</a><a href="../bursa-keles-baymak-servisi/">Keles Baymak Servisi</a><a href="../bursa-kestel-baymak-servisi/">Kestel Baymak Servisi</a><a href="../bursa-mudanya-baymak-servisi/">Mudanya Baymak Servisi</a><a href="../bursa-mustafakemalpasa-baymak-servisi/">Mustafakemalpaşa Baymak Servisi</a><a href="../bursa-nilufer-baymak-servisi/">Nilüfer Baymak Servisi</a><a href="../bursa-orhaneli-baymak-servisi/">Orhaneli Baymak Servisi</a><a href="../bursa-orhangazi-baymak-servisi/">Orhangazi Baymak Servisi</a><a href="../bursa-osmangazi-baymak-servisi/">Osmangazi Baymak Servisi</a><a href="../bursa-yenisehir-baymak-servisi/">Yenişehir Baymak Servisi</a><a href="../bursa-yildirim-baymak-servisi/">Yıldırım Baymak Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

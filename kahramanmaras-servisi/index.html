@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (11)</option><option value="kahramanmaras-afsin-yetkili-servisi">Afşin</option><option value="kahramanmaras-andirin-yetkili-servisi">Andırın</option><option value="kahramanmaras-caglayancerit-yetkili-servisi">Çağlayancerit</option><option value="kahramanmaras-dulkadiroglu-yetkili-servisi">Dulkadiroğlu</option><option value="kahramanmaras-ekinozu-yetkili-servisi">Ekinözü</option><option value="kahramanmaras-elbistan-yetkili-servisi">Elbistan</option><option value="kahramanmaras-goksun-yetkili-servisi">Göksun</option><option value="kahramanmaras-nurhak-yetkili-servisi">Nurhak</option><option value="kahramanmaras-onikisubat-yetkili-servisi">Onikişubat</option><option value="kahramanmaras-pazarcik-yetkili-servisi">Pazarcık</option><option value="kahramanmaras-turkoglu-yetkili-servisi">Türkoğlu</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Kahramanmaraş İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Kahramanmaraş İlçeleri — İlçe Yetkili Servis Sayfaları (11 İlçe)</h2>
+        <div class="ilce-grid"><a href="../kahramanmaras-afsin-yetkili-servisi/">Afşin Yetkili Servisi</a><a href="../kahramanmaras-andirin-yetkili-servisi/">Andırın Yetkili Servisi</a><a href="../kahramanmaras-caglayancerit-yetkili-servisi/">Çağlayancerit Yetkili Servisi</a><a href="../kahramanmaras-dulkadiroglu-yetkili-servisi/">Dulkadiroğlu Yetkili Servisi</a><a href="../kahramanmaras-ekinozu-yetkili-servisi/">Ekinözü Yetkili Servisi</a><a href="../kahramanmaras-elbistan-yetkili-servisi/">Elbistan Yetkili Servisi</a><a href="../kahramanmaras-goksun-yetkili-servisi/">Göksun Yetkili Servisi</a><a href="../kahramanmaras-nurhak-yetkili-servisi/">Nurhak Yetkili Servisi</a><a href="../kahramanmaras-onikisubat-yetkili-servisi/">Onikişubat Yetkili Servisi</a><a href="../kahramanmaras-pazarcik-yetkili-servisi/">Pazarcık Yetkili Servisi</a><a href="../kahramanmaras-turkoglu-yetkili-servisi/">Türkoğlu Yetkili Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

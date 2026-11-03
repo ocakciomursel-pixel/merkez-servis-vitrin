@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (19)</option><option value="antalya-akseki-bosch-servisi">Akseki</option><option value="antalya-aksu-bosch-servisi">Aksu</option><option value="antalya-alanya-bosch-servisi">Alanya</option><option value="antalya-demre-bosch-servisi">Demre</option><option value="antalya-dosemealti-bosch-servisi">Döşemealtı</option><option value="antalya-elmali-bosch-servisi">Elmalı</option><option value="antalya-finike-bosch-servisi">Finike</option><option value="antalya-gazipasa-bosch-servisi">Gazipaşa</option><option value="antalya-gundogmus-bosch-servisi">Gündoğmuş</option><option value="antalya-ibradi-bosch-servisi">İbradı</option><option value="antalya-kas-bosch-servisi">Kaş</option><option value="antalya-kemer-bosch-servisi">Kemer</option><option value="antalya-kepez-bosch-servisi">Kepez</option><option value="antalya-konyaalti-bosch-servisi">Konyaaltı</option><option value="antalya-korkuteli-bosch-servisi">Korkuteli</option><option value="antalya-kumluca-bosch-servisi">Kumluca</option><option value="antalya-manavgat-bosch-servisi">Manavgat</option><option value="antalya-muratpasa-bosch-servisi">Muratpaşa</option><option value="antalya-serik-bosch-servisi">Serik</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Antalya İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Antalya İlçelerinde Bosch Yetkili Servisi (19 İlçe)</h2>
+        <div class="ilce-grid"><a href="../antalya-akseki-bosch-servisi/">Akseki Bosch Servisi</a><a href="../antalya-aksu-bosch-servisi/">Aksu Bosch Servisi</a><a href="../antalya-alanya-bosch-servisi/">Alanya Bosch Servisi</a><a href="../antalya-demre-bosch-servisi/">Demre Bosch Servisi</a><a href="../antalya-dosemealti-bosch-servisi/">Döşemealtı Bosch Servisi</a><a href="../antalya-elmali-bosch-servisi/">Elmalı Bosch Servisi</a><a href="../antalya-finike-bosch-servisi/">Finike Bosch Servisi</a><a href="../antalya-gazipasa-bosch-servisi/">Gazipaşa Bosch Servisi</a><a href="../antalya-gundogmus-bosch-servisi/">Gündoğmuş Bosch Servisi</a><a href="../antalya-ibradi-bosch-servisi/">İbradı Bosch Servisi</a><a href="../antalya-kas-bosch-servisi/">Kaş Bosch Servisi</a><a href="../antalya-kemer-bosch-servisi/">Kemer Bosch Servisi</a><a href="../antalya-kepez-bosch-servisi/">Kepez Bosch Servisi</a><a href="../antalya-konyaalti-bosch-servisi/">Konyaaltı Bosch Servisi</a><a href="../antalya-korkuteli-bosch-servisi/">Korkuteli Bosch Servisi</a><a href="../antalya-kumluca-bosch-servisi/">Kumluca Bosch Servisi</a><a href="../antalya-manavgat-bosch-servisi/">Manavgat Bosch Servisi</a><a href="../antalya-muratpasa-bosch-servisi/">Muratpaşa Bosch Servisi</a><a href="../antalya-serik-bosch-servisi/">Serik Bosch Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (16)</option><option value="kayseri-akkisla-yetkili-servisi">Akkışla</option><option value="kayseri-bunyan-yetkili-servisi">Bünyan</option><option value="kayseri-develi-yetkili-servisi">Develi</option><option value="kayseri-felahiye-yetkili-servisi">Felahiye</option><option value="kayseri-hacilar-yetkili-servisi">Hacılar</option><option value="kayseri-incesu-yetkili-servisi">İncesu</option><option value="kayseri-kocasinan-yetkili-servisi">Kocasinan</option><option value="kayseri-melikgazi-yetkili-servisi">Melikgazi</option><option value="kayseri-ozvatan-yetkili-servisi">Özvatan</option><option value="kayseri-pinarbasi-yetkili-servisi">Pınarbaşı</option><option value="kayseri-sarioglan-yetkili-servisi">Sarıoğlan</option><option value="kayseri-sariz-yetkili-servisi">Sarız</option><option value="kayseri-talas-yetkili-servisi">Talas</option><option value="kayseri-tomarza-yetkili-servisi">Tomarza</option><option value="kayseri-yahyali-yetkili-servisi">Yahyalı</option><option value="kayseri-yesilhisar-yetkili-servisi">Yeşilhisar</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Kayseri İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Kayseri İlçeleri — İlçe Yetkili Servis Sayfaları (16 İlçe)</h2>
+        <div class="ilce-grid"><a href="../kayseri-akkisla-yetkili-servisi/">Akkışla Yetkili Servisi</a><a href="../kayseri-bunyan-yetkili-servisi/">Bünyan Yetkili Servisi</a><a href="../kayseri-develi-yetkili-servisi/">Develi Yetkili Servisi</a><a href="../kayseri-felahiye-yetkili-servisi/">Felahiye Yetkili Servisi</a><a href="../kayseri-hacilar-yetkili-servisi/">Hacılar Yetkili Servisi</a><a href="../kayseri-incesu-yetkili-servisi/">İncesu Yetkili Servisi</a><a href="../kayseri-kocasinan-yetkili-servisi/">Kocasinan Yetkili Servisi</a><a href="../kayseri-melikgazi-yetkili-servisi/">Melikgazi Yetkili Servisi</a><a href="../kayseri-ozvatan-yetkili-servisi/">Özvatan Yetkili Servisi</a><a href="../kayseri-pinarbasi-yetkili-servisi/">Pınarbaşı Yetkili Servisi</a><a href="../kayseri-sarioglan-yetkili-servisi/">Sarıoğlan Yetkili Servisi</a><a href="../kayseri-sariz-yetkili-servisi/">Sarız Yetkili Servisi</a><a href="../kayseri-talas-yetkili-servisi/">Talas Yetkili Servisi</a><a href="../kayseri-tomarza-yetkili-servisi/">Tomarza Yetkili Servisi</a><a href="../kayseri-yahyali-yetkili-servisi/">Yahyalı Yetkili Servisi</a><a href="../kayseri-yesilhisar-yetkili-servisi/">Yeşilhisar Yetkili Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

@@ -47,6 +47,24 @@
       }
     }
 
+    // Check /<il>-<ilce>-<marka>-servisi or /<il>-<ilce>-yetkili-servisi (single segment, full 973-district list)
+    const FULL_DIST = window.MS_FULL_DISTRICTS || {};
+    const SLUG_TR = window.MS_SLUG_TR || MS.slugifyTr;
+    if (!curProv && !curBrand) {
+      outerDist: for (const p of allProvs) {
+        if (!lastSeg.startsWith(p.slug + '-')) continue;
+        const rest = lastSeg.slice(p.slug.length + 1);
+        for (const dn of (FULL_DIST[p.slug] || p.districts || [])) {
+          const ds = SLUG_TR(dn);
+          if (!rest.startsWith(ds + '-')) continue;
+          const rem = rest.slice(ds.length + 1);
+          if (rem === 'yetkili-servisi' || rem === 'servisi') { curProv = p.slug; curDistLabel = dn; break outerDist; }
+          const bm = allBrands.find(b => rem === b.slug + '-servisi');
+          if (bm) { curProv = p.slug; curBrand = bm.slug; curDistLabel = dn; break outerDist; }
+        }
+      }
+    }
+
     // Check /<il>-<marka>-servisi or /<il>-yetkili-servisi or /<il>-servisi
     if (!curProv && !curBrand) {
       for (const p of allProvs) {
@@ -78,7 +96,7 @@
     // Hydrate page DOM for the resolved URL without changing address bar
     const pObj = curProv ? allProvs.find(p => p.slug === curProv) : null;
     const bObj = curBrand ? allBrands.find(b => b.slug === curBrand) : null;
-    const locTxt = pObj ? (curDistLabel ? curDistLabel + ' ' + pObj.name + ' ' : pObj.name + ' ') : '';
+    const locTxt = pObj ? (curDistLabel ? pObj.name + ' ' + curDistLabel + ' ' : pObj.name + ' ') : '';
     const titleLabel = bObj
       ? (locTxt + bObj.name + ' Yetkili Servisi')
       : (pObj ? (locTxt + 'Yetkili Servisi') : 'Merkez Yetkili Servisi');

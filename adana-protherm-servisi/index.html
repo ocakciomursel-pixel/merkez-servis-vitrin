@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (15)</option><option value="adana-aladag-protherm-servisi">Aladağ</option><option value="adana-ceyhan-protherm-servisi">Ceyhan</option><option value="adana-cukurova-protherm-servisi">Çukurova</option><option value="adana-feke-protherm-servisi">Feke</option><option value="adana-imamoglu-protherm-servisi">İmamoğlu</option><option value="adana-karaisali-protherm-servisi">Karaisalı</option><option value="adana-karatas-protherm-servisi">Karataş</option><option value="adana-kozan-protherm-servisi">Kozan</option><option value="adana-pozanti-protherm-servisi">Pozantı</option><option value="adana-saimbeyli-protherm-servisi">Saimbeyli</option><option value="adana-saricam-protherm-servisi">Sarıçam</option><option value="adana-seyhan-protherm-servisi">Seyhan</option><option value="adana-tufanbeyli-protherm-servisi">Tufanbeyli</option><option value="adana-yumurtalik-protherm-servisi">Yumurtalık</option><option value="adana-yuregir-protherm-servisi">Yüreğir</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Adana İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Adana İlçelerinde Protherm Yetkili Servisi (15 İlçe)</h2>
+        <div class="ilce-grid"><a href="../adana-aladag-protherm-servisi/">Aladağ Protherm Servisi</a><a href="../adana-ceyhan-protherm-servisi/">Ceyhan Protherm Servisi</a><a href="../adana-cukurova-protherm-servisi/">Çukurova Protherm Servisi</a><a href="../adana-feke-protherm-servisi/">Feke Protherm Servisi</a><a href="../adana-imamoglu-protherm-servisi/">İmamoğlu Protherm Servisi</a><a href="../adana-karaisali-protherm-servisi/">Karaisalı Protherm Servisi</a><a href="../adana-karatas-protherm-servisi/">Karataş Protherm Servisi</a><a href="../adana-kozan-protherm-servisi/">Kozan Protherm Servisi</a><a href="../adana-pozanti-protherm-servisi/">Pozantı Protherm Servisi</a><a href="../adana-saimbeyli-protherm-servisi/">Saimbeyli Protherm Servisi</a><a href="../adana-saricam-protherm-servisi/">Sarıçam Protherm Servisi</a><a href="../adana-seyhan-protherm-servisi/">Seyhan Protherm Servisi</a><a href="../adana-tufanbeyli-protherm-servisi/">Tufanbeyli Protherm Servisi</a><a href="../adana-yumurtalik-protherm-servisi/">Yumurtalık Protherm Servisi</a><a href="../adana-yuregir-protherm-servisi/">Yüreğir Protherm Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

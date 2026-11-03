@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (20)</option><option value="balikesir-altieylul-yetkili-servisi">Altıeylül</option><option value="balikesir-ayvalik-yetkili-servisi">Ayvalık</option><option value="balikesir-balya-yetkili-servisi">Balya</option><option value="balikesir-bandirma-yetkili-servisi">Bandırma</option><option value="balikesir-bigadic-yetkili-servisi">Bigadiç</option><option value="balikesir-burhaniye-yetkili-servisi">Burhaniye</option><option value="balikesir-dursunbey-yetkili-servisi">Dursunbey</option><option value="balikesir-edremit-yetkili-servisi">Edremit</option><option value="balikesir-erdek-yetkili-servisi">Erdek</option><option value="balikesir-gomec-yetkili-servisi">Gömeç</option><option value="balikesir-gonen-yetkili-servisi">Gönen</option><option value="balikesir-havran-yetkili-servisi">Havran</option><option value="balikesir-ivrindi-yetkili-servisi">İvrindi</option><option value="balikesir-karesi-yetkili-servisi">Karesi</option><option value="balikesir-kepsut-yetkili-servisi">Kepsut</option><option value="balikesir-manyas-yetkili-servisi">Manyas</option><option value="balikesir-marmara-yetkili-servisi">Marmara</option><option value="balikesir-savastepe-yetkili-servisi">Savaştepe</option><option value="balikesir-sindirgi-yetkili-servisi">Sındırgı</option><option value="balikesir-susurluk-yetkili-servisi">Susurluk</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Balıkesir İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Balıkesir İlçeleri — İlçe Yetkili Servis Sayfaları (20 İlçe)</h2>
+        <div class="ilce-grid"><a href="../balikesir-altieylul-yetkili-servisi/">Altıeylül Yetkili Servisi</a><a href="../balikesir-ayvalik-yetkili-servisi/">Ayvalık Yetkili Servisi</a><a href="../balikesir-balya-yetkili-servisi/">Balya Yetkili Servisi</a><a href="../balikesir-bandirma-yetkili-servisi/">Bandırma Yetkili Servisi</a><a href="../balikesir-bigadic-yetkili-servisi/">Bigadiç Yetkili Servisi</a><a href="../balikesir-burhaniye-yetkili-servisi/">Burhaniye Yetkili Servisi</a><a href="../balikesir-dursunbey-yetkili-servisi/">Dursunbey Yetkili Servisi</a><a href="../balikesir-edremit-yetkili-servisi/">Edremit Yetkili Servisi</a><a href="../balikesir-erdek-yetkili-servisi/">Erdek Yetkili Servisi</a><a href="../balikesir-gomec-yetkili-servisi/">Gömeç Yetkili Servisi</a><a href="../balikesir-gonen-yetkili-servisi/">Gönen Yetkili Servisi</a><a href="../balikesir-havran-yetkili-servisi/">Havran Yetkili Servisi</a><a href="../balikesir-ivrindi-yetkili-servisi/">İvrindi Yetkili Servisi</a><a href="../balikesir-karesi-yetkili-servisi/">Karesi Yetkili Servisi</a><a href="../balikesir-kepsut-yetkili-servisi/">Kepsut Yetkili Servisi</a><a href="../balikesir-manyas-yetkili-servisi/">Manyas Yetkili Servisi</a><a href="../balikesir-marmara-yetkili-servisi/">Marmara Yetkili Servisi</a><a href="../balikesir-savastepe-yetkili-servisi/">Savaştepe Yetkili Servisi</a><a href="../balikesir-sindirgi-yetkili-servisi/">Sındırgı Yetkili Servisi</a><a href="../balikesir-susurluk-yetkili-servisi/">Susurluk Yetkili Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

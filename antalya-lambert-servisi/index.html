@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (19)</option><option value="antalya-akseki-lambert-servisi">Akseki</option><option value="antalya-aksu-lambert-servisi">Aksu</option><option value="antalya-alanya-lambert-servisi">Alanya</option><option value="antalya-demre-lambert-servisi">Demre</option><option value="antalya-dosemealti-lambert-servisi">Döşemealtı</option><option value="antalya-elmali-lambert-servisi">Elmalı</option><option value="antalya-finike-lambert-servisi">Finike</option><option value="antalya-gazipasa-lambert-servisi">Gazipaşa</option><option value="antalya-gundogmus-lambert-servisi">Gündoğmuş</option><option value="antalya-ibradi-lambert-servisi">İbradı</option><option value="antalya-kas-lambert-servisi">Kaş</option><option value="antalya-kemer-lambert-servisi">Kemer</option><option value="antalya-kepez-lambert-servisi">Kepez</option><option value="antalya-konyaalti-lambert-servisi">Konyaaltı</option><option value="antalya-korkuteli-lambert-servisi">Korkuteli</option><option value="antalya-kumluca-lambert-servisi">Kumluca</option><option value="antalya-manavgat-lambert-servisi">Manavgat</option><option value="antalya-muratpasa-lambert-servisi">Muratpaşa</option><option value="antalya-serik-lambert-servisi">Serik</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Antalya İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Antalya İlçelerinde Lambert Yetkili Servisi (19 İlçe)</h2>
+        <div class="ilce-grid"><a href="../antalya-akseki-lambert-servisi/">Akseki Lambert Servisi</a><a href="../antalya-aksu-lambert-servisi/">Aksu Lambert Servisi</a><a href="../antalya-alanya-lambert-servisi/">Alanya Lambert Servisi</a><a href="../antalya-demre-lambert-servisi/">Demre Lambert Servisi</a><a href="../antalya-dosemealti-lambert-servisi/">Döşemealtı Lambert Servisi</a><a href="../antalya-elmali-lambert-servisi/">Elmalı Lambert Servisi</a><a href="../antalya-finike-lambert-servisi/">Finike Lambert Servisi</a><a href="../antalya-gazipasa-lambert-servisi/">Gazipaşa Lambert Servisi</a><a href="../antalya-gundogmus-lambert-servisi/">Gündoğmuş Lambert Servisi</a><a href="../antalya-ibradi-lambert-servisi/">İbradı Lambert Servisi</a><a href="../antalya-kas-lambert-servisi/">Kaş Lambert Servisi</a><a href="../antalya-kemer-lambert-servisi/">Kemer Lambert Servisi</a><a href="../antalya-kepez-lambert-servisi/">Kepez Lambert Servisi</a><a href="../antalya-konyaalti-lambert-servisi/">Konyaaltı Lambert Servisi</a><a href="../antalya-korkuteli-lambert-servisi/">Korkuteli Lambert Servisi</a><a href="../antalya-kumluca-lambert-servisi/">Kumluca Lambert Servisi</a><a href="../antalya-manavgat-lambert-servisi/">Manavgat Lambert Servisi</a><a href="../antalya-muratpasa-lambert-servisi/">Muratpaşa Lambert Servisi</a><a href="../antalya-serik-lambert-servisi/">Serik Lambert Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

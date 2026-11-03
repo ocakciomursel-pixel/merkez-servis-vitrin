@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (13)</option><option value="van-bahcesaray-bosch-servisi">Bahçesaray</option><option value="van-baskale-bosch-servisi">Başkale</option><option value="van-caldiran-bosch-servisi">Çaldıran</option><option value="van-catak-bosch-servisi">Çatak</option><option value="van-edremit-bosch-servisi">Edremit</option><option value="van-ercis-bosch-servisi">Erciş</option><option value="van-gevas-bosch-servisi">Gevaş</option><option value="van-gurpinar-bosch-servisi">Gürpınar</option><option value="van-ipekyolu-bosch-servisi">İpekyolu</option><option value="van-muradiye-bosch-servisi">Muradiye</option><option value="van-ozalp-bosch-servisi">Özalp</option><option value="van-saray-bosch-servisi">Saray</option><option value="van-tusba-bosch-servisi">Tuşba</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Van İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Van İlçelerinde Bosch Yetkili Servisi (13 İlçe)</h2>
+        <div class="ilce-grid"><a href="../van-bahcesaray-bosch-servisi/">Bahçesaray Bosch Servisi</a><a href="../van-baskale-bosch-servisi/">Başkale Bosch Servisi</a><a href="../van-caldiran-bosch-servisi/">Çaldıran Bosch Servisi</a><a href="../van-catak-bosch-servisi/">Çatak Bosch Servisi</a><a href="../van-edremit-bosch-servisi/">Edremit Bosch Servisi</a><a href="../van-ercis-bosch-servisi/">Erciş Bosch Servisi</a><a href="../van-gevas-bosch-servisi/">Gevaş Bosch Servisi</a><a href="../van-gurpinar-bosch-servisi/">Gürpınar Bosch Servisi</a><a href="../van-ipekyolu-bosch-servisi/">İpekyolu Bosch Servisi</a><a href="../van-muradiye-bosch-servisi/">Muradiye Bosch Servisi</a><a href="../van-ozalp-bosch-servisi/">Özalp Bosch Servisi</a><a href="../van-saray-bosch-servisi/">Saray Bosch Servisi</a><a href="../van-tusba-bosch-servisi/">Tuşba Bosch Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">

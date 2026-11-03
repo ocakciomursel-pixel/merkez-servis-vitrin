@@ -85,9 +85,10 @@
 
           <!-- 81-Province + 38-Brand Direct URL Switcher -->
           <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;padding:0.72rem 0.9rem;border-radius:16px;background:#ffffff;border:1px solid var(--border);max-width:580px;">
-            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
+            <span style="font-size:0.77rem;font-weight:800;color:var(--ink-2);">📍 İl, İlçe &amp; Marka Seçin (Ayrı Sayfaya Gider):</span>
             <select id="lpProvSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İl Seçin"></select>
             <select id="lpBrandSelect" class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="Marka Seçin"></select>
+            <select class="lp-input" style="width:auto;flex:1;min-width:130px;padding:0.42rem 0.65rem;font-size:0.81rem;" aria-label="İlçe Seçin" onchange="if(this.value){location.href='../'+this.value+'/';}"><option value="">İlçe Seçin (18)</option><option value="trabzon-akcaabat-bosch-servisi">Akçaabat</option><option value="trabzon-arakli-bosch-servisi">Araklı</option><option value="trabzon-arsin-bosch-servisi">Arsin</option><option value="trabzon-besikduzu-bosch-servisi">Beşikdüzü</option><option value="trabzon-carsibasi-bosch-servisi">Çarşıbaşı</option><option value="trabzon-caykara-bosch-servisi">Çaykara</option><option value="trabzon-dernekpazari-bosch-servisi">Dernekpazarı</option><option value="trabzon-duzkoy-bosch-servisi">Düzköy</option><option value="trabzon-hayrat-bosch-servisi">Hayrat</option><option value="trabzon-koprubasi-bosch-servisi">Köprübaşı</option><option value="trabzon-macka-bosch-servisi">Maçka</option><option value="trabzon-of-bosch-servisi">Of</option><option value="trabzon-ortahisar-bosch-servisi">Ortahisar</option><option value="trabzon-surmene-bosch-servisi">Sürmene</option><option value="trabzon-salpazari-bosch-servisi">Şalpazarı</option><option value="trabzon-tonya-bosch-servisi">Tonya</option><option value="trabzon-vakfikebir-bosch-servisi">Vakfıkebir</option><option value="trabzon-yomra-bosch-servisi">Yomra</option></select>
           </div>
 
           
@@ -138,6 +139,15 @@
         </div>
       </div>
     </section>
+    <section class="lp-section lp-ilce-section" aria-label="Trabzon İlçe Sayfaları"><style>.lp-ilce-section{padding-top:1.7rem!important;padding-bottom:.6rem!important}.ilce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:.45rem .7rem}.ilce-grid a{display:block;padding:.52rem .75rem;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--ink);font-size:13px;font-weight:600;text-decoration:none;transition:border-color .15s,color .15s,transform .15s}.ilce-grid a:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-1px)}.ilce-grid a.is-current{background:var(--brand);border-color:var(--brand);color:#fff}@media(max-width:640px){.ilce-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}</style>
+      <div class="container-xl">
+        <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--brand);">İLÇE SAYFALARI · HER İLÇENİN AYRI URL'Sİ</span>
+        <h2 style="margin:0.2rem 0 0.95rem;font-size:clamp(1.25rem,2vw,1.6rem);">Trabzon İlçelerinde Bosch Yetkili Servisi (18 İlçe)</h2>
+        <div class="ilce-grid"><a href="../trabzon-akcaabat-bosch-servisi/">Akçaabat Bosch Servisi</a><a href="../trabzon-arakli-bosch-servisi/">Araklı Bosch Servisi</a><a href="../trabzon-arsin-bosch-servisi/">Arsin Bosch Servisi</a><a href="../trabzon-besikduzu-bosch-servisi/">Beşikdüzü Bosch Servisi</a><a href="../trabzon-carsibasi-bosch-servisi/">Çarşıbaşı Bosch Servisi</a><a href="../trabzon-caykara-bosch-servisi/">Çaykara Bosch Servisi</a><a href="../trabzon-dernekpazari-bosch-servisi/">Dernekpazarı Bosch Servisi</a><a href="../trabzon-duzkoy-bosch-servisi/">Düzköy Bosch Servisi</a><a href="../trabzon-hayrat-bosch-servisi/">Hayrat Bosch Servisi</a><a href="../trabzon-koprubasi-bosch-servisi/">Köprübaşı Bosch Servisi</a><a href="../trabzon-macka-bosch-servisi/">Maçka Bosch Servisi</a><a href="../trabzon-of-bosch-servisi/">Of Bosch Servisi</a><a href="../trabzon-ortahisar-bosch-servisi/">Ortahisar Bosch Servisi</a><a href="../trabzon-surmene-bosch-servisi/">Sürmene Bosch Servisi</a><a href="../trabzon-salpazari-bosch-servisi/">Şalpazarı Bosch Servisi</a><a href="../trabzon-tonya-bosch-servisi/">Tonya Bosch Servisi</a><a href="../trabzon-vakfikebir-bosch-servisi/">Vakfıkebir Bosch Servisi</a><a href="../trabzon-yomra-bosch-servisi/">Yomra Bosch Servisi</a></div>
+      </div>
+    </section>
+
+
 
     <section class="lp-section">
       <div class="container-xl">
