@@ -215,21 +215,26 @@
     }
   </style>
 </head>
-<body class="theme-apothecary palette-amber antialiased min-h-screen flex flex-col">
+<body class="theme-apothecary palette-amber antialiased min-h-screen flex flex-col pb-24 md:pb-0">
 
   <!-- ================= TOP THEME & TECH CONTROLLER BAR ================= -->
   <aside aria-label="Canlı Tema ve Teknoloji Seçici" class="sticky top-0 z-50 bg-black/95 text-stone-100 backdrop-blur-xl border-b border-stone-800 shadow-2xl px-4 py-2.5">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs">
       
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center justify-center p-1.5 rounded-lg bg-amber-500/20 text-amber-400">
-          <i data-lucide="sparkles" class="w-4 h-4"></i>
-        </span>
-        <div>
-          <span class="font-extrabold tracking-wider uppercase text-amber-400">VoltAgent / Awesome-Design-MD</span>
-          <span class="text-stone-400 hidden sm:inline">— 5 Farklı Resmi Marka Tasarım Sistemi</span>
+      <a href="https://o2io.com.tr" target="_blank" title="O2IO Bilişim & Tasarım Teknolojileri" class="flex items-center gap-2.5 group hover:opacity-90 transition-opacity">
+        <div class="h-8 px-2.5 rounded-lg bg-stone-900 border border-stone-800 flex items-center justify-center group-hover:border-blue-500/50 transition-all shadow-inner">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-auto" viewBox="0 0 160 52">
+            <text x="0" y="41" font-family="Arial,sans-serif" font-weight="700" font-size="49" letter-spacing="-4" fill="#ffffff">o<tspan fill="#2457e8">2</tspan>io</text>
+          </svg>
         </div>
-      </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold tracking-tight text-white group-hover:text-blue-400 transition-colors">o2io.com.tr</span>
+            <span class="px-1.5 py-0.2 rounded text-[9px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">AJANS</span>
+          </div>
+          <span class="text-[10px] text-stone-400 hidden sm:inline">5 Farklı E-Ticaret Tasarım Sistemi</span>
+        </div>
+      </a>
 
       <!-- 5 Distinct Themes -->
       <div class="flex items-center bg-stone-900 p-1 rounded-xl border border-stone-800 overflow-x-auto max-w-full">
@@ -826,6 +831,48 @@
     </div>
   </div>
 
+  <!-- ================= SLEEK MOBILE APP BOTTOM NAVIGATION ================= -->
+  <nav aria-label="Mobil Hızlı Menü" class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-stone-950/92 backdrop-blur-xl border-t border-stone-800/90 shadow-[0_-8px_30px_rgba(0,0,0,0.4)] px-3 py-2">
+    <div class="max-w-md mx-auto grid grid-cols-5 gap-1 items-center text-center">
+      
+      <!-- 1. Ana Sayfa -->
+      <a href="#" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-amber-400 transition-colors group">
+        <i data-lucide="home" class="w-5 h-5 mb-0.5 group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-bold tracking-tight">Vitrin</span>
+      </a>
+
+      <!-- 2. Ürünler -->
+      <a href="#koleksiyon" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-amber-400 transition-colors group">
+        <i data-lucide="package" class="w-5 h-5 mb-0.5 group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-bold tracking-tight">Hasat</span>
+      </a>
+
+      <!-- 3. WhatsApp Direkt Sipariş (Vurgulu Merkez Buton) -->
+      <a href="https://wa.me/905457715120?text=Merhaba,%20do%C4%9Fal%20bal%20ve%20polen%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" class="flex flex-col items-center justify-center -mt-4 group">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-emerald-600 to-emerald-400 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 group-hover:scale-105 active:scale-95 transition-all border-2 border-stone-950">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+        </div>
+        <span class="text-[9px] font-extrabold text-emerald-400 tracking-tight mt-0.5">WhatsApp</span>
+      </a>
+
+      <!-- 4. Laboratuvar Raporu -->
+      <button onclick="openLabModal()" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-emerald-400 transition-colors group">
+        <i data-lucide="file-check-2" class="w-5 h-5 mb-0.5 group-hover:scale-110 transition-transform"></i>
+        <span class="text-[10px] font-bold tracking-tight">Analiz</span>
+      </button>
+
+      <!-- 5. Sepet Drawer -->
+      <button onclick="toggleCart()" class="flex flex-col items-center justify-center py-1 text-stone-400 hover:text-amber-400 transition-colors group relative">
+        <div class="relative">
+          <i data-lucide="shopping-bag" class="w-5 h-5 mb-0.5 group-hover:scale-110 transition-transform"></i>
+          <span id="mobile-cart-badge" class="absolute -top-1.5 -right-2 w-4 h-4 bg-amber-500 text-stone-950 rounded-full text-[9px] font-black flex items-center justify-center">0</span>
+        </div>
+        <span class="text-[10px] font-bold tracking-tight">Sepetim</span>
+      </button>
+
+    </div>
+  </nav>
+
   <!-- ================= JAVASCRIPT LOGIC ================= -->
   <script>
     const RICH_PRODUCTS = [
@@ -1074,6 +1121,8 @@
       const grandTotal = subtotal + shipping;
 
       badge.innerText = totalItems;
+      const mobileBadge = document.getElementById('mobile-cart-badge');
+      if (mobileBadge) mobileBadge.innerText = totalItems;
       countBadge.innerText = `${totalItems} Ürün`;
       subtotalEl.innerText = `${subtotal.toLocaleString('tr-TR')} TL`;
       shippingEl.innerText = subtotal >= freeShippingLimit ? 'ÜCRETSİZ' : `${shipping} TL`;
