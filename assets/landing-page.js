@@ -1,6 +1,8 @@
 (function () {
   const MS = window.MerkezServis;
   if (!MS) return;
+
+  function init() {
   const is404Fallback = document.documentElement.getAttribute('data-is-404-router') === 'true';
   const pageDepth = document.documentElement.getAttribute('data-page-depth') || '../';
   MS.mountStudioChrome('brand', pageDepth);
@@ -210,4 +212,38 @@
       e.target.reset();
     });
   }
+  }
+
+  // Kabuk sayfa modu: ilçe+marka URL'leri kendi <head> verisini taşır; gövde ortak şablondan üretilir.
+  // Şablon yüklenemezse (ör. file:// ile açılış) sayfa, statik h1 / telefon bağlantısıyla çalışmaya devam eder.
+  const docEl = document.documentElement;
+  if (docEl.getAttribute('data-page-shell') !== 'true') { init(); return; }
+
+  const depth = docEl.getAttribute('data-page-depth') || '../';
+  const rootNode = document.getElementById('lpShellRoot');
+  const PR = window.PageRender;
+  const FULL = window.MS_FULL_DISTRICTS || {};
+  const slugify = window.MS_SLUG_TR || MS.slugifyTr;
+  const provSlug = docEl.getAttribute('data-prov-slug');
+  const distSlug = docEl.getAttribute('data-dist-slug');
+  const brandSlug = docEl.getAttribute('data-brand-slug');
+  const prov = MS.ALL_81_PROVINCES.find(p => p.slug === provSlug);
+  const brand = MS.getAllBrands().find(b => b.slug === brandSlug);
+  const kind = docEl.getAttribute('data-page-kind') === 'il' ? 'il' : 'ilce';
+  const distName = kind === 'ilce' ? (FULL[provSlug] || []).find(n => slugify(n) === distSlug) : '';
+
+  if (!PR || !rootNode || !prov || !brand || (kind === 'ilce' && !distName)) { init(); return; }
+
+  fetch(depth + 'assets/page-template-' + kind + '.html')
+    .then(r => { if (!r.ok) throw new Error('template ' + r.status); return r.text(); })
+    .then(tpl => {
+      rootNode.innerHTML = PR.render(tpl, {
+        prov, brand, slugify,
+        dist: kind === 'ilce' ? { name: distName, slug: distSlug } : null,
+        allDists: (FULL[provSlug] || []).map(n => ({ name: n, slug: slugify(n) }))
+      });
+      if (typeof MS.hydrateLiveConfig === 'function') MS.hydrateLiveConfig();
+      init();
+    })
+    .catch(() => { init(); });
 })();

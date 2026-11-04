@@ -29,3 +29,10 @@ Sistem herhangi bir veritabanı (MySQL) kurulumu gerektirmeden, doğrudan standa
 - `https://siteniz.com/soguk-hava-deposu-servisi/`
 - `https://siteniz.com/buz-makinesi-servisi/`
 - `https://siteniz.com/cay-kazani-tamircisi/`
+
+## 4. Güvenlik: Yönetici Anahtarı (api.php v4.1)
+- İlk kurulumdan sonra panelde **Sistem, Yedek & Güvenlik → Yönetici Anahtarı → "İlk Kurulum: Anahtar Üret"** düğmesine basın. Anahtar yalnızca bir kez gösterilir; güvenli bir yere kaydedin. Sunucuda yalnızca özeti (`data/admin.json`) tutulur.
+- Anahtar kurulmadan ayar kaydetme ve iş emri / ziyaretçi okuma işlemleri **reddedilir** (herkese açık yazma kapatıldı).
+- Müşteri formları (`add_lead`) ve ziyaretçi telemetrisi herkese açık kalır; alan sayısı, boyut ve istek sıklığı sınırlandırılmıştır.
+- `data/` klasörü `.htaccess` ile dışarıya kapatılır. Nginx kullanıyorsanız `location /data/ { deny all; }` kuralını ekleyin.
+- GitHub Pages gibi **statik** barındırmada PHP çalışmaz; bu durumda veriler yalnızca tarayıcıda tutulur. Canlı kullanım için PHP destekli hosting gerekir.

@@ -138,12 +138,22 @@
     }
   }
 
+  // Yönetici anahtarı (yalnızca panelde girilir): api.php'nin yazma ve yönetici okuma işlemleri için gerekir.
+  function adminHeaders(extra) {
+    const h = Object.assign({}, extra || {});
+    try {
+      const tk = localStorage.getItem('merkez_admin_token_v1');
+      if (tk) h['X-Admin-Token'] = tk;
+    } catch {}
+    return h;
+  }
+
   function pushConfigToPhpServer(cfg) {
     if (!phpApiAvailable || !phpApiPrefix) return;
     try {
       fetch(phpApiPrefix + 'api.php?action=save_config', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: adminHeaders({ 'Content-Type': 'application/json' }),
         body: JSON.stringify(cfg)
       }).catch(() => {});
     } catch {}
@@ -1755,7 +1765,7 @@
   function probePhpBackend(prefix) {
     phpApiPrefix = prefix || './';
     try {
-      fetch(phpApiPrefix + 'api.php?action=public_bootstrap', { cache: 'no-store' })
+      fetch(phpApiPrefix + 'api.php?action=public_bootstrap', { cache: 'no-store', headers: adminHeaders() })
         .then(r => {
           const ct = (r.headers.get('content-type') || '').toLowerCase();
           if (!r.ok || !ct.includes('application/json')) return null;

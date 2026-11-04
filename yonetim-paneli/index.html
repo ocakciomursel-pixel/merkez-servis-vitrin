@@ -815,6 +815,7 @@
       background: var(--brand-grad);
     }
   </style>
+  <link rel="stylesheet" href="panel-pro.css">
 </head>
 <body>
   <div id="studioBarHost"></div>
@@ -889,6 +890,22 @@
         </button>
       </nav>
 
+      <span class="side-group-lbl">Gelişmiş Yönetim</span>
+      <nav class="side-nav" aria-label="Gelişmiş Yönetim">
+        <button type="button" class="nav-tab-btn" data-tab-target="reports">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Raporlar &amp; Dönüşüm</span>
+        </button>
+        <button type="button" class="nav-tab-btn" data-tab-target="seohealth">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><polyline points="8 11 10.5 13.5 14 9"/></svg>
+          <span>SEO &amp; URL Sağlığı</span>
+        </button>
+        <button type="button" class="nav-tab-btn" data-tab-target="system">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Sistem, Yedek &amp; Güvenlik</span>
+        </button>
+      </nav>
+
       <div class="side-quick-links">
         <span style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);padding:0 0.75rem;">Canlı Vitrinleri Aç</span>
         <a href="../tema-1-kurumsal/index.html"><span>Tema 1: Kurumsal 3D Bento</span><span>↗</span></a>
@@ -921,6 +938,9 @@
         <button type="button" class="mob-tab-btn" data-tab-target="catalog">8. 38 Marka &amp; Kodlar</button>
         <button type="button" class="mob-tab-btn" data-tab-target="reviews">9. Yorum &amp; SSS</button>
         <button type="button" class="mob-tab-btn" data-tab-target="appearance">10. 4 Tema &amp; SEO</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="reports">11. Raporlar</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="seohealth">12. SEO Sağlığı</button>
+        <button type="button" class="mob-tab-btn" data-tab-target="system">13. Sistem &amp; Güvenlik</button>
       </div>
 
       <div class="workspace-header">
@@ -1834,6 +1854,15 @@
         </div>
       </section>
 
+      <!-- 11. RAPORLAR -->
+      <section class="tab-pane" id="pane-reports"><div id="ppReports"></div></section>
+
+      <!-- 12. SEO & URL SAĞLIĞI -->
+      <section class="tab-pane" id="pane-seohealth"><div id="ppSeo"></div></section>
+
+      <!-- 13. SİSTEM, YEDEK & GÜVENLİK -->
+      <section class="tab-pane" id="pane-system"><div id="ppSystem"></div></section>
+
     </main>
   </div>
 
@@ -1861,6 +1890,9 @@
         content: { title: 'Kampanya Şeridi, Başlıklar & Garanti / Fiyat Politikası', sub: 'Üst kampanya duyuru barını, garanti süresini, varış dakikasını ve sitedeki canlı bileşenleri kontrol edin.' },
         catalog: { title: '10 Hizmet Branşı, 38 Orijinal Marka & Arıza Kodu Veritabanı', sub: 'Ev tipi beyaz eşya, kombi, klima, TV, endüstriyel mutfak ve soğuk hava deposu branşlarını, 38 markayı ve arıza kodlarını yönetin.' },
         reviews: { title: 'Doğrulanmış Müşteri Yorumları & S.S.S. Yönetimi', sub: 'Sitede yayınlanan müşteri yorumlarını ve sıkça sorulan soruları anlık ekleyin veya kaldırın.' },
+        reports: { title: 'Raporlar, Dönüşüm & Hakediş Analitiği', sub: 'İş emri hunisi, il / marka / kanal dağılımı, ziyaretçiden aramaya dönüşüm, usta performansı ve CSV dışa aktarma.' },
+        seohealth: { title: 'SEO & URL Sağlığı Denetimi', sub: 'Sitemap kapsamı, teknik SEO kontrol listesi, tek URL denetimi ve rastgele örneklem taraması ile 404 / canonical / şema sorunlarını yakalayın.' },
+        system: { title: 'Sistem Durumu, Yedekleme, PIN Kilidi & İşlem Günlüğü', sub: 'Veri kaynağı durumu, yönetici anahtarı, yedek al / geri yükle, depolama özeti ve panelde yapılan değişikliklerin kaydı.' },
         appearance: { title: '4 Farklı Modern Tema, 5 Renk, 81 İl SEO & Görünüm Ayarları', sub: '4 farklı tasarım mimarisi, 5 kurumsal renk paleti, temiz canlı site modu, 81 il × 38 marka SEO şablonu ve yedekleme.' }
       };
 
@@ -2912,5 +2944,7 @@
       }
     })();
   </script>
+  <script src="../assets/districts-full.js"></script>
+  <script src="panel-pro.js"></script>
 </body>
 </html>

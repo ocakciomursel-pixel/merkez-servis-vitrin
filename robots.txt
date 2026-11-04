@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /yonetim-paneli/
+Disallow: /admin.html
 Disallow: /data/
 Disallow: /api.php
 
 Sitemap: https://ocakciomursel-pixel.github.io/merkez-servis-vitrin/sitemap.xml
-Sitemap: /sitemap.xml

@@ -6,6 +6,8 @@
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('X-Content-Type-Options: nosniff');
+header('Referrer-Policy: no-referrer');
 
 $dataDir = __DIR__ . '/data';
 if (!is_dir($dataDir)) {
@@ -13,12 +15,80 @@ if (!is_dir($dataDir)) {
 }
 $htaccessProtect = $dataDir . '/.htaccess';
 if (!file_exists($htaccessProtect)) {
-    @file_put_contents($htaccessProtect, "Order allow,deny\nDeny from all\n");
+    @file_put_contents($htaccessProtect, "<IfModule mod_authz_core.c>\nRequire all denied\n</IfModule>\n<IfModule !mod_authz_core.c>\nOrder allow,deny\nDeny from all\n</IfModule>\n");
 }
 
 $configFile   = $dataDir . '/config.json';
 $visitorsFile = $dataDir . '/visitors.json';
 $leadsFile    = $dataDir . '/leads.json';
+$adminFile    = $dataDir . '/admin.json';
+$rateFile     = $dataDir . '/rate.json';
+const API_VERSION = '4.1';
+
+function jsonOut($arr, $code = 200) {
+    http_response_code($code);
+    echo json_encode($arr, JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+/** Yönetici anahtarı kurulmuş mu? */
+function adminConfigured() {
+    global $adminFile;
+    return file_exists($adminFile);
+}
+
+/** X-Admin-Token başlığı kayıtlı anahtarla eşleşiyor mu? (zaman-sabit karşılaştırma) */
+function isAdmin() {
+    global $adminFile;
+    if (!file_exists($adminFile)) return false;
+    $cfg = json_decode((string)@file_get_contents($adminFile), true);
+    $hash = is_array($cfg) ? ($cfg['tokenHash'] ?? '') : '';
+    $given = $_SERVER['HTTP_X_ADMIN_TOKEN'] ?? '';
+    return $hash !== '' && $given !== '' && password_verify($given, $hash);
+}
+
+function requireAdmin() {
+    if (!adminConfigured()) jsonOut(['ok' => false, 'error' => 'setup_required'], 403);
+    if (!isAdmin()) jsonOut(['ok' => false, 'error' => 'forbidden'], 403);
+}
+
+/** Basit IP başına hız sınırı: $limit istek / $windowSec saniye. */
+function rateLimit($bucket, $limit, $windowSec) {
+    global $rateFile;
+    $now = time();
+    $all = [];
+    if (file_exists($rateFile)) {
+        $d = json_decode((string)@file_get_contents($rateFile), true);
+        if (is_array($d)) $all = $d;
+    }
+    $key = $bucket . ':' . getClientIpHash();
+    $hits = array_values(array_filter($all[$key] ?? [], function ($t) use ($now, $windowSec) { return $t > $now - $windowSec; }));
+    if (count($hits) >= $limit) jsonOut(['ok' => false, 'error' => 'rate_limited'], 429);
+    $hits[] = $now;
+    $all[$key] = $hits;
+    foreach ($all as $k => $v) {
+        $all[$k] = array_values(array_filter($v, function ($t) use ($now) { return $t > $now - 3600; }));
+        if (!$all[$k]) unset($all[$k]);
+    }
+    @file_put_contents($rateFile, json_encode($all), LOCK_EX);
+}
+
+/** Halka açık formlardan gelen kaydı sınırlar: alan sayısı, uzunluk, iç içe derinlik. */
+function sanitizePublic($v, $depth = 0) {
+    if ($depth > 3) return null;
+    if (is_array($v)) {
+        $out = [];
+        $n = 0;
+        foreach ($v as $k => $x) {
+            if (++$n > 40) break;
+            $out[is_string($k) ? substr(preg_replace('/[^A-Za-z0-9_\-]/', '', $k), 0, 40) : $k] = sanitizePublic($x, $depth + 1);
+        }
+        return $out;
+    }
+    if (is_string($v)) return mb_substr($v, 0, 300);
+    if (is_int($v) || is_float($v) || is_bool($v) || $v === null) return $v;
+    return null;
+}
 
 function readJsonFile($path, $default) {
     if (!file_exists($path)) return $default;
@@ -63,24 +133,39 @@ function getClientIpHash() {
 }
 
 $action = $_GET['action'] ?? 'public_bootstrap';
-$rawBody = file_get_contents('php://input');
+$rawBody = file_get_contents('php://input', false, null, 0, 65537);
+if ($rawBody !== false && strlen($rawBody) > 65536) jsonOut(['ok' => false, 'error' => 'payload_too_large'], 413);
 $payload = $rawBody ? json_decode($rawBody, true) : [];
 if (!is_array($payload)) $payload = [];
 
+if ($action === 'ping') {
+    jsonOut(['ok' => true, 'version' => API_VERSION, 'auth' => adminConfigured()]);
+}
+
+// İlk kurulum: yalnızca henüz anahtar yokken, tek seferlik. Anahtar yalnızca bu yanıtta görünür.
+if ($action === 'setup' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (adminConfigured()) jsonOut(['ok' => false, 'error' => 'already_setup'], 409);
+    $token = bin2hex(random_bytes(24));
+    writeJsonFile($adminFile, ['tokenHash' => password_hash($token, PASSWORD_DEFAULT), 'createdAt' => date('c')]);
+    jsonOut(['ok' => true, 'token' => $token]);
+}
+
 if ($action === 'public_bootstrap') {
     $cfg = readJsonFile($configFile, []);
-    $visitors = readJsonFile($visitorsFile, []);
-    $leads = readJsonFile($leadsFile, []);
-    echo json_encode([
-        'ok' => true,
-        'config' => $cfg,
-        'visitors' => array_slice($visitors, 0, 120),
-        'leads' => $leads
-    ], JSON_UNESCAPED_UNICODE);
-    exit;
+    // Ziyaretçi ve müşteri (iş emri) verileri yalnızca yönetici anahtarıyla döner.
+    if (isAdmin()) {
+        jsonOut([
+            'ok' => true,
+            'config' => $cfg,
+            'visitors' => array_slice(readJsonFile($visitorsFile, []), 0, 120),
+            'leads' => readJsonFile($leadsFile, [])
+        ]);
+    }
+    jsonOut(['ok' => true, 'config' => $cfg]);
 }
 
 if ($action === 'save_config' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    requireAdmin();
     $cur = readJsonFile($configFile, []);
     $merged = array_merge($cur, $payload);
     // Varsayılan canlı kurumsal görünümde üst demo bar kapalı tutulur
@@ -90,6 +175,11 @@ if ($action === 'save_config' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($action === 'track_visitor' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    rateLimit('track', 240, 600);
+    $payload = sanitizePublic($payload);
+    foreach (['ipMasked', 'ipHash', 'lastActiveEpoch', 'suspectedFraud', 'isSeed', 'isCurrentSession', 'isLiveNow'] as $reserved) {
+        unset($payload[$reserved]);
+    }
     $sid = preg_replace('/[^A-Za-z0-9\-_]/', '', (string)($payload['sid'] ?? ''));
     if (!$sid) {
         echo json_encode(['ok' => false, 'error' => 'missing_sid']);
@@ -147,16 +237,22 @@ if ($action === 'track_visitor' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-if (($action === 'add_lead' || $action === 'save_leads') && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($action === 'save_leads' && isset($payload['leads']) && is_array($payload['leads'])) {
+if ($action === 'save_leads' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    requireAdmin();
+    if (isset($payload['leads']) && is_array($payload['leads'])) {
         writeJsonFile($leadsFile, array_slice($payload['leads'], 0, 500));
-    } else {
-        $leads = readJsonFile($leadsFile, []);
-        array_unshift($leads, $payload);
-        writeJsonFile($leadsFile, array_slice($leads, 0, 500));
     }
-    echo json_encode(['ok' => true], JSON_UNESCAPED_UNICODE);
-    exit;
+    jsonOut(['ok' => true]);
 }
 
-echo json_encode(['ok' => false, 'error' => 'unknown_action'], JSON_UNESCAPED_UNICODE);
+if ($action === 'add_lead' && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    rateLimit('lead', 12, 600);
+    $lead = sanitizePublic($payload);
+    if (!is_array($lead) || empty($lead['phone'])) jsonOut(['ok' => false, 'error' => 'invalid_lead'], 422);
+    $leads = readJsonFile($leadsFile, []);
+    array_unshift($leads, $lead);
+    writeJsonFile($leadsFile, array_slice($leads, 0, 500));
+    jsonOut(['ok' => true]);
+}
+
+jsonOut(['ok' => false, 'error' => 'unknown_action'], 404);
