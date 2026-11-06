@@ -1144,3 +1144,5 @@ html[data-surface-mode="light"] .seo-directory-section.seo-theme-prestij,
     justify-content: center;
   }
 }
+
+.compliance-bar, [data-servis-ads-shield] { display: none !important; }

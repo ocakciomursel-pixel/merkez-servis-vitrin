@@ -52,7 +52,7 @@
     colorPalette: 'royal-blue',
     paletteOverridden: false,
     dailyDripLimit: 250,
-    adsComplianceBanner: true,
+    adsComplianceBanner: false,
     adsComplianceText: '81 ilde tüm marka beyaz eşya, kombi, klima ve endüstriyel soğutma cihazları için 1 yıl orijinal parça ve işçilik garantili Yetkili Servisi hizmeti sunuyoruz.',
     warrantyMonths: 12,
     avgArrivalMinutes: 30,
@@ -1712,10 +1712,7 @@
       a.setAttribute('href', `https://wa.me/${cfg.whatsappPhone}?text=${encodeURIComponent(msg)}`);
     });
 
-    const bannerEl = document.querySelector('[data-servis-ads-shield]');
-    if (bannerEl) {
-      bannerEl.style.display = cfg.adsComplianceBanner ? '' : 'none';
-    }
+    document.querySelectorAll('.compliance-bar, [data-servis-ads-shield]').forEach(el => { el.style.display = 'none'; el.remove(); });
 
     const promoRibbon = document.querySelector('[data-servis-promo-ribbon]');
     if (promoRibbon) {
